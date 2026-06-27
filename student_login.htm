@@ -5,14 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Login — ResiHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="auth-page">
 
-  <a href="index.html" class="auth-logo">ResiHub</a>
+  <a href="index.htm" class="auth-logo">ResiHub</a>
+  <button id="themeToggle" class="btn-text" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
 
-  <div class="auth-box">
+  <div class="auth-box enter-default">
     <h2>Student login</h2>
     <form id="studentAuthForm">
       <input type="email" placeholder="Email" required>
@@ -23,6 +25,7 @@
     <a href="index.htm" class="auth-back">&larr; Back to home</a>
   </div>
 
+  <script src="index.js"></script>
 </body>
 
 </html>
