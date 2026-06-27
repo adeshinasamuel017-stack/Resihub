@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResiHub — Student Housing Near Campus</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="logo">ResiHub</div>
+    <div class="topbar-actions">
+      <button id="listBtn" class="btn-outline">List a room</button>
+      <button id="themeToggle" class="btn-text" aria-label="Toggle dark mode">🌙</button>
+      <a href="student_login.htm" class="btn-text">Student login</a>
+      <a href="student_signup.htm" class="btn-text">Student signup</a>
+      <a href="landlord_login.htm" class="btn-text">Landlord login</a>
+      <a href="landlord_signup.htm" class="btn-text">Landlord signup</a>
+      <button id="listBtn" class="btn-outline">List a room</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="filter-bar">
+      <select id="campusFilter">
+        <option value="All">All areas</option>
+        <option value="Akoka">Akoka</option>
+        <option value="Bariga">Bariga</option>
+        <option value="Yabatech GRA">Yabatech GRA</option>
+      </select>
+      <label for="priceFilter">Max price: ₦<span id="priceValue">2,000,000</span></label>
+      <input type="range" id="priceFilter" min="20000" max="1000000" step="5000" value="200000">
+    </div>
+
+    <section id="map"></section>
+
+    <section id="listings">
+      <div id="listingCards"></div>
+      <p id="emptyState" class="empty-state">No listings yet — check back soon.</p>
+    </section>
+  </main>
+
+  <!-- List a room modal (landlord must be logged in) -->
+  <div id="listRoomModal" class="modal hidden">
+    <div class="modal-box">
+      <button class="modal-close" data-close="listRoomModal">&times;</button>
+      <h2>List a room</h2>
+      <form id="listRoomForm">
+        <input type="tel" placeholder="Contact phone number" required>
+        <input type="number" placeholder="Price per year (₦)" required>
+        <select required>
+          <option value="">Room type</option>
+          <option value="self-con">Self-contain</option>
+          <option value="1bedroom">1 bedroom</option>
+          <option value="shared">Shared room</option>
+        </select>
+        <select required>
+          <option value="">Area</option>
+          <option value="Akoka">Akoka</option>
+          <option value="Bariga">Bariga</option>
+          <option value="Yabatech GRA">Yabatech GRA</option>
+        </select>
+        <p class="form-hint">Tap a spot on the map to set the location.</p>
+        <input type="file" accept="image/*">
+        <button type="submit" class="btn-primary">Submit listing</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin login modal -->
+  <div id="adminLoginModal" class="modal hidden">
+    <div class="modal-box">
+      <button class="modal-close" data-close="adminLoginModal">&times;</button>
+      <h2>Admin login</h2>
+      <form id="adminLoginForm">
+        <input type="email" placeholder="Admin email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit" class="btn-primary">Continue</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin panel (shown after admin login) -->
+  <section id="adminPanel" class="admin-panel hidden">
+    <h2>Admin panel</h2>
+    <button id="addListingBtn" class="btn-outline">Add listing</button>
+    <table id="usersTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Contact</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- rows populated dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+
+  <script src="index.js"></script>
+</body>
+
+</html>
