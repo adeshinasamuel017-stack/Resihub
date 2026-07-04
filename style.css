@@ -383,6 +383,72 @@ input[type="range"]:hover {
   color: var(--accent);
 }
 
+/* ---- Social login ---- */
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-social:hover {
+  border-color: var(--accent);
+}
+
+.btn-social i {
+  font-size: 15px;
+}
+
+.btn-social.google i {
+  color: #EA4335;
+}
+
+.btn-social.facebook i {
+  color: #1877F2;
+}
+
+.btn-social.apple i {
+  color: var(--text);
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
 /* ---- Admin panel ---- */
 .admin-panel {
   padding: 20px;
@@ -499,17 +565,20 @@ input[type="range"]:hover {
   }
 
   .btn-primary,
-  .btn-outline {
-    transition: transform 0.15s ease, background 0.15s ease;
+  .btn-outline,
+  .btn-social {
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
   }
 
   .btn-primary:hover,
-  .btn-outline:hover {
+  .btn-outline:hover,
+  .btn-social:hover {
     transform: translateY(-2px);
   }
 
   .btn-primary:active,
-  .btn-outline:active {
+  .btn-outline:active,
+  .btn-social:active {
     transform: translateY(0) scale(0.97);
   }
 }

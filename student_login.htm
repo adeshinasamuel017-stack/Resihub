@@ -16,11 +16,23 @@
 
   <div class="auth-box enter-default">
     <h2>Student login</h2>
+
     <form id="studentAuthForm">
       <input type="email" placeholder="Email" required>
       <input type="password" placeholder="Password" required>
       <button type="submit" class="btn-primary">Continue</button>
     </form>
+
+    <div class="auth-divider"><span>or</span></div>
+
+    <div class="social-buttons">
+      <button type="button" class="btn-social google" data-provider="google"><i class="fa-brands fa-google"></i>
+        Continue with Google</button>
+      <button type="button" class="btn-social facebook" data-provider="facebook"><i class="fa-brands fa-facebook"></i>
+        Continue with Facebook</button>
+      <button type="button" class="btn-social apple" data-provider="apple"><i class="fa-brands fa-apple"></i> Continue
+        with Apple</button>
+    </div>
     <p class="auth-switch">Create new account? <a href="student_signup.htm">Sign up</a></p>
     <a href="index.htm" class="auth-back">&larr; Back to home</a>
   </div>

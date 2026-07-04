@@ -1,13 +1,13 @@
 // ---- Mock data (replace with Supabase later) ----
 const mockListings = [
-  { id: 1, price: 180000, type: "self-con", area: "Akoka", phone: "2348012345678" },
-  { id: 2, price: 250000, type: "1bedroom", area: "Bariga", phone: "2348023456789" },
-  { id: 3, price: 120000, type: "shared", area: "Yabatech GRA", phone: "2348034567890" }
+  { id: 1, price: 180000, type: "self-con", area: "Akoka", phone: "+2349012032050" },
+  { id: 2, price: 250000, type: "1bedroom", area: "Bariga", phone: "+2349012032050" },
+  { id: 3, price: 120000, type: "shared", area: "Yabatech GRA", phone: "+2349012032050" }
 ];
 
 const mockUsers = [
-  { name: "Tunde A.", role: "Landlord", contact: "2348012345678", status: "Active" },
-  { name: "Chioma B.", role: "Student", contact: "chioma@email.com", status: "Active" }
+  { name: "Tunde A.", role: "Landlord", contact: "aderintojohn447@gmail.com", status: "Active" },
+  { name: "Chioma B.", role: "Student", contact: "aderintojohn447@gmail.com", status: "Active" }
 ];
 
 // ---- Listings rendering (only runs if #listingCards exists, i.e. homepage) ----
@@ -115,6 +115,16 @@ if (document.getElementById('landlordSignupForm')) {
     console.log('Landlord signup submitted — wire to Supabase later');
   });
 }
+
+// ---- Social login (Google / Facebook / Apple) ----
+// One handler covers every auth page since each button carries data-provider.
+document.querySelectorAll('.btn-social').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const provider = btn.dataset.provider;
+    console.log(`${provider} auth clicked — wire to Supabase OAuth later`);
+    // Later: supabase.auth.signInWithOAuth({ provider })
+  });
+});
 
 // ---- Admin (no topbar button — accessed separately) ----
 if (document.getElementById('adminLoginForm')) {
