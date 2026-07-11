@@ -754,3 +754,24 @@ input[type="range"]:hover {
   font-size: 12px;
   margin-top: -4px;
 }
+
+.enter-default {
+  opacity: 0;
+  animation: fadeUp .45s ease forwards;
+}
+
+.enter-right {
+  animation: enterFromRight .35s ease forwards;
+}
+
+.enter-left {
+  animation: enterFromLeft .35s ease forwards;
+}
+
+.exit-left {
+  animation: exitToLeft .28s ease forwards;
+}
+
+.exit-right {
+  animation: exitToRight .28s ease forwards;
+}
