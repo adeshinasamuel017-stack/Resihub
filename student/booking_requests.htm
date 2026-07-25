@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Requests | ResiHub</title>
+
+    <meta name="description"
+        content="Manage student inspection and booking requests on ResiHub. View, search, filter and respond to booking requests.">
+
+    <meta name="keywords" content="ResiHub, booking requests, inspections, landlord dashboard, student accommodation">
+
+    <meta name="author" content="ResiHub">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="canonical" href="https://www.resihub.com/booking_request.htm">
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Booking Requests | ResiHub">
+
+    <meta property="og:description" content="Manage booking and inspection requests from students.">
+
+    <meta property="og:url" content="https://www.resihub.com/booking_request.htm">
+
+    <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Booking Requests | ResiHub">
+
+    <meta name="twitter:description" content="Manage booking and inspection requests from students.">
+
+    <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <div id="scrollProgress"></div>
+
+    <div class="floating-shapes" aria-hidden="true">
+
+        <span class="shape shape-1"></span>
+
+        <span class="shape shape-2"></span>
+
+        <span class="shape shape-3"></span>
+
+        <span class="shape shape-4"></span>
+
+    </div>
+    <!-- HEADER / NAVIGATION-->
+
+    <div id="header"></div>
+
+    <main>
+        <section id="booking-content" class="auth-section reveal fade-up">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <h1>Booking Requests</h1>
+
+                    <p>
+                        Review, approve or decline inspection and booking requests submitted by students.
+                    </p>
+
+                </div>
+
+                <form id="bookingFilterForm" role="search" aria-label="Filter booking requests">
+
+                    <label class="visually-hidden" for="bookingSearch">
+                        Search Booking Requests
+                    </label>
+
+                    <input type="search" id="bookingSearch" name="bookingSearch" placeholder="Search student..."
+                        autocomplete="off">
+
+                    <label class="visually-hidden" for="bookingStatus">
+                        Filter by Status
+                    </label>
+
+                    <select id="bookingStatus" name="bookingStatus">
+
+                        <option value="">
+                            All Statuses
+                        </option>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="Approved">
+                            Approved
+                        </option>
+
+                        <option value="Rejected">
+                            Rejected
+                        </option>
+
+                    </select>
+
+                </form>
+
+                <div id="bookingRequests" class="booking-grid" aria-live="polite">
+
+                    <!-- Booking request cards will be inserted here -->
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+    <!--FOOTER-->
+
+    <div id="footer"></div>
+
+    <script type="module" src="../js/loadStudent.js"></script>
+    <script type="module" src="../js/booking_request.js"></script>
+</body>
+
+</html>

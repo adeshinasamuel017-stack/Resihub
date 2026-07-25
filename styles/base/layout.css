@@ -1,0 +1,362 @@
+/*======================================================
+
+    Body Layout
+
+======================================================*/
+
+body {
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 100vh;
+
+}
+
+
+/*======================================================
+
+    Main Content
+
+======================================================*/
+
+main {
+
+    flex: 1;
+
+    width: 100%;
+
+}
+
+
+/*======================================================
+
+    Containers
+
+======================================================*/
+
+.container {
+
+    width: 100%;
+
+    max-width: var(--container-xl);
+
+    margin-inline: auto;
+
+    padding-inline: var(--space-6);
+
+}
+
+.container-fluid {
+
+    width: 100%;
+
+    padding-inline: var(--space-6);
+
+}
+
+
+/*======================================================
+
+    Sections
+
+======================================================*/
+
+.section {
+
+    padding-block: var(--space-20);
+
+}
+
+.section-sm {
+
+    padding-block: var(--space-12);
+
+}
+
+.section-lg {
+
+    padding-block: 6rem;
+
+}
+
+
+/*======================================================
+
+    Grid System
+
+======================================================*/
+
+.grid {
+
+    display: grid;
+
+    gap: var(--space-6);
+
+}
+
+.grid-2 {
+
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.grid-3 {
+
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.grid-4 {
+
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+
+/*======================================================
+
+    Flex Utilities
+
+======================================================*/
+
+.flex {
+
+    display: flex;
+
+}
+
+.flex-column {
+
+    flex-direction: column;
+
+}
+
+.flex-wrap {
+
+    flex-wrap: wrap;
+
+}
+
+.align-center {
+
+    align-items: center;
+
+}
+
+.justify-center {
+
+    justify-content: center;
+
+}
+
+.justify-between {
+
+    justify-content: space-between;
+
+}
+
+.justify-around {
+
+    justify-content: space-around;
+
+}
+
+.justify-evenly {
+
+    justify-content: space-evenly;
+
+}
+
+
+/*======================================================
+
+    Gap Utilities
+
+======================================================*/
+
+.gap-1 {
+
+    gap: var(--space-1);
+
+}
+
+.gap-2 {
+
+    gap: var(--space-2);
+
+}
+
+.gap-3 {
+
+    gap: var(--space-3);
+
+}
+
+.gap-4 {
+
+    gap: var(--space-4);
+
+}
+
+.gap-5 {
+
+    gap: var(--space-5);
+
+}
+
+.gap-6 {
+
+    gap: var(--space-6);
+
+}
+
+.gap-8 {
+
+    gap: var(--space-8);
+
+}
+
+
+/*======================================================
+
+    Width Utilities
+
+======================================================*/
+
+.w-100 {
+
+    width: 100%;
+
+}
+
+.h-100 {
+
+    height: 100%;
+
+}
+
+
+/*======================================================
+
+    Overflow
+
+======================================================*/
+
+.overflow-hidden {
+
+    overflow: hidden;
+
+}
+
+.overflow-auto {
+
+    overflow: auto;
+
+}
+
+
+/*======================================================
+
+    Position Utilities
+
+======================================================*/
+
+.relative {
+
+    position: relative;
+
+}
+
+.absolute {
+
+    position: absolute;
+
+}
+
+.fixed {
+
+    position: fixed;
+
+}
+
+.sticky {
+
+    position: sticky;
+
+}
+
+
+/*======================================================
+
+    Display Utilities
+
+======================================================*/
+
+.block {
+
+    display: block;
+
+}
+
+.inline {
+
+    display: inline;
+
+}
+
+.inline-block {
+
+    display: inline-block;
+
+}
+
+.none {
+
+    display: none;
+
+}
+
+
+/*======================================================
+
+    Responsive Layout
+
+======================================================*/
+
+@media(max-width:992px) {
+
+    .grid-4 {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .grid-3 {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .grid-2,
+
+    .grid-3,
+
+    .grid-4 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .container {
+
+        padding-inline: var(--space-4);
+
+    }
+
+}

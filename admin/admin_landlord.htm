@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Landlords | ResiHub Admin</title>
+
+    <meta name="description"
+        content="Manage landlord accounts, verify property owners, approve listings, and monitor landlord activities on the ResiHub Administration Panel.">
+
+    <meta name="keywords" content="ResiHub, Admin, Landlords, Property Owners, Student Accommodation, Dashboard">
+
+    <meta name="author" content="ResiHub">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="canonical" href="https://www.resihub.com/admin_landlords.htm">
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Manage Landlords | ResiHub Admin">
+
+    <meta property="og:description" content="Manage landlord accounts, approvals and property ownership on ResiHub.">
+
+    <meta property="og:url" content="https://www.resihub.com/admin_landlords.htm">
+
+    <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Manage Landlords | ResiHub Admin">
+
+    <meta name="twitter:description" content="Manage landlords and their property listings on ResiHub.">
+
+    <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+
+    <div id="scrollProgress"></div>
+
+    <div class="floating-shapes" aria-hidden="true">
+
+        <span class="shape shape-1"></span>
+
+        <span class="shape shape-2"></span>
+
+        <span class="shape shape-3"></span>
+
+        <span class="shape shape-4"></span>
+
+    </div>
+    <!-- HEADER / NAVIGATION-->
+
+    <div id="header"></div>
+
+    <main>
+
+        <section id="admin-landlord-content" class="auth-section reveal fade-up">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="page-badge floating-badge">
+
+                        <i class="fa-solid fa-building-user"></i>
+
+                        Landlord Management
+
+                    </span>
+
+                    <h1>Manage Registered Landlords</h1>
+
+                    <p>
+
+                        Review, verify, suspend and manage landlords together with their property listings.
+
+                    </p>
+
+                </div>
+
+                <!-- Statistics -->
+
+                <div class="dashboard-stats">
+
+                    <div class="stat-card">
+
+                        <i class="fa-solid fa-building"></i>
+
+                        <h2 id="totalLandlords">0</h2>
+
+                        <p>Total Landlords</p>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        <h2 id="verifiedLandlords">0</h2>
+
+                        <p>Verified</p>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        <h2 id="pendingLandlords">0</h2>
+
+                        <p>Pending Verification</p>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <h2 id="totalProperties">0</h2>
+
+                        <p>Active Listings</p>
+
+                    </div>
+
+                </div>
+
+                <!-- Search & Filters -->
+
+                <form id="landlordFilterForm" class="dashboard-filter" role="search" aria-label="Filter Landlords">
+
+                    <label class="visually-hidden" for="landlordSearch">
+
+                        Search Landlords
+
+                    </label>
+
+                    <input type="search" id="landlordSearch" name="landlordSearch"
+                        placeholder="Search by name, email or phone..." autocomplete="off">
+
+                    <label class="visually-hidden" for="verificationStatus">
+
+                        Verification Status
+
+                    </label>
+
+                    <select id="verificationStatus" name="verificationStatus">
+
+                        <option value="">
+
+                            All Status
+
+                        </option>
+
+                        <option value="Verified">
+
+                            Verified
+
+                        </option>
+
+                        <option value="Pending">
+
+                            Pending
+
+                        </option>
+
+                        <option value="Suspended">
+
+                            Suspended
+
+                        </option>
+
+                    </select>
+
+                </form>
+
+                <!-- Landlord Table -->
+
+                <div class="table-responsive">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Landlord</th>
+
+                                <th>Email</th>
+
+                                <th>Phone</th>
+
+                                <th>Listings</th>
+
+                                <th>Status</th>
+
+                                <th>Joined</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="landlordTableBody">
+
+                            <!-- Loaded dynamically -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <!-- Empty State -->
+
+                <div id="noLandlordsFound" class="empty-state hidden">
+
+                    <i class="fa-solid fa-building-circle-xmark"></i>
+
+                    <h3>No Landlords Found</h3>
+
+                    <p>
+
+                        No landlord matches your current search or filter.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+    <!--FOOTER-->
+
+    <div id="footer"></div>
+
+    <script type="module" src="../js/loadAdmin.js"></script>
+    <script type="module" src="../js/admin_landlords.js"></script>
+
+</body>
+
+</html>

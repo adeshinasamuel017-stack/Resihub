@@ -1,0 +1,48 @@
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.timeline {
+    position: relative;
+    margin-left: 1rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--border);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+.timeline-date {
+    color: var(--text-light);
+    font-size: .85rem;
+    margin-bottom: .4rem;
+}
+
+.timeline-content {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}

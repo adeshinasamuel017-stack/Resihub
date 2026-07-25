@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | ResiHub</title>
+
+    <meta name="description"
+        content="ResiHub administrator dashboard for managing students, landlords, listings, bookings, reports, analytics and platform activities.">
+
+    <meta name="keywords" content="ResiHub, admin dashboard, administrator, student accommodation, management">
+
+    <meta name="author" content="ResiHub">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="canonical" href="https://www.resihub.com/admin_dashboard.htm">
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Admin Dashboard | ResiHub">
+
+    <meta property="og:description" content="Manage every aspect of the ResiHub platform from one central dashboard.">
+
+    <meta property="og:url" content="https://www.resihub.com/admin_dashboard.htm">
+
+    <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Admin Dashboard | ResiHub">
+
+    <meta name="twitter:description" content="Platform administration dashboard for ResiHub.">
+
+    <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles/style.css">
+
+</head>
+
+<body>
+
+    <div id="scrollProgress"></div>
+
+    <div class="floating-shapes" aria-hidden="true">
+
+        <span class="shape shape-1"></span>
+
+        <span class="shape shape-2"></span>
+
+        <span class="shape shape-3"></span>
+
+        <span class="shape shape-4"></span>
+
+    </div>
+    <!-- HEADER / NAVIGATION -->
+
+    <div id="header"></div>
+
+    <main>
+
+        <section id="admin-dashboard" class="auth-section reveal fade-up">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="page-badge floating-badge">
+
+                        <i class="fa-solid fa-user-shield"></i>
+
+                        Administrator Dashboard
+
+                    </span>
+
+                    <h1>Welcome, Administrator</h1>
+
+                    <p>
+
+                        Monitor platform activities, manage users, review reports and oversee every aspect of ResiHub
+                        from one centralized dashboard.
+
+                    </p>
+
+                </div>
+
+                <!-- Dashboard Statistics -->
+
+                <section class="dashboard-stats">
+
+                    <div class="stats-grid">
+
+                        <div class="stat-card">
+
+                            <i class="fa-solid fa-user-graduate"></i>
+
+                            <h2 id="studentCount">0</h2>
+
+                            <p>Total Students</p>
+
+                        </div>
+
+                        <div class="stat-card">
+
+                            <i class="fa-solid fa-building-user"></i>
+
+                            <h2 id="landlordCount">0</h2>
+
+                            <p>Total Landlords</p>
+
+                        </div>
+
+                        <div class="stat-card">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            <h2 id="listingCount">0</h2>
+
+                            <p>Active Listings</p>
+
+                        </div>
+
+                        <div class="stat-card">
+
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                            <h2 id="bookingCount">0</h2>
+
+                            <p>Total Bookings</p>
+
+                        </div>
+
+                        <div class="stat-card">
+
+                            <i class="fa-solid fa-money-bill-wave"></i>
+
+                            <h2 id="revenueCount">₦0</h2>
+
+                            <p>Total Revenue</p>
+
+                        </div>
+
+                        <div class="stat-card">
+
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+
+                            <h2 id="reportCount">0</h2>
+
+                            <p>Pending Reports</p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Quick Actions -->
+
+                <section class="dashboard-actions">
+
+                    <h2>Quick Actions</h2>
+
+                    <div class="action-grid">
+
+                        <a href="admin_students.htm" class="action-card">
+
+                            <i class="fa-solid fa-user-graduate"></i>
+
+                            <span>Manage Students</span>
+
+                        </a>
+
+                        <a href="admin_landlords.htm" class="action-card">
+
+                            <i class="fa-solid fa-building-user"></i>
+
+                            <span>Manage Landlords</span>
+
+                        </a>
+
+                        <a href="admin_listings.htm" class="action-card">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            <span>Manage Listings</span>
+
+                        </a>
+
+                        <a href="admin_reports.htm" class="action-card">
+
+                            <i class="fa-solid fa-flag"></i>
+
+                            <span>Review Reports</span>
+
+                        </a>
+
+                        <a href="admin_settings.htm" class="action-card">
+
+                            <i class="fa-solid fa-gears"></i>
+
+                            <span>Platform Settings</span>
+
+                        </a>
+
+                        <a href="admin_analytics.htm" class="action-card">
+
+                            <i class="fa-solid fa-chart-line"></i>
+
+                            <span>Analytics</span>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+                <!-- Pending Approvals -->
+
+                <section class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Pending Approvals</h2>
+
+                        <a href="admin_approvals.htm">View All</a>
+
+                    </div>
+
+                    <div id="pendingApprovals" class="dashboard-table">
+
+                        <!-- Pending approvals inserted by JavaScript -->
+
+                    </div>
+
+                </section>
+
+                <!-- Recent Activity -->
+
+                <section class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Recent Activity</h2>
+
+                    </div>
+
+                    <div id="recentActivity" class="activity-list">
+
+                        <!-- Activity timeline inserted by JavaScript -->
+
+                    </div>
+
+                </section>
+
+                <!-- Analytics Overview -->
+
+                <section class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Analytics Overview</h2>
+
+                        <a href="admin_analytics.htm">View Analytics</a>
+
+                    </div>
+
+                    <div class="analytics-grid">
+
+                        <div class="analytics-card">
+
+                            <h3>User Growth</h3>
+
+                            <canvas id="userGrowthChart"></canvas>
+
+                        </div>
+
+                        <div class="analytics-card">
+
+                            <h3>Listing Growth</h3>
+
+                            <canvas id="listingGrowthChart"></canvas>
+
+                        </div>
+
+                        <div class="analytics-card">
+
+                            <h3>Booking Trends</h3>
+
+                            <canvas id="bookingTrendChart"></canvas>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Recent Reports -->
+
+                <section class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Recent Reports</h2>
+
+                        <a href="admin_reports.htm">View All</a>
+
+                    </div>
+
+                    <div id="recentReports" class="dashboard-table">
+
+                        <!-- Reports loaded dynamically -->
+
+                    </div>
+
+                </section>
+
+                <!-- Recently Registered Users -->
+
+                <section class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Recently Registered Users</h2>
+
+                    </div>
+
+                    <div id="recentUsers" class="dashboard-table">
+
+                        <!-- New users inserted here -->
+
+                    </div>
+
+                </section>
+
+                <!-- System Status -->
+
+                <section class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Platform Status</h2>
+
+                    </div>
+
+                    <div class="status-grid">
+
+                        <div class="status-card">
+
+                            <i class="fa-solid fa-server"></i>
+
+                            <h3>Server</h3>
+
+                            <span id="serverStatus" class="status online">
+
+                                Online
+
+                            </span>
+
+                        </div>
+
+                        <div class="status-card">
+
+                            <i class="fa-solid fa-database"></i>
+
+                            <h3>Database</h3>
+
+                            <span id="databaseStatus" class="status online">
+
+                                Connected
+
+                            </span>
+
+                        </div>
+
+                        <div class="status-card">
+
+                            <i class="fa-solid fa-cloud"></i>
+
+                            <h3>Storage</h3>
+
+                            <span id="storageStatus" class="status online">
+
+                                Healthy
+
+                            </span>
+
+                        </div>
+
+                        <div class="status-card">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <h3>Security</h3>
+
+                            <span id="securityStatus" class="status online">
+
+                                Protected
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Administrator Announcements -->
+
+                <section class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Announcements</h2>
+
+                    </div>
+
+                    <div id="adminAnnouncements" class="announcement-list">
+
+                        <!-- Announcements populated via JavaScript -->
+
+                    </div>
+
+                </section>
+
+                <!-- Personal Notes -->
+
+                <section class="dashboard-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Administrator Notes</h2>
+
+                    </div>
+
+                    <textarea id="adminNotes" rows="6"
+                        placeholder="Write reminders, platform notes or future tasks..."></textarea>
+
+                    <button id="saveAdminNotes" class="btn-primary">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Notes
+
+                    </button>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+    <!-- FOOTER -->
+
+    <div id="footer"></div>
+
+    <script type="module" src="../js/loadAdmin.js"></script>
+    <script type="module" src="../js/admin_dashboard.js"></script>
+
+</body>
+
+</html>

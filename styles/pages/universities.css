@@ -1,0 +1,53 @@
+/* ==========================================
+   UNIVERSITIES
+========================================== */
+
+.university-banner {
+
+    background: var(--primary-gradient);
+
+    color: var(--white);
+
+    padding: 6rem 0;
+
+}
+
+.university-info {
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 2rem;
+
+}
+
+.university-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 2rem;
+
+    margin: 3rem 0;
+
+}
+
+.facilities {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 2rem;
+
+}
+
+.nearby-properties {
+
+    margin-top: 4rem;
+
+}

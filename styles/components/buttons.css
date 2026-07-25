@@ -1,0 +1,200 @@
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn-primary,
+.btn-outline,
+.btn-secondary {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+
+    min-height: var(--btn-height);
+    padding: 0 1.6rem;
+
+    border-radius: var(--radius-md);
+
+    font-weight: var(--fw-semibold);
+
+    transition: var(--transition);
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.btn-primary {
+
+    background: var(--primary-gradient);
+
+    color: var(--white);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+.btn-primary:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+.btn-outline {
+
+    border: 2px solid var(--primary);
+
+    color: var(--primary);
+
+    background: transparent;
+
+}
+
+.btn-outline:hover {
+
+    background: var(--primary);
+
+    color: var(--white);
+
+}
+
+.btn-secondary {
+
+    background: var(--surface-secondary);
+
+    color: var(--text);
+
+}
+
+.btn-secondary:hover {
+
+    background: var(--primary);
+
+    color: var(--white);
+
+}
+
+.btn-danger {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: var(--btn-height);
+
+    padding: 0 1.5rem;
+
+    border-radius: var(--radius-md);
+
+    background: var(--danger);
+
+    color: var(--white);
+
+    transition: var(--transition);
+
+}
+
+.btn-danger:hover {
+
+    filter: brightness(.9);
+
+}
+
+.btn-success {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: var(--btn-height);
+
+    padding: 0 1.5rem;
+
+    border-radius: var(--radius-md);
+
+    background: var(--success);
+
+    color: var(--white);
+
+}
+
+.btn-sm {
+
+    min-height: 40px;
+
+    padding: 0 1rem;
+
+    font-size: .9rem;
+
+}
+
+.btn-lg {
+
+    min-height: 60px;
+
+    padding: 0 2rem;
+
+    font-size: 1.05rem;
+
+}
+
+.btn-block {
+
+    width: 100%;
+
+}
+
+.btn-pill {
+
+    border-radius: 999px;
+
+}
+
+button:disabled,
+.btn-primary:disabled,
+.btn-outline:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+}
+
+.btn-loading {
+
+    pointer-events: none;
+
+    opacity: .8;
+
+}
+
+.btn-primary i,
+.btn-outline i,
+.btn-secondary i {
+
+    transition: transform .3s ease;
+
+}
+
+.btn-primary:hover i,
+.btn-outline:hover i,
+.btn-secondary:hover i {
+
+    transform: translateX(3px);
+
+}
+
+.btn-primary i,
+.btn-outline i,
+.btn-secondary i,
+.btn-danger i,
+.btn-success i {
+
+    font-size: .95rem;
+
+}

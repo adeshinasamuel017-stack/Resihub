@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Analytics | ResiHub</title>
+
+    <meta name="description"
+        content="View platform analytics, user statistics, listings performance, bookings, revenue insights and reports on the ResiHub Administration Portal.">
+
+    <meta name="keywords"
+        content="ResiHub, admin analytics, dashboard analytics, statistics, reports, student accommodation">
+
+    <meta name="author" content="ResiHub">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="canonical" href="https://www.resihub.com/admin_analytics.htm">
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Admin Analytics | ResiHub">
+
+    <meta property="og:description"
+        content="Monitor platform performance and analytics on the ResiHub Administration Portal.">
+
+    <meta property="og:url" content="https://www.resihub.com/admin_analytics.htm">
+
+    <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Admin Analytics | ResiHub">
+
+    <meta name="twitter:description" content="View platform statistics, user growth and listing performance.">
+
+    <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles/style.css">
+
+</head>
+
+<body>
+
+    <div id="scrollProgress"></div>
+
+    <div class="floating-shapes" aria-hidden="true">
+
+        <span class="shape shape-1"></span>
+
+        <span class="shape shape-2"></span>
+
+        <span class="shape shape-3"></span>
+
+        <span class="shape shape-4"></span>
+
+    </div>
+    <!-- HEADER / NAVIGATION -->
+
+    <div id="header"></div>
+
+    <main>
+
+        <!-- Analytics Hero -->
+
+        <section id="analytics-content" class="auth-section reveal fade-up">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="page-badge floating-badge">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                        Platform Analytics
+
+                    </span>
+
+                    <h1>Analytics Dashboard</h1>
+
+                    <p>
+
+                        Monitor the overall performance of the ResiHub platform,
+                        including users, listings, bookings and growth metrics.
+
+                    </p>
+
+                </div>
+
+                <!-- Date Filter -->
+
+                <form id="analyticsFilterForm" class="analytics-filter">
+
+                    <label class="visually-hidden" for="analyticsPeriod">
+
+                        Select Time Period
+
+                    </label>
+
+                    <select id="analyticsPeriod" name="analyticsPeriod">
+
+                        <option value="today">Today</option>
+
+                        <option value="week">Last 7 Days</option>
+
+                        <option value="month" selected>Last 30 Days</option>
+
+                        <option value="year">This Year</option>
+
+                        <option value="all">All Time</option>
+
+                    </select>
+
+                    <button type="button" id="exportAnalyticsBtn" class="btn-primary magnetic-btn">
+
+                        <i class="fa-solid fa-download"></i>
+
+                        Export Report
+
+                    </button>
+
+                </form>
+
+                <!-- Summary Cards -->
+
+                <div class="dashboard-grid">
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        <h3 id="analyticsUsers">0</h3>
+
+                        <p>Total Users</p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-user-graduate"></i>
+
+                        <h3 id="analyticsStudents">0</h3>
+
+                        <p>Students</p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-building-user"></i>
+
+                        <h3 id="analyticsLandlords">0</h3>
+
+                        <p>Landlords</p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <h3 id="analyticsListings">0</h3>
+
+                        <p>Listings</p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                        <h3 id="analyticsBookings">0</h3>
+
+                        <p>Bookings</p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-money-bill-wave"></i>
+
+                        <h3 id="analyticsRevenue">₦0</h3>
+
+                        <p>Revenue</p>
+
+                    </div>
+
+                </div>
+
+                <!-- Charts -->
+
+                <div class="analytics-grid">
+
+                    <div class="analytics-card">
+
+                        <h2>User Growth</h2>
+
+                        <canvas id="userGrowthChart"></canvas>
+
+                    </div>
+
+                    <div class="analytics-card">
+
+                        <h2>Listing Growth</h2>
+
+                        <canvas id="listingGrowthChart"></canvas>
+
+                    </div>
+
+                </div>
+
+                <div class="analytics-grid">
+
+                    <div class="analytics-card">
+
+                        <h2>Booking Analytics</h2>
+
+                        <canvas id="bookingChart"></canvas>
+
+                    </div>
+
+                    <div class="analytics-card">
+
+                        <h2>Revenue Analytics</h2>
+
+                        <canvas id="revenueChart"></canvas>
+
+                    </div>
+
+                </div>
+
+                <!-- Top Universities -->
+
+                <section class="analytics-section">
+
+                    <div class="section-header">
+
+                        <h2>Top Performing Universities</h2>
+
+                    </div>
+
+                    <div id="topUniversities" class="analytics-table">
+
+                    </div>
+
+                </section>
+
+                <!-- Top Locations -->
+
+                <section class="analytics-section">
+
+                    <div class="section-header">
+
+                        <h2>Top Student Locations</h2>
+
+                    </div>
+
+                    <div id="topLocations" class="analytics-table">
+
+                    </div>
+
+                </section>
+
+                <!-- Most Viewed Listings -->
+
+                <section class="analytics-section">
+
+                    <div class="section-header">
+
+                        <h2>Most Viewed Listings</h2>
+
+                    </div>
+
+                    <div id="popularListings" class="listing-grid">
+
+                    </div>
+
+                </section>
+
+                <!-- Recent Platform Activity -->
+
+                <section class="analytics-section">
+
+                    <div class="section-header">
+
+                        <h2>Recent Platform Activity</h2>
+
+                    </div>
+
+                    <div id="analyticsActivity" class="activity-list">
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+    <!-- FOOTER -->
+
+    <div id="footer"></div>
+
+    <script type="module" src="../js/loadAdmin.js"></script>
+    <script type="module" src="../js/admin_analytics.js"></script>
+
+</body>
+
+</html>

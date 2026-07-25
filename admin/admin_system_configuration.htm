@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin System Configuration | ResiHub</title>
+
+    <meta name="description"
+        content="Configure global platform settings, security, maps, payments, notifications and integrations for ResiHub.">
+
+    <meta name="keywords" content="ResiHub, System Configuration, Admin Settings">
+
+    <meta name="author" content="ResiHub">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="canonical" href="https://www.resihub.com/admin_system_configuration.htm">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Admin System Configuration | ResiHub">
+
+    <meta property="og:description" content="Manage global platform settings.">
+
+    <meta property="og:url" content="https://www.resihub.com/admin_system_configuration.htm">
+
+    <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Admin System Configuration | ResiHub">
+
+    <meta name="twitter:description" content="Administrator configuration panel.">
+
+    <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+
+    <div id="scrollProgress"></div>
+
+    <div class="floating-shapes" aria-hidden="true">
+
+        <span class="shape shape-1"></span>
+
+        <span class="shape shape-2"></span>
+
+        <span class="shape shape-3"></span>
+
+        <span class="shape shape-4"></span>
+
+    </div>
+
+    <div id="header"></div>
+
+    <main>
+
+        <section id="systemConfigurationContent" class="auth-section reveal fade-up">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="page-badge floating-badge">
+
+                        <i class="fa-solid fa-sliders"></i>
+
+                        Platform Configuration
+
+                    </span>
+
+                    <h1>System Configuration</h1>
+
+                    <p>
+
+                        Manage every major setting that powers the ResiHub platform.
+
+                    </p>
+
+                </div>
+
+                <form id="systemSettingsForm">
+
+                    <h2>General Settings</h2>
+
+                    <input type="text" id="platformName" placeholder="Platform Name">
+
+                    <input type="email" id="supportEmail" placeholder="Support Email">
+
+                    <input type="tel" id="supportPhone" placeholder="Support Phone">
+
+                    <hr>
+
+                    <h2>Branding</h2>
+
+                    <input type="file" id="logoUpload">
+
+                    <input type="file" id="faviconUpload">
+
+                    <input type="color" id="primaryColor">
+
+                    <hr>
+
+                    <h2>Maintenance</h2>
+
+                    <label>
+
+                        <input type="checkbox" id="maintenanceMode">
+
+                        Enable Maintenance Mode
+
+                    </label>
+
+                    <textarea id="maintenanceMessage" rows="4" placeholder="Maintenance message..."></textarea>
+
+                    <hr>
+
+                    <h2>Google Maps & Live Location</h2>
+
+                    <input type="text" id="googleMapsApiKey" placeholder="Google Maps API Key">
+
+                    <label>
+
+                        <input type="checkbox" id="enableLiveLocation">
+
+                        Enable Live Location
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox" id="allowStudentNavigation">
+
+                        Allow Students to Navigate to Listings
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox" id="landlordLocationApproval">
+
+                        Require Landlord Location Verification
+
+                    </label>
+
+                    <hr>
+
+                    <h2>Payment Gateway</h2>
+
+                    <input type="text" id="paystackKey" placeholder="Paystack Public Key">
+
+                    <input type="text" id="flutterwaveKey" placeholder="Flutterwave Key">
+
+                    <label>
+
+                        <input type="checkbox" id="enablePayments">
+
+                        Enable Payments
+
+                    </label>
+
+                    <hr>
+
+                    <h2>Email Configuration</h2>
+
+                    <input type="text" id="smtpHost" placeholder="SMTP Host">
+
+                    <input type="text" id="smtpPort" placeholder="SMTP Port">
+
+                    <input type="email" id="smtpEmail" placeholder="SMTP Email">
+
+                    <hr>
+
+                    <h2>Security</h2>
+
+                    <label>
+
+                        <input type="checkbox" id="enable2FA">
+
+                        Enable Two-Factor Authentication
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox" id="forceStrongPasswords">
+
+                        Require Strong Passwords
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox" id="enableLoginAlerts">
+
+                        Login Alerts
+
+                    </label>
+
+                    <hr>
+
+                    <h2>Notifications</h2>
+
+                    <label><input type="checkbox"> Email Notifications</label>
+
+                    <label><input type="checkbox"> SMS Notifications</label>
+
+                    <label><input type="checkbox"> Push Notifications</label>
+
+                    <hr>
+
+                    <h2>Social Media</h2>
+
+                    <input type="url" placeholder="Facebook URL">
+
+                    <input type="url" placeholder="Instagram URL">
+
+                    <input type="url" placeholder="LinkedIn URL">
+
+                    <input type="url" placeholder="X (Twitter) URL">
+
+                    <hr>
+
+                    <div class="form-actions">
+
+                        <button type="submit" class="btn-primary">
+
+                            <i class="fa-solid fa-floppy-disk"></i>
+
+                            Save Configuration
+
+                        </button>
+
+                        <button type="reset" class="btn-outline">
+
+                            Reset
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="footer"></div>
+
+    <script type="module" src="../js/loadAdmin.js"></script>
+    <script type="module" src="../js/admin_system_configuration.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Reports | ResiHub</title>
+
+    <meta name="description"
+        content="Review, investigate and resolve reports submitted by students and landlords on the ResiHub platform.">
+
+    <meta name="keywords" content="ResiHub, admin reports, reported listings, complaints, administrator">
+
+    <meta name="author" content="ResiHub">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="canonical" href="https://www.resihub.com/admin_reports.htm">
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Admin Reports | ResiHub">
+
+    <meta property="og:description"
+        content="Manage user reports, complaints and moderation across the ResiHub platform.">
+
+    <meta property="og:url" content="https://www.resihub.com/admin_reports.htm">
+
+    <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Admin Reports | ResiHub">
+
+    <meta name="twitter:description" content="Administrator report management for the ResiHub platform.">
+
+    <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+
+    <div id="scrollProgress"></div>
+
+    <div class="floating-shapes" aria-hidden="true">
+
+        <span class="shape shape-1"></span>
+
+        <span class="shape shape-2"></span>
+
+        <span class="shape shape-3"></span>
+
+        <span class="shape shape-4"></span>
+
+    </div>
+    <!-- HEADER / NAVIGATION -->
+
+    <div id="header"></div>
+
+    <main>
+
+        <section id="admin-reports-content" class="auth-section reveal fade-up">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="page-badge floating-badge">
+
+                        <i class="fa-solid fa-flag"></i>
+
+                        Administration
+
+                    </span>
+
+                    <h1>Reports Management</h1>
+
+                    <p>
+
+                        Review complaints submitted by students and landlords, investigate reported users or listings,
+                        and take appropriate moderation actions.
+
+                    </p>
+
+                </div>
+
+                <!-- Report Statistics -->
+
+                <div class="dashboard-stats">
+
+                    <div class="stat-card">
+
+                        <i class="fa-solid fa-flag"></i>
+
+                        <h3 id="totalReports">0</h3>
+
+                        <p>Total Reports</p>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <i class="fa-solid fa-hourglass-half"></i>
+
+                        <h3 id="pendingReports">0</h3>
+
+                        <p>Pending</p>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        <h3 id="resolvedReports">0</h3>
+
+                        <p>Resolved</p>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <i class="fa-solid fa-ban"></i>
+
+                        <h3 id="suspendedAccounts">0</h3>
+
+                        <p>Suspended Accounts</p>
+
+                    </div>
+
+                </div>
+
+                <!-- Search & Filters -->
+
+                <form id="reportFilterForm" class="filter-form" role="search" aria-label="Filter Reports">
+
+                    <label class="visually-hidden" for="reportSearch">
+
+                        Search Reports
+
+                    </label>
+
+                    <input type="search" id="reportSearch" name="reportSearch"
+                        placeholder="Search by user, listing or report ID..." autocomplete="off">
+
+                    <select id="reportStatus" name="reportStatus">
+
+                        <option value="">All Statuses</option>
+
+                        <option value="Pending">Pending</option>
+
+                        <option value="Investigating">Investigating</option>
+
+                        <option value="Resolved">Resolved</option>
+
+                        <option value="Dismissed">Dismissed</option>
+
+                    </select>
+
+                    <select id="reportType" name="reportType">
+
+                        <option value="">All Report Types</option>
+
+                        <option value="Listing">Listing</option>
+
+                        <option value="Landlord">Landlord</option>
+
+                        <option value="Student">Student</option>
+
+                        <option value="Payment">Payment</option>
+
+                        <option value="Spam">Spam</option>
+
+                        <option value="Fraud">Fraud</option>
+
+                    </select>
+
+                    <select id="reportPriority" name="reportPriority">
+
+                        <option value="">All Priorities</option>
+
+                        <option value="Low">Low</option>
+
+                        <option value="Medium">Medium</option>
+
+                        <option value="High">High</option>
+
+                        <option value="Critical">Critical</option>
+
+                    </select>
+
+                </form>
+
+                <!-- Reports -->
+
+                <div id="reportsGrid" class="reports-grid" aria-live="polite">
+
+                    <!-- Reports loaded dynamically -->
+
+                </div>
+
+                <!-- Report Details -->
+
+                <section id="reportDetails" class="details-card hidden">
+
+                    <h2>Report Details</h2>
+
+                    <div id="reportInformation">
+
+                        <!-- Dynamic content -->
+
+                    </div>
+
+                </section>
+
+                <!-- Moderator Notes -->
+
+                <section class="details-card">
+
+                    <h2>Moderator Notes</h2>
+
+                    <textarea id="moderatorNotes" rows="6" placeholder="Enter investigation notes..."></textarea>
+
+                </section>
+
+                <!-- Admin Actions -->
+
+                <div class="action-buttons">
+
+                    <button id="investigateBtn" class="btn-primary">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Investigate
+
+                    </button>
+
+                    <button id="resolveBtn" class="btn-primary">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        Mark Resolved
+
+                    </button>
+
+                    <button id="dismissBtn" class="btn-outline">
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                        Dismiss Report
+
+                    </button>
+
+                    <button id="suspendUserBtn" class="btn-danger">
+
+                        <i class="fa-solid fa-user-slash"></i>
+
+                        Suspend User
+
+                    </button>
+
+                    <button id="removeListingBtn" class="btn-danger">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        Remove Listing
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+    <!-- FOOTER -->
+
+    <div id="footer"></div>
+
+    <script type="module" src="../js/loadAdmin.js"></script>
+    <script type="module" src="../js/admin_reports.js"></script>
+
+</body>
+
+</html>

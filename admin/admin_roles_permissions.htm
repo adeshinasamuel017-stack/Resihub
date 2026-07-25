@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Roles & Permissions | ResiHub</title>
+
+    <meta name="description" content="Manage administrator roles and permissions across the ResiHub platform.">
+
+    <meta name="keywords" content="ResiHub, Admin, Roles, Permissions">
+
+    <meta name="author" content="ResiHub">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="canonical" href="https://www.resihub.com/admin_roles_permissions.htm">
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Admin Roles & Permissions | ResiHub">
+
+    <meta property="og:description" content="Manage administrator permissions securely.">
+
+    <meta property="og:url" content="https://www.resihub.com/admin_roles_permissions.htm">
+
+    <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Admin Roles & Permissions | ResiHub">
+
+    <meta name="twitter:description" content="Administrator role management.">
+
+    <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+
+    <div id="scrollProgress"></div>
+
+    <div class="floating-shapes" aria-hidden="true">
+
+        <span class="shape shape-1"></span>
+
+        <span class="shape shape-2"></span>
+
+        <span class="shape shape-3"></span>
+
+        <span class="shape shape-4"></span>
+
+    </div>
+
+    <div id="header"></div>
+
+    <main>
+
+        <section id="rolesPermissionsContent" class="auth-section reveal fade-up">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="page-badge floating-badge">
+
+                        <i class="fa-solid fa-user-lock"></i>
+
+                        Roles & Permissions
+
+                    </span>
+
+                    <h1>Administrator Roles</h1>
+
+                    <p>
+
+                        Create administrator roles and control platform permissions.
+
+                    </p>
+
+                </div>
+
+                <div class="action-buttons">
+
+                    <button id="addRoleBtn" class="btn-primary">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Create Role
+
+                    </button>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-user-shield"></i>
+
+                        <h3 id="totalRoles">0</h3>
+
+                        <p>Total Roles</p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-users-gear"></i>
+
+                        <h3 id="totalAdmins">0</h3>
+
+                        <p>Administrators</p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-key"></i>
+
+                        <h3 id="permissionCount">0</h3>
+
+                        <p>Permissions</p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <h3 id="restrictedActions">0</h3>
+
+                        <p>Restricted Actions</p>
+
+                    </div>
+
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Role</th>
+
+                                <th>Administrators</th>
+
+                                <th>Permissions</th>
+
+                                <th>Status</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="rolesTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <h2>Permission Matrix</h2>
+
+                    </div>
+
+                    <div id="permissionMatrix" class="permission-grid">
+
+                        <!-- JS -->
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="footer"></div>
+
+    <script type="module" src="../js/loadAdmin.js"></script>
+    <script type="module" src="../js/admin_roles_permissions.js"></script>
+
+</body>
+
+</html>

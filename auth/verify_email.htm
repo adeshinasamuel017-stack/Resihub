@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verify Email | ResiHub</title>
+
+    <meta name="description"
+        content="Verify your email address to activate your ResiHub account and access all platform features.">
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <!-- Scroll Progress -->
+    <div id="scrollProgress"></div>
+
+    <!-- Floating Shapes -->
+    <div class="floating-shapes" aria-hidden="true">
+        <span class="shape shape-1"></span>
+        <span class="shape shape-2"></span>
+        <span class="shape shape-3"></span>
+        <span class="shape shape-4"></span>
+    </div>
+
+    <!-- HEADER -->
+    <header class="navbar">
+
+        <div class="container">
+
+            <a href="index.htm" class="logo">
+                <i class="fa-solid fa-house"></i>
+                <span>ResiHub</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+            <nav id="mainNav">
+
+                <ul class="nav-links">
+
+                    <li><a href="index.htm">Home</a></li>
+
+                    <li><a href="library.htm">Library</a></li>
+
+                    <li><a href="universities.htm">Universities</a></li>
+
+                    <li><a href="about.htm">About</a></li>
+
+                    <li><a href="contact.htm">Contact</a></li>
+
+                </ul>
+
+            </nav>
+
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+
+                <a href="index.htm">Home</a>
+
+                <i class="fa-solid fa-angle-right"></i>
+
+                <span>Verify Email</span>
+
+            </nav>
+
+            <div class="nav-actions">
+
+                <a href="student_login.htm" class="btn-outline">
+                    Student Login
+                </a>
+
+                <a href="landlord_login.htm" class="btn-outline">
+                    Landlord Login
+                </a>
+
+                <a href="create_listing.htm" class="btn-primary">
+                    <i class="fa-solid fa-house-circle-plus"></i>
+                    List a Room
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- Hero -->
+        <section class="auth-hero">
+
+            <div class="container">
+
+                <div class="page-hero-content">
+
+                    <span class="page-badge floating-badge">
+
+                        <i class="fa-solid fa-envelope-circle-check"></i>
+
+                        Email Verification
+
+                    </span>
+
+                    <h1>Verify Your Email</h1>
+
+                    <p>
+
+                        We've sent a verification link to your email address.
+                        Verify your account to continue using ResiHub.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Verification -->
+        <section class="auth-section">
+
+            <div class="container">
+
+                <div class="auth-wrapper">
+
+                    <!-- Left -->
+
+                    <div class="auth-info">
+
+                        <h2>Why Verify Your Email?</h2>
+
+                        <div class="auth-feature">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <div>
+
+                                <h4>Secure Your Account</h4>
+
+                                <p>
+                                    Verification prevents unauthorized access.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="auth-feature">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            <div>
+
+                                <h4>Unlock All Features</h4>
+
+                                <p>
+                                    Access bookings, favourites, messaging and more.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="auth-feature">
+
+                            <i class="fa-solid fa-headset"></i>
+
+                            <div>
+
+                                <h4>Didn't Receive the Email?</h4>
+
+                                <p>
+                                    You can resend it or contact support anytime.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Right -->
+
+                    <div class="auth-card">
+
+                        <div class="verify-card">
+
+                            <i class="fa-solid fa-envelope-open-text verify-icon"></i>
+
+                            <h2>Check Your Inbox</h2>
+
+                            <p>
+
+                                A verification email has been sent to
+
+                                <strong id="verificationEmail"></strong>
+
+                            </p>
+
+                            <button id="resendVerificationBtn" type="button" class="btn-primary">
+
+                                <i class="fa-solid fa-paper-plane"></i>
+
+                                Resend Verification Email
+
+                            </button>
+
+                            <a href="student_login.htm" class="btn-outline">
+
+                                Back to Login
+
+                            </a>
+
+                        </div>
+
+                        <div id="verificationSent" class="success-card hidden">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            <h2>Email Sent Successfully</h2>
+
+                            <p>
+
+                                A new verification email has been sent.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Help -->
+
+        <section class="contact-card-section">
+
+            <div class="container">
+
+                <div class="contact-card">
+
+                    <h2>Still Having Problems?</h2>
+
+                    <p>
+
+                        If you're unable to verify your email, our support team is here to help.
+
+                    </p>
+
+                    <a href="contact.htm" class="btn-primary">
+
+                        Contact Support
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-about">
+
+                <h3>ResiHub</h3>
+
+                <p>
+
+                    Helping students find safe and affordable accommodation near universities across Nigeria.
+
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h4>Quick Links</h4>
+
+                <ul>
+
+                    <li><a href="index.htm">Home</a></li>
+
+                    <li><a href="browse_rooms.htm">Browse Rooms</a></li>
+
+                    <li><a href="about.htm">About</a></li>
+
+                    <li><a href="contact.htm">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h4>Support</h4>
+
+                <ul>
+
+                    <li><a href="privacy.htm">Privacy Policy</a></li>
+
+                    <li><a href="terms.htm">Terms & Conditions</a></li>
+
+                    <li><a href="faq.htm">FAQs</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h4>Follow Us</h4>
+
+                <ul>
+
+                    <li><a id="facebookLink" href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+
+                    <li><a id="instagramLink" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+
+                    <li><a id="linkedinLink" href="#"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+
+                    <li><a id="twitterLink" href="#"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © 2026 ResiHub. All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+
+    </button>
+
+    <script type="module" src="js/verify_email.js"></script>
+
+</body>
+
+</html>
