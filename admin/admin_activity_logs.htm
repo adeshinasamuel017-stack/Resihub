@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
+
+    <!-- ==========================================
+         Basic Meta Information
+    =========================================== -->
 
     <meta charset="UTF-8">
 
@@ -21,7 +24,9 @@
 
     <link rel="canonical" href="https://www.resihub.com/admin_activity_logs.htm">
 
-    <!-- Open Graph -->
+    <!-- ==========================================
+         Open Graph
+    =========================================== -->
 
     <meta property="og:type" content="website">
 
@@ -33,7 +38,9 @@
 
     <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <!-- Twitter -->
+    <!-- ==========================================
+         Twitter
+    =========================================== -->
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -43,9 +50,21 @@
 
     <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- ==========================================
+         Favicon
+    =========================================== -->
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <!-- ==========================================
+         Fonts & Icons
+    =========================================== -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- ==========================================
+         ResiHub Styles
+    =========================================== -->
 
     <link rel="stylesheet" href="../styles/style.css">
 
@@ -53,7 +72,15 @@
 
 <body>
 
+    <!-- ==========================================
+         Scroll Progress
+    =========================================== -->
+
     <div id="scrollProgress"></div>
+
+    <!-- ==========================================
+         Floating Background Shapes
+    =========================================== -->
 
     <div class="floating-shapes" aria-hidden="true">
 
@@ -66,19 +93,29 @@
         <span class="shape shape-4"></span>
 
     </div>
-    <!-- HEADER / NAVIGATION -->
+
+    <!-- ==========================================
+         Header
+    =========================================== -->
 
     <div id="header"></div>
 
-    <main>
+    <!-- ==========================================
+         Main Content
+    =========================================== -->
 
-        <section id="activityLogsContent" class="auth-section reveal fade-up">
+    <main id="mainContent" class="page-transition">
+        <section id="activityLogsContent" class="page-section glass-reveal floating-section">
 
-            <div class="container">
+            <div class="container page-container">
 
-                <div class="section-header">
+                <!-- ==========================================
+                     Page Header
+                =========================================== -->
 
-                    <span class="page-badge floating-badge">
+                <header class="section-header">
+
+                    <span class="page-badge floating-badge glass-card">
 
                         <i class="fa-solid fa-clock-rotate-left"></i>
 
@@ -90,134 +127,219 @@
 
                     <p>
 
-                        Monitor every administrator action performed across
-                        the ResiHub platform.
+                        Monitor every administrator action performed across the
+                        ResiHub platform.
 
                     </p>
 
-                </div>
+                </header>
 
-                <form id="activityFilterForm" role="search" aria-label="Filter Activity Logs">
+                <!-- ==========================================
+                     Activity Filters
+                =========================================== -->
 
-                    <input type="search" id="activitySearch" placeholder="Search administrator or action...">
+                <form id="activityFilterForm" class="filter-form liquid-form" role="search"
+                    aria-label="Filter Activity Logs">
 
-                    <select id="activityAdmin">
+                    <div class="liquid-group">
 
-                        <option value="">All Administrators</option>
+                        <input type="search" id="activitySearch" class="liquid-input"
+                            placeholder="Search administrator or action..." autocomplete="off"
+                            aria-label="Search administrator">
 
-                    </select>
+                    </div>
 
-                    <select id="activityType">
+                    <div class="liquid-group">
 
-                        <option value="">All Activities</option>
+                        <select id="activityAdmin" class="liquid-input" aria-label="Administrator">
 
-                        <option value="login">Login</option>
+                            <option value="">All Administrators</option>
 
-                        <option value="logout">Logout</option>
+                        </select>
 
-                        <option value="listing">Listings</option>
+                    </div>
 
-                        <option value="student">Students</option>
+                    <div class="liquid-group">
 
-                        <option value="landlord">Landlords</option>
+                        <select id="activityType" class="liquid-input" aria-label="Activity Type">
 
-                        <option value="settings">Settings</option>
+                            <option value="">All Activities</option>
 
-                        <option value="security">Security</option>
+                            <option value="login">Login</option>
 
-                    </select>
+                            <option value="logout">Logout</option>
 
-                    <input type="date" id="activityDate">
+                            <option value="listing">Listings</option>
 
-                    <button type="button" id="exportLogsBtn" class="btn-primary">
+                            <option value="student">Students</option>
+
+                            <option value="landlord">Landlords</option>
+
+                            <option value="settings">Settings</option>
+
+                            <option value="security">Security</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="liquid-group">
+
+                        <input type="date" id="activityDate" class="liquid-input" aria-label="Activity Date">
+
+                    </div>
+
+                    <button type="button" id="exportLogsBtn" class="btn btn-primary azure-sweep ripple">
 
                         <i class="fa-solid fa-file-export"></i>
 
-                        Export
+                        <span>Export</span>
 
                     </button>
 
                 </form>
+                <!-- ==========================================
+                     Dashboard Statistics
+                =========================================== -->
 
-                <div class="dashboard-grid">
+                <section class="dashboard-section statistics-section glass-reveal">
 
-                    <div class="dashboard-card">
+                    <div class="dashboard-grid statistics-grid">
 
-                        <i class="fa-solid fa-list-check"></i>
+                        <article class="dashboard-card statistics-card floating-card glass-card">
 
-                        <h3 id="totalActivities">0</h3>
+                            <div class="card-icon">
 
-                        <p>Total Activities</p>
+                                <i class="fa-solid fa-list-check"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="totalActivities" class="count-up">
+
+                                    0
+
+                                </h3>
+
+                                <p>Total Activities</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-user-shield"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="activeAdmins" class="count-up">
+
+                                    0
+
+                                </h3>
+
+                                <p>Active Administrators</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="securityEvents" class="count-up">
+
+                                    0
+
+                                </h3>
+
+                                <p>Security Events</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-download"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="exportsToday" class="count-up">
+
+                                    0
+
+                                </h3>
+
+                                <p>Exports Today</p>
+
+                            </div>
+
+                        </article>
 
                     </div>
 
-                    <div class="dashboard-card">
+                </section>
+                <!-- ==========================================
+                     Activity Logs Table
+                =========================================== -->
 
-                        <i class="fa-solid fa-user-shield"></i>
+                <section class="table-section glass-reveal">
 
-                        <h3 id="activeAdmins">0</h3>
+                    <div class="table-responsive">
 
-                        <p>Active Admins</p>
+                        <table class="admin-table data-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Time</th>
+
+                                    <th>Administrator</th>
+
+                                    <th>Activity</th>
+
+                                    <th>Module</th>
+
+                                    <th>IP Address</th>
+
+                                    <th>Status</th>
+
+                                    <th>Details</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="activityLogsTable">
+
+                                <!-- JavaScript loads activity logs -->
+
+                            </tbody>
+
+                        </table>
 
                     </div>
 
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-
-                        <h3 id="securityEvents">0</h3>
-
-                        <p>Security Events</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-download"></i>
-
-                        <h3 id="exportsToday">0</h3>
-
-                        <p>Exports Today</p>
-
-                    </div>
-
-                </div>
-
-                <div class="table-responsive">
-
-                    <table class="admin-table">
-
-                        <thead>
-
-                            <tr>
-
-                                <th>Time</th>
-
-                                <th>Administrator</th>
-
-                                <th>Activity</th>
-
-                                <th>Module</th>
-
-                                <th>IP Address</th>
-
-                                <th>Status</th>
-
-                                <th>Details</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody id="activityLogsTable">
-
-                            <!-- JavaScript Loads Logs -->
-
-                        </tbody>
-
-                    </table>
-
-                </div>
+                </section>
 
             </div>
 
@@ -225,10 +347,20 @@
 
     </main>
 
+    <!-- ==========================================
+         Footer
+    =========================================== -->
+
     <div id="footer"></div>
 
+    <!-- ==========================================
+         JavaScript Modules
+    =========================================== -->
+
     <script type="module" src="../js/loadAdmin.js"></script>
+
     <script type="module" src="../js/admin_activity_logs.js"></script>
+
 </body>
 
 </html>

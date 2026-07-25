@@ -1,0 +1,219 @@
+/*======================================================
+    Brand Identity
+======================================================*/
+
+:root {
+
+    --brand-name: "ResiHub";
+
+    --brand-tagline: "Find Your Perfect Student Accommodation";
+
+    --brand-version: "1.0.0";
+
+}
+
+
+/*======================================================
+    Logo
+======================================================*/
+
+:root {
+
+    --logo-width: 180px;
+
+    --logo-height: auto;
+
+    --logo-icon-size: 52px;
+
+}
+
+
+/*======================================================
+    App Icon
+======================================================*/
+
+:root {
+
+    --app-icon: 192px;
+
+    --app-icon-large: 512px;
+
+}
+
+
+/*======================================================
+    Brand Colors
+======================================================*/
+
+:root {
+
+    --brand-primary: #2F80ED;
+
+    --brand-secondary: #56A8FF;
+
+    --brand-accent: #00B8D9;
+
+    --brand-dark: #111827;
+
+    --brand-light: #FFFFFF;
+
+}
+
+
+/*======================================================
+    Brand Gradients
+======================================================*/
+
+:root {
+
+    --brand-gradient:
+
+        linear-gradient(135deg,
+
+            #2F80ED,
+
+            #56A8FF);
+
+}
+
+
+/*======================================================
+    Brand Border Radius
+======================================================*/
+
+:root {
+
+    --brand-radius: 18px;
+
+}
+
+
+/*======================================================
+    Brand Buttons
+======================================================*/
+
+.btn-brand {
+
+    background: var(--brand-gradient);
+
+    color: #FFFFFF;
+
+}
+
+
+/*======================================================
+    Brand Text
+======================================================*/
+
+.brand-text {
+
+    color: var(--brand-primary);
+
+}
+
+.brand-gradient-text {
+
+    background: var(--brand-gradient);
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+/*======================================================
+    Logo Image
+======================================================*/
+
+.logo img {
+
+    width: var(--logo-width);
+
+    height: var(--logo-height);
+
+}
+
+
+/*======================================================
+    Favicon
+======================================================*/
+
+.favicon {
+
+    width: 32px;
+
+    height: 32px;
+
+}
+
+
+/*======================================================
+    PWA Splash Screen
+======================================================*/
+
+.pwa-splash {
+
+    background: var(--brand-gradient);
+
+    color: #FFFFFF;
+
+}
+
+
+/*======================================================
+    Brand Loader
+======================================================*/
+
+.brand-loader {
+
+    background: var(--brand-gradient);
+
+    border-radius: 50%;
+
+}
+
+
+/*======================================================
+    Social Media Colors
+======================================================*/
+
+.social-facebook {
+
+    color: #1877F2;
+
+}
+
+.social-x {
+
+    color: #000000;
+
+}
+
+.social-instagram {
+
+    color: #E1306C;
+
+}
+
+.social-linkedin {
+
+    color: #0077B5;
+
+}
+
+.social-youtube {
+
+    color: #FF0000;
+
+}
+
+.social-tiktok {
+
+    color: #000000;
+
+}

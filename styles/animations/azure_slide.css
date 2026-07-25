@@ -1,0 +1,216 @@
+/*======================================================
+    Animation Variables
+======================================================*/
+
+:root {
+
+    --azure-slide-duration: .45s;
+
+    --azure-slide-easing: cubic-bezier(.4, 0, .2, 1);
+
+}
+
+
+/*======================================================
+    Base Animation
+======================================================*/
+
+.azure-slide {
+
+    animation:
+
+        azureSlide var(--azure-slide-duration) var(--azure-slide-easing) forwards;
+
+}
+
+
+/*======================================================
+    Slide From Left
+======================================================*/
+
+.azure-slide-left {
+
+    animation:
+
+        azureSlideLeft var(--azure-slide-duration) var(--azure-slide-easing) forwards;
+
+}
+
+
+/*======================================================
+    Slide From Right
+======================================================*/
+
+.azure-slide-right {
+
+    animation:
+
+        azureSlideRight var(--azure-slide-duration) var(--azure-slide-easing) forwards;
+
+}
+
+
+/*======================================================
+    Slide From Top
+======================================================*/
+
+.azure-slide-top {
+
+    animation:
+
+        azureSlideTop var(--azure-slide-duration) var(--azure-slide-easing) forwards;
+
+}
+
+
+/*======================================================
+    Slide From Bottom
+======================================================*/
+
+.azure-slide-bottom {
+
+    animation:
+
+        azureSlideBottom var(--azure-slide-duration) var(--azure-slide-easing) forwards;
+
+}
+
+
+/*======================================================
+    Keyframes
+======================================================*/
+
+@keyframes azureSlide {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+@keyframes azureSlideLeft {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateX(-40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateX(0);
+
+    }
+
+}
+
+@keyframes azureSlideRight {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateX(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateX(0);
+
+    }
+
+}
+
+@keyframes azureSlideTop {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+@keyframes azureSlideBottom {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/*======================================================
+    Stagger Helpers
+======================================================*/
+
+.delay-1 {
+
+    animation-delay: .1s;
+
+}
+
+.delay-2 {
+
+    animation-delay: .2s;
+
+}
+
+.delay-3 {
+
+    animation-delay: .3s;
+
+}
+
+.delay-4 {
+
+    animation-delay: .4s;
+
+}
+
+.delay-5 {
+
+    animation-delay: .5s;
+
+}

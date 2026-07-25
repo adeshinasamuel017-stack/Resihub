@@ -1,0 +1,198 @@
+/*======================================================
+    Root Gradient Variables
+======================================================*/
+
+:root {
+
+    --azure-gradient:
+        linear-gradient(135deg,
+            #2F80ED 0%,
+            #4DA6FF 50%,
+            #7BC6FF 100%);
+
+    --royal-gradient:
+        linear-gradient(135deg,
+            #1C63C7 0%,
+            #2F80ED 100%);
+
+    --ocean-gradient:
+        linear-gradient(135deg,
+            #00C6FF 0%,
+            #0072FF 100%);
+
+    --sky-gradient:
+        linear-gradient(135deg,
+            #EAF6FF 0%,
+            #CDEBFF 100%);
+
+    --glass-gradient:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, .45),
+            rgba(255, 255, 255, .12));
+
+    --hero-gradient:
+        linear-gradient(135deg,
+            #0F5FD7 0%,
+            #2F80ED 40%,
+            #56A8FF 100%);
+
+    --success-gradient:
+        linear-gradient(135deg,
+            #22C55E,
+            #16A34A);
+
+    --warning-gradient:
+        linear-gradient(135deg,
+            #F59E0B,
+            #FBBF24);
+
+    --danger-gradient:
+        linear-gradient(135deg,
+            #EF4444,
+            #DC2626);
+
+}
+
+
+/*======================================================
+    Background Gradient Helpers
+======================================================*/
+
+.bg-azure {
+    background: var(--azure-gradient);
+}
+
+.bg-royal {
+    background: var(--royal-gradient);
+}
+
+.bg-ocean {
+    background: var(--ocean-gradient);
+}
+
+.bg-sky {
+    background: var(--sky-gradient);
+}
+
+.bg-glass {
+    background: var(--glass-gradient);
+}
+
+.bg-hero {
+    background: var(--hero-gradient);
+}
+
+.bg-success-gradient {
+    background: var(--success-gradient);
+}
+
+.bg-warning-gradient {
+    background: var(--warning-gradient);
+}
+
+.bg-danger-gradient {
+    background: var(--danger-gradient);
+}
+
+
+/*======================================================
+    Gradient Text
+======================================================*/
+
+.text-gradient {
+    background: var(--azure-gradient);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+    color: transparent;
+}
+
+
+/*======================================================
+    Animated Gradient
+======================================================*/
+
+.gradient-animated {
+
+    background: linear-gradient(-45deg,
+            #2F80ED,
+            #4DA6FF,
+            #7BC6FF,
+            #00C6FF);
+
+    background-size: 400% 400%;
+
+    animation: gradientFlow 10s ease infinite;
+
+}
+
+
+/*======================================================
+    Hero Overlay
+======================================================*/
+
+.hero-overlay {
+
+    background:
+        linear-gradient(rgba(15, 95, 215, .72),
+            rgba(47, 128, 237, .45));
+
+}
+
+
+/*======================================================
+    Gradient Border
+======================================================*/
+
+.gradient-border {
+
+    position: relative;
+
+    border-radius: inherit;
+
+}
+
+.gradient-border::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -2px;
+
+    background: var(--azure-gradient);
+
+    border-radius: inherit;
+
+    z-index: -1;
+
+}
+
+
+/*======================================================
+    Animation
+======================================================*/
+
+@keyframes gradientFlow {
+
+    0% {
+
+        background-position: 0% 50%;
+
+    }
+
+    50% {
+
+        background-position: 100% 50%;
+
+    }
+
+    100% {
+
+        background-position: 0% 50%;
+
+    }
+
+}

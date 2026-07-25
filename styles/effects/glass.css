@@ -1,0 +1,232 @@
+/*======================================================
+    Glass Variables
+======================================================*/
+
+:root {
+
+    --glass-bg:
+        rgba(255, 255, 255, .18);
+
+    --glass-bg-dark:
+        rgba(15, 23, 42, .20);
+
+    --glass-border:
+        rgba(255, 255, 255, .35);
+
+    --glass-border-light:
+        rgba(255, 255, 255, .12);
+
+    --glass-blur:
+        18px;
+
+}
+
+
+/*======================================================
+    Standard Glass
+======================================================*/
+
+.glass {
+
+    background: var(--glass-bg);
+
+    backdrop-filter: blur(var(--glass-blur));
+
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+
+    border: 1px solid var(--glass-border);
+
+}
+
+
+/*======================================================
+    Dark Glass
+======================================================*/
+
+.glass-dark {
+
+    background: var(--glass-bg-dark);
+
+    backdrop-filter: blur(var(--glass-blur));
+
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+}
+
+
+/*======================================================
+    Frosted Glass
+======================================================*/
+
+.glass-frost {
+
+    background:
+
+        linear-gradient(135deg,
+
+            rgba(255, 255, 255, .32),
+
+            rgba(255, 255, 255, .08));
+
+    backdrop-filter: blur(25px);
+
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, .25);
+
+}
+
+
+/*======================================================
+    Glass Card
+======================================================*/
+
+.glass-card {
+
+    background: var(--glass-bg);
+
+    border-radius: var(--radius-lg);
+
+    border: 1px solid var(--glass-border);
+
+    backdrop-filter: blur(var(--glass-blur));
+
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+
+    box-shadow: var(--shadow-md);
+
+}
+
+
+/*======================================================
+    Glass Navbar
+======================================================*/
+
+.glass-navbar {
+
+    background:
+
+        rgba(255, 255, 255, .75);
+
+    backdrop-filter: blur(22px);
+
+    -webkit-backdrop-filter: blur(22px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, .25);
+
+}
+
+
+/*======================================================
+    Glass Sidebar
+======================================================*/
+
+.glass-sidebar {
+
+    background:
+
+        rgba(255, 255, 255, .80);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border-right: 1px solid rgba(255, 255, 255, .18);
+
+}
+
+
+/*======================================================
+    Glass Footer
+======================================================*/
+
+.glass-footer {
+
+    background:
+
+        rgba(15, 23, 42, .90);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+}
+
+
+/*======================================================
+    Glass Hover
+======================================================*/
+
+.glass-hover {
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease,
+
+        border-color .35s ease;
+
+}
+
+.glass-hover:hover {
+
+    transform: translateY(-6px);
+
+    border-color:
+
+        rgba(47, 128, 237, .40);
+
+    box-shadow:
+
+        var(--shadow-primary);
+
+}
+
+
+/*======================================================
+    Glass Border Glow
+======================================================*/
+
+.glass-glow {
+
+    border:
+
+        1px solid rgba(47, 128, 237, .25);
+
+    box-shadow:
+
+        0 0 20px rgba(47, 128, 237, .15);
+
+}
+
+
+/*======================================================
+    Glass Blur Sizes
+======================================================*/
+
+.blur-sm {
+
+    backdrop-filter: blur(8px);
+
+}
+
+.blur-md {
+
+    backdrop-filter: blur(15px);
+
+}
+
+.blur-lg {
+
+    backdrop-filter: blur(25px);
+
+}
+
+.blur-xl {
+
+    backdrop-filter: blur(40px);
+
+}

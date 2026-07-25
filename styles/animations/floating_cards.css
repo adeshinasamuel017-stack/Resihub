@@ -1,0 +1,225 @@
+/*======================================================
+    Variables
+======================================================*/
+
+:root {
+
+    --floating-duration: .35s;
+
+    --floating-distance: -10px;
+
+    --floating-scale: 1.02;
+
+    --floating-shadow: var(--shadow-hover);
+
+}
+
+
+/*======================================================
+    Base Floating Card
+======================================================*/
+
+.floating-card {
+
+    position: relative;
+
+    transition:
+
+        transform var(--floating-duration) ease,
+
+        box-shadow var(--floating-duration) ease,
+
+        border-color var(--floating-duration) ease;
+
+}
+
+
+/*======================================================
+    Hover
+======================================================*/
+
+.floating-card:hover {
+
+    transform:
+
+        translateY(var(--floating-distance)) scale(var(--floating-scale));
+
+    box-shadow: var(--floating-shadow);
+
+    border-color:
+
+        rgba(47, 128, 237, .25);
+
+}
+
+
+/*======================================================
+    Active
+======================================================*/
+
+.floating-card:active {
+
+    transform:
+
+        translateY(-3px) scale(.99);
+
+}
+
+
+/*======================================================
+    Soft Floating
+======================================================*/
+
+.floating-soft:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+/*======================================================
+    Strong Floating
+======================================================*/
+
+.floating-strong:hover {
+
+    transform:
+
+        translateY(-16px) scale(1.03);
+
+}
+
+
+/*======================================================
+    Rotate Floating
+======================================================*/
+
+.floating-rotate:hover {
+
+    transform:
+
+        translateY(-10px) rotate(1deg);
+
+}
+
+
+/*======================================================
+    Glow Floating
+======================================================*/
+
+.floating-glow:hover {
+
+    box-shadow:
+
+        var(--shadow-primary);
+
+}
+
+
+/*======================================================
+    Border Glow
+======================================================*/
+
+.floating-border:hover {
+
+    border-color:
+
+        var(--color-primary);
+
+}
+
+
+/*======================================================
+    Floating Image
+======================================================*/
+
+.floating-card img {
+
+    transition:
+
+        transform .45s ease;
+
+}
+
+
+.floating-card:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+/*======================================================
+    Floating Icon
+======================================================*/
+
+.floating-card i {
+
+    transition:
+
+        transform .35s ease;
+
+}
+
+
+.floating-card:hover i {
+
+    transform: scale(1.15);
+
+}
+
+
+/*======================================================
+    Floating Button
+======================================================*/
+
+.floating-card .btn {
+
+    transition:
+
+        transform .35s ease;
+
+}
+
+
+.floating-card:hover .btn {
+
+    transform: translateY(-2px);
+
+}
+
+
+/*======================================================
+    Continuous Floating
+======================================================*/
+
+.float {
+
+    animation:
+
+        float 4s ease-in-out infinite;
+
+}
+
+
+@keyframes float {
+
+    0% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-8px);
+
+    }
+
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+}

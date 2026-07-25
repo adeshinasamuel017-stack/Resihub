@@ -1,0 +1,175 @@
+/*======================================================
+    Variables
+======================================================*/
+
+:root {
+
+    --loader-size: 90px;
+
+    --loader-speed: 1.2s;
+
+}
+
+
+/*======================================================
+    Loader Screen
+======================================================*/
+
+.loader-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: var(--bg-body);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    z-index: var(--z-loader);
+
+    transition: opacity .5s ease,
+        visibility .5s ease;
+
+}
+
+.loader-screen.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+
+/*======================================================
+    Logo Loader
+======================================================*/
+
+.loader-logo {
+
+    width: var(--loader-size);
+
+    height: var(--loader-size);
+
+    border-radius: 50%;
+
+    background: var(--brand-gradient);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #fff;
+
+    font-size: 2rem;
+
+    box-shadow: var(--shadow-primary);
+
+    animation:
+
+        loaderPulse var(--loader-speed) infinite;
+
+}
+
+
+/*======================================================
+    Spinner Ring
+======================================================*/
+
+.loader-ring {
+
+    position: absolute;
+
+    width: 120px;
+
+    height: 120px;
+
+    border: 4px solid rgba(47, 128, 237, .12);
+
+    border-top-color: var(--color-primary);
+
+    border-radius: 50%;
+
+    animation:
+
+        loaderRotate 1s linear infinite;
+
+}
+
+
+/*======================================================
+    Loading Text
+======================================================*/
+
+.loader-text {
+
+    margin-top: 30px;
+
+    font-size: var(--fs-lg);
+
+    color: var(--text-secondary);
+
+    letter-spacing: 1px;
+
+    animation:
+
+        loaderFade 1.6s infinite;
+
+}
+
+
+/*======================================================
+    Keyframes
+======================================================*/
+
+@keyframes loaderRotate {
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+@keyframes loaderPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+    }
+
+}
+
+@keyframes loaderFade {
+
+    0%,
+    100% {
+
+        opacity: .4;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+}

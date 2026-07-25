@@ -1,0 +1,144 @@
+/*======================================================
+    Sweep Variables
+======================================================*/
+
+:root {
+
+    --azure-sweep-speed: .6s;
+
+    --azure-sweep-angle: 120deg;
+
+}
+
+
+/*======================================================
+    Base Sweep
+======================================================*/
+
+.azure-sweep {
+
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+}
+
+
+/*======================================================
+    Sweep Layer
+======================================================*/
+
+.azure-sweep::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -150%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(var(--azure-sweep-angle),
+
+            transparent,
+
+            rgba(255, 255, 255, .65),
+
+            transparent);
+
+    transform: skewX(-25deg);
+
+    transition: left var(--azure-sweep-speed) ease;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+}
+
+
+/*======================================================
+    Hover Effect
+======================================================*/
+
+.azure-sweep:hover::before {
+
+    left: 170%;
+
+}
+
+
+/*======================================================
+    Button Lift
+======================================================*/
+
+.azure-sweep {
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+
+.azure-sweep:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-primary);
+
+}
+
+
+/*======================================================
+    Active
+======================================================*/
+
+.azure-sweep:active {
+
+    transform: translateY(0) scale(.98);
+
+}
+
+
+/*======================================================
+    Large Sweep
+======================================================*/
+
+.azure-sweep-large::before {
+
+    width: 90%;
+
+}
+
+
+/*======================================================
+    Fast Sweep
+======================================================*/
+
+.azure-sweep-fast::before {
+
+    transition-duration: .35s;
+
+}
+
+
+/*======================================================
+    Slow Sweep
+======================================================*/
+
+.azure-sweep-slow::before {
+
+    transition-duration: 1s;
+
+}

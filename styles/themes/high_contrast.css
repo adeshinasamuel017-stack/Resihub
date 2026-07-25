@@ -1,0 +1,138 @@
+/*======================================================
+    High Contrast Theme
+======================================================*/
+
+[data-theme="contrast"] {
+
+    color-scheme: light;
+
+    --bg-body: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-navbar: #FFFFFF;
+    --bg-sidebar: #FFFFFF;
+    --bg-footer: #000000;
+
+    --surface-1: #FFFFFF;
+    --surface-2: #FFFFFF;
+    --surface-3: #FFFFFF;
+    --surface-4: #FFFFFF;
+
+    --text-primary: #000000;
+    --text-secondary: #111111;
+    --text-muted: #333333;
+
+    --border-color: #000000;
+    --border-light: #000000;
+    --border-dark: #000000;
+
+    --color-primary: #005FCC;
+    --color-primary-dark: #003E8A;
+    --color-primary-light: #3388FF;
+
+}
+
+
+/*======================================================
+    Body
+======================================================*/
+
+[data-theme="contrast"] body {
+
+    background: var(--bg-body);
+
+    color: var(--text-primary);
+
+}
+
+
+/*======================================================
+    Cards
+======================================================*/
+
+[data-theme="contrast"] .card {
+
+    background: #FFFFFF;
+
+    border: 2px solid #000000;
+
+    box-shadow: none;
+
+}
+
+
+/*======================================================
+    Links
+======================================================*/
+
+[data-theme="contrast"] a {
+
+    color: #003E8A;
+
+    text-decoration: underline;
+
+}
+
+[data-theme="contrast"] a:hover {
+
+    color: #000000;
+
+}
+
+
+/*======================================================
+    Forms
+======================================================*/
+
+[data-theme="contrast"] input,
+[data-theme="contrast"] textarea,
+[data-theme="contrast"] select {
+
+    background: #FFFFFF;
+
+    color: #000000;
+
+    border: 2px solid #000000;
+
+}
+
+
+/*======================================================
+    Buttons
+======================================================*/
+
+[data-theme="contrast"] button {
+
+    border: 2px solid #000000;
+
+}
+
+
+/*======================================================
+    Tables
+======================================================*/
+
+[data-theme="contrast"] table {
+
+    border-collapse: collapse;
+
+}
+
+[data-theme="contrast"] th,
+[data-theme="contrast"] td {
+
+    border: 2px solid #000000;
+
+}
+
+
+/*======================================================
+    Focus
+======================================================*/
+
+[data-theme="contrast"] :focus-visible {
+
+    outline: 4px solid #FFBF00;
+
+    outline-offset: 3px;
+
+}
