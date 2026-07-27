@@ -1,0 +1,432 @@
+/*====================================
+BUTTON COMPONENTS
+ResiHub Design System
+====================================*/
+
+
+/*====================================
+Primary Button
+====================================*/
+
+.btn-primary {
+
+    --btn-bg: var(--color-primary);
+    --btn-color: var(--color-white);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .65rem;
+
+    min-height: 48px;
+
+    padding: .85rem 1.5rem;
+
+    border: none;
+    border-radius: var(--radius-lg);
+
+    background: var(--btn-bg);
+    color: var(--btn-color);
+
+    font-size: .95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+}
+
+.btn-primary:hover {
+
+    background: var(--color-primary-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+.btn-primary:active {
+
+    transform: scale(.98);
+
+}
+
+.btn-primary:focus-visible {
+
+    outline: 3px solid rgba(15, 118, 110, .25);
+
+    outline-offset: 3px;
+
+}
+
+
+
+/*====================================
+Secondary Button
+====================================*/
+
+.btn-secondary {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: .65rem;
+
+    min-height: 48px;
+
+    padding: .85rem 1.5rem;
+
+    border: none;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--color-secondary);
+
+    color: var(--color-white);
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+    text-decoration: none;
+
+}
+
+.btn-secondary:hover {
+
+    filter: brightness(.95);
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/*====================================
+Outline Button
+====================================*/
+
+.btn-outline {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: .65rem;
+
+    min-height: 48px;
+
+    padding: .85rem 1.5rem;
+
+    border: 2px solid var(--color-primary);
+
+    border-radius: var(--radius-lg);
+
+    background: transparent;
+
+    color: var(--color-primary);
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition: .25s ease;
+
+}
+
+.btn-outline:hover {
+
+    background: var(--color-primary);
+
+    color: #fff;
+
+}
+
+
+
+/*====================================
+Danger Button
+====================================*/
+
+.btn-danger {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: .6rem;
+
+    min-height: 48px;
+
+    padding: .85rem 1.5rem;
+
+    border: none;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--color-danger);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+}
+
+.btn-danger:hover {
+
+    filter: brightness(.92);
+
+}
+
+
+
+/*====================================
+Social Buttons
+====================================*/
+
+.social-btn {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: .75rem;
+
+    min-height: 48px;
+
+    padding: .85rem 1rem;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--color-surface);
+
+    color: var(--color-text);
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+}
+
+.social-btn:hover {
+
+    background: var(--color-surface-hover);
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/*====================================
+Icon Button
+====================================*/
+
+.icon-btn {
+
+    width: 46px;
+
+    height: 46px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--color-surface);
+
+    color: var(--color-text);
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+}
+
+.icon-btn:hover {
+
+    background: var(--color-primary);
+
+    color: #fff;
+
+}
+
+
+
+/*====================================
+Password Toggle
+====================================*/
+
+.password-toggle {
+
+    width: 44px;
+
+    height: 44px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    color: var(--color-muted);
+
+    transition: .2s ease;
+
+}
+
+.password-toggle:hover {
+
+    color: var(--color-primary);
+
+}
+
+
+
+/*====================================
+Upload Button
+====================================*/
+
+.upload-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .6rem;
+
+    padding: .8rem 1.2rem;
+
+    border-radius: var(--radius-md);
+
+    background: var(--color-primary);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+
+}
+
+.upload-btn:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/*====================================
+Load More
+====================================*/
+
+.load-more {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 2rem auto;
+
+}
+
+
+
+/*====================================
+Button Sizes
+====================================*/
+
+.btn-sm {
+
+    min-height: 38px;
+
+    padding: .55rem 1rem;
+
+    font-size: .85rem;
+
+}
+
+.btn-lg {
+
+    min-height: 56px;
+
+    padding: 1rem 2rem;
+
+    font-size: 1rem;
+
+}
+
+
+
+/*====================================
+Button Icons
+====================================*/
+
+.btn-primary i,
+.btn-secondary i,
+.btn-outline i,
+.btn-danger i,
+.social-btn i {
+
+    font-size: 1rem;
+
+}
+
+
+
+/*====================================
+Disabled
+====================================*/
+
+button:disabled,
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-outline:disabled {
+
+    opacity: .55;
+
+    cursor: not-allowed;
+
+    pointer-events: none;
+
+}
