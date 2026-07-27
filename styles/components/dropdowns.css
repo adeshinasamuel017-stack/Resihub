@@ -1,0 +1,187 @@
+/*====================================
+ResiHub UI
+Dropdowns
+Version: 2.0
+====================================*/
+
+/*====================================
+Dropdown Container
+====================================*/
+
+.dropdown {
+
+    position: relative;
+
+}
+
+/*====================================
+Dropdown Toggle
+====================================*/
+
+.dropdown-toggle {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: .75rem;
+
+    cursor: pointer;
+
+}
+
+/*====================================
+Dropdown Menu
+====================================*/
+
+.dropdown-menu {
+
+    position: absolute;
+
+    top: calc(100% + .75rem);
+
+    left: 0;
+
+    min-width: 220px;
+
+    padding: .5rem 0;
+
+    background: var(--glass-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: var(--shadow-lg);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition:
+
+        opacity var(--transition-normal),
+
+        visibility var(--transition-normal),
+
+        transform var(--transition-normal);
+
+    z-index: 200;
+
+}
+
+/*====================================
+Dropdown Active
+====================================*/
+
+.dropdown:hover .dropdown-menu,
+
+.dropdown.active .dropdown-menu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+/*====================================
+Dropdown Items
+====================================*/
+
+.dropdown-menu a,
+
+.dropdown-menu button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .75rem;
+
+    width: 100%;
+
+    padding: .9rem 1.2rem;
+
+    border: none;
+
+    background: none;
+
+    text-decoration: none;
+
+    color: var(--text-primary);
+
+    font: inherit;
+
+    cursor: pointer;
+
+    transition:
+
+        background var(--transition-fast),
+
+        color var(--transition-fast);
+
+}
+
+/*====================================
+Dropdown Hover
+====================================*/
+
+.dropdown-menu a:hover,
+
+.dropdown-menu button:hover {
+
+    background: rgba(14, 165, 233, .08);
+
+    color: var(--color-primary);
+
+}
+
+/*====================================
+Dropdown Divider
+====================================*/
+
+.dropdown-divider {
+
+    height: 1px;
+
+    margin: .4rem 0;
+
+    background: var(--border-color);
+
+}
+
+/*====================================
+Dropdown Icon
+====================================*/
+
+.dropdown-menu i {
+
+    width: 18px;
+
+    text-align: center;
+
+    color: inherit;
+
+}
+
+/*====================================
+Right Dropdown
+====================================*/
+
+.dropdown-right .dropdown-menu {
+
+    left: auto;
+
+    right: 0;
+
+}

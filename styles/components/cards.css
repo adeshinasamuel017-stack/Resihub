@@ -1,0 +1,222 @@
+/*====================================
+ResiHub UI
+Cards
+Version: 2.0
+====================================*/
+
+/*====================================
+Base Cards
+====================================*/
+
+.stat-card,
+.feature-card,
+.journey-card,
+.finish-card,
+.dashboard-card,
+.statistics-card {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.25rem;
+
+    padding: 2rem;
+
+    background: var(--glass-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-xl);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: var(--shadow-md);
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal),
+        border-color var(--transition-normal);
+
+}
+
+/*====================================
+Floating Card
+====================================*/
+
+.stat-card:hover,
+.feature-card:hover,
+.journey-card:hover,
+.finish-card:hover,
+.dashboard-card:hover,
+.statistics-card:hover {
+
+    transform:
+        translateY(-8px) scale(1.02);
+
+    box-shadow: var(--shadow-xl);
+
+    border-color: rgba(14, 165, 233, .25);
+
+}
+
+/*====================================
+Card Shine
+====================================*/
+
+.stat-card::before,
+.feature-card::before,
+.journey-card::before,
+.finish-card::before,
+.dashboard-card::before,
+.statistics-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -130%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .35),
+            transparent);
+
+}
+
+.stat-card:hover::before,
+.feature-card:hover::before,
+.journey-card:hover::before,
+.finish-card:hover::before,
+.dashboard-card:hover::before,
+.statistics-card:hover::before {
+
+    animation:
+        azureSweep .9s linear;
+
+}
+
+/*====================================
+Card Icon
+====================================*/
+
+.card-icon {
+
+    width: 64px;
+
+    height: 64px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--gradient-primary);
+
+    color: var(--color-white);
+
+    font-size: 1.5rem;
+
+    flex-shrink: 0;
+
+}
+
+/*====================================
+Card Content
+====================================*/
+
+.card-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: .5rem;
+
+}
+
+.card-content h3 {
+
+    margin: 0;
+
+    font-size: var(--font-xl);
+
+    color: var(--text-primary);
+
+}
+
+.card-content p {
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    line-height: 1.6;
+
+}
+
+/*====================================
+Statistics Card
+====================================*/
+
+.statistics-card {
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+/*====================================
+Dashboard Card
+====================================*/
+
+.dashboard-card {
+
+    min-height: 180px;
+
+}
+
+/*====================================
+Feature Card
+====================================*/
+
+.feature-card {
+
+    text-align: center;
+
+}
+
+.feature-card .card-icon {
+
+    margin-inline: auto;
+
+}
+
+/*====================================
+Journey Card
+====================================*/
+
+.journey-card,
+.finish-card {
+
+    justify-content: center;
+
+}

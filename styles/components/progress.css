@@ -1,0 +1,93 @@
+/*====================================
+ResiHub UI
+Progress
+Version:2.0
+====================================*/
+
+/*====================================
+Scroll Progress
+====================================*/
+
+#scrollProgress {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 0;
+
+    height: 4px;
+
+    z-index: 9999;
+
+    background: var(--gradient-primary);
+
+    box-shadow:
+
+        0 0 10px rgba(14, 165, 233, .45),
+
+        0 0 20px rgba(14, 165, 233, .25);
+
+    transition:
+
+        width .15s linear,
+
+        background var(--transition-normal);
+
+}
+
+/*====================================
+Animated Glow
+====================================*/
+
+#scrollProgress::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    width: 20px;
+
+    height: 100%;
+
+    background: rgba(255, 255, 255, .85);
+
+    filter: blur(4px);
+
+    border-radius: 999px;
+
+}
+
+/*====================================
+Floating Progress Effect
+====================================*/
+
+#scrollProgress.active {
+
+    animation:
+
+        progressGlow 2s infinite alternate;
+
+}
+
+/*====================================
+Progress Bar States
+====================================*/
+
+#scrollProgress.complete {
+
+    background:
+
+        linear-gradient(90deg,
+
+            #0ea5e9,
+
+            #22c55e);
+
+}

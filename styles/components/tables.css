@@ -1,0 +1,192 @@
+/*====================================
+ResiHub UI
+Tables
+Version: 2.0
+====================================*/
+
+/*====================================
+Table Wrapper
+====================================*/
+
+.table-responsive {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border-radius: var(--radius-xl);
+
+    background: var(--glass-bg);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-md);
+
+}
+
+/*====================================
+Table
+====================================*/
+
+.admin-table,
+.data-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 900px;
+
+    background: transparent;
+
+}
+
+/*====================================
+Head
+====================================*/
+
+.admin-table thead,
+.data-table thead {
+
+    background: var(--gradient-primary);
+
+    color: var(--color-white);
+
+}
+
+.admin-table th,
+.data-table th {
+
+    padding: 1rem 1.25rem;
+
+    text-align: left;
+
+    font-size: var(--font-sm);
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+}
+
+/*====================================
+Body
+====================================*/
+
+.admin-table td,
+.data-table td {
+
+    padding: 1rem 1.25rem;
+
+    color: var(--text-primary);
+
+    border-bottom: 1px solid var(--border-color);
+
+    vertical-align: middle;
+
+    transition:
+        background var(--transition-fast);
+
+}
+
+/*====================================
+Rows
+====================================*/
+
+.admin-table tbody tr,
+.data-table tbody tr {
+
+    transition:
+        transform var(--transition-fast),
+        background var(--transition-fast);
+
+}
+
+.admin-table tbody tr:hover,
+.data-table tbody tr:hover {
+
+    background: rgba(14, 165, 233, .06);
+
+}
+
+/*====================================
+Striped Rows
+====================================*/
+
+.admin-table tbody tr:nth-child(even),
+.data-table tbody tr:nth-child(even) {
+
+    background: rgba(255, 255, 255, .02);
+
+}
+
+/*====================================
+Last Row
+====================================*/
+
+.admin-table tbody tr:last-child td,
+.data-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+/*====================================
+Status Cells
+====================================*/
+
+.status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: .35rem .9rem;
+
+    border-radius: 999px;
+
+    font-size: .8rem;
+
+    font-weight: 600;
+
+}
+
+/*====================================
+Centered Cell
+====================================*/
+
+.text-center {
+
+    text-align: center;
+
+}
+
+/*====================================
+Right Cell
+====================================*/
+
+.text-right {
+
+    text-align: right;
+
+}
+
+/*====================================
+Action Buttons
+====================================*/
+
+.table-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .5rem;
+
+}

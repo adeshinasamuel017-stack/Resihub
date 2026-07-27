@@ -1,0 +1,207 @@
+/*====================================
+ResiHub UI
+Forms
+Version: 2.0
+====================================*/
+
+/*====================================
+Forms
+====================================*/
+
+.searchForm,
+.search-form,
+.liquid-form {
+
+    width: 100%;
+
+}
+
+.search-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 1.5rem;
+
+    align-items: end;
+
+}
+
+.form-group,
+.liquid-group {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+/*====================================
+Inputs
+====================================*/
+
+input,
+select,
+textarea,
+.liquid-input {
+
+    width: 100%;
+
+    padding: 1rem 1.2rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--glass-bg);
+
+    color: var(--text-primary);
+
+    font-size: var(--font-md);
+
+    font-family: inherit;
+
+    transition:
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal),
+        background var(--transition-normal);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+}
+
+/*====================================
+Placeholder
+====================================*/
+
+input::placeholder,
+textarea::placeholder {
+
+    color: var(--text-muted);
+
+}
+
+/*====================================
+Liquid Input
+====================================*/
+
+.liquid-input:hover {
+
+    border-color: var(--color-primary-light);
+
+}
+
+.liquid-input:focus,
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline: none;
+
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 0 0 4px rgba(14, 165, 233, .15);
+
+    background: rgba(255, 255, 255, .90);
+
+}
+
+/*====================================
+Valid
+====================================*/
+
+.liquid-input:valid,
+input:valid,
+select:valid,
+textarea:valid {
+
+    border-color: #10b981;
+
+}
+
+/*====================================
+Invalid
+====================================*/
+
+.liquid-input:invalid:focus,
+input:invalid:focus,
+select:invalid:focus,
+textarea:invalid:focus {
+
+    border-color: #ef4444;
+
+}
+
+/*====================================
+Textarea
+====================================*/
+
+textarea {
+
+    resize: vertical;
+
+    min-height: 150px;
+
+}
+
+/*====================================
+Select
+====================================*/
+
+select {
+
+    cursor: pointer;
+
+}
+
+/*====================================
+Disabled
+====================================*/
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+}
+
+/*====================================
+Labels
+====================================*/
+
+label {
+
+    margin-bottom: .6rem;
+
+    font-weight: var(--weight-medium);
+
+    color: var(--text-primary);
+
+}
+
+/*====================================
+Search Area
+====================================*/
+
+#searchUniversity,
+#searchArea,
+#searchType,
+#searchPrice,
+#activitySearch,
+#activityAdmin,
+#activityType,
+#activityDate {
+
+    min-height: 52px;
+
+}

@@ -1,0 +1,133 @@
+/*====================================
+ResiHub UI
+Pagination
+Version:2.0
+====================================*/
+
+/*====================================
+Pagination Wrapper
+====================================*/
+
+.pagination {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: .75rem;
+
+    margin: 3rem 0;
+
+}
+
+/*====================================
+Pagination Button
+====================================*/
+
+.pagination button {
+
+    min-width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: none;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--glass-bg);
+
+    color: var(--text-primary);
+
+    cursor: pointer;
+
+    backdrop-filter: blur(16px);
+
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+
+        background var(--transition-normal),
+
+        color var(--transition-normal),
+
+        transform var(--transition-normal),
+
+        box-shadow var(--transition-normal);
+
+}
+
+/*====================================
+Hover
+====================================*/
+
+.pagination button:hover {
+
+    background: var(--gradient-primary);
+
+    color: var(--color-white);
+
+    transform: translateY(-3px);
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+/*====================================
+Current Page
+====================================*/
+
+.pagination button.active {
+
+    background: var(--gradient-primary);
+
+    color: var(--color-white);
+
+    box-shadow: var(--shadow-primary);
+
+}
+
+/*====================================
+Disabled
+====================================*/
+
+.pagination button:disabled {
+
+    opacity: .45;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+
+}
+
+/*====================================
+Load More
+====================================*/
+
+.load-more {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 3rem auto;
+
+}

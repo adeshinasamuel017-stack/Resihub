@@ -1,39 +1,53 @@
-/*======================================================
-    Root Shadow Variables
-======================================================*/
+/*====================================
+ResiHub UI
+Shadows
+Version: 2.0
+====================================*/
+
+/*====================================
+Elevation Variables
+====================================*/
 
 :root {
 
+    --shadow-none: none;
+
     --shadow-xs:
-        0 2px 4px rgba(15, 23, 42, .05);
+        0 1px 2px rgba(15, 23, 42, .04);
 
     --shadow-sm:
         0 4px 10px rgba(15, 23, 42, .08);
 
     --shadow-md:
-        0 8px 20px rgba(15, 23, 42, .10);
+        0 8px 20px rgba(15, 23, 42, .12);
 
     --shadow-lg:
-        0 15px 35px rgba(15, 23, 42, .15);
+        0 16px 35px rgba(15, 23, 42, .16);
 
     --shadow-xl:
-        0 25px 60px rgba(15, 23, 42, .20);
+        0 24px 50px rgba(15, 23, 42, .22);
 
     --shadow-primary:
-        0 15px 40px rgba(47, 128, 237, .25);
+        0 10px 30px rgba(14, 165, 233, .28);
 
     --shadow-success:
-        0 15px 35px rgba(34, 197, 94, .20);
+        0 10px 30px rgba(16, 185, 129, .22);
+
+    --shadow-warning:
+        0 10px 30px rgba(245, 158, 11, .22);
 
     --shadow-danger:
-        0 15px 35px rgba(239, 68, 68, .20);
+        0 10px 30px rgba(239, 68, 68, .22);
 
 }
 
+/*====================================
+Shadow Utilities
+====================================*/
 
-/*======================================================
-    Standard Shadow Helpers
-======================================================*/
+.shadow-none {
+    box-shadow: var(--shadow-none);
+}
 
 .shadow-xs {
     box-shadow: var(--shadow-xs);
@@ -55,11 +69,6 @@
     box-shadow: var(--shadow-xl);
 }
 
-
-/*======================================================
-    Colored Shadows
-======================================================*/
-
 .shadow-primary {
     box-shadow: var(--shadow-primary);
 }
@@ -68,73 +77,27 @@
     box-shadow: var(--shadow-success);
 }
 
+.shadow-warning {
+    box-shadow: var(--shadow-warning);
+}
+
 .shadow-danger {
     box-shadow: var(--shadow-danger);
 }
 
+/*====================================
+Hover Elevation
+====================================*/
 
-/*======================================================
-    Floating Card
-======================================================*/
-
-.shadow-float {
-
-    box-shadow: var(--shadow-md);
+.hover-shadow {
 
     transition:
-        transform .35s ease,
-        box-shadow .35s ease;
+        box-shadow var(--transition-normal),
+        transform var(--transition-normal);
 
 }
 
-.shadow-float:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow: var(--shadow-xl);
-
-}
-
-
-/*======================================================
-    Glow Effects
-======================================================*/
-
-.glow-primary {
-
-    box-shadow:
-        0 0 20px rgba(47, 128, 237, .30);
-
-}
-
-.glow-success {
-
-    box-shadow:
-        0 0 18px rgba(34, 197, 94, .30);
-
-}
-
-.glow-danger {
-
-    box-shadow:
-        0 0 18px rgba(239, 68, 68, .30);
-
-}
-
-
-/*======================================================
-    Hover Lift
-======================================================*/
-
-.hover-lift {
-
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease;
-
-}
-
-.hover-lift:hover {
+.hover-shadow:hover {
 
     transform: translateY(-6px);
 
@@ -142,47 +105,74 @@
 
 }
 
+.hover-shadow-primary {
 
-/*======================================================
-    Hover Grow
-======================================================*/
-
-.hover-grow {
-
-    transition: transform .30s ease;
+    transition:
+        box-shadow var(--transition-normal),
+        transform var(--transition-normal);
 
 }
 
-.hover-grow:hover {
+.hover-shadow-primary:hover {
 
-    transform: scale(1.03);
-
-}
-
-
-/*======================================================
-    Button Depth
-======================================================*/
-
-.btn-shadow {
+    transform: translateY(-6px);
 
     box-shadow: var(--shadow-primary);
 
 }
 
-.btn-shadow:hover {
+/*====================================
+Floating Cards
+====================================*/
+
+.floating-card {
+
+    box-shadow: var(--shadow-md);
+
+    transition:
+        transform var(--transition-normal),
+        box-shadow var(--transition-normal);
+
+}
+
+.floating-card:hover {
+
+    transform:
+        translateY(-8px) scale(1.02);
 
     box-shadow: var(--shadow-xl);
 
 }
 
+/*====================================
+Glow Effects
+====================================*/
 
-/*======================================================
-    Remove Shadow
-======================================================*/
+.glow-primary {
 
-.shadow-none {
+    box-shadow:
+        0 0 0 rgba(14, 165, 233, .15),
+        0 0 20px rgba(14, 165, 233, .25);
 
-    box-shadow: none;
+}
+
+.glow-success {
+
+    box-shadow:
+        0 0 20px rgba(16, 185, 129, .25);
+
+}
+
+.glow-warning {
+
+    box-shadow:
+        0 0 20px rgba(245, 158, 11, .25);
+
+}
+
+.glow-danger {
+
+    box-shadow:
+        0 0 20px rgba(239, 68, 68, .25);
 
 }

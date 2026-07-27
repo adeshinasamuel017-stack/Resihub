@@ -1,232 +1,211 @@
-/*======================================================
-    Glass Variables
-======================================================*/
+/*====================================
+ResiHub UI
+Glass
+Version: 2.0
+====================================*/
+
+/*====================================
+Glass Variables
+====================================*/
 
 :root {
 
-    --glass-bg:
-        rgba(255, 255, 255, .18);
+    --glass-bg-light: rgba(255, 255, 255, 0.65);
 
-    --glass-bg-dark:
-        rgba(15, 23, 42, .20);
+    --glass-bg-medium: rgba(255, 255, 255, 0.45);
 
-    --glass-border:
-        rgba(255, 255, 255, .35);
+    --glass-bg-dark: rgba(255, 255, 255, 0.20);
 
-    --glass-border-light:
-        rgba(255, 255, 255, .12);
+    --glass-border-light: rgba(255, 255, 255, 0.75);
 
-    --glass-blur:
-        18px;
+    --glass-border-medium: rgba(255, 255, 255, 0.45);
+
+    --glass-border-dark: rgba(255, 255, 255, 0.20);
+
+    --glass-blur-light: blur(10px);
+
+    --glass-blur-medium: blur(16px);
+
+    --glass-blur-heavy: blur(24px);
 
 }
 
-
-/*======================================================
-    Standard Glass
-======================================================*/
+/*====================================
+Glass Base
+====================================*/
 
 .glass {
 
-    background: var(--glass-bg);
+    background: var(--glass-bg-medium);
 
-    backdrop-filter: blur(var(--glass-blur));
+    backdrop-filter: var(--glass-blur-medium);
 
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: var(--glass-blur-medium);
 
-    border: 1px solid var(--glass-border);
-
-}
-
-
-/*======================================================
-    Dark Glass
-======================================================*/
-
-.glass-dark {
-
-    background: var(--glass-bg-dark);
-
-    backdrop-filter: blur(var(--glass-blur));
-
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-
-    border: 1px solid rgba(255, 255, 255, .08);
+    border: 1px solid var(--glass-border-medium);
 
 }
 
-
-/*======================================================
-    Frosted Glass
-======================================================*/
-
-.glass-frost {
-
-    background:
-
-        linear-gradient(135deg,
-
-            rgba(255, 255, 255, .32),
-
-            rgba(255, 255, 255, .08));
-
-    backdrop-filter: blur(25px);
-
-    -webkit-backdrop-filter: blur(25px);
-
-    border: 1px solid rgba(255, 255, 255, .25);
-
-}
-
-
-/*======================================================
-    Glass Card
-======================================================*/
+/*====================================
+Glass Card
+====================================*/
 
 .glass-card {
 
-    background: var(--glass-bg);
+    background: var(--glass-bg-light);
+
+    backdrop-filter: var(--glass-blur-medium);
+
+    -webkit-backdrop-filter: var(--glass-blur-medium);
+
+    border: 1px solid var(--glass-border-light);
 
     border-radius: var(--radius-lg);
 
-    border: 1px solid var(--glass-border);
+}
 
-    backdrop-filter: blur(var(--glass-blur));
+/*====================================
+Glass Panel
+====================================*/
 
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+.glass-panel {
 
-    box-shadow: var(--shadow-md);
+    background: var(--glass-bg-medium);
+
+    backdrop-filter: var(--glass-blur-heavy);
+
+    -webkit-backdrop-filter: var(--glass-blur-heavy);
+
+    border: 1px solid var(--glass-border-medium);
+
+    border-radius: var(--radius-xl);
 
 }
 
+/*====================================
+Glass Hero
+====================================*/
 
-/*======================================================
-    Glass Navbar
-======================================================*/
+.glass-hero {
 
-.glass-navbar {
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, .45),
+            rgba(255, 255, 255, .15));
 
-    background:
+    backdrop-filter: var(--glass-blur-heavy);
 
-        rgba(255, 255, 255, .75);
+    -webkit-backdrop-filter: var(--glass-blur-heavy);
 
-    backdrop-filter: blur(22px);
-
-    -webkit-backdrop-filter: blur(22px);
-
-    border-bottom: 1px solid rgba(255, 255, 255, .25);
-
-}
-
-
-/*======================================================
-    Glass Sidebar
-======================================================*/
-
-.glass-sidebar {
-
-    background:
-
-        rgba(255, 255, 255, .80);
-
-    backdrop-filter: blur(20px);
-
-    -webkit-backdrop-filter: blur(20px);
-
-    border-right: 1px solid rgba(255, 255, 255, .18);
+    border: 1px solid rgba(255, 255, 255, .35);
 
 }
 
+/*====================================
+Glass Navigation
+====================================*/
 
-/*======================================================
-    Glass Footer
-======================================================*/
+.glass-nav {
 
-.glass-footer {
-
-    background:
-
-        rgba(15, 23, 42, .90);
+    background: rgba(255, 255, 255, .72);
 
     backdrop-filter: blur(18px);
 
     -webkit-backdrop-filter: blur(18px);
 
+    border-bottom: 1px solid rgba(255, 255, 255, .55);
+
 }
 
+/*====================================
+Glass Modal
+====================================*/
 
-/*======================================================
-    Glass Hover
-======================================================*/
+.glass-modal {
+
+    background: rgba(255, 255, 255, .82);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, .65);
+
+    border-radius: var(--radius-xl);
+
+}
+
+/*====================================
+Glass Badge
+====================================*/
+
+.glass-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: var(--space-2);
+
+    padding: .45rem 1rem;
+
+    border-radius: var(--radius-pill);
+
+    background: rgba(255, 255, 255, .45);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, .60);
+
+}
+
+/*====================================
+Glass Input
+====================================*/
+
+.glass-input {
+
+    background: rgba(255, 255, 255, .55);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255, 255, 255, .55);
+
+}
+
+/*====================================
+Glass Overlay
+====================================*/
+
+.glass-overlay {
+
+    background: rgba(255, 255, 255, .08);
+
+    backdrop-filter: blur(30px);
+
+    -webkit-backdrop-filter: blur(30px);
+
+}
+
+/*====================================
+Glass Hover
+====================================*/
 
 .glass-hover {
 
     transition:
-
-        transform .35s ease,
-
-        box-shadow .35s ease,
-
-        border-color .35s ease;
+        background var(--transition-normal),
+        border-color var(--transition-normal);
 
 }
 
 .glass-hover:hover {
 
-    transform: translateY(-6px);
+    background: rgba(255, 255, 255, .80);
 
-    border-color:
-
-        rgba(47, 128, 237, .40);
-
-    box-shadow:
-
-        var(--shadow-primary);
-
-}
-
-
-/*======================================================
-    Glass Border Glow
-======================================================*/
-
-.glass-glow {
-
-    border:
-
-        1px solid rgba(47, 128, 237, .25);
-
-    box-shadow:
-
-        0 0 20px rgba(47, 128, 237, .15);
-
-}
-
-
-/*======================================================
-    Glass Blur Sizes
-======================================================*/
-
-.blur-sm {
-
-    backdrop-filter: blur(8px);
-
-}
-
-.blur-md {
-
-    backdrop-filter: blur(15px);
-
-}
-
-.blur-lg {
-
-    backdrop-filter: blur(25px);
-
-}
-
-.blur-xl {
-
-    backdrop-filter: blur(40px);
+    border-color: rgba(14, 165, 233, .35);
 
 }

@@ -59,7 +59,50 @@ Components
 Pages
 ====================================*/
 
-/* Added later */
+/*====================================
+Pages
+====================================*/
+
+@import url("pages/general/home.css");
+@import url("pages/general/about.css");
+@import url("pages/general/contact.css");
+@import url("pages/general/library.css");
+@import url("pages/general/universities.css");
+@import url("pages/general/browse_rooms.css");
+@import url("pages/general/property_details.css");
+@import url("pages/general/search_results.css");
+
+@import url("pages/auth/student_login.css");
+@import url("pages/auth/student_signup.css");
+@import url("pages/auth/landlord_login.css");
+@import url("pages/auth/landlord_signup.css");
+@import url("pages/auth/admin_login.css");
+@import url("pages/auth/forgot_password.css");
+@import url("pages/auth/reset_password.css");
+@import url("pages/auth/verify_email.css");
+
+@import url("pages/student/student_dashboard.css");
+@import url("pages/student/student_profile.css");
+@import url("pages/student/student_bookings.css");
+@import url("pages/student/student_saved.css");
+@import url("pages/student/student_messages.css");
+
+@import url("pages/landlord/landlord_dashboard.css");
+@import url("pages/landlord/my_listings.css");
+@import url("pages/landlord/create_listing.css");
+@import url("pages/landlord/booking_requests.css");
+@import url("pages/landlord/messages_landlord.css");
+
+@import url("pages/admin/admin_dashboard.css");
+@import url("pages/admin/admin_students.css");
+@import url("pages/admin/admin_landlords.css");
+@import url("pages/admin/admin_listings.css");
+@import url("pages/admin/admin_bookings.css");
+@import url("pages/admin/admin_activity_logs.css");
+@import url("pages/admin/admin_reports.css");
+@import url("pages/admin/admin_analytics.css");
+@import url("pages/admin/admin_system_health.css");
+@import url("pages/admin/admin_platform_settings.css");
 
 
 /*====================================

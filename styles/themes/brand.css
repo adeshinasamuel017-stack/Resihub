@@ -1,109 +1,68 @@
-/*======================================================
-    Brand Identity
-======================================================*/
+/*====================================
+ResiHub UI
+Brand Theme
+Version: 2.0
+====================================*/
+
+/*====================================
+Brand Variables
+====================================*/
 
 :root {
+
+    /* Brand Identity */
 
     --brand-name: "ResiHub";
 
-    --brand-tagline: "Find Your Perfect Student Accommodation";
+    --brand-primary: #0ea5e9;
 
-    --brand-version: "1.0.0";
+    --brand-secondary: #ffffff;
 
-}
+    --brand-accent: #0f172a;
 
+    /* Brand Gradients */
 
-/*======================================================
-    Logo
-======================================================*/
-
-:root {
-
-    --logo-width: 180px;
-
-    --logo-height: auto;
-
-    --logo-icon-size: 52px;
-
-}
-
-
-/*======================================================
-    App Icon
-======================================================*/
-
-:root {
-
-    --app-icon: 192px;
-
-    --app-icon-large: 512px;
-
-}
-
-
-/*======================================================
-    Brand Colors
-======================================================*/
-
-:root {
-
-    --brand-primary: #2F80ED;
-
-    --brand-secondary: #56A8FF;
-
-    --brand-accent: #00B8D9;
-
-    --brand-dark: #111827;
-
-    --brand-light: #FFFFFF;
-
-}
-
-
-/*======================================================
-    Brand Gradients
-======================================================*/
-
-:root {
-
-    --brand-gradient:
-
+    --brand-gradient-primary:
         linear-gradient(135deg,
+            #0ea5e9,
+            #38bdf8);
 
-            #2F80ED,
+    --brand-gradient-light:
+        linear-gradient(180deg,
+            #ffffff,
+            #f8fafc);
 
-            #56A8FF);
+    --brand-gradient-dark:
+        linear-gradient(180deg,
+            #0f172a,
+            #1e293b);
 
-}
+    /* Brand Border */
 
+    --brand-border: 1px solid rgba(14, 165, 233, .15);
 
-/*======================================================
-    Brand Border Radius
-======================================================*/
+    /* Brand Ring */
 
-:root {
-
-    --brand-radius: 18px;
-
-}
-
-
-/*======================================================
-    Brand Buttons
-======================================================*/
-
-.btn-brand {
-
-    background: var(--brand-gradient);
-
-    color: #FFFFFF;
+    --brand-ring:
+        0 0 0 4px rgba(14, 165, 233, .15);
 
 }
 
+/*====================================
+Brand Background
+====================================*/
 
-/*======================================================
-    Brand Text
-======================================================*/
+.brand-bg {
+
+    background: var(--brand-gradient-primary);
+
+    color: var(--color-white);
+
+}
+
+/*====================================
+Brand Text
+====================================*/
 
 .brand-text {
 
@@ -111,13 +70,11 @@
 
 }
 
-.brand-gradient-text {
+.brand-text-gradient {
 
-    background: var(--brand-gradient);
+    background: var(--brand-gradient-primary);
 
     -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
 
     background-clip: text;
 
@@ -125,95 +82,110 @@
 
 }
 
+/*====================================
+Brand Border
+====================================*/
 
-/*======================================================
-    Logo Image
-======================================================*/
+.brand-border {
 
-.logo img {
-
-    width: var(--logo-width);
-
-    height: var(--logo-height);
+    border: var(--brand-border);
 
 }
 
+/*====================================
+Brand Logo
+====================================*/
 
-/*======================================================
-    Favicon
-======================================================*/
+.logo {
 
-.favicon {
+    display: flex;
 
-    width: 32px;
+    align-items: center;
 
-    height: 32px;
-
-}
-
-
-/*======================================================
-    PWA Splash Screen
-======================================================*/
-
-.pwa-splash {
-
-    background: var(--brand-gradient);
-
-    color: #FFFFFF;
+    gap: var(--space-3);
 
 }
 
+.logo-icon {
 
-/*======================================================
-    Brand Loader
-======================================================*/
+    display: grid;
 
-.brand-loader {
+    place-items: center;
 
-    background: var(--brand-gradient);
+    width: 3rem;
 
-    border-radius: 50%;
+    height: 3rem;
 
-}
+    border-radius: var(--radius-lg);
 
+    background: var(--brand-gradient-primary);
 
-/*======================================================
-    Social Media Colors
-======================================================*/
-
-.social-facebook {
-
-    color: #1877F2;
+    color: var(--color-white);
 
 }
 
-.social-x {
+.logo-text {
 
-    color: #000000;
+    display: flex;
 
-}
+    flex-direction: column;
 
-.social-instagram {
-
-    color: #E1306C;
+    justify-content: center;
 
 }
 
-.social-linkedin {
+.logo-text h1,
 
-    color: #0077B5;
+.logo-text h2 {
 
-}
+    margin: 0;
 
-.social-youtube {
-
-    color: #FF0000;
+    color: var(--brand-accent);
 
 }
 
-.social-tiktok {
+.logo-text span {
 
-    color: #000000;
+    font-size: var(--font-sm);
+
+    color: var(--text-muted);
+
+}
+
+/*====================================
+Brand Divider
+====================================*/
+
+.brand-divider {
+
+    width: 100%;
+
+    height: 2px;
+
+    background: var(--brand-gradient-primary);
+
+}
+
+/*====================================
+Brand Focus
+====================================*/
+
+.brand-focus:focus-visible {
+
+    outline: none;
+
+    box-shadow: var(--brand-ring);
+
+}
+
+/*====================================
+Brand Selection
+====================================*/
+
+::selection {
+
+    background: var(--brand-primary);
+
+    color: var(--color-white);
 
 }

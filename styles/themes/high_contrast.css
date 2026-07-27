@@ -1,42 +1,64 @@
-/*======================================================
-    High Contrast Theme
-======================================================*/
+/*====================================
+ResiHub UI
+High Contrast Theme
+Version: 2.0
+====================================*/
 
-[data-theme="contrast"] {
+[data-theme="high-contrast"] {
 
-    color-scheme: light;
+    /*====================================
+Backgrounds
+====================================*/
 
-    --bg-body: #FFFFFF;
-    --bg-card: #FFFFFF;
-    --bg-navbar: #FFFFFF;
-    --bg-sidebar: #FFFFFF;
-    --bg-footer: #000000;
+    --bg-body: #000000;
+    --bg-surface: #000000;
+    --bg-card: #000000;
+    --bg-overlay: rgba(0, 0, 0, .95);
 
-    --surface-1: #FFFFFF;
-    --surface-2: #FFFFFF;
-    --surface-3: #FFFFFF;
-    --surface-4: #FFFFFF;
+    /*====================================
+Brand Colors
+====================================*/
 
-    --text-primary: #000000;
-    --text-secondary: #111111;
-    --text-muted: #333333;
+    --color-primary: #00bfff;
+    --color-primary-light: #66d9ff;
+    --color-primary-dark: #0099cc;
 
-    --border-color: #000000;
-    --border-light: #000000;
-    --border-dark: #000000;
+    /*====================================
+Text
+====================================*/
 
-    --color-primary: #005FCC;
-    --color-primary-dark: #003E8A;
-    --color-primary-light: #3388FF;
+    --text-primary: #ffffff;
+    --text-secondary: #f5f5f5;
+    --text-muted: #d1d5db;
+
+    /*====================================
+Borders
+====================================*/
+
+    --border-color: #ffffff;
+    --border-light: #ffffff;
+    --border-dark: #ffffff;
+
+    /*====================================
+Glass
+====================================*/
+
+    --glass-bg: #000000;
+    --glass-border: #ffffff;
+
+    /*====================================
+Scrollbar
+====================================*/
+
+    color-scheme: dark;
 
 }
 
+/*====================================
+Global Theme
+====================================*/
 
-/*======================================================
-    Body
-======================================================*/
-
-[data-theme="contrast"] body {
+[data-theme="high-contrast"] body {
 
     background: var(--bg-body);
 
@@ -44,95 +66,62 @@
 
 }
 
+[data-theme="high-contrast"] * {
 
-/*======================================================
-    Cards
-======================================================*/
+    text-shadow: none !important;
 
-[data-theme="contrast"] .card {
-
-    background: #FFFFFF;
-
-    border: 2px solid #000000;
-
-    box-shadow: none;
+    box-shadow: none !important;
 
 }
 
+/*====================================
+Links
+====================================*/
 
-/*======================================================
-    Links
-======================================================*/
+[data-theme="high-contrast"] a {
 
-[data-theme="contrast"] a {
-
-    color: #003E8A;
+    color: var(--color-primary);
 
     text-decoration: underline;
 
 }
 
-[data-theme="contrast"] a:hover {
+[data-theme="high-contrast"] a:hover {
 
-    color: #000000;
-
-}
-
-
-/*======================================================
-    Forms
-======================================================*/
-
-[data-theme="contrast"] input,
-[data-theme="contrast"] textarea,
-[data-theme="contrast"] select {
-
-    background: #FFFFFF;
-
-    color: #000000;
-
-    border: 2px solid #000000;
+    color: var(--color-primary-light);
 
 }
 
+/*====================================
+Buttons
+====================================*/
 
-/*======================================================
-    Buttons
-======================================================*/
+[data-theme="high-contrast"] button {
 
-[data-theme="contrast"] button {
-
-    border: 2px solid #000000;
-
-}
-
-
-/*======================================================
-    Tables
-======================================================*/
-
-[data-theme="contrast"] table {
-
-    border-collapse: collapse;
+    border: 2px solid var(--border-color);
 
 }
 
-[data-theme="contrast"] th,
-[data-theme="contrast"] td {
+/*====================================
+Focus
+====================================*/
 
-    border: 2px solid #000000;
+[data-theme="high-contrast"] *:focus-visible {
 
-}
-
-
-/*======================================================
-    Focus
-======================================================*/
-
-[data-theme="contrast"] :focus-visible {
-
-    outline: 4px solid #FFBF00;
+    outline: 3px solid var(--color-primary);
 
     outline-offset: 3px;
+
+}
+
+/*====================================
+Selection
+====================================*/
+
+[data-theme="high-contrast"] ::selection {
+
+    background: var(--color-primary);
+
+    color: #000000;
 
 }

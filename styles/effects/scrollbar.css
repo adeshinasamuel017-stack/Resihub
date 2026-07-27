@@ -1,172 +1,92 @@
-/*======================================================
-    Global Scrollbar
-======================================================*/
+/*====================================
+ResiHub UI
+Scrollbar
+Version: 2.0
+====================================*/
+
+/*====================================
+Global Scrollbar
+====================================*/
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-gray-100);
+}
+
+/*====================================
+Chrome / Edge / Safari
+====================================*/
 
 ::-webkit-scrollbar {
-
-    width: 12px;
-
-    height: 12px;
-
+    width: 10px;
+    height: 10px;
 }
-
-
-/*======================================================
-    Scrollbar Track
-======================================================*/
 
 ::-webkit-scrollbar-track {
-
-    background: #EDF5FF;
-
-    border-radius: 999px;
-
+    background: var(--color-gray-100);
+    border-radius: var(--radius-pill);
 }
-
-
-/*======================================================
-    Scrollbar Thumb
-======================================================*/
 
 ::-webkit-scrollbar-thumb {
-
     background: linear-gradient(180deg,
-            #56A8FF,
-            #2F80ED);
-
-    border-radius: 999px;
-
-    border: 3px solid #EDF5FF;
-
-    transition: .3s ease;
-
+            var(--color-primary-light),
+            var(--color-primary));
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--color-gray-100);
+    transition: background var(--transition-normal);
 }
-
-
-/*======================================================
-    Hover
-======================================================*/
 
 ::-webkit-scrollbar-thumb:hover {
-
     background: linear-gradient(180deg,
-            #2F80ED,
-            #1C63C7);
-
+            var(--color-primary),
+            var(--color-primary-dark));
 }
-
-
-/*======================================================
-    Active
-======================================================*/
-
-::-webkit-scrollbar-thumb:active {
-
-    background: #0F5FD7;
-
-}
-
-
-/*======================================================
-    Corner
-======================================================*/
 
 ::-webkit-scrollbar-corner {
-
-    background: transparent;
-
+    background: var(--color-gray-100);
 }
 
-
-/*======================================================
-    Thin Scrollbar
-======================================================*/
-
-.scrollbar-thin {
-
-    scrollbar-width: thin;
-
-}
-
+/*====================================
+Thin Scrollbar
+====================================*/
 
 .scrollbar-thin::-webkit-scrollbar {
-
-    width: 7px;
-
+    width: 6px;
+    height: 6px;
 }
 
+.scrollbar-thin {
+    scrollbar-width: thin;
+}
 
-/*======================================================
-    Hidden Scrollbar
-======================================================*/
+/*====================================
+Hidden Scrollbar
+====================================*/
 
 .scrollbar-hidden {
-
-    scrollbar-width: none;
-
     -ms-overflow-style: none;
-
+    scrollbar-width: none;
 }
 
 .scrollbar-hidden::-webkit-scrollbar {
-
     display: none;
-
 }
 
+/*====================================
+Dark Scrollbar
+====================================*/
 
-/*======================================================
-    Glass Scrollbar
-======================================================*/
-
-.scrollbar-glass::-webkit-scrollbar-track {
-
-    background: rgba(255, 255, 255, .18);
-
-    backdrop-filter: blur(10px);
-
+.scrollbar-dark {
+    scrollbar-color: var(--color-primary) var(--color-gray-900);
 }
-
-.scrollbar-glass::-webkit-scrollbar-thumb {
-
-    background: rgba(47, 128, 237, .65);
-
-    border: 2px solid rgba(255, 255, 255, .25);
-
-}
-
-
-/*======================================================
-    Dark Scrollbar
-======================================================*/
 
 .scrollbar-dark::-webkit-scrollbar-track {
-
-    background: #111827;
-
+    background: var(--color-gray-900);
 }
 
 .scrollbar-dark::-webkit-scrollbar-thumb {
-
-    background: #374151;
-
-    border: 2px solid #111827;
-
-}
-
-.scrollbar-dark::-webkit-scrollbar-thumb:hover {
-
-    background: #4B5563;
-
-}
-
-
-/*======================================================
-    Smooth Scrolling
-======================================================*/
-
-html {
-
-    scroll-behavior: smooth;
-
+    background: linear-gradient(180deg,
+            var(--color-primary),
+            var(--color-primary-dark));
+    border: 2px solid var(--color-gray-900);
 }

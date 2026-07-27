@@ -1,0 +1,161 @@
+/*====================================
+ResiHub UI
+Tabs
+Version:2.0
+====================================*/
+
+/*====================================
+Tabs Wrapper
+====================================*/
+
+.settings-tabs {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+
+    border-bottom: 1px solid var(--border-color);
+
+}
+
+/*====================================
+Individual Tab
+====================================*/
+
+.settings-tab {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: .6rem;
+
+    padding: 1rem 1.5rem;
+
+    background: transparent;
+
+    border: none;
+
+    color: var(--text-secondary);
+
+    font-size: var(--font-md);
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+
+        color var(--transition-normal),
+
+        transform var(--transition-fast);
+
+}
+
+/*====================================
+Tab Hover
+====================================*/
+
+.settings-tab:hover {
+
+    color: var(--color-primary);
+
+    transform: translateY(-2px);
+
+}
+
+/*====================================
+Active Tab
+====================================*/
+
+.settings-tab.active {
+
+    color: var(--color-primary);
+
+}
+
+/*====================================
+Active Indicator
+====================================*/
+
+.settings-tab::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -1px;
+
+    width: 0;
+
+    height: 3px;
+
+    border-radius: 999px;
+
+    background: var(--gradient-primary);
+
+    transform: translateX(-50%);
+
+    transition: width var(--transition-normal);
+
+}
+
+.settings-tab:hover::after {
+
+    width: 70%;
+
+}
+
+.settings-tab.active::after {
+
+    width: 100%;
+
+}
+
+/*====================================
+Tab Icons
+====================================*/
+
+.settings-tab i {
+
+    font-size: 1rem;
+
+    color: inherit;
+
+}
+
+/*====================================
+Focus
+====================================*/
+
+.settings-tab:focus-visible {
+
+    outline: none;
+
+    color: var(--color-primary);
+
+}
+
+/*====================================
+Disabled
+====================================*/
+
+.settings-tab:disabled {
+
+    opacity: .5;
+
+    cursor: not-allowed;
+
+}

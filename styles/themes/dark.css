@@ -1,39 +1,54 @@
-/*======================================================
-    Dark Theme Variables
-======================================================*/
+/*====================================
+ResiHub UI
+Dark Theme
+Version: 2.0
+====================================*/
 
 [data-theme="dark"] {
 
-    color-scheme: dark;
+    /*====================================
+Backgrounds
+====================================*/
 
-    --bg-body: #0F172A;
-    --bg-card: #1E293B;
-    --bg-sidebar: #111827;
-    --bg-navbar: #111827;
-    --bg-footer: #020617;
+    --bg-body: #020617;
+    --bg-surface: #0f172a;
+    --bg-card: rgba(15, 23, 42, .90);
+    --bg-overlay: rgba(2, 6, 23, .80);
 
-    --surface-1: #1E293B;
-    --surface-2: #243244;
-    --surface-3: #2A394D;
-    --surface-4: #334155;
+    /*====================================
+Text
+====================================*/
 
-    --text-primary: #F8FAFC;
-    --text-secondary: #CBD5E1;
-    --text-muted: #94A3B8;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
 
-    --border-color: #334155;
-    --border-light: #475569;
-    --border-dark: #64748B;
+    /*====================================
+Borders
+====================================*/
 
-    --glass-bg: rgba(30, 41, 59, .55);
+    --border-color: rgba(255, 255, 255, .10);
+    --border-light: rgba(255, 255, 255, .18);
+    --border-dark: rgba(0, 0, 0, .40);
+
+    /*====================================
+Glass
+====================================*/
+
+    --glass-bg: rgba(15, 23, 42, .45);
     --glass-border: rgba(255, 255, 255, .08);
+
+    /*====================================
+Scrollbar
+====================================*/
+
+    color-scheme: dark;
 
 }
 
-
-/*======================================================
-    Body
-======================================================*/
+/*====================================
+Global Theme
+====================================*/
 
 [data-theme="dark"] body {
 
@@ -43,128 +58,20 @@
 
 }
 
+[data-theme="dark"] section {
 
-/*======================================================
-    Links
-======================================================*/
-
-[data-theme="dark"] a {
-
-    color: var(--color-primary-light);
+    background: transparent;
 
 }
 
-[data-theme="dark"] a:hover {
+/*====================================
+Selection
+====================================*/
 
-    color: #FFFFFF;
-
-}
-
-
-/*======================================================
-    Cards
-======================================================*/
-
-[data-theme="dark"] .card {
-
-    background: var(--bg-card);
-
-    border: 1px solid var(--border-color);
-
-}
-
-
-/*======================================================
-    Forms
-======================================================*/
-
-[data-theme="dark"] input,
-[data-theme="dark"] textarea,
-[data-theme="dark"] select {
-
-    background: #1E293B;
-
-    color: var(--text-primary);
-
-    border: 1px solid var(--border-color);
-
-}
-
-[data-theme="dark"] input::placeholder,
-[data-theme="dark"] textarea::placeholder {
-
-    color: var(--text-muted);
-
-}
-
-
-/*======================================================
-    Tables
-======================================================*/
-
-[data-theme="dark"] table {
-
-    background: var(--bg-card);
-
-}
-
-[data-theme="dark"] thead {
-
-    background: #1A2433;
-
-}
-
-[data-theme="dark"] tbody tr {
-
-    border-bottom: 1px solid var(--border-color);
-
-}
-
-[data-theme="dark"] tbody tr:hover {
-
-    background: rgba(47, 128, 237, .08);
-
-}
-
-
-/*======================================================
-    Scrollbar
-======================================================*/
-
-[data-theme="dark"]::-webkit-scrollbar-track {
-
-    background: #111827;
-
-}
-
-[data-theme="dark"]::-webkit-scrollbar-thumb {
-
-    background: #374151;
-
-}
-
-
-/*======================================================
-    Selection
-======================================================*/
-
-[data-theme="dark"]::selection {
+[data-theme="dark"] ::selection {
 
     background: var(--color-primary);
 
-    color: #FFFFFF;
-
-}
-
-
-/*======================================================
-    Focus
-======================================================*/
-
-[data-theme="dark"] :focus-visible {
-
-    outline: 3px solid rgba(86, 168, 255, .35);
-
-    outline-offset: 3px;
+    color: var(--color-white);
 
 }

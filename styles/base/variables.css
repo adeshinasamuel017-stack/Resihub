@@ -1,177 +1,98 @@
 :root {
-    /*======================================================
-    Overlay
-======================================================*/
 
-    --overlay-light: rgba(255, 255, 255, 0.6);
-    --overlay-dark: rgba(15, 23, 42, 0.5);
-    --overlay-modal: rgba(15, 23, 42, 0.7);
+    /*====================================
+Brand Colors
+====================================*/
 
+    --color-primary: #0ea5e9;
+    --color-primary-light: #38bdf8;
+    --color-primary-dark: #0284c7;
 
+    --color-secondary: #ffffff;
 
-    /*======================================================
-    Brand Colors
-======================================================*/
+    --color-accent: #0f172a;
+    --color-accent-light: #1e293b;
+    --color-accent-dark: #020617;
 
-    --color-primary: #2F80ED;
-    --color-primary-dark: #1C63C7;
-    --color-primary-light: #56A8FF;
+    /*====================================
+Neutral Colors
+====================================*/
 
-    --color-secondary: #00B8D9;
-    --color-accent: #6C63FF;
+    --color-white: #ffffff;
+    --color-black: #000000;
 
+    --color-gray-50: #f8fafc;
+    --color-gray-100: #f1f5f9;
+    --color-gray-200: #e2e8f0;
+    --color-gray-300: #cbd5e1;
+    --color-gray-400: #94a3b8;
+    --color-gray-500: #64748b;
+    --color-gray-600: #475569;
+    --color-gray-700: #334155;
+    --color-gray-800: #1e293b;
+    --color-gray-900: #0f172a;
 
-    /*======================================================
-    Status Colors
-======================================================*/
+    /*====================================
+Semantic Colors
+====================================*/
 
-    --color-success: #22C55E;
-    --color-warning: #F59E0B;
-    --color-danger: #EF4444;
-    --color-info: #0EA5E9;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    --color-info: #3b82f6;
 
+    /*====================================
+Backgrounds
+====================================*/
 
-    /*======================================================
-    Neutral Colors
-======================================================*/
+    --bg-body: var(--color-gray-50);
+    --bg-surface: var(--color-white);
+    --bg-card: rgba(255, 255, 255, .75);
+    --bg-overlay: rgba(15, 23, 42, .55);
 
-    --color-white: #FFFFFF;
-    --color-black: #111827;
-    --color-dark: #1E293B;
+    /*====================================
+Text
+====================================*/
 
-    --color-gray-900: #1F2937;
-    --color-gray-800: #374151;
-    --color-gray-700: #4B5563;
-    --color-gray-600: #6B7280;
-    --color-gray-500: #9CA3AF;
-    --color-gray-400: #D1D5DB;
-    --color-gray-300: #E5E7EB;
-    --color-gray-200: #F3F4F6;
-    --color-gray-100: #F9FAFB;
+    --text-primary: var(--color-gray-900);
+    --text-secondary: var(--color-gray-600);
+    --text-muted: var(--color-gray-500);
+    --text-white: #ffffff;
 
+    /*====================================
+Borders
+====================================*/
 
-    /*======================================================
-    Background Colors
-======================================================*/
+    --border-color: var(--color-gray-200);
+    --border-light: rgba(255, 255, 255, .25);
+    --border-dark: rgba(15, 23, 42, .08);
 
-    --bg-body: #F4F6F8;
-    --bg-card: #FFFFFF;
-    --bg-sidebar: #FFFFFF;
-    --bg-navbar: #FFFFFF;
-    --bg-footer: #0F172A;
-
-
-    /*======================================================
-    Surface Colors
-======================================================*/
-
-    --surface-1: #FFFFFF;
-    --surface-2: #FAFBFC;
-    --surface-3: #F5F7FA;
-    --surface-4: #EEF2F6;
-    --surface-overlay: rgba(255, 255, 255, .92);
-
-
-    /*======================================================
-    Text Colors
-======================================================*/
-
-    --text-primary: #111827;
-    --text-secondary: #4B5563;
-    --text-muted: #9CA3AF;
-    --text-light: #FFFFFF;
-
-
-
-    /*======================================================
-    Borders
-======================================================*/
-
-    --border-color: #E5E7EB;
-    --border-light: #F3F4F6;
-    --border-dark: #CBD5E1;
-    --border-focus: #2F80ED;
-    --border-success: #22C55E;
-    --border-warning: #F59E0B;
-    --border-danger: #EF4444;
-
-    /*======================================================
-    Azure Gradients
-======================================================*/
-
-    --gradient-primary: linear-gradient(135deg,
-            #2F80ED,
-            #56A8FF);
-
-    --gradient-secondary: linear-gradient(135deg,
-            #00B8D9,
-            #6C63FF);
-
-    --gradient-success: linear-gradient(135deg,
-            #22C55E,
-            #16A34A);
-
-
-    /*======================================================
-    Glass Effect
-======================================================*/
+    /*====================================
+Glass
+====================================*/
 
     --glass-bg: rgba(255, 255, 255, .18);
-    --glass-border: rgba(255, 255, 255, .28);
-    --glass-blur: 16px;
+    --glass-border: rgba(255, 255, 255, .35);
+    --glass-blur: 18px;
 
+    /*====================================
+Border Radius
+====================================*/
 
-    /*======================================================
-    Typography
-======================================================*/
+    --radius-xs: .25rem;
+    --radius-sm: .5rem;
+    --radius-md: .75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-2xl: 2rem;
+    --radius-pill: 999px;
+    --radius-circle: 50%;
 
-    --font-primary: "Poppins", sans-serif;
-    --font-secondary: "Inter", sans-serif;
-    --font-heading: "Poppins", sans-serif;
-    --font-mono: "JetBrains Mono", monospace;
+    /*====================================
+Spacing
+====================================*/
 
-
-    /*======================================================
-    Font Sizes
-======================================================*/
-
-    --fs-xs: .75rem;
-    --fs-sm: .875rem;
-    --fs-base: 1rem;
-    --fs-md: 1.125rem;
-    --fs-lg: 1.25rem;
-    --fs-xl: 1.5rem;
-    --fs-2xl: 2rem;
-    --fs-3xl: 2.5rem;
-    --fs-4xl: 3rem;
-    --fs-display: 4rem;
-
-
-    /*======================================================
-    Font Weights
-======================================================*/
-
-    --fw-light: 300;
-    --fw-normal: 400;
-    --fw-medium: 500;
-    --fw-semibold: 600;
-    --fw-bold: 700;
-    --fw-black: 800;
-
-
-    /*======================================================
-    Line Heights
-======================================================*/
-
-    --lh-tight: 1.2;
-    --lh-normal: 1.5;
-    --lh-relaxed: 1.8;
-
-
-    /*======================================================
-    Spacing System
-======================================================*/
-
+    --space-0: 0;
     --space-1: .25rem;
     --space-2: .5rem;
     --space-3: .75rem;
@@ -183,179 +104,84 @@
     --space-12: 3rem;
     --space-16: 4rem;
     --space-20: 5rem;
+    --space-24: 6rem;
 
+    /*====================================
+Container
+====================================*/
 
-    /*======================================================
-    Border Radius
-======================================================*/
+    --container-width: 1320px;
+    --container-padding: 1.5rem;
 
-    --radius-xs: 4px;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 18px;
-    --radius-xl: 24px;
-    --radius-pill: 999px;
-    --radius-circle: 50%;
-    --radius-2xl: 32px;
-    --radius-3xl: 48px;
+    /*====================================
+Typography
+====================================*/
 
+    --font-family: "Poppins", sans-serif;
 
-    /*======================================================
-    Shadows
-======================================================*/
+    --font-xs: .75rem;
+    --font-sm: .875rem;
+    --font-md: 1rem;
+    --font-lg: 1.125rem;
+    --font-xl: 1.25rem;
+    --font-2xl: 1.5rem;
+    --font-3xl: 2rem;
+    --font-4xl: 2.75rem;
+    --font-5xl: 3.5rem;
 
-    --shadow-xs: 0 2px 6px rgba(0, 0, 0, .05);
-    --shadow-sm: 0 4px 12px rgba(0, 0, 0, .08);
-    --shadow-md: 0 10px 30px rgba(0, 0, 0, .12);
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, .18);
-    --shadow-xl: 0 30px 70px rgba(0, 0, 0, .24);
-    --shadow-primary: 0 15px 35px rgba(47, 128, 237, .25);
-    --shadow-card: 0 8px 30px rgba(15, 23, 42, .08);
-    --shadow-hover: 0 20px 45px rgba(15, 23, 42, .15);
-    --shadow-glass: 0 10px 35px rgba(255, 255, 255, .15);
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --weight-black: 800;
 
+    /*====================================
+Line Height
+====================================*/
 
-    /*======================================================
-    Transitions
-======================================================*/
+    --line-tight: 1.2;
+    --line-normal: 1.5;
+    --line-relaxed: 1.8;
+
+    /*====================================
+Shadows
+====================================*/
+
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, .05);
+    --shadow-sm: 0 4px 10px rgba(15, 23, 42, .08);
+    --shadow-md: 0 10px 30px rgba(15, 23, 42, .10);
+    --shadow-lg: 0 20px 45px rgba(15, 23, 42, .15);
+    --shadow-xl: 0 30px 60px rgba(15, 23, 42, .18);
+
+    /*====================================
+Transitions
+====================================*/
 
     --transition-fast: .2s ease;
     --transition-normal: .35s ease;
-    --transition-slow: .6s ease;
-    --transition-bounce: .5s cubic-bezier(.68, -0.6, .32, 1.6);
+    --transition-slow: .55s ease;
 
+    /*====================================
+Z-Index
+====================================*/
 
-    /*======================================================
-    Easing
-======================================================*/
-
-    --ease-linear: linear;
-    --ease-in: ease-in;
-    --ease-out: ease-out;
-    --ease-in-out: ease-in-out;
-
-    --ease-bounce: cubic-bezier(.68, -0.6, .32, 1.6);
-
-    --ease-smooth: cubic-bezier(.4, 0, .2, 1);
-
-
-    /*======================================================
-    Z-Index Scale
-======================================================*/
-
+    --z-base: 1;
     --z-dropdown: 100;
     --z-sticky: 500;
     --z-fixed: 700;
     --z-modal: 900;
-    --z-toast: 950;
-    --z-loader: 999;
-    --z-tooltip: 1000;
+    --z-toast: 1000;
+    --z-loader: 1200;
 
+    /*====================================
+Breakpoints
+====================================*/
 
-    /*======================================================
-    Containers
-======================================================*/
+    --screen-sm: 576px;
+    --screen-md: 768px;
+    --screen-lg: 992px;
+    --screen-xl: 1200px;
+    --screen-2xl: 1400px;
 
-    --container-sm: 540px;
-    --container-md: 768px;
-    --container-lg: 992px;
-    --container-xl: 1200px;
-    --container-xxl: 1400px;
-
-
-    /*======================================================
-    Responsive Breakpoints
-======================================================*/
-
-    --mobile: 576px;
-    --tablet: 768px;
-    --laptop: 992px;
-    --desktop: 1200px;
-    --wide: 1440px;
-
-
-    /*======================================================
-    ResiMotion Animation Timing
-======================================================*/
-
-    --motion-fast: .25s;
-    --motion-normal: .45s;
-    --motion-slow: .8s;
-
-
-    /*======================================================
-    Dashboard
-======================================================*/
-
-    --dashboard-blue: #2F80ED;
-    --dashboard-green: #22C55E;
-    --dashboard-yellow: #F59E0B;
-    --dashboard-red: #EF4444;
-    --dashboard-purple: #7C3AED;
-    --dashboard-cyan: #06B6D4;
-
-
-    /*======================================================
-    Charts
-======================================================*/
-
-    --chart-1: #2F80ED;
-    --chart-2: #22C55E;
-    --chart-3: #F59E0B;
-    --chart-4: #EF4444;
-    --chart-5: #8B5CF6;
-    --chart-6: #06B6D4;
-
-
-    /*======================================================
-    Status Backgrounds
-======================================================*/
-
-    --success-bg: #ECFDF5;
-    --warning-bg: #FFFBEB;
-    --danger-bg: #FEF2F2;
-    --info-bg: #EFF6FF;
-
-    /*======================================================
-    Loader
-======================================================*/
-
-    --loader-track: #E5E7EB;
-    --loader-fill: #2F80ED;
-
-
-    /*======================================================
-    Icons
-======================================================*/
-
-    --icon-xs: 12px;
-    --icon-sm: 16px;
-    --icon-md: 20px;
-    --icon-lg: 24px;
-    --icon-xl: 32px;
-
-
-    /*======================================================
-    Header
-======================================================*/
-
-    --header-height: 72px;
-
-    --admin-header-height: 80px;
-
-
-    /*======================================================
-    Sidebar
-======================================================*/
-
-    --sidebar-width: 280px;
-
-    --sidebar-collapsed: 90px;
-
-
-    /*======================================================
-    Footer
-======================================================*/
-
-    --footer-height: 90px;
 }

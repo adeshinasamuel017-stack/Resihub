@@ -1,129 +1,105 @@
-/*======================================================
-    🎄 Christmas Theme
-======================================================*/
+/*====================================
+ResiHub UI
+Seasonal Theme
+Version: 2.0
+====================================*/
+
+/*====================================
+Christmas
+====================================*/
 
 [data-season="christmas"] {
 
-    --color-primary: #0F9D58;
-    --color-primary-dark: #087F46;
-    --color-primary-light: #34D399;
+    --color-primary: #16a34a;
+    --color-primary-light: #22c55e;
+    --color-primary-dark: #15803d;
 
-    --color-accent: #DC2626;
-
-    --gradient-primary:
-        linear-gradient(135deg, #0F9D58, #DC2626);
+    --color-accent: #dc2626;
 
 }
 
-
-/*======================================================
-    ❤️ Valentine's Theme
-======================================================*/
+/*====================================
+Valentine
+====================================*/
 
 [data-season="valentine"] {
 
-    --color-primary: #E91E63;
-    --color-primary-dark: #C2185B;
-    --color-primary-light: #F48FB1;
-
-    --color-accent: #FF6B81;
-
-    --gradient-primary:
-        linear-gradient(135deg, #E91E63, #FF6B81);
+    --color-primary: #ec4899;
+    --color-primary-light: #f472b6;
+    --color-primary-dark: #db2777;
 
 }
 
+/*====================================
+Spring
+====================================*/
 
-/*======================================================
-    🐣 Easter Theme
-======================================================*/
+[data-season="spring"] {
 
-[data-season="easter"] {
-
-    --color-primary: #8BC34A;
-    --color-primary-dark: #689F38;
-    --color-primary-light: #C5E1A5;
-
-    --color-accent: #FFD54F;
-
-    --gradient-primary:
-        linear-gradient(135deg, #8BC34A, #FFD54F);
+    --color-primary: #22c55e;
+    --color-primary-light: #4ade80;
+    --color-primary-dark: #16a34a;
 
 }
 
+/*====================================
+Summer
+====================================*/
 
-/*======================================================
-    🌙 Eid Theme
-======================================================*/
+[data-season="summer"] {
 
-[data-season="eid"] {
-
-    --color-primary: #00897B;
-    --color-primary-dark: #00695C;
-    --color-primary-light: #26A69A;
-
-    --color-accent: #FBC02D;
-
-    --gradient-primary:
-        linear-gradient(135deg, #00897B, #FBC02D);
+    --color-primary: #f59e0b;
+    --color-primary-light: #fbbf24;
+    --color-primary-dark: #d97706;
 
 }
 
+/*====================================
+Autumn
+====================================*/
 
-/*======================================================
-    🇳🇬 Independence Day
-======================================================*/
+[data-season="autumn"] {
 
-[data-season="nigeria"] {
-
-    --color-primary: #008751;
-    --color-primary-dark: #006B40;
-    --color-primary-light: #39B54A;
-
-    --color-accent: #FFFFFF;
-
-    --gradient-primary:
-        linear-gradient(135deg, #008751, #39B54A);
+    --color-primary: #ea580c;
+    --color-primary-light: #fb923c;
+    --color-primary-dark: #c2410c;
 
 }
 
-
-/*======================================================
-    🎃 Halloween
-======================================================*/
+/*====================================
+Halloween
+====================================*/
 
 [data-season="halloween"] {
 
-    --color-primary: #FF6F00;
-    --color-primary-dark: #E65100;
-    --color-primary-light: #FFB74D;
+    --color-primary: #f97316;
+    --color-primary-light: #fb923c;
+    --color-primary-dark: #ea580c;
 
-    --color-accent: #6A1B9A;
-
-    --gradient-primary:
-        linear-gradient(135deg, #FF6F00, #6A1B9A);
+    --color-accent: #111827;
 
 }
 
-
-/*======================================================
-    🎆 New Year
-======================================================*/
+/*====================================
+New Year
+====================================*/
 
 [data-season="newyear"] {
 
-    --color-primary: #2962FF;
-    --color-primary-dark: #0039CB;
-    --color-primary-light: #82B1FF;
-
-    --color-accent: #FFD700;
-
-    --gradient-primary:
-        linear-gradient(135deg, #2962FF, #FFD700);
+    --color-primary: #3b82f6;
+    --color-primary-light: #60a5fa;
+    --color-primary-dark: #2563eb;
 
 }
 
+/*====================================
+Easter
+====================================*/
 
-/*======================================================
-    End of File
-======================================================*/
+[data-season="easter"] {
+
+    --color-primary: #8b5cf6;
+    --color-primary-light: #a78bfa;
+    --color-primary-dark: #7c3aed;
+
+}
