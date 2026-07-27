@@ -1,56 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
+
+  <!-- ========================================================= -->
+  <!-- BASIC META -->
+  <!-- ========================================================= -->
 
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-    content="Create your ResiHub student account to access verified accommodation, save favourite properties and connect directly with landlords.">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="keywords" content="ResiHub, Student Registration, Student Signup, Student Housing Nigeria, Accommodation">
+  <title>Student Registration | ResiHub Nigeria</title>
+
+  <meta name="description"
+    content="Create your ResiHub student account to discover verified student accommodation across Nigeria, save favourite properties, chat directly with landlords and manage bookings securely.">
+
+  <meta name="keywords"
+    content="ResiHub, Student Registration, Student Signup, Student Housing Nigeria, University Accommodation, Hostel Nigeria, Apartment, Student Account">
 
   <meta name="author" content="ResiHub">
 
-  <meta name="theme-color" content="#0F766E">
+  <meta name="robots" content="index, follow">
 
-  <title>Student Sign Up | ResiHub</title>
+  <meta name="theme-color" content="#0B6E4F">
 
-  <!-- Favicon -->
+  <meta name="application-name" content="ResiHub">
 
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <meta name="apple-mobile-web-app-title" content="ResiHub">
 
-  <!-- Font Awesome -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <meta name="format-detection" content="telephone=no">
+
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- ========================================================= -->
+  <!-- OPEN GRAPH -->
+  <!-- ========================================================= -->
+
+  <meta property="og:site_name" content="ResiHub">
+
+  <meta property="og:title" content="Student Registration | ResiHub Nigeria">
+
+  <meta property="og:description"
+    content="Create your ResiHub student account and discover verified student accommodation across Nigeria.">
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:url" content="https://www.resihub.com/student_signup.htm">
+
+  <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.png">
+
+  <meta property="og:image:alt" content="ResiHub Student Registration">
+
+  <meta property="og:locale" content="en_NG">
+
+  <!-- ========================================================= -->
+  <!-- TWITTER -->
+  <!-- ========================================================= -->
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="twitter:title" content="Student Registration | ResiHub Nigeria">
+
+  <meta name="twitter:description"
+    content="Create your ResiHub student account and access verified accommodation across Nigeria.">
+
+  <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.png">
+
+  <!-- ========================================================= -->
+  <!-- CANONICAL -->
+  <!-- ========================================================= -->
+
+  <link rel="canonical" href="https://www.resihub.com/student_signup.htm">
+
+  <!-- ========================================================= -->
+  <!-- FAVICON -->
+  <!-- ========================================================= -->
+
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+  <link rel="apple-touch-icon" href="../assets/images/favicon.png">
+
+  <!-- ========================================================= -->
+  <!-- FONT AWESOME -->
+  <!-- ========================================================= -->
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-  <!-- Main Stylesheet -->
+  <!-- ========================================================= -->
+  <!-- MAIN STYLESHEET -->
+  <!-- ========================================================= -->
 
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="../styles/style.css">
+
+  <!-- ========================================================= -->
+  <!-- STRUCTURED DATA -->
+  <!-- ========================================================= -->
+
+  <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"WebPage",
+      "name":"Student Registration",
+      "url":"https://www.resihub.com/student_signup.htm",
+      "description":"Create your ResiHub student account to browse verified student accommodation across Nigeria.",
+      "publisher":{
+        "@type":"Organization",
+        "name":"ResiHub",
+        "logo":{
+          "@type":"ImageObject",
+          "url":"https://www.resihub.com/assets/images/logo.png"
+        }
+      }
+    }
+    </script>
 
 </head>
 
 <body>
+
   <div id="scrollProgress"></div>
+
+  <!-- Floating Background -->
 
   <div class="floating-shapes" aria-hidden="true">
 
     <span class="shape shape-1"></span>
-
     <span class="shape shape-2"></span>
-
     <span class="shape shape-3"></span>
-
     <span class="shape shape-4"></span>
 
   </div>
+
+  <!-- =========================
+             HEADER
+    ========================== -->
+
   <header class="navbar">
 
     <div class="container">
 
-      <a href="index.htm" class="logo" aria-label="ResiHub Home">
+      <!-- Logo -->
+
+      <a href="../index.htm" class="logo" aria-label="ResiHub Home">
 
         <i class="fa-solid fa-house" aria-hidden="true"></i>
 
@@ -58,34 +153,44 @@
 
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation" aria-controls="mainNav"
+      <!-- Mobile Navigation -->
+
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle Navigation" aria-controls="mainNav"
         aria-expanded="false">
 
         <i class="fa-solid fa-bars"></i>
 
       </button>
 
+      <!-- Navigation -->
+
       <nav id="mainNav" aria-label="Primary Navigation">
 
         <ul class="nav-links">
 
-          <li><a href="index.htm">Home</a></li>
+          <li><a href="../index.htm">Home</a></li>
 
-          <li><a href="library.htm">Library</a></li>
+          <li><a href="../library.htm">Library</a></li>
 
-          <li><a href="universities.htm">Universities</a></li>
+          <li><a href="../universities.htm">Universities</a></li>
 
-          <li><a href="about.htm">About</a></li>
+          <li><a href="../about.htm">About</a></li>
 
-          <li><a href="contact.htm">Contact</a></li>
+          <li><a href="../contact.htm">Contact</a></li>
 
         </ul>
 
       </nav>
 
+      <!-- Breadcrumb -->
+
       <nav class="breadcrumb" aria-label="Breadcrumb">
 
-        <a href="index.htm">Home</a>
+        <a href="../index.htm">
+
+          Home
+
+        </a>
 
         <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
 
@@ -97,21 +202,23 @@
 
       </nav>
 
+      <!-- Action Buttons -->
+
       <div class="nav-actions">
 
-        <a href="student_login.htm" class="btn-primary magnetic-btn ripple-btn shine-btn">
+        <a href="../student_login.htm" class="btn-primary magnetic-btn ripple-btn shine-btn">
 
           Student Login
 
         </a>
 
-        <a href="landlord_login.htm" class="btn-primary magnetic-btn ripple-btn shine-btn">
+        <a href="../landlord_login.htm" class="btn-primary magnetic-btn ripple-btn shine-btn">
 
           Landlord Login
 
         </a>
 
-        <a href="create_listing.htm" class="btn-primary">
+        <a href="../create_listing.htm" class="btn-primary">
 
           <i class="fa-solid fa-house-circle-plus" aria-hidden="true"></i>
 
@@ -124,9 +231,14 @@
     </div>
 
   </header>
+
+  <!-- =========================
+              MAIN
+    ========================== -->
+
   <main>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
 
     <section class="auth-hero">
 
@@ -136,13 +248,17 @@
 
           <span class="page-badge floating-badge">
 
-            <i class="fa-solid fa-user-graduate"></i>
+            <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
 
             Student Registration
 
           </span>
 
-          <h1>Create Your Student Account</h1>
+          <h1>
+
+            Create Your Student Account
+
+          </h1>
 
           <p>
 
@@ -156,7 +272,7 @@
 
     </section>
 
-    <!-- Registration Section -->
+    <!-- Registration -->
 
     <section class="auth-section">
 
@@ -164,11 +280,15 @@
 
         <div class="auth-wrapper">
 
-          <!-- Left Information -->
+          <!-- Left Side -->
 
-          <div class="auth-info">
+          <aside class="auth-info">
 
-            <h2>Why Join ResiHub?</h2>
+            <h2>
+
+              Why Join ResiHub?
+
+            </h2>
 
             <div class="auth-feature">
 
@@ -178,7 +298,11 @@
 
                 <h4>Verified Listings</h4>
 
-                <p>Find trusted accommodation near your campus.</p>
+                <p>
+
+                  Find trusted accommodation near your campus.
+
+                </p>
 
               </div>
 
@@ -192,7 +316,11 @@
 
                 <h4>Direct Chat</h4>
 
-                <p>Talk directly with landlords before making payments.</p>
+                <p>
+
+                  Talk directly with landlords before making payments.
+
+                </p>
 
               </div>
 
@@ -206,7 +334,11 @@
 
                 <h4>Save Favorites</h4>
 
-                <p>Bookmark rooms you love.</p>
+                <p>
+
+                  Bookmark rooms you love.
+
+                </p>
 
               </div>
 
@@ -220,41 +352,59 @@
 
                 <h4>Easy Booking</h4>
 
-                <p>Schedule inspections with just a few clicks.</p>
+                <p>
+
+                  Schedule inspections with just a few clicks.
+
+                </p>
 
               </div>
 
             </div>
 
-          </div>
+          </aside>
 
-          <!-- Registration Card -->
+          <!-- Signup Card -->
 
-          <div class="auth-card">
+          <section class="auth-card">
+
+            <!-- Social Login -->
 
             <div class="social-auth">
 
-              <button type="button" id="googleSignupBtn" class="social-btn">
+              <button id="googleSignupBtn" class="social-btn" type="button">
 
                 <i class="fa-brands fa-google"></i>
 
-                <span>Continue with Google</span>
+                <span>
+
+                  Continue with Google
+
+                </span>
 
               </button>
 
-              <button type="button" id="microsoftSignupBtn" class="social-btn">
+              <button id="microsoftSignupBtn" class="social-btn" type="button">
 
                 <i class="fa-brands fa-microsoft"></i>
 
-                <span>Continue with Microsoft</span>
+                <span>
+
+                  Continue with Microsoft
+
+                </span>
 
               </button>
 
-              <button type="button" id="appleSignupBtn" class="social-btn">
+              <button id="appleSignupBtn" class="social-btn" type="button">
 
                 <i class="fa-brands fa-apple"></i>
 
-                <span>Continue with Apple</span>
+                <span>
+
+                  Continue with Apple
+
+                </span>
 
               </button>
 
@@ -268,41 +418,67 @@
 
             <div id="signupMessage" class="form-message"></div>
 
+            <!-- Registration Form -->
+
             <form id="studentSignupForm" autocomplete="off">
+
+              <!-- Full Name -->
 
               <div class="form-group">
 
-                <label for="fullName">Full Name</label>
+                <label for="fullName">
+
+                  Full Name
+
+                </label>
 
                 <input type="text" id="fullName" name="fullName" required>
 
               </div>
 
+              <!-- Email -->
+
               <div class="form-group">
 
-                <label for="email">Email Address</label>
+                <label for="email">
+
+                  Email Address
+
+                </label>
 
                 <input type="email" id="email" name="email" required>
 
               </div>
 
+              <!-- Phone -->
+
               <div class="form-group">
 
-                <label for="phone">Phone Number</label>
+                <label for="phone">
+
+                  Phone Number
+
+                </label>
 
                 <input type="tel" id="phone" name="phone" required>
 
               </div>
 
+              <!-- Password -->
+
               <div class="form-group">
 
-                <label for="password">Password</label>
+                <label for="password">
+
+                  Password
+
+                </label>
 
                 <div class="password-box">
 
                   <input type="password" id="password" name="password" required>
 
-                  <button type="button" id="togglePassword">
+                  <button id="togglePassword" type="button">
 
                     <i class="fa-solid fa-eye"></i>
 
@@ -324,6 +500,8 @@
 
               </div>
 
+              <!-- Confirm Password -->
+
               <div class="form-group">
 
                 <label for="confirmPassword">
@@ -336,7 +514,7 @@
 
                   <input type="password" id="confirmPassword" name="confirmPassword" required>
 
-                  <button type="button" id="toggleConfirmPassword">
+                  <button id="toggleConfirmPassword" type="button">
 
                     <i class="fa-solid fa-eye"></i>
 
@@ -345,6 +523,8 @@
                 </div>
 
               </div>
+
+              <!-- Gender -->
 
               <div class="form-group">
 
@@ -362,11 +542,17 @@
 
                   <option value="female">Female</option>
 
-                  <option value="other">Prefer not to say</option>
+                  <option value="other">
+
+                    Prefer not to say
+
+                  </option>
 
                 </select>
 
               </div>
+
+              <!-- DOB -->
 
               <div class="form-group">
 
@@ -381,6 +567,8 @@
                 <input type="date" id="dateOfBirth" name="dateOfBirth">
 
               </div>
+
+              <!-- Photo Upload -->
 
               <div class="form-group">
 
@@ -404,9 +592,17 @@
 
                     </div>
 
-                    <h4>Upload Profile Photo</h4>
+                    <h4>
 
-                    <p>Click or drag an image here</p>
+                      Upload Profile Photo
+
+                    </h4>
+
+                    <p>
+
+                      Click or drag an image here
+
+                    </p>
 
                     <small>
 
@@ -420,15 +616,17 @@
 
               </div>
 
+              <!-- Terms -->
+
               <div class="checkbox-group">
 
                 <label>
 
-                  <input type="checkbox" id="agreeTerms" required>
+                  <input id="agreeTerms" type="checkbox" required>
 
                   I agree to the
 
-                  <a href="terms.htm">
+                  <a href="../terms.htm">
 
                     Terms
 
@@ -436,7 +634,7 @@
 
                   and
 
-                  <a href="privacy.htm">
+                  <a href="../privacy.htm">
 
                     Privacy Policy
 
@@ -446,7 +644,9 @@
 
               </div>
 
-              <button type="submit" class="btn-primary auth-submit">
+              <!-- Submit -->
+
+              <button class="btn-primary auth-submit" type="submit">
 
                 Create Account
 
@@ -456,7 +656,7 @@
 
                 Already have an account?
 
-                <a href="student_login.htm">
+                <a href="../student_login.htm">
 
                   Login
 
@@ -466,7 +666,7 @@
 
             </form>
 
-          </div>
+          </section>
 
         </div>
 
@@ -475,164 +675,16 @@
     </section>
 
   </main>
-  <!-- FOOTER -->
-  <footer class="footer reveal fade-up">
 
-    <div class="footer-container">
+  <!-- Footer -->
 
-      <!-- About -->
-
-      <section class="footer-about">
-
-        <h2>ResiHub</h2>
-
-        <p>
-          Helping students find safe, secure and affordable accommodation near universities across Nigeria.
-        </p>
-
-      </section>
-
-      <!-- Quick Links -->
-
-      <nav class="footer-links" aria-label="Quick Links">
-
-        <h3>Quick Links</h3>
-
-        <ul>
-
-          <li>
-            <a href="index.htm">Home</a>
-          </li>
-
-          <li>
-            <a href="browse_rooms.htm">Browse Rooms</a>
-          </li>
-
-          <li>
-            <a href="universities.htm">Universities</a>
-          </li>
-
-          <li>
-            <a href="about.htm">About</a>
-          </li>
-
-          <li>
-            <a href="contact.htm">Contact</a>
-          </li>
-
-        </ul>
-
-      </nav>
-
-      <!-- Support -->
-
-      <nav class="footer-links" aria-label="Support">
-
-        <h3>Support</h3>
-
-        <ul>
-
-          <li>
-            <a href="privacy.htm">Privacy Policy</a>
-          </li>
-
-          <li>
-            <a href="terms.htm">Terms &amp; Conditions</a>
-          </li>
-
-          <li>
-            <a href="faq.htm">FAQs</a>
-          </li>
-
-        </ul>
-
-      </nav>
-
-      <!-- Social Media -->
-
-      <nav class="footer-links" aria-label="Follow ResiHub">
-
-        <h3>Follow Us</h3>
-
-        <ul>
-
-          <li>
-
-            <a id="facebookLink" href="#" aria-label="Follow ResiHub on Facebook">
-
-              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-
-              Facebook
-
-            </a>
-
-          </li>
-
-          <li>
-
-            <a id="instagramLink" href="#" aria-label="Follow ResiHub on Instagram">
-
-              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-
-              Instagram
-
-            </a>
-
-          </li>
-
-          <li>
-
-            <a id="linkedinLink" href="#" aria-label="Follow ResiHub on LinkedIn">
-
-              <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-
-              LinkedIn
-
-            </a>
-
-          </li>
-
-          <li>
-
-            <a id="twitterLink" href="#" aria-label="Follow ResiHub on X">
-
-              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-
-              X (Twitter)
-
-            </a>
-
-          </li>
-
-        </ul>
-
-      </nav>
-
-    </div>
-
-    <!-- Footer Bottom -->
-
-    <div class="footer-bottom">
-
-      <small>
-
-        &copy; 2026 ResiHub. All Rights Reserved.
-
-      </small>
-
-    </div>
-
-  </footer>
   <button id="backToTop" class="back-to-top" aria-label="Back to top">
 
     <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
 
   </button>
-  <!-- JavaScript -->
 
-  <script type="module" src="js/student_signup.js" defer>
-
-  </script>
+  <script type="module" src="../student_signup.js" defer></script>
 
 </body>
 
