@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- ==========================================
+         Basic Meta Information
+    =========================================== -->
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +24,9 @@
 
     <link rel="canonical" href="https://www.resihub.com/admin_reports.htm">
 
-    <!-- Open Graph -->
+    <!-- ==========================================
+         Open Graph
+    =========================================== -->
 
     <meta property="og:type" content="website">
 
@@ -33,7 +39,9 @@
 
     <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <!-- Twitter -->
+    <!-- ==========================================
+         Twitter
+    =========================================== -->
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -43,16 +51,39 @@
 
     <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- ==========================================
+         Favicon
+    =========================================== -->
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <!-- ==========================================
+         Fonts & Icons
+    =========================================== -->
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <!-- ==========================================
+         Master Stylesheet
+    =========================================== -->
+
     <link rel="stylesheet" href="../styles/style.css">
+
 </head>
 
 <body>
 
+    <!-- ==========================================
+         Scroll Progress
+    =========================================== -->
+
     <div id="scrollProgress"></div>
+
+    <!-- ==========================================
+         Floating Background Shapes
+    =========================================== -->
 
     <div class="floating-shapes" aria-hidden="true">
 
@@ -65,19 +96,31 @@
         <span class="shape shape-4"></span>
 
     </div>
-    <!-- HEADER / NAVIGATION -->
+
+    <!-- ==========================================
+         Dynamic Admin Header
+    =========================================== -->
 
     <div id="header"></div>
 
-    <main>
+    <!-- ==========================================
+         Main Content
+    =========================================== -->
 
-        <section id="admin-reports-content" class="auth-section reveal fade-up">
+    <main id="mainContent" class="page-transition">
 
-            <div class="container">
+        <section id="admin-reports-content"
+            class="auth-section reveal fade-up page-section glass-reveal floating-section">
 
-                <div class="section-header">
+            <div class="container page-container">
 
-                    <span class="page-badge floating-badge">
+                <!-- ==========================
+                     Page Header
+                =========================== -->
+
+                <header class="section-header">
+
+                    <span class="page-badge floating-badge glass-card">
 
                         <i class="fa-solid fa-flag"></i>
 
@@ -89,193 +132,262 @@
 
                     <p>
 
-                        Review complaints submitted by students and landlords, investigate reported users or listings,
+                        Review complaints submitted by students and landlords,
+                        investigate reported users or listings,
                         and take appropriate moderation actions.
 
                     </p>
 
-                </div>
+                </header>
 
-                <!-- Report Statistics -->
+                <!-- ==========================
+                     Statistics
+                =========================== -->
 
-                <div class="dashboard-stats">
+                <section class="dashboard-section statistics-section glass-reveal">
 
-                    <div class="stat-card">
+                    <div class="dashboard-grid statistics-grid">
 
-                        <i class="fa-solid fa-flag"></i>
+                        <article class="dashboard-card statistics-card floating-card glass-card">
 
-                        <h3 id="totalReports">0</h3>
+                            <div class="card-icon">
 
-                        <p>Total Reports</p>
+                                <i class="fa-solid fa-flag"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="totalReports" class="count-up">0</h3>
+
+                                <p>Total Reports</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-hourglass-half"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="pendingReports" class="count-up">0</h3>
+
+                                <p>Pending</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="resolvedReports" class="count-up">0</h3>
+
+                                <p>Resolved</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-ban"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="suspendedAccounts" class="count-up">0</h3>
+
+                                <p>Suspended Accounts</p>
+
+                            </div>
+
+                        </article>
 
                     </div>
 
-                    <div class="stat-card">
+                </section>
 
-                        <i class="fa-solid fa-hourglass-half"></i>
+                <!-- ==========================
+                     Search & Filters
+                =========================== -->
 
-                        <h3 id="pendingReports">0</h3>
+                <section class="filter-section glass-card">
 
-                        <p>Pending</p>
+                    <form id="reportFilterForm" class="filter-form liquid-form" role="search"
+                        aria-label="Filter Reports">
+
+                        <div class="liquid-group">
+
+                            <label class="visually-hidden" for="reportSearch">
+
+                                Search Reports
+
+                            </label>
+
+                            <input type="search" id="reportSearch" name="reportSearch" class="liquid-input"
+                                placeholder="Search by user, listing or report ID..." autocomplete="off">
+
+                        </div>
+
+                        <div class="liquid-group">
+
+                            <select id="reportStatus" name="reportStatus" class="liquid-input">
+
+                                <option value="">All Statuses</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Investigating">Investigating</option>
+                                <option value="Resolved">Resolved</option>
+                                <option value="Dismissed">Dismissed</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="liquid-group">
+
+                            <select id="reportType" name="reportType" class="liquid-input">
+
+                                <option value="">All Report Types</option>
+                                <option value="Listing">Listing</option>
+                                <option value="Landlord">Landlord</option>
+                                <option value="Student">Student</option>
+                                <option value="Payment">Payment</option>
+                                <option value="Spam">Spam</option>
+                                <option value="Fraud">Fraud</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="liquid-group">
+
+                            <select id="reportPriority" name="reportPriority" class="liquid-input">
+
+                                <option value="">All Priorities</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Critical">Critical</option>
+
+                            </select>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+                <!-- ==========================
+                     Reports Grid
+                =========================== -->
+
+                <section class="dashboard-section glass-reveal">
+
+                    <div id="reportsGrid" class="reports-grid" aria-live="polite">
+
+                        <!-- Reports loaded dynamically -->
 
                     </div>
 
-                    <div class="stat-card">
+                </section>
 
-                        <i class="fa-solid fa-circle-check"></i>
+                <!-- ==========================
+                     Report Details
+                =========================== -->
 
-                        <h3 id="resolvedReports">0</h3>
+                <section id="reportDetails" class="dashboard-section details-card glass-card hidden">
 
-                        <p>Resolved</p>
+                    <header class="section-header">
 
-                    </div>
+                        <h2>Report Details</h2>
 
-                    <div class="stat-card">
-
-                        <i class="fa-solid fa-ban"></i>
-
-                        <h3 id="suspendedAccounts">0</h3>
-
-                        <p>Suspended Accounts</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Search & Filters -->
-
-                <form id="reportFilterForm" class="filter-form" role="search" aria-label="Filter Reports">
-
-                    <label class="visually-hidden" for="reportSearch">
-
-                        Search Reports
-
-                    </label>
-
-                    <input type="search" id="reportSearch" name="reportSearch"
-                        placeholder="Search by user, listing or report ID..." autocomplete="off">
-
-                    <select id="reportStatus" name="reportStatus">
-
-                        <option value="">All Statuses</option>
-
-                        <option value="Pending">Pending</option>
-
-                        <option value="Investigating">Investigating</option>
-
-                        <option value="Resolved">Resolved</option>
-
-                        <option value="Dismissed">Dismissed</option>
-
-                    </select>
-
-                    <select id="reportType" name="reportType">
-
-                        <option value="">All Report Types</option>
-
-                        <option value="Listing">Listing</option>
-
-                        <option value="Landlord">Landlord</option>
-
-                        <option value="Student">Student</option>
-
-                        <option value="Payment">Payment</option>
-
-                        <option value="Spam">Spam</option>
-
-                        <option value="Fraud">Fraud</option>
-
-                    </select>
-
-                    <select id="reportPriority" name="reportPriority">
-
-                        <option value="">All Priorities</option>
-
-                        <option value="Low">Low</option>
-
-                        <option value="Medium">Medium</option>
-
-                        <option value="High">High</option>
-
-                        <option value="Critical">Critical</option>
-
-                    </select>
-
-                </form>
-
-                <!-- Reports -->
-
-                <div id="reportsGrid" class="reports-grid" aria-live="polite">
-
-                    <!-- Reports loaded dynamically -->
-
-                </div>
-
-                <!-- Report Details -->
-
-                <section id="reportDetails" class="details-card hidden">
-
-                    <h2>Report Details</h2>
+                    </header>
 
                     <div id="reportInformation">
 
-                        <!-- Dynamic content -->
+                        <!-- Dynamic Content -->
 
                     </div>
 
                 </section>
 
-                <!-- Moderator Notes -->
+                <!-- ==========================
+                     Moderator Notes
+                =========================== -->
 
-                <section class="details-card">
+                <section class="dashboard-section details-card glass-card">
 
-                    <h2>Moderator Notes</h2>
+                    <header class="section-header">
 
-                    <textarea id="moderatorNotes" rows="6" placeholder="Enter investigation notes..."></textarea>
+                        <h2>Moderator Notes</h2>
+
+                    </header>
+
+                    <textarea id="moderatorNotes" class="liquid-input" rows="6"
+                        placeholder="Enter investigation notes..."></textarea>
 
                 </section>
 
-                <!-- Admin Actions -->
+                <!-- ==========================
+                     Admin Actions
+                =========================== -->
 
                 <div class="action-buttons">
 
-                    <button id="investigateBtn" class="btn-primary">
+                    <button id="investigateBtn" class="btn btn-primary azure-sweep ripple">
 
                         <i class="fa-solid fa-magnifying-glass"></i>
 
-                        Investigate
+                        <span>Investigate</span>
 
                     </button>
 
-                    <button id="resolveBtn" class="btn-primary">
+                    <button id="resolveBtn" class="btn btn-primary azure-sweep ripple">
 
                         <i class="fa-solid fa-circle-check"></i>
 
-                        Mark Resolved
+                        <span>Mark Resolved</span>
 
                     </button>
 
-                    <button id="dismissBtn" class="btn-outline">
+                    <button id="dismissBtn" class="btn btn-outline">
 
                         <i class="fa-solid fa-xmark"></i>
 
-                        Dismiss Report
+                        <span>Dismiss Report</span>
 
                     </button>
 
-                    <button id="suspendUserBtn" class="btn-danger">
+                    <button id="suspendUserBtn" class="btn btn-danger">
 
                         <i class="fa-solid fa-user-slash"></i>
 
-                        Suspend User
+                        <span>Suspend User</span>
 
                     </button>
 
-                    <button id="removeListingBtn" class="btn-danger">
+                    <button id="removeListingBtn" class="btn btn-danger">
 
                         <i class="fa-solid fa-trash"></i>
 
-                        Remove Listing
+                        <span>Remove Listing</span>
 
                     </button>
 
@@ -286,11 +398,18 @@
         </section>
 
     </main>
-    <!-- FOOTER -->
+    <!-- ==========================================
+         Dynamic Footer
+    =========================================== -->
 
     <div id="footer"></div>
 
+    <!-- ==========================================
+         JavaScript
+    =========================================== -->
+
     <script type="module" src="../js/loadAdmin.js"></script>
+
     <script type="module" src="../js/admin_reports.js"></script>
 
 </body>

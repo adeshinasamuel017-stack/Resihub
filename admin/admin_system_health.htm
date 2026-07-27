@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -43,11 +42,18 @@
 
     <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
+    <!-- Favicon -->
+
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Font Awesome -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <!-- Main Stylesheet -->
+
     <link rel="stylesheet" href="../styles/style.css">
+
 </head>
 
 <body>
@@ -66,13 +72,23 @@
 
     </div>
 
+    <!-- ==========================================
+         Dynamic Admin Header
+    =========================================== -->
+
     <div id="header"></div>
 
     <main>
 
+        <!-- ==========================================
+             System Health Dashboard
+        =========================================== -->
+
         <section id="systemHealthContent" class="auth-section reveal fade-up">
 
             <div class="container">
+
+                <!-- Page Header -->
 
                 <div class="section-header">
 
@@ -93,6 +109,8 @@
                     </p>
 
                 </div>
+
+                <!-- Health Statistics -->
 
                 <div class="dashboard-grid">
 
@@ -178,6 +196,8 @@
 
                 </div>
 
+                <!-- Live Monitoring -->
+
                 <section class="dashboard-section">
 
                     <div class="section-header">
@@ -194,6 +214,8 @@
 
                 </section>
 
+                <!-- Recent Alerts -->
+
                 <section class="dashboard-section">
 
                     <div class="section-header">
@@ -204,7 +226,7 @@
 
                     <div id="systemAlerts" class="notification-list">
 
-                        <!-- JavaScript -->
+                        <!-- Alerts loaded dynamically by JavaScript -->
 
                     </div>
 
@@ -215,10 +237,18 @@
         </section>
 
     </main>
+    <!-- ==========================================
+     Footer
+    =========================================== -->
 
     <div id="footer"></div>
 
+    <!-- ==========================================
+         JavaScript Modules
+    =========================================== -->
+
     <script type="module" src="../js/loadAdmin.js"></script>
+
     <script type="module" src="../js/admin_system_health.js"></script>
 
 </body>

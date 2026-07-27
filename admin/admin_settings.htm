@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
+
+    <!-- ==========================================
+         Basic Meta Information
+    =========================================== -->
 
     <meta charset="UTF-8">
 
@@ -21,7 +24,9 @@
 
     <link rel="canonical" href="https://www.resihub.com/admin_settings.htm">
 
-    <!-- Open Graph -->
+    <!-- ==========================================
+         Open Graph
+    =========================================== -->
 
     <meta property="og:type" content="website">
 
@@ -33,7 +38,9 @@
 
     <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <!-- Twitter -->
+    <!-- ==========================================
+         Twitter
+    =========================================== -->
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -43,16 +50,39 @@
 
     <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- ==========================================
+         Favicon
+    =========================================== -->
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <!-- ==========================================
+         Fonts & Icons
+    =========================================== -->
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <!-- ==========================================
+         Master Stylesheet
+    =========================================== -->
+
     <link rel="stylesheet" href="../styles/style.css">
+
 </head>
 
 <body>
 
+    <!-- ==========================================
+         Scroll Progress
+    =========================================== -->
+
     <div id="scrollProgress"></div>
+
+    <!-- ==========================================
+         Floating Background Shapes
+    =========================================== -->
 
     <div class="floating-shapes" aria-hidden="true">
 
@@ -65,19 +95,31 @@
         <span class="shape shape-4"></span>
 
     </div>
-    <!-- HEADER / NAVIGATION -->
+
+    <!-- ==========================================
+         Dynamic Admin Header
+    =========================================== -->
 
     <div id="header"></div>
 
-    <main>
+    <!-- ==========================================
+         Main Content
+    =========================================== -->
 
-        <section id="admin-settings-content" class="auth-section reveal fade-up">
+    <main id="mainContent" class="page-transition">
 
-            <div class="container">
+        <section id="admin-settings-content"
+            class="auth-section reveal fade-up page-section glass-reveal floating-section">
 
-                <div class="section-header">
+            <div class="container page-container">
 
-                    <span class="page-badge floating-badge">
+                <!-- ==========================
+                     Page Header
+                =========================== -->
+
+                <header class="section-header">
+
+                    <span class="page-badge floating-badge glass-card">
 
                         <i class="fa-solid fa-gears"></i>
 
@@ -89,24 +131,27 @@
 
                     <p>
 
-                        Configure platform preferences, administrator options,
-                        security, branding and system-wide settings.
+                        Configure platform preferences,
+                        administrator options, security,
+                        branding and system-wide settings.
 
                     </p>
 
-                </div>
+                </header>
 
                 <form id="adminSettingsForm">
 
-                    <!-- General Settings -->
+                    <!-- ==========================
+                         General Settings
+                    =========================== -->
 
-                    <section class="dashboard-section">
+                    <section class="dashboard-section glass-card">
 
-                        <div class="section-header">
+                        <header class="section-header">
 
                             <h2>General Settings</h2>
 
-                        </div>
+                        </header>
 
                         <div class="settings-grid">
 
@@ -176,15 +221,17 @@
 
                     </section>
 
-                    <!-- Security -->
+                    <!-- ==========================
+                         Security Settings
+                    =========================== -->
 
-                    <section class="dashboard-section">
+                    <section class="dashboard-section glass-card">
 
-                        <div class="section-header">
+                        <header class="section-header">
 
                             <h2>Security Settings</h2>
 
-                        </div>
+                        </header>
 
                         <div class="settings-grid">
 
@@ -224,15 +271,17 @@
 
                     </section>
 
-                    <!-- Notification Settings -->
+                    <!-- ==========================
+                         Notification Settings
+                    =========================== -->
 
-                    <section class="dashboard-section">
+                    <section class="dashboard-section glass-card">
 
-                        <div class="section-header">
+                        <header class="section-header">
 
                             <h2>Notification Settings</h2>
 
-                        </div>
+                        </header>
 
                         <div class="settings-grid">
 
@@ -272,15 +321,17 @@
 
                     </section>
 
-                    <!-- Branding -->
+                    <!-- ==========================
+                         Branding
+                    =========================== -->
 
-                    <section class="dashboard-section">
+                    <section class="dashboard-section glass-card">
 
-                        <div class="section-header">
+                        <header class="section-header">
 
                             <h2>Branding</h2>
 
-                        </div>
+                        </header>
 
                         <div class="settings-grid">
 
@@ -312,19 +363,21 @@
 
                     </section>
 
-                    <!-- Maintenance -->
+                    <!-- ==========================
+                         Maintenance
+                    =========================== -->
 
-                    <section class="dashboard-section">
+                    <section class="dashboard-section glass-card">
 
-                        <div class="section-header">
+                        <header class="section-header">
 
                             <h2>Maintenance</h2>
 
-                        </div>
+                        </header>
 
                         <div class="settings-grid">
 
-                            <button type="button" id="backupDatabaseBtn" class="btn-outline">
+                            <button type="button" id="backupDatabaseBtn" class="btn btn-outline">
 
                                 <i class="fa-solid fa-database"></i>
 
@@ -332,7 +385,7 @@
 
                             </button>
 
-                            <button type="button" id="restoreDatabaseBtn" class="btn-outline">
+                            <button type="button" id="restoreDatabaseBtn" class="btn btn-outline">
 
                                 <i class="fa-solid fa-clock-rotate-left"></i>
 
@@ -340,7 +393,7 @@
 
                             </button>
 
-                            <button type="button" id="clearCacheBtn" class="btn-outline">
+                            <button type="button" id="clearCacheBtn" class="btn btn-outline">
 
                                 <i class="fa-solid fa-broom"></i>
 
@@ -352,23 +405,25 @@
 
                     </section>
 
-                    <!-- Action Buttons -->
+                    <!-- ==========================
+                         Action Buttons
+                    =========================== -->
 
                     <div class="action-buttons">
 
-                        <button type="submit" id="saveSettingsBtn" class="btn-primary">
+                        <button type="submit" id="saveSettingsBtn" class="btn btn-primary azure-sweep ripple">
 
                             <i class="fa-solid fa-floppy-disk"></i>
 
-                            Save Settings
+                            <span>Save Settings</span>
 
                         </button>
 
-                        <button type="reset" class="btn-outline">
+                        <button type="reset" class="btn btn-outline">
 
                             <i class="fa-solid fa-rotate-left"></i>
 
-                            Reset
+                            <span>Reset</span>
 
                         </button>
 
@@ -381,11 +436,18 @@
         </section>
 
     </main>
-    <!-- FOOTER -->
+    <!-- ==========================================
+         Dynamic Footer
+    =========================================== -->
 
     <div id="footer"></div>
 
+    <!-- ==========================================
+         JavaScript
+    =========================================== -->
+
     <script type="module" src="../js/loadAdmin.js"></script>
+
     <script type="module" src="../js/admin_settings.js"></script>
 
 </body>

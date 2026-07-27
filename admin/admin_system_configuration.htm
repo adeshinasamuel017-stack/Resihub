@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
+    <!-- ==========================================
+         Character Encoding
+    =========================================== -->
     <meta charset="UTF-8">
 
+    <!-- ==========================================
+         Responsive Viewport
+    =========================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- ==========================================
+         Basic SEO
+    =========================================== -->
     <title>Admin System Configuration | ResiHub</title>
 
     <meta name="description"
@@ -21,6 +29,9 @@
 
     <link rel="canonical" href="https://www.resihub.com/admin_system_configuration.htm">
 
+    <!-- ==========================================
+         Open Graph
+    =========================================== -->
     <meta property="og:type" content="website">
 
     <meta property="og:title" content="Admin System Configuration | ResiHub">
@@ -31,6 +42,9 @@
 
     <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
+    <!-- ==========================================
+         Twitter Card
+    =========================================== -->
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="twitter:title" content="Admin System Configuration | ResiHub">
@@ -39,11 +53,21 @@
 
     <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <!-- ==========================================
+         Favicon
+    =========================================== -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 
+    <!-- ==========================================
+         Font Awesome Icons
+    =========================================== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <!-- ==========================================
+         Global Stylesheet
+    =========================================== -->
     <link rel="stylesheet" href="../styles/style.css">
+
 </head>
 
 <body>
@@ -62,13 +86,23 @@
 
     </div>
 
+    <!-- ==========================================
+         Dynamic Admin Header
+    =========================================== -->
+
     <div id="header"></div>
 
     <main>
 
+        <!-- ==========================================
+             System Configuration Section
+        =========================================== -->
+
         <section id="systemConfigurationContent" class="auth-section reveal fade-up">
 
             <div class="container">
+
+                <!-- Page Header -->
 
                 <div class="section-header">
 
@@ -90,7 +124,13 @@
 
                 </div>
 
+                <!-- ==========================================
+                     Configuration Form
+                =========================================== -->
+
                 <form id="systemSettingsForm">
+
+                    <!-- General Settings -->
 
                     <h2>General Settings</h2>
 
@@ -102,6 +142,8 @@
 
                     <hr>
 
+                    <!-- Branding -->
+
                     <h2>Branding</h2>
 
                     <input type="file" id="logoUpload">
@@ -111,6 +153,8 @@
                     <input type="color" id="primaryColor">
 
                     <hr>
+
+                    <!-- Maintenance -->
 
                     <h2>Maintenance</h2>
 
@@ -125,6 +169,8 @@
                     <textarea id="maintenanceMessage" rows="4" placeholder="Maintenance message..."></textarea>
 
                     <hr>
+
+                    <!-- Google Maps -->
 
                     <h2>Google Maps & Live Location</h2>
 
@@ -156,6 +202,8 @@
 
                     <hr>
 
+                    <!-- Payment Gateway -->
+
                     <h2>Payment Gateway</h2>
 
                     <input type="text" id="paystackKey" placeholder="Paystack Public Key">
@@ -172,6 +220,8 @@
 
                     <hr>
 
+                    <!-- Email Configuration -->
+
                     <h2>Email Configuration</h2>
 
                     <input type="text" id="smtpHost" placeholder="SMTP Host">
@@ -181,6 +231,8 @@
                     <input type="email" id="smtpEmail" placeholder="SMTP Email">
 
                     <hr>
+
+                    <!-- Security -->
 
                     <h2>Security</h2>
 
@@ -210,15 +262,37 @@
 
                     <hr>
 
+                    <!-- Notifications -->
+
                     <h2>Notifications</h2>
 
-                    <label><input type="checkbox"> Email Notifications</label>
+                    <label>
 
-                    <label><input type="checkbox"> SMS Notifications</label>
+                        <input type="checkbox">
 
-                    <label><input type="checkbox"> Push Notifications</label>
+                        Email Notifications
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        SMS Notifications
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Push Notifications
+
+                    </label>
 
                     <hr>
+
+                    <!-- Social Media -->
 
                     <h2>Social Media</h2>
 
@@ -231,6 +305,8 @@
                     <input type="url" placeholder="X (Twitter) URL">
 
                     <hr>
+
+                    <!-- Form Actions -->
 
                     <div class="form-actions">
 
@@ -257,10 +333,18 @@
         </section>
 
     </main>
+    <!-- ==========================================
+         Footer
+    =========================================== -->
 
     <div id="footer"></div>
 
+    <!-- ==========================================
+         JavaScript Modules
+    =========================================== -->
+
     <script type="module" src="../js/loadAdmin.js"></script>
+
     <script type="module" src="../js/admin_system_configuration.js"></script>
 
 </body>

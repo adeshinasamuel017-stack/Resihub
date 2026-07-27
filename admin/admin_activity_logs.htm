@@ -3,20 +3,23 @@
 
 <head>
 
-    <!-- ==========================================
-         Basic Meta Information
-    =========================================== -->
+    <!-- =========================================================
+         BASIC META
+    ========================================================== -->
 
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <title>Admin Activity Logs | ResiHub</title>
 
     <meta name="description"
-        content="Monitor administrator activities, security events and system operations across the ResiHub platform.">
+        content="Monitor administrator activities, security events, system logs and audit history across the ResiHub platform.">
 
-    <meta name="keywords" content="ResiHub, Admin Activity Logs, Administrator, Audit Logs, Security">
+    <meta name="keywords"
+        content="ResiHub, Admin Activity Logs, Audit Logs, Administrator, Security Logs, Activity History">
 
     <meta name="author" content="ResiHub">
 
@@ -24,47 +27,71 @@
 
     <link rel="canonical" href="https://www.resihub.com/admin_activity_logs.htm">
 
-    <!-- ==========================================
-         Open Graph
-    =========================================== -->
+    <!-- =========================================================
+         OPEN GRAPH
+    ========================================================== -->
 
     <meta property="og:type" content="website">
 
+    <meta property="og:site_name" content="ResiHub">
+
     <meta property="og:title" content="Admin Activity Logs | ResiHub">
 
-    <meta property="og:description" content="Track administrator actions and platform activities.">
+    <meta property="og:description"
+        content="Track administrator actions, security events and audit records across the ResiHub platform.">
 
     <meta property="og:url" content="https://www.resihub.com/admin_activity_logs.htm">
 
     <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <!-- ==========================================
-         Twitter
-    =========================================== -->
+    <!-- =========================================================
+         TWITTER
+    ========================================================== -->
 
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="twitter:title" content="Admin Activity Logs | ResiHub">
 
-    <meta name="twitter:description" content="Monitor administrator activities across the platform.">
+    <meta name="twitter:description" content="Administrator activity logs and platform audit history.">
 
     <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <!-- ==========================================
-         Favicon
-    =========================================== -->
+    <!-- =========================================================
+         THEME
+    ========================================================== -->
+
+    <meta name="theme-color" content="#0f766e">
+
+    <meta name="color-scheme" content="light">
+
+    <!-- =========================================================
+         FAVICON
+    ========================================================== -->
 
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 
-    <!-- ==========================================
-         Fonts & Icons
-    =========================================== -->
+    <link rel="apple-touch-icon" href="../assets/images/favicon.png">
+
+    <!-- =========================================================
+         GOOGLE FONTS
+    ========================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- =========================================================
+         FONT AWESOME
+    ========================================================== -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- ==========================================
-         ResiHub Styles
-    =========================================== -->
+    <!-- =========================================================
+         RESIHUB GLOBAL CSS
+    ========================================================== -->
 
     <link rel="stylesheet" href="../styles/style.css">
 
@@ -79,7 +106,7 @@
     <div id="scrollProgress"></div>
 
     <!-- ==========================================
-         Floating Background Shapes
+         Floating Background
     =========================================== -->
 
     <div class="floating-shapes" aria-hidden="true">
@@ -95,7 +122,7 @@
     </div>
 
     <!-- ==========================================
-         Header
+         Global Header
     =========================================== -->
 
     <div id="header"></div>
@@ -105,6 +132,7 @@
     =========================================== -->
 
     <main id="mainContent" class="page-transition">
+
         <section id="activityLogsContent" class="page-section glass-reveal floating-section">
 
             <div class="container page-container">
@@ -127,8 +155,8 @@
 
                     <p>
 
-                        Monitor every administrator action performed across the
-                        ResiHub platform.
+                        Monitor every administrator action performed across
+                        the ResiHub platform.
 
                     </p>
 
@@ -144,14 +172,13 @@
                     <div class="liquid-group">
 
                         <input type="search" id="activitySearch" class="liquid-input"
-                            placeholder="Search administrator or action..." autocomplete="off"
-                            aria-label="Search administrator">
+                            placeholder="Search administrator, action or module..." autocomplete="off">
 
                     </div>
 
                     <div class="liquid-group">
 
-                        <select id="activityAdmin" class="liquid-input" aria-label="Administrator">
+                        <select id="activityAdmin" class="liquid-input">
 
                             <option value="">All Administrators</option>
 
@@ -161,7 +188,7 @@
 
                     <div class="liquid-group">
 
-                        <select id="activityType" class="liquid-input" aria-label="Activity Type">
+                        <select id="activityType" class="liquid-input">
 
                             <option value="">All Activities</option>
 
@@ -185,11 +212,11 @@
 
                     <div class="liquid-group">
 
-                        <input type="date" id="activityDate" class="liquid-input" aria-label="Activity Date">
+                        <input type="date" id="activityDate" class="liquid-input">
 
                     </div>
 
-                    <button type="button" id="exportLogsBtn" class="btn btn-primary azure-sweep ripple">
+                    <button type="button" id="exportLogsBtn" class="btn btn-primary ripple">
 
                         <i class="fa-solid fa-file-export"></i>
 
@@ -198,15 +225,16 @@
                     </button>
 
                 </form>
+
                 <!-- ==========================================
-                     Dashboard Statistics
+                     Statistics
                 =========================================== -->
 
-                <section class="dashboard-section statistics-section glass-reveal">
+                <section class="dashboard-section statistics-section">
 
                     <div class="dashboard-grid statistics-grid">
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                        <article class="dashboard-card statistics-card">
 
                             <div class="card-icon">
 
@@ -216,11 +244,7 @@
 
                             <div class="card-content">
 
-                                <h3 id="totalActivities" class="count-up">
-
-                                    0
-
-                                </h3>
+                                <h3 id="totalActivities">0</h3>
 
                                 <p>Total Activities</p>
 
@@ -228,7 +252,7 @@
 
                         </article>
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                        <article class="dashboard-card statistics-card">
 
                             <div class="card-icon">
 
@@ -238,11 +262,7 @@
 
                             <div class="card-content">
 
-                                <h3 id="activeAdmins" class="count-up">
-
-                                    0
-
-                                </h3>
+                                <h3 id="activeAdmins">0</h3>
 
                                 <p>Active Administrators</p>
 
@@ -250,7 +270,7 @@
 
                         </article>
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                        <article class="dashboard-card statistics-card">
 
                             <div class="card-icon">
 
@@ -260,11 +280,7 @@
 
                             <div class="card-content">
 
-                                <h3 id="securityEvents" class="count-up">
-
-                                    0
-
-                                </h3>
+                                <h3 id="securityEvents">0</h3>
 
                                 <p>Security Events</p>
 
@@ -272,7 +288,7 @@
 
                         </article>
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                        <article class="dashboard-card statistics-card">
 
                             <div class="card-icon">
 
@@ -282,11 +298,7 @@
 
                             <div class="card-content">
 
-                                <h3 id="exportsToday" class="count-up">
-
-                                    0
-
-                                </h3>
+                                <h3 id="exportsToday">0</h3>
 
                                 <p>Exports Today</p>
 
@@ -297,11 +309,23 @@
                     </div>
 
                 </section>
+
+                <!-- ==========================================
+                     Loading State
+                =========================================== -->
+
+                <section id="activityLoading" class="loading-state hidden">
+
+                    <div class="loader"></div>
+
+                    <p>Loading activity logs...</p>
+
+                </section>
                 <!-- ==========================================
                      Activity Logs Table
                 =========================================== -->
 
-                <section class="table-section glass-reveal">
+                <section class="table-section">
 
                     <div class="table-responsive">
 
@@ -331,7 +355,7 @@
 
                             <tbody id="activityLogsTable">
 
-                                <!-- JavaScript loads activity logs -->
+                                <!-- Loaded dynamically -->
 
                             </tbody>
 
@@ -341,11 +365,91 @@
 
                 </section>
 
+                <!-- ==========================================
+                     Empty State
+                =========================================== -->
+
+                <section id="noActivityLogs" class="empty-state hidden">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    <h3>No Activity Logs Found</h3>
+
+                    <p>
+
+                        No administrator activity matches your current filters.
+
+                    </p>
+
+                </section>
+
+                <!-- ==========================================
+                     Pagination
+                =========================================== -->
+
+                <nav id="activityPagination" class="pagination">
+
+                </nav>
+
             </div>
 
         </section>
 
     </main>
+
+    <!-- ==========================================
+         Activity Details Modal
+    =========================================== -->
+
+    <div id="activityDetailsModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <button id="closeActivityModal" class="modal-close" aria-label="Close">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+            <h2>Activity Details</h2>
+
+            <div id="activityDetailsContent">
+
+                <!-- JavaScript -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         Toast Notification
+    =========================================== -->
+
+    <div id="activityToast" class="toast hidden">
+
+        <div class="toast-content">
+
+            <i id="activityToastIcon" class="fa-solid fa-circle-check">
+
+            </i>
+
+            <span id="activityToastMessage"></span>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+         Back To Top
+    =========================================== -->
+
+    <button id="backToTop" class="back-to-top" aria-label="Back To Top">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
 
     <!-- ==========================================
          Footer
@@ -354,7 +458,7 @@
     <div id="footer"></div>
 
     <!-- ==========================================
-         JavaScript Modules
+         JavaScript
     =========================================== -->
 
     <script type="module" src="../js/loadAdmin.js"></script>

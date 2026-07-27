@@ -1,62 +1,102 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
     <!-- Character Encoding -->
-
     <meta charset="UTF-8">
 
-    <!-- Responsive -->
-
+    <!-- Responsive Design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO -->
+    <!-- Primary SEO -->
+    <title>Super Admin | ResiHub</title>
 
-    <title>
+    <meta name="description"
+        content="Super Administrator Control Center for managing the entire ResiHub platform, administrators, security, integrations, monitoring, backups and global system operations.">
 
-        Super Admin | ResiHub
+    <meta name="keywords"
+        content="ResiHub, Super Admin, Administration, Dashboard, Platform Management, System Control">
 
-    </title>
-
-    <meta name="description" content="Super Administrator Control Center for ResiHub.">
+    <meta name="author" content="ResiHub">
 
     <meta name="robots" content="noindex, nofollow">
 
     <meta name="theme-color" content="#0D6EFD">
 
-    <!-- Favicon -->
+    <link rel="canonical" href="https://www.resihub.com/super_admin.htm">
 
-    <link rel="icon" href="../assets/images/favicon.png">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="Super Admin | ResiHub">
+
+    <meta property="og:description" content="Complete administrative control center for managing the ResiHub platform.">
+
+    <meta property="og:url" content="https://www.resihub.com/super_admin.htm">
+
+    <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Super Admin | ResiHub">
+
+    <meta name="twitter:description"
+        content="Manage administrators, security, integrations and the complete ResiHub platform.">
+
+    <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 
     <!-- Font Awesome -->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Main Stylesheet -->
-
     <link rel="stylesheet" href="../styles/style.css">
 
 </head>
 
 <body>
 
-    <!-- ==========================
-         Admin Header
-    =========================== -->
+    <!-- ==========================================
+         Scroll Progress Indicator
+    =========================================== -->
+
+    <div id="scrollProgress"></div>
+
+    <!-- ==========================================
+         Floating Background Shapes
+    =========================================== -->
+
+    <div class="floating-shapes" aria-hidden="true">
+
+        <span class="shape shape-1"></span>
+
+        <span class="shape shape-2"></span>
+
+        <span class="shape shape-3"></span>
+
+        <span class="shape shape-4"></span>
+
+    </div>
+
+    <!-- ==========================================
+         Dynamic Admin Header
+    =========================================== -->
 
     <div id="header"></div>
 
-    <!-- ==========================
+    <!-- ==========================================
          Main Content
-    =========================== -->
+    =========================================== -->
 
     <main class="super-admin-page">
 
-        <!-- ==========================
+        <!-- ==========================================
              Breadcrumb
-        =========================== -->
+        =========================================== -->
 
         <section class="breadcrumb">
 
@@ -76,9 +116,9 @@
 
         </section>
 
-        <!-- ==========================
-             Hero
-        =========================== -->
+        <!-- ==========================================
+             Hero Section
+        =========================================== -->
 
         <section class="page-header">
 
@@ -123,9 +163,10 @@
             </div>
 
         </section>
-        <!-- ==========================
+
+        <!-- ==========================================
              Quick Statistics
-        =========================== -->
+        =========================================== -->
 
         <section class="super-admin-stats">
 
@@ -238,15 +279,14 @@
             </div>
 
         </section>
-        <!-- ==========================
+
+        <!-- ==========================================
              Super Admin Control Center
-        =========================== -->
+        =========================================== -->
 
         <section class="super-admin-grid">
 
-            <!-- ==========================
-                 Admin Management
-            =========================== -->
+            <!-- Admin Management -->
 
             <article class="admin-card">
 
@@ -292,9 +332,7 @@
 
             </article>
 
-            <!-- ==========================
-                 Platform Control
-            =========================== -->
+            <!-- Platform Control -->
 
             <article class="admin-card">
 
@@ -340,9 +378,7 @@
 
             </article>
 
-            <!-- ==========================
-                 Security Center
-            =========================== -->
+            <!-- Security Center -->
 
             <article class="admin-card">
 
@@ -388,9 +424,7 @@
 
             </article>
 
-            <!-- ==========================
-                 API & Integrations
-            =========================== -->
+            <!-- API & Integrations -->
 
             <article class="admin-card">
 
@@ -436,9 +470,7 @@
 
             </article>
 
-            <!-- ==========================
-                 Disaster Recovery
-            =========================== -->
+            <!-- Disaster Recovery -->
 
             <article class="admin-card">
 
@@ -484,9 +516,7 @@
 
             </article>
 
-            <!-- ==========================
-                 License & Subscription
-            =========================== -->
+            <!-- License & Subscription -->
 
             <article class="admin-card">
 
@@ -857,13 +887,9 @@
          Scripts
     =========================== -->
 
-    <script type="module" src="../js/loadAdmin.js">
+    <script type="module" src="../js/loadAdmin.js"></script>
 
-    </script>
-
-    <script type="module" src="../js/super_admin.js">
-
-    </script>
+    <script type="module" src="../js/super_admin.js"></script>
 
 </body>
 

@@ -1,53 +1,79 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
-    <!-- Character Encoding -->
+    <!-- ==========================================
+         Basic Meta Information
+    =========================================== -->
 
     <meta charset="UTF-8">
 
-    <!-- Responsive Design -->
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Basic SEO -->
 
     <title>Platform Settings | ResiHub Admin</title>
 
     <meta name="description"
-        content="Manage ResiHub platform settings, branding, integrations, security, notifications, and system configuration from the administrator dashboard.">
+        content="Manage ResiHub platform settings, branding, integrations, security, notifications and system configuration.">
 
-    <meta name="keywords" content="ResiHub, Admin, Platform Settings, Student Housing, Dashboard">
+    <meta name="keywords" content="ResiHub, Admin, Platform Settings, Branding, Security, Configuration">
 
     <meta name="author" content="ResiHub">
 
     <meta name="robots" content="noindex, nofollow">
 
-    <!-- Theme Color -->
+    <link rel="canonical" href="https://www.resihub.com/admin_platform_settings.htm">
 
-    <meta name="theme-color" content="#0D6EFD">
-
-    <!-- Open Graph -->
-
-    <meta property="og:title" content="Platform Settings | ResiHub Admin">
-
-    <meta property="og:description" content="Administrator platform settings for ResiHub.">
+    <!-- ==========================================
+         Open Graph
+    =========================================== -->
 
     <meta property="og:type" content="website">
 
-    <meta property="og:image" content="../assets/images/logo.png">
+    <meta property="og:title" content="Platform Settings | ResiHub Admin">
 
-    <!-- Favicon -->
+    <meta property="og:description"
+        content="Configure branding, integrations, security and platform settings for ResiHub.">
+
+    <meta property="og:url" content="https://www.resihub.com/admin_platform_settings.htm">
+
+    <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- ==========================================
+         Twitter Card
+    =========================================== -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="Platform Settings | ResiHub Admin">
+
+    <meta name="twitter:description" content="Administrator platform configuration for ResiHub.">
+
+    <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
+
+    <!-- ==========================================
+         Theme Color
+    =========================================== -->
+
+    <meta name="theme-color" content="#0D6EFD">
+
+    <!-- ==========================================
+         Favicon
+    =========================================== -->
 
     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 
-    <!-- Font Awesome -->
+    <!-- ==========================================
+         Fonts & Icons
+    =========================================== -->
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- Main Stylesheet -->
+    <!-- ==========================================
+         Master Stylesheet
+    =========================================== -->
 
     <link rel="stylesheet" href="../styles/style.css">
 
@@ -55,21 +81,35 @@
 
 <body>
 
-    <!-- ==========================
-        Header
-    =========================== -->
+    <div id="scrollProgress"></div>
+
+    <div class="floating-shapes" aria-hidden="true">
+
+        <span class="shape shape-1"></span>
+
+        <span class="shape shape-2"></span>
+
+        <span class="shape shape-3"></span>
+
+        <span class="shape shape-4"></span>
+
+    </div>
+
+    <!-- ==========================================
+         Dynamic Header
+    =========================================== -->
 
     <div id="header"></div>
 
-    <!-- ==========================
+    <!-- ==========================================
          Main Content
-    =========================== -->
+    =========================================== -->
 
-    <main class="admin-platform-settings">
+    <main id="mainContent" class="page-transition">
 
-        <!-- ==========================
+        <!-- ==========================================
              Breadcrumb
-        =========================== -->
+        =========================================== -->
 
         <section class="breadcrumb">
 
@@ -89,25 +129,33 @@
 
         </section>
 
-        <!-- ==========================
+        <!-- ==========================================
              Page Header
-        =========================== -->
+        =========================================== -->
 
-        <section class="page-header">
+        <section class="page-header glass-reveal">
 
             <div class="page-header-content">
 
-                <h1>
+                <span class="page-badge floating-badge glass-card">
+
+                    <i class="fa-solid fa-sliders"></i>
 
                     Platform Settings
+
+                </span>
+
+                <h1>
+
+                    Platform Configuration
 
                 </h1>
 
                 <p>
 
                     Configure branding, communication,
-                    integrations, security and system preferences
-                    from one centralized location.
+                    integrations, security and platform
+                    preferences from one centralized location.
 
                 </p>
 
@@ -123,7 +171,7 @@
 
                 </button>
 
-                <button class="btn btn-primary">
+                <button class="btn btn-primary azure-sweep ripple">
 
                     <i class="fa-solid fa-floppy-disk"></i>
 
@@ -135,108 +183,151 @@
 
         </section>
 
-        <!-- ==========================
+        <!-- ==========================================
              Platform Overview
-        =========================== -->
+        =========================================== -->
 
-        <section class="settings-overview">
+        <section class="dashboard-section statistics-section glass-reveal">
 
-            <div class="stat-card">
+            <div class="dashboard-grid statistics-grid">
 
-                <i class="fa-solid fa-circle-check"></i>
+                <article class="dashboard-card statistics-card floating-card glass-card">
 
-                <h3>
+                    <div class="card-icon">
 
-                    Platform Status
+                        <i class="fa-solid fa-circle-check"></i>
 
-                </h3>
+                    </div>
 
-                <p>
+                    <div class="card-content">
 
-                    Online
+                        <h3>
 
-                </p>
+                            Online
 
-            </div>
+                        </h3>
 
-            <div class="stat-card">
+                        <p>
 
-                <i class="fa-solid fa-code-branch"></i>
+                            Platform Status
 
-                <h3>
+                        </p>
 
-                    Version
+                    </div>
 
-                </h3>
+                </article>
 
-                <p>
+                <article class="dashboard-card statistics-card floating-card glass-card">
 
-                    v1.0.0
+                    <div class="card-icon">
 
-                </p>
+                        <i class="fa-solid fa-code-branch"></i>
 
-            </div>
+                    </div>
 
-            <div class="stat-card">
+                    <div class="card-content">
 
-                <i class="fa-solid fa-clock"></i>
+                        <h3>
 
-                <h3>
+                            v1.0.0
 
-                    Last Backup
+                        </h3>
 
-                </h3>
+                        <p>
 
-                <p>
+                            Current Version
 
-                    Today
+                        </p>
 
-                </p>
+                    </div>
 
-            </div>
+                </article>
 
-            <div class="stat-card">
+                <article class="dashboard-card statistics-card floating-card glass-card">
 
-                <i class="fa-solid fa-user-shield"></i>
+                    <div class="card-icon">
 
-                <h3>
+                        <i class="fa-solid fa-clock"></i>
 
-                    Updated By
+                    </div>
 
-                </h3>
+                    <div class="card-content">
 
-                <p>
+                        <h3>
 
-                    Administrator
+                            Today
 
-                </p>
+                        </h3>
+
+                        <p>
+
+                            Last Backup
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-user-shield"></i>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <h3>
+
+                            Administrator
+
+                        </h3>
+
+                        <p>
+
+                            Last Updated By
+
+                        </p>
+
+                    </div>
+
+                </article>
 
             </div>
 
         </section>
 
-        <!-- =====================================
-             SETTINGS CONTENT STARTS HERE
-             (We'll build this section by section)
-        ====================================== -->
+        <!-- ==========================================
+             Settings Content Placeholder
+        =========================================== -->
+
+        <section id="platformSettingsContent" class="page-section glass-reveal floating-section">
+
+            <div class="container page-container">
+
+                <!-- Platform settings modules
+                     will be added here -->
+
+            </div>
+
+        </section>
 
     </main>
-
     <!-- ==========================
-         Reusable Admin Footer
-    =========================== -->
+     Footer
+========================== -->
 
     <div id="footer"></div>
 
-    <!-- Page JavaScript -->
+    <!-- ==========================
+     JavaScript Modules
+========================== -->
 
+    <script type="module" src="../js/loadAdmin.js"></script>
 
-    <script type="module" src="../js/loadAdmin.js">
-
-    </script>
-    <script type="module" src="../js/admin_platform_settings.js">
-
-    </script>
+    <script type="module" src="../js/admin_platform_settings.js"></script>
 
 </body>
 

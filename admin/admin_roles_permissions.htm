@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
+
+    <!-- ==========================================
+         Basic Meta Information
+    =========================================== -->
 
     <meta charset="UTF-8">
 
@@ -20,7 +23,9 @@
 
     <link rel="canonical" href="https://www.resihub.com/admin_roles_permissions.htm">
 
-    <!-- Open Graph -->
+    <!-- ==========================================
+         Open Graph
+    =========================================== -->
 
     <meta property="og:type" content="website">
 
@@ -32,7 +37,9 @@
 
     <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <!-- Twitter -->
+    <!-- ==========================================
+         Twitter
+    =========================================== -->
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -42,16 +49,39 @@
 
     <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- ==========================================
+         Favicon
+    =========================================== -->
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <!-- ==========================================
+         Fonts & Icons
+    =========================================== -->
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <!-- ==========================================
+         Master Stylesheet
+    =========================================== -->
+
     <link rel="stylesheet" href="../styles/style.css">
+
 </head>
 
 <body>
 
+    <!-- ==========================================
+         Scroll Progress
+    =========================================== -->
+
     <div id="scrollProgress"></div>
+
+    <!-- ==========================================
+         Floating Background Shapes
+    =========================================== -->
 
     <div class="floating-shapes" aria-hidden="true">
 
@@ -65,17 +95,30 @@
 
     </div>
 
+    <!-- ==========================================
+         Dynamic Admin Header
+    =========================================== -->
+
     <div id="header"></div>
 
-    <main>
+    <!-- ==========================================
+         Main Content
+    =========================================== -->
 
-        <section id="rolesPermissionsContent" class="auth-section reveal fade-up">
+    <main id="mainContent" class="page-transition">
 
-            <div class="container">
+        <section id="rolesPermissionsContent"
+            class="auth-section reveal fade-up page-section glass-reveal floating-section">
 
-                <div class="section-header">
+            <div class="container page-container">
 
-                    <span class="page-badge floating-badge">
+                <!-- ==========================
+                     Page Header
+                =========================== -->
+
+                <header class="section-header">
+
+                    <span class="page-badge floating-badge glass-card">
 
                         <i class="fa-solid fa-user-lock"></i>
 
@@ -87,109 +130,176 @@
 
                     <p>
 
-                        Create administrator roles and control platform permissions.
+                        Create administrator roles and control
+                        platform permissions securely across
+                        the ResiHub administration system.
 
                     </p>
 
-                </div>
+                </header>
+
+                <!-- ==========================
+                     Action Buttons
+                =========================== -->
 
                 <div class="action-buttons">
 
-                    <button id="addRoleBtn" class="btn-primary">
+                    <button id="addRoleBtn" class="btn btn-primary azure-sweep ripple">
 
                         <i class="fa-solid fa-plus"></i>
 
-                        Create Role
+                        <span>Create Role</span>
 
                     </button>
 
                 </div>
 
-                <div class="dashboard-grid">
+                <!-- ==========================
+                     Statistics
+                =========================== -->
 
-                    <div class="dashboard-card">
+                <section class="dashboard-section statistics-section glass-reveal">
 
-                        <i class="fa-solid fa-user-shield"></i>
+                    <div class="dashboard-grid statistics-grid">
 
-                        <h3 id="totalRoles">0</h3>
+                        <article class="dashboard-card statistics-card floating-card glass-card">
 
-                        <p>Total Roles</p>
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-user-shield"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="totalRoles" class="count-up">0</h3>
+
+                                <p>Total Roles</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-users-gear"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="totalAdmins" class="count-up">0</h3>
+
+                                <p>Administrators</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-key"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="permissionCount" class="count-up">0</h3>
+
+                                <p>Permissions</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="restrictedActions" class="count-up">0</h3>
+
+                                <p>Restricted Actions</p>
+
+                            </div>
+
+                        </article>
 
                     </div>
 
-                    <div class="dashboard-card">
+                </section>
 
-                        <i class="fa-solid fa-users-gear"></i>
+                <!-- ==========================
+                     Roles Table
+                =========================== -->
 
-                        <h3 id="totalAdmins">0</h3>
+                <section class="table-section glass-reveal">
 
-                        <p>Administrators</p>
+                    <div class="table-responsive">
+
+                        <table class="admin-table data-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Role</th>
+
+                                    <th>Administrators</th>
+
+                                    <th>Permissions</th>
+
+                                    <th>Status</th>
+
+                                    <th>Actions</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="rolesTable">
+
+                                <!-- Loaded dynamically -->
+
+                            </tbody>
+
+                        </table>
 
                     </div>
 
-                    <div class="dashboard-card">
+                </section>
 
-                        <i class="fa-solid fa-key"></i>
+                <!-- ==========================
+                     Permission Matrix
+                =========================== -->
 
-                        <h3 id="permissionCount">0</h3>
+                <section class="dashboard-section glass-card">
 
-                        <p>Permissions</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-lock"></i>
-
-                        <h3 id="restrictedActions">0</h3>
-
-                        <p>Restricted Actions</p>
-
-                    </div>
-
-                </div>
-
-                <div class="table-responsive">
-
-                    <table class="admin-table">
-
-                        <thead>
-
-                            <tr>
-
-                                <th>Role</th>
-
-                                <th>Administrators</th>
-
-                                <th>Permissions</th>
-
-                                <th>Status</th>
-
-                                <th>Actions</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody id="rolesTable">
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <section class="dashboard-section">
-
-                    <div class="section-header">
+                    <header class="section-header">
 
                         <h2>Permission Matrix</h2>
 
-                    </div>
+                        <p>
+
+                            Configure access rights for every
+                            administrator role.
+
+                        </p>
+
+                    </header>
 
                     <div id="permissionMatrix" class="permission-grid">
 
-                        <!-- JS -->
+                        <!-- Loaded dynamically -->
 
                     </div>
 
@@ -200,10 +310,18 @@
         </section>
 
     </main>
+    <!-- ==========================================
+         Dynamic Footer
+    =========================================== -->
 
     <div id="footer"></div>
 
+    <!-- ==========================================
+         JavaScript
+    =========================================== -->
+
     <script type="module" src="../js/loadAdmin.js"></script>
+
     <script type="module" src="../js/admin_roles_permissions.js"></script>
 
 </body>

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
+
+    <!-- ==========================================
+         Basic Meta Information
+    =========================================== -->
 
     <meta charset="UTF-8">
 
@@ -21,7 +24,9 @@
 
     <link rel="canonical" href="https://www.resihub.com/admin_backup_restore.htm">
 
-    <!-- Open Graph -->
+    <!-- ==========================================
+         Open Graph
+    =========================================== -->
 
     <meta property="og:type" content="website">
 
@@ -33,7 +38,9 @@
 
     <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <!-- Twitter -->
+    <!-- ==========================================
+         Twitter
+    =========================================== -->
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -43,16 +50,31 @@
 
     <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- ==========================================
+         Favicon
+    =========================================== -->
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <!-- ==========================================
+         Master Stylesheet
+    =========================================== -->
 
     <link rel="stylesheet" href="../styles/style.css">
+
 </head>
 
 <body>
 
+    <!-- ==========================================
+         Scroll Progress
+    =========================================== -->
+
     <div id="scrollProgress"></div>
+
+    <!-- ==========================================
+         Floating Background Shapes
+    =========================================== -->
 
     <div class="floating-shapes" aria-hidden="true">
 
@@ -66,17 +88,29 @@
 
     </div>
 
+    <!-- ==========================================
+         Header
+    =========================================== -->
+
     <div id="header"></div>
 
-    <main>
+    <!-- ==========================================
+         Main Content
+    =========================================== -->
 
-        <section id="backupRestoreContent" class="auth-section reveal fade-up">
+    <main id="mainContent" class="page-transition">
 
-            <div class="container">
+        <section id="backupRestoreContent" class="page-section glass-reveal floating-section">
 
-                <div class="section-header">
+            <div class="container page-container">
 
-                    <span class="page-badge floating-badge">
+                <!-- ==========================================
+                     Page Header
+                =========================================== -->
+
+                <header class="section-header">
+
+                    <span class="page-badge floating-badge glass-card">
 
                         <i class="fa-solid fa-database"></i>
 
@@ -88,91 +122,148 @@
 
                     <p>
 
-                        Create backups, schedule automatic backups and restore the platform when necessary.
+                        Create backups, schedule automatic backups and restore
+                        the ResiHub platform whenever necessary.
 
                     </p>
 
-                </div>
+                </header>
+
+                <!-- ==========================================
+                     Quick Actions
+                =========================================== -->
 
                 <div class="action-buttons">
 
-                    <button id="createBackupBtn" class="btn-primary">
+                    <button id="createBackupBtn" class="btn btn-primary azure-sweep ripple">
 
                         <i class="fa-solid fa-hard-drive"></i>
 
-                        Create Backup
+                        <span>Create Backup</span>
 
                     </button>
 
-                    <button id="restoreBackupBtn" class="btn-primary">
+                    <button id="restoreBackupBtn" class="btn btn-primary azure-sweep ripple">
 
                         <i class="fa-solid fa-clock-rotate-left"></i>
 
-                        Restore Backup
+                        <span>Restore Backup</span>
 
                     </button>
 
                 </div>
 
-                <div class="dashboard-grid">
+                <!-- ==========================================
+                     Statistics
+                =========================================== -->
 
-                    <div class="dashboard-card">
+                <section class="dashboard-section statistics-section glass-reveal">
 
-                        <i class="fa-solid fa-server"></i>
+                    <div class="dashboard-grid statistics-grid">
 
-                        <h3 id="backupCount">0</h3>
+                        <article class="dashboard-card statistics-card floating-card glass-card">
 
-                        <p>Total Backups</p>
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-server"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="backupCount" class="count-up">0</h3>
+
+                                <p>Total Backups</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-clock"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="lastBackupTime">--</h3>
+
+                                <p>Last Backup</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-memory"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="backupStorage">0 GB</h3>
+
+                                <p>Storage Used</p>
+
+                            </div>
+
+                        </article>
+
+                        <article class="dashboard-card statistics-card floating-card glass-card">
+
+                            <div class="card-icon">
+
+                                <i class="fa-solid fa-arrows-rotate"></i>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <h3 id="autoBackupStatus">
+
+                                    Enabled
+
+                                </h3>
+
+                                <p>Automatic Backup</p>
+
+                            </div>
+
+                        </article>
 
                     </div>
 
-                    <div class="dashboard-card">
+                </section>
 
-                        <i class="fa-solid fa-clock"></i>
+                <!-- ==========================================
+                     Backup Settings
+                =========================================== -->
 
-                        <h3 id="lastBackupTime">--</h3>
+                <section class="dashboard-section glass-card">
 
-                        <p>Last Backup</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-memory"></i>
-
-                        <h3 id="backupStorage">0 GB</h3>
-
-                        <p>Storage Used</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-arrows-rotate"></i>
-
-                        <h3 id="autoBackupStatus">Enabled</h3>
-
-                        <p>Automatic Backup</p>
-
-                    </div>
-
-                </div>
-
-                <section class="dashboard-section">
-
-                    <div class="section-header">
+                    <header class="section-header">
 
                         <h2>Automatic Backup Settings</h2>
 
-                    </div>
+                    </header>
 
-                    <form id="backupSettingsForm">
+                    <form id="backupSettingsForm" class="filter-form liquid-form">
 
-                        <label>
+                        <div class="liquid-group">
 
-                            Backup Frequency
+                            <label for="backupFrequency">
 
-                            <select id="backupFrequency">
+                                Backup Frequency
+
+                            </label>
+
+                            <select id="backupFrequency" class="liquid-input">
 
                                 <option>Hourly</option>
 
@@ -184,13 +275,17 @@
 
                             </select>
 
-                        </label>
+                        </div>
 
-                        <label>
+                        <div class="liquid-group">
 
-                            Retention Period
+                            <label for="retentionPeriod">
 
-                            <select id="retentionPeriod">
+                                Retention Period
+
+                            </label>
+
+                            <select id="retentionPeriod" class="liquid-input">
 
                                 <option>7 Days</option>
 
@@ -202,13 +297,17 @@
 
                             </select>
 
-                        </label>
+                        </div>
 
                         <label class="switch">
 
                             <input type="checkbox" id="autoBackupToggle" checked>
 
-                            <span>Enable Automatic Backups</span>
+                            <span>
+
+                                Enable Automatic Backups
+
+                            </span>
 
                         </label>
 
@@ -216,39 +315,47 @@
 
                 </section>
 
-                <div class="table-responsive">
+                <!-- ==========================================
+                     Backup History
+                =========================================== -->
 
-                    <table class="admin-table">
+                <section class="table-section glass-reveal">
 
-                        <thead>
+                    <div class="table-responsive">
 
-                            <tr>
+                        <table class="admin-table data-table">
 
-                                <th>Date</th>
+                            <thead>
 
-                                <th>Backup Name</th>
+                                <tr>
 
-                                <th>Type</th>
+                                    <th>Date</th>
 
-                                <th>Size</th>
+                                    <th>Backup Name</th>
 
-                                <th>Status</th>
+                                    <th>Type</th>
 
-                                <th>Actions</th>
+                                    <th>Size</th>
 
-                            </tr>
+                                    <th>Status</th>
 
-                        </thead>
+                                    <th>Actions</th>
 
-                        <tbody id="backupHistoryTable">
+                                </tr>
 
-                            <!-- JS -->
+                            </thead>
 
-                        </tbody>
+                            <tbody id="backupHistoryTable">
 
-                    </table>
+                                <!-- JavaScript loads backup history -->
 
-                </div>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
 
             </div>
 
@@ -256,9 +363,18 @@
 
     </main>
 
+    <!-- ==========================================
+         Footer
+    =========================================== -->
+
     <div id="footer"></div>
 
+    <!-- ==========================================
+         JavaScript Modules
+    =========================================== -->
+
     <script type="module" src="../js/loadAdmin.js"></script>
+
     <script type="module" src="../js/admin_backup_restore.js"></script>
 
 </body>

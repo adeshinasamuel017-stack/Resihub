@@ -4,6 +4,10 @@
 
 <head>
 
+    <!-- ==========================================
+         Basic Meta Information
+    =========================================== -->
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +25,9 @@
 
     <link rel="canonical" href="https://www.resihub.com/admin_profile.htm">
 
-    <!-- Open Graph -->
+    <!-- ==========================================
+         Open Graph
+    =========================================== -->
 
     <meta property="og:type" content="website">
 
@@ -33,7 +39,9 @@
 
     <meta property="og:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <!-- Twitter -->
+    <!-- ==========================================
+         Twitter
+    =========================================== -->
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -43,16 +51,39 @@
 
     <meta name="twitter:image" content="https://www.resihub.com/assets/images/og-image.jpg">
 
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- ==========================================
+         Favicon
+    =========================================== -->
+
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+    <!-- ==========================================
+         Fonts & Icons
+    =========================================== -->
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+    <!-- ==========================================
+         Master Stylesheet
+    =========================================== -->
+
     <link rel="stylesheet" href="../styles/style.css">
+
 </head>
 
 <body>
 
+    <!-- ==========================================
+         Scroll Progress Indicator
+    =========================================== -->
+
     <div id="scrollProgress"></div>
+
+    <!-- ==========================================
+         Floating Background Shapes
+    =========================================== -->
 
     <div class="floating-shapes" aria-hidden="true">
 
@@ -65,15 +96,24 @@
         <span class="shape shape-4"></span>
 
     </div>
-    <!-- HEADER / NAVIGATION -->
+
+    <!-- ==========================================
+         Dynamic Header
+    =========================================== -->
 
     <div id="header"></div>
+
+    <!-- ==========================================
+         Main Content
+    =========================================== -->
 
     <main>
 
         <section id="admin-profile-content" class="auth-section reveal fade-up">
 
             <div class="container">
+
+                <!-- Page Header -->
 
                 <div class="section-header">
 
@@ -89,16 +129,21 @@
 
                     <p>
 
-                        Manage your administrator account, personal information,
-                        security preferences and login credentials.
+                        Manage your administrator account,
+                        personal information, security
+                        preferences and login credentials.
 
                     </p>
 
                 </div>
 
+                <!-- Profile Form -->
+
                 <form id="adminProfileForm">
 
-                    <!-- Profile Card -->
+                    <!-- ==========================================
+                         Profile Card
+                    =========================================== -->
 
                     <section class="dashboard-section">
 
@@ -106,7 +151,7 @@
 
                             <div class="profile-avatar">
 
-                                <img id="adminProfileImage" src="assets/images/admin-avatar.png"
+                                <img id="adminProfileImage" src="../assets/images/admin-avatar.png"
                                     alt="Administrator Profile">
 
                                 <label for="profileImageUpload" class="btn-outline">
@@ -147,7 +192,9 @@
 
                     </section>
 
-                    <!-- Personal Information -->
+                    <!-- ==========================================
+                         Personal Information
+                    =========================================== -->
 
                     <section class="dashboard-section">
 
@@ -211,7 +258,9 @@
 
                     </section>
 
-                    <!-- Security -->
+                    <!-- ==========================================
+                         Security
+                    =========================================== -->
 
                     <section class="dashboard-section">
 
@@ -283,7 +332,9 @@
 
                     </section>
 
-                    <!-- Account Information -->
+                    <!-- ==========================================
+                         Account Information
+                    =========================================== -->
 
                     <section class="dashboard-section">
 
@@ -339,7 +390,9 @@
 
                     </section>
 
-                    <!-- Action Buttons -->
+                    <!-- ==========================================
+                         Action Buttons
+                    =========================================== -->
 
                     <div class="action-buttons">
 
@@ -368,9 +421,16 @@
         </section>
 
     </main>
-    <!-- FOOTER -->
+
+    <!-- ==========================================
+         Dynamic Footer
+    =========================================== -->
 
     <div id="footer"></div>
+
+    <!-- ==========================================
+         JavaScript
+    =========================================== -->
 
     <script type="module" src="../js/loadAdmin.js"></script>
 
