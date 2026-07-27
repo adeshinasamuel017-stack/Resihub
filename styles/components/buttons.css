@@ -1,0 +1,219 @@
+/*====================================
+BUTTON FOUNDATION
+====================================*/
+
+.btn,
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+
+    padding: 0.85rem 1.6rem;
+
+    border: none;
+    outline: none;
+
+    border-radius: var(--radius-lg);
+
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        transform .25s ease,
+        box-shadow .3s ease,
+        opacity .3s ease;
+
+    user-select: none;
+    white-space: nowrap;
+}
+
+.btn i,
+button i {
+    font-size: .95em;
+}
+
+.btn:disabled,
+button:disabled {
+    cursor: not-allowed;
+    opacity: .6;
+}
+
+/*====================================
+PRIMARY BUTTON
+====================================*/
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+    transform: scale(.97);
+}
+
+/*====================================
+SECONDARY BUTTON
+====================================*/
+
+.btn-secondary {
+    background: var(--secondary);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-dark);
+    transform: translateY(-2px);
+}
+
+/*====================================
+OUTLINE BUTTON
+====================================*/
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/*====================================
+GHOST BUTTON
+====================================*/
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.btn-ghost:hover {
+    background: var(--surface-hover);
+}
+
+/*====================================
+DANGER BUTTON
+====================================*/
+
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: var(--danger-dark);
+}
+
+/*====================================
+SUCCESS BUTTON
+====================================*/
+
+.btn-success {
+    background: var(--success);
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: var(--success-dark);
+}
+
+/*====================================
+WARNING BUTTON
+====================================*/
+
+.btn-warning {
+    background: var(--warning);
+    color: #fff;
+}
+
+.btn-warning:hover {
+    background: var(--warning-dark);
+}
+
+/*====================================
+INFO BUTTON
+====================================*/
+
+.btn-info {
+    background: var(--info);
+    color: #fff;
+}
+
+.btn-info:hover {
+    background: var(--info-dark);
+}
+
+/*====================================
+BUTTON SIZES
+====================================*/
+
+.btn-sm {
+    padding: .55rem 1rem;
+    font-size: var(--fs-xs);
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: var(--fs-md);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/*====================================
+ICON BUTTON
+====================================*/
+
+.icon-btn {
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    color: var(--text-primary);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-btn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/*====================================
+BUTTON GROUP
+====================================*/
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
