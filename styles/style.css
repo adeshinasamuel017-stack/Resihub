@@ -66,11 +66,13 @@ Pages
 @import url("pages/general/home.css");
 @import url("pages/general/about.css");
 @import url("pages/general/contact.css");
-@import url("pages/general/library.css");
+@import url("pages/general/faq.css");
 @import url("pages/general/universities.css");
 @import url("pages/general/browse_rooms.css");
-@import url("pages/general/property_details.css");
-@import url("pages/general/search_results.css");
+@import url("pages/general/university_details.css");
+@import url("pages/general/privacy.css");
+@import url("pages/general/room_details.css");
+@import url("pages/general/terms.css");
 
 @import url("pages/auth/student_login.css");
 @import url("pages/auth/student_signup.css");

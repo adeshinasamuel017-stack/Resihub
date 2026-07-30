@@ -1,42 +1,23 @@
 /*====================================
 ResiHub
 Home Page
-Version:2.0
 ====================================*/
 
 /*====================================
-Hero
+Floating Background
 ====================================*/
 
-.hero {
+.floating-shapes {
 
-    position: relative;
+    position: fixed;
 
-    padding: 8rem 0 6rem;
+    inset: 0;
 
-}
+    overflow: hidden;
 
-.hero-content {
+    pointer-events: none;
 
-    display: grid;
-
-    gap: 2rem;
-
-    justify-items: center;
-
-    text-align: center;
-
-}
-
-.hero h1 {
-
-    max-width: 900px;
-
-}
-
-.hero p {
-
-    max-width: 700px;
+    z-index: -10;
 
 }
 
@@ -46,83 +27,242 @@ Search Card
 
 .search-card {
 
-    width: 100%;
+    max-width: 1200px;
 
     margin-top: 3rem;
 
-    padding: 2rem;
-
-    background: var(--glass-bg);
-
-    border: 1px solid var(--border-color);
-
-    border-radius: var(--radius-2xl);
-
-    backdrop-filter: blur(18px);
-
-    -webkit-backdrop-filter: blur(18px);
-
-    box-shadow: var(--shadow-xl);
-
-}
-
-.search-grid {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-
-    gap: 1.5rem;
+    position: relative;
 
 }
 
 /*====================================
-Statistics
+Why Us
 ====================================*/
 
-.stats {
+.why-us {
 
-    padding: 5rem 0;
+    padding: 7rem 0;
 
 }
 
-.stats .container {
+/*====================================
+Features
+====================================*/
+
+.features-grid {
 
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(240px, 1fr));
+        repeat(auto-fit, minmax(300px, 1fr));
 
     gap: 2rem;
 
 }
 
 /*====================================
-Section Headers
+Student Journey
 ====================================*/
 
-.section-header,
-.section-title {
+.journeys {
 
-    text-align: center;
+    padding: 7rem 0;
+
+}
+
+/*====================================
+Journey Layout
+====================================*/
+
+.journey-wrapper {
+
+    display: grid;
+
+    gap: 2rem;
+
+}
+
+/*====================================
+Universities
+====================================*/
+
+.universities {
+
+    padding: 7rem 0;
+
+}
+
+/*====================================
+Testimonials
+====================================*/
+
+.testimonials {
+
+    padding: 7rem 0;
+
+}
+
+/*====================================
+FAQ
+====================================*/
+
+.faq {
+
+    padding: 7rem 0;
+
+}
+
+/*====================================
+CTA
+====================================*/
+
+.cta {
+
+    padding: 7rem 0;
+
+}
+
+/*====================================
+Newsletter
+====================================*/
+
+.newsletter {
+
+    padding: 7rem 0;
+
+}
+
+/*====================================
+Section Spacing
+====================================*/
+
+.section-title,
+.section-header {
 
     margin-bottom: 3rem;
 
 }
 
-.section-header h2,
-.section-title h2 {
+/*====================================
+Feature Icon
+====================================*/
 
-    margin-bottom: 1rem;
+.feature-icon {
+
+    margin-bottom: 1.5rem;
 
 }
 
-.section-header p,
-.section-title p {
+/*====================================
+Journey Finish
+====================================*/
+
+.journey-finish {
+
+    margin-top: 4rem;
+
+}
+
+.finish-card {
+
+    max-width: 800px;
+
+    margin-inline: auto;
+
+}
+
+/*====================================
+Universities Grid
+====================================*/
+
+.universities-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 2rem;
+
+}
+
+/*====================================
+Testimonials Grid
+====================================*/
+
+.testimonials-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 2rem;
+
+}
+
+/*====================================
+CTA Layout
+====================================*/
+
+.cta-content {
+
+    text-align: center;
+
+    max-width: 900px;
+
+    margin-inline: auto;
+
+}
+
+.cta-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 1.5rem;
+
+    margin-top: 2rem;
+
+}
+
+/*====================================
+Newsletter Layout
+====================================*/
+
+.newsletter-content {
 
     max-width: 700px;
 
     margin-inline: auto;
+
+    text-align: center;
+
+}
+
+/*====================================
+Responsive
+====================================*/
+
+@media (max-width:768px) {
+
+    .features-grid,
+    .universities-grid,
+    .testimonials-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .cta-buttons {
+
+        flex-direction: column;
+
+        width: 100%;
+
+    }
 
 }

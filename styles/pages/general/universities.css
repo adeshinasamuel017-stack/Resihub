@@ -1,0 +1,99 @@
+/*====================================
+ResiHub
+Universities
+====================================*/
+
+/*====================================
+Hero
+====================================*/
+
+.universities-hero {
+
+    padding: 7rem 0;
+
+}
+
+/*====================================
+Statistics
+====================================*/
+
+.universities-stats {
+
+    padding: 5rem 0;
+
+}
+
+/*====================================
+Search
+====================================*/
+
+.universities-search {
+
+    padding: 3rem 0;
+
+}
+
+.search-box {
+
+    max-width: 900px;
+
+    margin-inline: auto;
+
+}
+
+/*====================================
+Filters
+====================================*/
+
+.universities-filter {
+
+    margin-top: 2rem;
+
+}
+
+/*====================================
+University Listings
+====================================*/
+
+.universities-list {
+
+    padding: 6rem 0;
+
+}
+
+.universities-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 2rem;
+
+}
+
+/*====================================
+Empty State
+====================================*/
+
+.empty-state {
+
+    text-align: center;
+
+    padding: 5rem 2rem;
+
+}
+
+/*====================================
+Responsive
+====================================*/
+
+@media (max-width:768px) {
+
+    .universities-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

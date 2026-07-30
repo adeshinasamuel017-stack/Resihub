@@ -1,0 +1,100 @@
+/*====================================
+ResiHub
+Privacy Policy
+====================================*/
+
+/*====================================
+Hero
+====================================*/
+
+#privacy-hero {
+
+    padding: 7rem 0;
+
+}
+
+/*====================================
+Policy Meta
+====================================*/
+
+.policy-meta {
+
+    margin: 2rem 0;
+
+    text-align: center;
+
+}
+
+/*====================================
+Navigation
+====================================*/
+
+.policy-nav {
+
+    position: sticky;
+
+    top: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+
+    margin-bottom: 3rem;
+
+}
+
+/*====================================
+Policy Content
+====================================*/
+
+.policy-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4rem;
+
+}
+
+.policy-content section {
+
+    scroll-margin-top: 120px;
+
+}
+
+/*====================================
+Privacy Contact
+====================================*/
+
+.privacy-contact {
+
+    margin-top: 5rem;
+
+}
+
+/*====================================
+Email
+====================================*/
+
+#privacyEmail {
+
+    word-break: break-word;
+
+}
+
+/*====================================
+Responsive
+====================================*/
+
+@media (max-width:768px) {
+
+    .policy-nav {
+
+        position: static;
+
+    }
+
+}
