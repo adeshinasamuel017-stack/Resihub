@@ -80,96 +80,7 @@
          HEADER / NAVIGATION
     =========================== -->
 
-  <header class="navbar">
-
-    <div class="container">
-
-      <!-- Logo -->
-      <a href="index.htm" class="logo">
-
-        <i class="fa-solid fa-house" aria-hidden="true"></i>
-
-        <span>
-
-          ResiHub
-
-        </span>
-
-      </a>
-
-      <!-- Mobile Menu -->
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
-
-        <i class="fa-solid fa-bars" aria-hidden="true"></i>
-
-      </button>
-
-      <!-- Navigation -->
-      <nav id="mainNav" aria-label="Main Navigation">
-
-        <ul class="nav-links">
-
-          <li><a href="../index.htm">Home</a></li>
-
-          <li><a href="../browse_rooms.htm">Browse Rooms</a></li>
-
-          <li><a href="../universities.htm">Universities</a></li>
-
-          <li><a href="../about.htm">About</a></li>
-
-          <li><a href="../contact.htm">Contact</a></li>
-
-        </ul>
-
-      </nav>
-
-      <!-- Breadcrumb -->
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-
-        <a href="../index.htm">
-
-          Home
-
-        </a>
-
-        <i class="fa-solid fa-angle-right" aria-hidden="true"></i>
-
-        <span>
-
-          Landlord Login
-
-        </span>
-
-      </nav>
-
-      <!-- Action Buttons -->
-      <div class="nav-actions">
-
-        <a href="student_login.htm" class="btn-primary magnetic-btn ripple-btn shine-btn">
-
-          Student Login
-
-        </a>
-
-        <a href="landlord_login.htm" class="btn-primary magnetic-btn ripple-btn shine-btn">
-
-          Landlord Login
-
-        </a>
-
-        <a href="../create_listing.htm" class="btn-primary">
-
-          <i class="fa-solid fa-house-circle-plus" aria-hidden="true"></i>
-
-          List a Room
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </header>
+  <div id="header"></div>
 
   <!-- ==========================
          MAIN CONTENT
@@ -215,331 +126,156 @@
     <!-- =========================================
      AUTHENTICATION WRAPPER
 ========================================= -->
-    <div class="auth-wrapper">
+    <section class="auth-section reveal fade-up">
 
-      <!-- =========================================
+      <div class="container">
+        <div class="auth-wrapper">
+
+          <!-- =========================================
          LANDLORD LOGIN INFORMATION PANEL
     ========================================= -->
-      <div class="auth-info">
+          <div class="auth-info">
 
-        <h2>Manage Your Listings Anywhere</h2>
+            <h2>Manage Your Listings Anywhere</h2>
 
-        <!-- Feature 1 -->
-        <div class="auth-feature">
-          <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <!-- Feature 1 -->
+            <div class="auth-feature">
+              <i class="fa-solid fa-house" aria-hidden="true"></i>
 
-          <div>
-            <h4>Manage Listings</h4>
+              <div>
+                <h4>Manage Listings</h4>
 
-            <p>
-              Create, edit and publish accommodation listings.
-            </p>
+                <p>
+                  Create, edit and publish accommodation listings.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="auth-feature">
+              <i class="fa-solid fa-comments" aria-hidden="true"></i>
+
+              <div>
+                <h4>Reply to Students</h4>
+
+                <p>
+                  Answer enquiries in real time.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="auth-feature">
+              <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+
+              <div>
+                <h4>Manage Bookings</h4>
+
+                <p>
+                  Approve inspection requests with ease.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="auth-feature">
+              <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+
+              <div>
+                <h4>Track Performance</h4>
+
+                <p>
+                  Monitor listing views, favourites and student enquiries.
+                </p>
+              </div>
+            </div>
+
           </div>
-        </div>
 
-        <!-- Feature 2 -->
-        <div class="auth-feature">
-          <i class="fa-solid fa-comments" aria-hidden="true"></i>
-
-          <div>
-            <h4>Reply to Students</h4>
-
-            <p>
-              Answer enquiries in real time.
-            </p>
-          </div>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="auth-feature">
-          <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
-
-          <div>
-            <h4>Manage Bookings</h4>
-
-            <p>
-              Approve inspection requests with ease.
-            </p>
-          </div>
-        </div>
-
-        <!-- Feature 4 -->
-        <div class="auth-feature">
-          <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-
-          <div>
-            <h4>Track Performance</h4>
-
-            <p>
-              Monitor listing views, favourites and student enquiries.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- =========================================
+          <!-- =========================================
          LANDLORD LOGIN FORM
     ========================================= -->
-      <div class="auth-card">
+          <div class="auth-card">
 
-        <form id="landlordLoginForm" novalidate>
+            <form id="landlordLoginForm" novalidate>
 
-          <h2>Landlord Login</h2>
+              <h2>Landlord Login</h2>
 
-          <div class="form-group">
+              <div class="form-group">
 
-            <label for="landlordEmail">
-              Email Address
-            </label>
+                <label for="landlordEmail">
+                  Email Address
+                </label>
 
-            <input type="email" id="landlordEmail" name="landlordEmail" placeholder="Enter your email"
-              autocomplete="username" required>
+                <input type="email" id="landlordEmail" name="landlordEmail" placeholder="Enter your email"
+                  autocomplete="username" required>
+
+              </div>
+
+              <div class="form-group">
+
+                <label for="landlordPassword">
+                  Password
+                </label>
+
+                <input type="password" id="landlordPassword" name="landlordPassword" placeholder="Enter your password"
+                  autocomplete="current-password" required>
+
+              </div>
+
+              <div class="remember-row">
+
+                <label for="rememberLandlord">
+
+                  <input type="checkbox" id="rememberLandlord" name="rememberLandlord">
+
+                  Remember Me
+
+                </label>
+
+                <a href="forgot_password.htm">
+                  Forgot Password?
+                </a>
+
+              </div>
+
+              <button type="submit" class="btn-primary magnetic-btn ripple-btn shine-btn">
+
+                <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+
+                Login
+
+              </button>
+
+            </form>
+
+            <!-- Registration Link -->
+
+            <div class="auth-links">
+
+              <p>
+                Don't have a landlord account?
+              </p>
+
+              <a href="landlord_register.htm">
+                Create Landlord Account
+              </a>
+
+            </div>
 
           </div>
-
-          <div class="form-group">
-
-            <label for="landlordPassword">
-              Password
-            </label>
-
-            <input type="password" id="landlordPassword" name="landlordPassword" placeholder="Enter your password"
-              autocomplete="current-password" required>
-
-          </div>
-
-          <div class="remember-row">
-
-            <label for="rememberLandlord">
-
-              <input type="checkbox" id="rememberLandlord" name="rememberLandlord">
-
-              Remember Me
-
-            </label>
-
-            <a href="forgot_password.htm">
-              Forgot Password?
-            </a>
-
-          </div>
-
-          <button type="submit" class="btn-primary magnetic-btn ripple-btn shine-btn">
-
-            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
-
-            Login
-
-          </button>
-
-        </form>
-
-        <!-- Registration Link -->
-
-        <div class="auth-links">
-
-          <p>
-            Don't have a landlord account?
-          </p>
-
-          <a href="landlord_register.htm">
-            Create Landlord Account
-          </a>
 
         </div>
 
       </div>
-
-    </div>
-
-    </div>
     </section>
   </main>
 
-  <!-- =========================================
-         FOOTER
-    ========================================= -->
-
-  <footer class="footer reveal fade-up">
-
-    <div class="footer-container">
-
-      <!-- About -->
-      <div class="footer-about">
-
-        <h3>
-
-          ResiHub
-
-        </h3>
-
-        <p>
-
-          Helping students find safe and affordable accommodation
-          near universities across Nigeria.
-
-        </p>
-
-      </div>
-
-      <!-- Quick Links -->
-      <div class="footer-links">
-
-        <h4>
-
-          Quick Links
-
-        </h4>
-
-        <ul>
-
-          <li>
-            <a href="../index.htm">Home</a>
-          </li>
-
-          <li>
-            <a href="../browse_rooms.htm">Browse Rooms</a>
-          </li>
-
-          <li>
-            <a href="../about.htm">About</a>
-          </li>
-
-          <li>
-            <a href="../contact.htm">Contact</a>
-          </li>
-
-        </ul>
-
-      </div>
-
-      <!-- Support -->
-      <div class="footer-links">
-
-        <h4>
-
-          Support
-
-        </h4>
-
-        <ul>
-
-          <li>
-            <a href="../privacy.htm">
-              Privacy Policy
-            </a>
-          </li>
-
-          <li>
-            <a href="../terms.htm">
-              Terms &amp; Conditions
-            </a>
-          </li>
-
-          <li>
-            <a href="../faq.htm">
-              FAQs
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-      <!-- Social Links -->
-      <div class="footer-links">
-
-        <h4>
-
-          Follow Us
-
-        </h4>
-
-        <ul>
-
-          <li>
-
-            <a id="facebookLink" href="#">
-
-              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-
-              Facebook
-
-            </a>
-
-          </li>
-
-          <li>
-
-            <a id="instagramLink" href="#">
-
-              <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-
-              Instagram
-
-            </a>
-
-          </li>
-
-          <li>
-
-            <a id="linkedinLink" href="#">
-
-              <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-
-              LinkedIn
-
-            </a>
-
-          </li>
-
-          <li>
-
-            <a id="twitterLink" href="#">
-
-              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-
-              X (Twitter)
-
-            </a>
-
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-    <!-- Footer Bottom -->
-
-    <div class="footer-bottom">
-
-      <p>
-
-        © 2026 ResiHub. All Rights Reserved.
-
-      </p>
-
-    </div>
-
-  </footer>
-
-  <!-- =========================================
-         BACK TO TOP BUTTON
-    ========================================= -->
-
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">
-
-    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-
-  </button>
+  <div id="footer"></div>
 
   <!-- =========================================
          JAVASCRIPT
     ========================================= -->
-
   <script type="module" src="../landlord_login.js"></script>
 
 </body>
