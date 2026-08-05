@@ -60,63 +60,64 @@
     <div id="header"></div>
 
     <main>
-        </nav>
         <!-- PAGE HERO -->
-        <section id="browse-hero" class="auth-hero reveal fade-up">
+        <section id="browse-hero" class="page-hero reveal fade-up">
 
             <div class="container">
 
-                <div class="page-hero-content hero-content">
+                <div class="page-hero-content">
+                    <div class="hero-text">
 
-                    <span class="page-badge floating-badge"><i class="fa-solid fa-house" aria-hidden="true"></i>Browse
-                        Student
-                        Accommodation</span>
-                    <h1 class="hero-title">Find Your Perfect Student Home</h1>
+                        <span class="page-badge floating-badge"><i class="fa-solid fa-house"
+                                aria-hidden="true"></i>Browse
+                            Student
+                            Accommodation</span>
+                        <h1 class="hero-title">Find Your Perfect Student Home</h1>
 
-                    <p class="hero-description">
-                        Explore verified hostels, apartments, self-contained rooms and shared accommodation near
-                        universities across Nigeria.
-                    </p>
+                        <p class="hero-description">
+                            Explore verified hostels, apartments, self-contained rooms and shared accommodation near
+                            universities across Nigeria.
+                        </p>
+                    </div>
+                    <!-- Search Bar -->
+                    <div class="browse-search-card">
+                        <form id="browseSearchForm" autocomplete="off">
+                            <div class="browse-search-grid">
+                                <div class="form-group">
+                                    <label for="browseUniversity">University</label>
+                                    <select id="browseUniversity" name="university">
+                                        <option value="">All Universities</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="browseArea">Area</label>
+                                    <input type="text" id="browseArea" name="area" placeholder="e.g. Akoka">
+                                </div>
+                                <div class="form-group">
+                                    <label for="browseType">Property Type</label>
+                                    <select id="browseType" name="propertyType">
+                                        <option value="">All Types</option>
+                                        <option value="hostel">Hostel</option>
+                                        <option value="self-contain">Self Contain</option>
+                                        <option value="single-room">Single Room</option>
+                                        <option value="shared-room">Shared Room</option>
+                                        <option value="1-bedroom">1 Bedroom</option>
+                                        <option value="2-bedroom">2 Bedroom</option>
+                                        <option value="3-bedroom">3 Bedroom</option>
+                                        <option value="apartment">Apartment</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="browseBudget">Maximum Budget (₦)</label>
+                                    <input type="number" id="browseBudget" name="maxBudget" placeholder="300000">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary browse-search-btn"><i
+                                    class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Search
+                                Accommodation</button>
+                        </form>
+                    </div>
                 </div>
-                <!-- Search Bar -->
-                <div class="browse-search-card">
-                    <form id="browseSearchForm" autocomplete="off">
-                        <div class="browse-search-grid">
-                            <div class="form-group">
-                                <label for="browseUniversity">University</label>
-                                <select id="browseUniversity" name="university">
-                                    <option value="">All Universities</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="browseArea">Area</label>
-                                <input type="text" id="browseArea" name="area" placeholder="e.g. Akoka">
-                            </div>
-                            <div class="form-group">
-                                <label for="browseType">Property Type</label>
-                                <select id="browseType" name="propertyType">
-                                    <option value="">All Types</option>
-                                    <option value="hostel">Hostel</option>
-                                    <option value="self-contain">Self Contain</option>
-                                    <option value="single-room">Single Room</option>
-                                    <option value="shared-room">Shared Room</option>
-                                    <option value="1-bedroom">1 Bedroom</option>
-                                    <option value="2-bedroom">2 Bedroom</option>
-                                    <option value="3-bedroom">3 Bedroom</option>
-                                    <option value="apartment">Apartment</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="browseBudget">Maximum Budget (₦)</label>
-                                <input type="number" id="browseBudget" name="maxBudget" placeholder="300000">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn-primary browse-search-btn"><i
-                                class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Search
-                            Accommodation</button>
-                    </form>
-                </div>
-            </div>
         </section>
 
         <!-- ADVANCED FILTERS -->
@@ -247,7 +248,6 @@
                 <h3>No Properties Found</h3>
                 <p>Try changing your filters or searching another university.</p>
                 <button type="button" id="clearSearch" class="btn-primary">Clear Filters</button>
-            </div>
             </div>
         </section>
 

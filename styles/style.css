@@ -1,128 +1,35 @@
-/*====================================
-Base
-====================================*/
-
-@import url("base/reset.css");
-@import url("base/variables.css");
-@import url("base/typography.css");
-@import url("base/layout.css");
-@import url("base/utilities.css");
-
-
-/*====================================
-Effects
-====================================*/
-
-@import url("effects/gradients.css");
-@import url("effects/shadows.css");
-@import url("effects/glass.css");
-@import url("effects/scrollbar.css");
-
-
-/*====================================
-Themes
-====================================*/
-
-@import url("themes/light.css");
-@import url("themes/dark.css");
-@import url("themes/high_contrast.css");
-@import url("themes/seasonal.css");
-@import url("themes/brand.css");
-
-
-/*====================================
-Animations
-====================================*/
-
-@import url("animations/animation_master.css");
-
-
-/*====================================
-Components
-====================================*/
-
-/*====================================
-Components
-====================================*/
-
-@import url("components/buttons.css");
-@import url("components/forms.css");
-@import url("components/cards.css");
-@import url("components/navigation.css");
-@import url("components/tables.css");
-@import url("components/badges.css");
-@import url("components/dropdowns.css");
-@import url("components/modals.css");
-
-
-/*====================================
-Pages
-====================================*/
-
-/*====================================
-Pages
-====================================*/
-
-@import url("pages/general/home.css");
-@import url("pages/general/about.css");
-@import url("pages/general/contact.css");
-@import url("pages/general/faq.css");
-@import url("pages/general/universities.css");
-@import url("pages/general/browse_rooms.css");
-@import url("pages/general/university_details.css");
-@import url("pages/general/privacy.css");
-@import url("pages/general/room_details.css");
-@import url("pages/general/terms.css");
-
-@import url("pages/auth/student_login.css");
-@import url("pages/auth/student_signup.css");
-@import url("pages/auth/landlord_login.css");
-@import url("pages/auth/landlord_signup.css");
-@import url("pages/auth/admin_login.css");
-@import url("pages/auth/forgot_password.css");
-@import url("pages/auth/reset_password.css");
-@import url("pages/auth/verify_email.css");
-
-@import url("pages/student/student_dashboard.css");
-@import url("pages/student/student_profile.css");
-@import url("pages/student/student_bookings.css");
-@import url("pages/student/student_saved.css");
-@import url("pages/student/student_messages.css");
-
-@import url("pages/landlord/landlord_dashboard.css");
-@import url("pages/landlord/my_listings.css");
-@import url("pages/landlord/create_listing.css");
-@import url("pages/landlord/booking_requests.css");
-@import url("pages/landlord/messages_landlord.css");
-
-@import url("pages/admin/admin_dashboard.css");
-@import url("pages/admin/admin_students.css");
-@import url("pages/admin/admin_landlords.css");
-@import url("pages/admin/admin_listings.css");
-@import url("pages/admin/admin_bookings.css");
-@import url("pages/admin/admin_activity_logs.css");
-@import url("pages/admin/admin_reports.css");
-@import url("pages/admin/admin_analytics.css");
-@import url("pages/admin/admin_system_health.css");
-@import url("pages/admin/admin_platform_settings.css");
-
-
-/*====================================
-Responsive
-====================================*/
-
-/* Added later */
-
-
-/*====================================
-Print
-====================================*/
-
-/* Added later */
-
-
-/*====================================
-Accessibility
-====================================*/
-
-/* Added later */
+@import url("about.css");
+@import url("animation.css");
+@import url("background.css");
+@import url("browse.css");
+@import url("button.css");
+@import url("cards.css");
+@import url("components.css");
+@import url("contact.css");
+@import url("faq.css");
+@import url("footer.css");
+@import url("form.css");
+@import url("glass.css");
+@import url("hero.css");
+@import url("input.css");
+@import url("journey.css");
+@import url("layout.css");
+@import url("modal.css");
+@import url("navigation.css");
+@import url("newsletter.css");
+@import url("policy.css");
+@import url("room_details.css");
+@import url("sections.css");
+@import url("stats.css");
+@import url("reset.css");
+@import url("responsive.css");
+@import url("tables.css");
+@import url("terms.css");
+@import url("testimonials.css");
+@import url("typography.css");
+@import url("uni.css");
+@import url("universities.css");
+@import url("university_details.css");
+@import url("utilities.css");
+@import url("variables.css");
+@import url("why-us.css")
