@@ -86,8 +86,8 @@
 
     <meta name="format-detection" content="telephone=no">
 
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -117,11 +117,19 @@
         <section class="dashboard-hero">
             <div class="container">
                 <div class="dashboard-welcome">
-                    <img id="studentAvatar" src="assets/images/default-avatar.png" alt="Landlord Profile Picture">
+                    <img id="landlordAvatar" src="../assets/images/default-avatar.png" alt="Landlord Profile Picture">
 
                     <div>
                         <h1 id="landlordName">
                             Landlord Name
+
+                            <span class="status-badge verified">
+                                Verified
+                            </span>
+
+                            <span class="status-badge pending">
+                                Pending
+                            </span>
                         </h1>
 
                         <p id="businessNameDisplay">
@@ -192,7 +200,7 @@
                                 Business Name
                             </label>
 
-                            <input type="text" id="businessName" placeholder="Business Name" readonly>
+                            <textarea type="text" id="businessName" placeholder="Business Name" readonly></textarea>
                         </div>
 
                         <div class="form-group">
@@ -208,7 +216,7 @@
                                 CAC Registration Number
                             </label>
 
-                            <input type="text" id="cacNumber" placeholder="CAC Number" readonly>
+                            <textarea id="cacNumber" placeholder="CAC Number" readonly></textarea>
                         </div>
 
                     </div>

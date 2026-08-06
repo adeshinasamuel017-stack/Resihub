@@ -1,5 +1,5 @@
 @import url("about.css");
-@import url("admin_login.css");
+@import url("admin.css");
 @import url("animation.css");
 @import url("auth.css");
 @import url("background.css");
@@ -15,6 +15,7 @@
 @import url("hero.css");
 @import url("input.css");
 @import url("journey.css");
+@import url("landlord.css");
 @import url("layout.css");
 @import url("modal.css");
 @import url("navigation.css");

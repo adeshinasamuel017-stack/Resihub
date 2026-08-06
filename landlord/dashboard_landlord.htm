@@ -61,68 +61,85 @@
 
             <div class="container">
 
-                <div class="dashboard-welcome">
+                <div class="dashboard-welcome-card">
 
-                    <div>
+                    <div class="dashboard-user">
 
-                        <h1>
-                            Welcome,
-                            <span id="landlordName">Landlord</span>
-                        </h1>
+                        <div class="dashboard-text">
 
-                        <p>
-                            Manage your accommodation listings, inspection requests, student enquiries and property
-                            performance from your ResiHub dashboard.
-                        </p>
+                            <span class="dashboard-badge">
+
+                                <i class="fa-solid fa-sparkles"></i>
+
+                                Landlord Dashboard
+
+                            </span>
+
+                            <h1>
+
+                                Welcome back,
+                                <span id="landlordName">Landlord</span>
+
+                            </h1>
+
+                            <p>
+
+                                Here's what's happening with your properties today.
+
+                            </p>
+
+                        </div>
+
+                        <div class="dashboard-avatar">
+
+                            <img id="landlordAvatar" src="../assets/images/default-avatar.png" alt="Profile">
+
+                        </div>
 
                     </div>
-
-                    <img id="landlordAvatar" src="assets/images/default-avatar.png" alt="Landlord profile picture">
 
                 </div>
 
             </div>
 
         </section>
-        <section class="dashboard-stats">
+        <section class="quick-actions">
 
             <div class="container">
 
-                <div class="stats-grid">
+                <div class="quick-actions-grid">
 
-                    <div class="dashboard-stat-card">
-                        <i class="fa-solid fa-house" aria-hidden="true"></i>
-                        <h2 id="listingCount">0</h2>
-                        <p>Active Listings</p>
-                    </div>
+                    <a href="create_listing.htm" class="quick-action">
 
-                    <div class="stats-grid">
+                        <i class="fa-solid fa-plus"></i>
 
-                        <article class="dashboard-stat-card">
-                            <i class="fa-solid fa-house" aria-hidden="true"></i>
-                            <h2 id="listingCount">0</h2>
-                            <p>Active Listings</p>
-                        </article>
+                        <span>Create Listing</span>
 
-                        <article class="dashboard-stat-card">
-                            <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
-                            <h2 id="bookingCount">0</h2>
-                            <p>Inspection Requests</p>
-                        </article>
+                    </a>
 
-                        <article class="dashboard-stat-card">
-                            <i class="fa-solid fa-comments" aria-hidden="true"></i>
-                            <h2 id="messageCount">0</h2>
-                            <p>Messages</p>
-                        </article>
+                    <a href="my_listings.htm" class="quick-action">
 
-                        <article class="dashboard-stat-card">
-                            <i class="fa-solid fa-star" aria-hidden="true"></i>
-                            <h2 id="reviewCount">0.0</h2>
-                            <p>Average Rating</p>
-                        </article>
+                        <i class="fa-solid fa-building"></i>
 
-                    </div>
+                        <span>My Listings</span>
+
+                    </a>
+
+                    <a href="messages.htm" class="quick-action">
+
+                        <i class="fa-solid fa-comments"></i>
+
+                        <span>Messages</span>
+
+                    </a>
+
+                    <a href="landlord_settings.htm" class="quick-action">
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        <span>Settings</span>
+
+                    </a>
 
                 </div>
 
