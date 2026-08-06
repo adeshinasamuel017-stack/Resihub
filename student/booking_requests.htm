@@ -67,54 +67,101 @@
     <div id="header"></div>
 
     <main>
-        <section id="booking-content" class="auth-section reveal fade-up">
+
+        <section id="booking-hero" class="auth-hero reveal fade-up">
 
             <div class="container">
 
-                <div class="section-header">
+                <div class="page-hero-content hero-content">
 
-                    <h1>Booking Requests</h1>
+                    <span class="page-badge floating-badge">
 
-                    <p>
-                        Review, approve or decline inspection and booking requests submitted by students.
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                        Bookings
+
+                    </span>
+
+                    <h1 class="hero-title">
+                        Booking Requests
+                    </h1>
+
+                    <p class="hero-description">
+                        Manage inspection requests and accommodation bookings from students in one place.
                     </p>
 
                 </div>
 
-                <form id="bookingFilterForm" role="search" aria-label="Filter booking requests">
+            </div>
 
-                    <label class="visually-hidden" for="bookingSearch">
-                        Search Booking Requests
-                    </label>
+        </section>
+        <div class="dashboard-stats">
 
-                    <input type="search" id="bookingSearch" name="bookingSearch" placeholder="Search student..."
-                        autocomplete="off">
+            <article class="dashboard-stat-card">
 
-                    <label class="visually-hidden" for="bookingStatus">
-                        Filter by Status
-                    </label>
+                <i class="fa-solid fa-clock"></i>
 
-                    <select id="bookingStatus" name="bookingStatus">
+                <h2 id="pendingCount">0</h2>
 
-                        <option value="">
-                            All Statuses
-                        </option>
+                <p>Pending</p>
 
-                        <option value="Pending">
-                            Pending
-                        </option>
+            </article>
 
-                        <option value="Approved">
-                            Approved
-                        </option>
+            <article class="dashboard-stat-card">
 
-                        <option value="Rejected">
-                            Rejected
-                        </option>
+                <i class="fa-solid fa-circle-check"></i>
 
-                    </select>
+                <h2 id="approvedCount">0</h2>
 
-                </form>
+                <p>Approved</p>
+
+            </article>
+
+            <article class="dashboard-stat-card">
+
+                <i class="fa-solid fa-circle-xmark"></i>
+
+                <h2 id="rejectedCount">0</h2>
+
+                <p>Rejected</p>
+
+            </article>
+
+        </div>
+        <section id="booking-content" class="auth-section reveal fade-up">
+
+            <div class="container">
+
+                <div class="booking-filter-card">
+
+                    <form id="bookingFilterForm">
+
+                        <label class="visually-hidden" for="bookingSearch">
+                            Search Booking Requests
+                        </label>
+
+                        <input type="search" id="bookingSearch" placeholder="Search by student or property">
+
+                        <label class="visually-hidden" for="bookingStatus">
+                            Filter by Status
+                        </label>
+
+                        <select id="bookingStatus">
+
+                            <option value="">All Requests</option>
+
+                            <option value="Pending">Pending</option>
+
+                            <option value="Approved">Approved</option>
+
+                            <option value="Rejected">Rejected</option>
+
+                        </select>
+
+                    </form>
+
+                </div>
+
 
                 <div id="bookingRequests" class="booking-grid" aria-live="polite">
 
@@ -124,6 +171,19 @@
 
             </div>
 
+            <div id="emptyBookings" class="empty-state hidden">
+
+                <i class="fa-solid fa-calendar-xmark"></i>
+
+                <h3>No Booking Requests</h3>
+
+                <p>
+
+                    Inspection requests from students will appear here.
+
+                </p>
+
+            </div>
         </section>
     </main>
     <!--FOOTER-->
