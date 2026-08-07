@@ -3173,3 +3173,617 @@ Responsive
     }
 
 }
+
+/* =========================================================
+   RESIHUB — SUPER ADMIN CONTROL CENTER
+   ========================================================= */
+
+.super-admin-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 40px 0 80px;
+    z-index: 1;
+}
+
+.super-admin-page>.container {
+    width: min(1400px, 94%);
+    margin: 0 auto;
+}
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.super-admin-page .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.super-admin-page .breadcrumb a {
+    color: #8ec5ff;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.super-admin-page .breadcrumb a:hover {
+    color: #ffffff;
+}
+
+.super-admin-page .breadcrumb span:last-child {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   GLASS CARD BASE
+   ========================================================= */
+
+.super-admin-page .glass-card {
+    background: rgba(255, 255, 255, 0.075);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow:
+        0 20px 55px rgba(0, 30, 90, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.super-admin-page .page-header {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(360px, 0.9fr);
+    gap: 30px;
+    align-items: center;
+    padding: 38px;
+    margin-bottom: 30px;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.super-admin-page .page-header::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    top: -150px;
+    right: -80px;
+    background: rgba(80, 170, 255, 0.22);
+    filter: blur(70px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.super-admin-page .page-header-content {
+    position: relative;
+    z-index: 1;
+}
+
+.super-admin-page .page-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #dceeff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.super-admin-page .page-badge i {
+    color: #8ec5ff;
+}
+
+.super-admin-page .page-header h1 {
+    margin: 18px 0 10px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.1;
+    color: #ffffff;
+}
+
+.super-admin-page .page-header-content p {
+    max-width: 700px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   HERO STATUS
+   ========================================================= */
+
+.super-admin-page .hero-status {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.super-admin-page .status-card {
+    min-height: 90px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.065);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.super-admin-page .status-card span {
+    display: block;
+    margin-bottom: 7px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.78rem;
+}
+
+.super-admin-page .status-card strong {
+    color: #ffffff;
+    font-size: 1.05rem;
+}
+
+.super-admin-page .status-card .online {
+    color: #8ff0b2;
+}
+
+.super-admin-page .status-card .online i {
+    font-size: 0.55rem;
+    margin-right: 5px;
+}
+
+/* =========================================================
+   QUICK STATISTICS
+   ========================================================= */
+
+.super-admin-page .super-admin-stats {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 45px;
+}
+
+.super-admin-page .stat-card {
+    min-width: 0;
+    padding: 22px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.075);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.super-admin-page .stat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(142, 197, 255, 0.35);
+    box-shadow: 0 18px 40px rgba(0, 60, 150, 0.2);
+}
+
+.super-admin-page .stat-card .card-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 15px;
+    border-radius: 13px;
+    background: rgba(90, 170, 255, 0.13);
+    color: #8ec5ff;
+    font-size: 1.05rem;
+}
+
+.super-admin-page .stat-card h3 {
+    margin: 0 0 7px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.super-admin-page .stat-card p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 1.45rem;
+    font-weight: 700;
+}
+
+/* =========================================================
+   SECTION HEADERS
+   ========================================================= */
+
+.super-admin-page .super-admin-section {
+    margin-bottom: 45px;
+}
+
+.super-admin-page .section-header {
+    margin-bottom: 25px;
+}
+
+.super-admin-page .section-header h2 {
+    margin: 13px 0 7px;
+    color: #ffffff;
+    font-size: 1.55rem;
+}
+
+.super-admin-page .section-header p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+/* =========================================================
+   ADMIN CONTROL CARDS
+   ========================================================= */
+
+.super-admin-page .super-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.super-admin-page .admin-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    min-height: 470px;
+    border-radius: 24px;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.super-admin-page .admin-card::after {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    right: -80px;
+    top: -80px;
+    border-radius: 50%;
+    background: rgba(60, 160, 255, 0.12);
+    filter: blur(35px);
+    pointer-events: none;
+}
+
+.super-admin-page .admin-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(125, 195, 255, 0.32);
+    box-shadow: 0 25px 60px rgba(0, 40, 120, 0.22);
+}
+
+.super-admin-page .admin-card .card-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    background: rgba(73, 164, 255, 0.13);
+    border: 1px solid rgba(130, 200, 255, 0.15);
+    color: #8ec5ff;
+    font-size: 1.2rem;
+}
+
+.super-admin-page .admin-card h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.super-admin-page .admin-card>p {
+    margin: 0 0 18px;
+    color: rgba(255, 255, 255, 0.63);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.super-admin-page .admin-card ul {
+    display: grid;
+    gap: 9px;
+    padding: 0;
+    margin: 0 0 24px;
+    list-style: none;
+}
+
+.super-admin-page .admin-card li {
+    position: relative;
+    padding-left: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.84rem;
+}
+
+.super-admin-page .admin-card li::before {
+    content: "\f058";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #75baff;
+}
+
+.super-admin-page .admin-card .btn {
+    margin-top: auto;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.super-admin-page .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 11px 18px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.super-admin-page .btn-primary {
+    background: linear-gradient(135deg,
+            #1687ff,
+            #0d6efd);
+    color: #ffffff;
+    box-shadow: 0 8px 22px rgba(13, 110, 253, 0.22);
+}
+
+.super-admin-page .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(13, 110, 253, 0.35);
+}
+
+.super-admin-page .btn-outline {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+.super-admin-page .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   DASHBOARD SECTIONS
+   ========================================================= */
+
+.super-admin-page .dashboard-section {
+    padding: 30px;
+    margin-top: 25px;
+    border-radius: 24px;
+}
+
+.super-admin-page .dashboard-section .section-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* =========================================================
+   RECENT ACTIVITIES
+   ========================================================= */
+
+.super-admin-page .activity-list {
+    display: grid;
+}
+
+.super-admin-page .activity-item {
+    display: grid;
+    grid-template-columns: 46px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.super-admin-page .activity-item:last-child {
+    border-bottom: 0;
+}
+
+.super-admin-page .activity-item>i {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(85, 175, 255, 0.11);
+    color: #8ec5ff;
+}
+
+.super-admin-page .activity-item h4 {
+    margin: 0 0 5px;
+    color: #ffffff;
+    font-size: 0.92rem;
+}
+
+.super-admin-page .activity-item p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.57);
+    font-size: 0.82rem;
+}
+
+.super-admin-page .activity-item time {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   PLATFORM INFORMATION
+   ========================================================= */
+
+.super-admin-page .information-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.super-admin-page .info-box {
+    padding: 18px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.super-admin-page .info-box h4 {
+    margin: 0 0 7px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.76rem;
+    font-weight: 500;
+}
+
+.super-admin-page .info-box p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* =========================================================
+   EMERGENCY ACTIONS
+   ========================================================= */
+
+.super-admin-page .emergency-actions {
+    margin-bottom: 0;
+}
+
+.super-admin-page .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.super-admin-page .btn-warning {
+    background: rgba(255, 183, 77, 0.12);
+    border-color: rgba(255, 183, 77, 0.3);
+    color: #ffd58a;
+}
+
+.super-admin-page .btn-danger {
+    background: rgba(255, 80, 100, 0.1);
+    border-color: rgba(255, 80, 100, 0.28);
+    color: #ff9aa8;
+}
+
+.super-admin-page .btn-warning:hover,
+.super-admin-page .btn-danger:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .super-admin-page .super-admin-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .super-admin-page .super-admin-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .super-admin-page .page-header {
+        grid-template-columns: 1fr;
+    }
+
+    .super-admin-page .super-admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .super-admin-page .information-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .super-admin-page {
+        padding-top: 25px;
+    }
+
+    .super-admin-page>.container {
+        width: min(94%, 100%);
+    }
+
+    .super-admin-page .page-header {
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    .super-admin-page .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .super-admin-page .hero-status {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .super-admin-page .super-admin-stats,
+    .super-admin-page .super-admin-grid,
+    .super-admin-page .information-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .super-admin-page .admin-card {
+        min-height: auto;
+        padding: 23px;
+    }
+
+    .super-admin-page .dashboard-section {
+        padding: 22px;
+        border-radius: 20px;
+    }
+
+    .super-admin-page .activity-item {
+        grid-template-columns: 42px 1fr;
+    }
+
+    .super-admin-page .activity-item time {
+        grid-column: 2;
+    }
+
+    .super-admin-page .action-buttons {
+        flex-direction: column;
+    }
+
+    .super-admin-page .action-buttons .btn {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .super-admin-page .hero-status {
+        grid-template-columns: 1fr;
+    }
+
+    .super-admin-page .stat-card {
+        padding: 18px;
+    }
+
+}
