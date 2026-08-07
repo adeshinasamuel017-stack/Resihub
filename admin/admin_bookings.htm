@@ -111,273 +111,279 @@
 
                 <header class="section-header">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="container">
 
-                        <i class="fa-solid fa-calendar-check"></i>
+                        <header class="auth-hero reveal fade-up">
 
-                        Booking Management
+                            <div id="hero-text">
 
-                    </span>
+                                <span class="page-badge floating-badge glass-card">
 
-                    <h1>Manage Booking Requests</h1>
+                                    <i class="fa-solid fa-calendar-check"></i>
 
-                    <p>
+                                    Booking Management
 
-                        Monitor inspection requests, bookings, approvals and completed
-                        reservations across the ResiHub platform.
+                                </span>
 
-                    </p>
+                                <h1>Manage Booking Requests</h1>
 
-                </header>
+                                <p>
 
-                <!-- ==========================================
+                                    Monitor inspection requests, bookings, approvals and completed
+                                    reservations across the ResiHub platform.
+
+                                </p>
+
+                        </header>
+
+                        <!-- ==========================================
                      Dashboard Statistics
                 =========================================== -->
 
-                <section class="dashboard-section statistics-section glass-reveal">
+                        <section class="dashboard-section statistics-section glass-reveal">
 
-                    <div class="dashboard-grid statistics-grid">
+                            <div class="dashboard-grid statistics-grid">
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                <article class="dashboard-card statistics-card floating-card glass-card">
 
-                            <div class="card-icon">
+                                    <div class="card-icon">
 
-                                <i class="fa-solid fa-calendar-check"></i>
+                                        <i class="fa-solid fa-calendar-check"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h2 id="totalBookings" class="count-up">0</h2>
+
+                                        <p>Total Bookings</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-hourglass-half"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h2 id="pendingBookings" class="count-up">0</h2>
+
+                                        <p>Pending</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-circle-check"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h2 id="approvedBookings" class="count-up">0</h2>
+
+                                        <p>Approved</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-circle-xmark"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h2 id="rejectedBookings" class="count-up">0</h2>
+
+                                        <p>Rejected</p>
+
+                                    </div>
+
+                                </article>
 
                             </div>
 
-                            <div class="card-content">
+                        </section>
 
-                                <h2 id="totalBookings" class="count-up">0</h2>
-
-                                <p>Total Bookings</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-hourglass-half"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h2 id="pendingBookings" class="count-up">0</h2>
-
-                                <p>Pending</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-circle-check"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h2 id="approvedBookings" class="count-up">0</h2>
-
-                                <p>Approved</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-circle-xmark"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h2 id="rejectedBookings" class="count-up">0</h2>
-
-                                <p>Rejected</p>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-                </section>
-
-                <!-- ==========================================
+                        <!-- ==========================================
                      Booking Filters
                 =========================================== -->
 
-                <section class="filter-section glass-card">
+                        <section class="filter-section glass-card">
 
-                    <form id="bookingFilterForm" class="filter-form liquid-form">
+                            <form id="bookingFilterForm" class="filter-form liquid-form">
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <input type="search" id="bookingSearch" class="liquid-input"
-                                placeholder="Search by student, landlord or property..." autocomplete="off">
+                                    <input type="search" id="bookingSearch" class="liquid-input"
+                                        placeholder="Search by student, landlord or property..." autocomplete="off">
 
-                        </div>
+                                </div>
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <select id="bookingStatus" class="liquid-input">
+                                    <select id="bookingStatus" class="liquid-input">
 
-                                <option value="">All Status</option>
+                                        <option value="">All Status</option>
 
-                                <option value="Pending">Pending</option>
+                                        <option value="Pending">Pending</option>
 
-                                <option value="Approved">Approved</option>
+                                        <option value="Approved">Approved</option>
 
-                                <option value="Rejected">Rejected</option>
+                                        <option value="Rejected">Rejected</option>
 
-                                <option value="Completed">Completed</option>
+                                        <option value="Completed">Completed</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
+                                </div>
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <select id="bookingSort" class="liquid-input">
+                                    <select id="bookingSort" class="liquid-input">
 
-                                <option value="latest">Latest First</option>
+                                        <option value="latest">Latest First</option>
 
-                                <option value="oldest">Oldest First</option>
+                                        <option value="oldest">Oldest First</option>
 
-                                <option value="student">Student Name</option>
+                                        <option value="student">Student Name</option>
 
-                                <option value="landlord">Landlord Name</option>
+                                        <option value="landlord">Landlord Name</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
+                                </div>
 
-                        <button type="submit" class="btn btn-primary azure-sweep ripple">
+                                <button type="submit" class="btn btn-primary azure-sweep ripple">
 
-                            <i class="fa-solid fa-filter"></i>
+                                    <i class="fa-solid fa-filter"></i>
 
-                            <span>Apply</span>
+                                    <span>Apply</span>
 
-                        </button>
+                                </button>
 
-                    </form>
+                            </form>
 
-                </section>
+                        </section>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Booking Table
                 =========================================== -->
 
-                <section class="table-section glass-reveal">
+                        <section class="table-section glass-reveal">
 
-                    <div class="table-responsive">
+                            <div class="table-responsive">
 
-                        <table class="admin-table data-table">
+                                <table class="admin-table data-table">
 
-                            <thead>
+                                    <thead>
 
-                                <tr>
+                                        <tr>
 
-                                    <th>ID</th>
+                                            <th>ID</th>
 
-                                    <th>Student</th>
+                                            <th>Student</th>
 
-                                    <th>Landlord</th>
+                                            <th>Landlord</th>
 
-                                    <th>Property</th>
+                                            <th>Property</th>
 
-                                    <th>Date</th>
+                                            <th>Date</th>
 
-                                    <th>Status</th>
+                                            <th>Status</th>
 
-                                    <th>Actions</th>
+                                            <th>Actions</th>
 
-                                </tr>
+                                        </tr>
 
-                            </thead>
+                                    </thead>
 
-                            <tbody id="bookingTableBody">
+                                    <tbody id="bookingTableBody">
 
-                                <!-- Loaded dynamically -->
+                                        <!-- Loaded dynamically -->
 
-                            </tbody>
+                                    </tbody>
 
-                        </table>
+                                </table>
 
-                    </div>
+                            </div>
 
-                </section>
+                        </section>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Booking Details Modal
                 =========================================== -->
 
-                <div id="bookingModal" class="modal hidden">
+                        <div id="bookingModal" class="modal hidden">
 
-                    <div class="modal-content glass-card">
+                            <div class="modal-content glass-card">
 
-                        <button id="closeBookingModal" class="modal-close" aria-label="Close">
+                                <button id="closeBookingModal" class="modal-close" aria-label="Close">
 
-                            <i class="fa-solid fa-xmark"></i>
+                                    <i class="fa-solid fa-xmark"></i>
 
-                        </button>
+                                </button>
 
-                        <h2>Booking Details</h2>
+                                <h2>Booking Details</h2>
 
-                        <div id="bookingDetails">
+                                <div id="bookingDetails">
 
-                            <!-- Loaded dynamically -->
+                                    <!-- Loaded dynamically -->
+
+                                </div>
+
+                                <div class="modal-actions">
+
+                                    <button id="approveBooking" class="btn btn-primary azure-sweep ripple">
+
+                                        <i class="fa-solid fa-circle-check"></i>
+
+                                        Approve
+
+                                    </button>
+
+                                    <button id="rejectBooking" class="btn btn-outline">
+
+                                        <i class="fa-solid fa-circle-xmark"></i>
+
+                                        Reject
+
+                                    </button>
+
+                                </div>
+
+                            </div>
 
                         </div>
 
-                        <div class="modal-actions">
-
-                            <button id="approveBooking" class="btn btn-primary azure-sweep ripple">
-
-                                <i class="fa-solid fa-circle-check"></i>
-
-                                Approve
-
-                            </button>
-
-                            <button id="rejectBooking" class="btn btn-outline">
-
-                                <i class="fa-solid fa-circle-xmark"></i>
-
-                                Reject
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- ==========================================
+                        <!-- ==========================================
                      Pagination
                 =========================================== -->
 
-                <section class="pagination-section">
+                        <section class="pagination-section">
 
-                    <div id="bookingPagination" class="pagination">
+                            <div id="bookingPagination" class="pagination">
+
+                            </div>
+
+                        </section>
 
                     </div>
-
-                </section>
-
-            </div>
 
         </section>
 

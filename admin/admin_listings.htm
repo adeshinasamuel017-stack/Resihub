@@ -110,239 +110,245 @@
 
                 <header class="section-header">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="container">
 
-                        <i class="fa-solid fa-house"></i>
+                        <header class="auth-hero reveal fade-up">
 
-                        Listing Management
+                            <div id="hero-text">
 
-                    </span>
+                                <span class="page-badge floating-badge glass-card">
 
-                    <h1>Manage Property Listings</h1>
+                                    <i class="fa-solid fa-house"></i>
 
-                    <p>
+                                    Listing Management
 
-                        Review, approve, suspend, feature and manage accommodation listings across Nigeria.
+                                </span>
 
-                    </p>
+                                <h1>Manage Property Listings</h1>
 
-                </header>
+                                <p>
 
-                <!-- ==========================================
+                                    Review, approve, suspend, feature and manage accommodation listings across Nigeria.
+
+                                </p>
+
+                        </header>
+
+                        <!-- ==========================================
                      Statistics
                 =========================================== -->
 
-                <section class="dashboard-section statistics-section glass-reveal">
+                        <section class="dashboard-section statistics-section glass-reveal">
 
-                    <div class="dashboard-grid statistics-grid">
+                            <div class="dashboard-grid statistics-grid">
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                <article class="dashboard-card statistics-card floating-card glass-card">
 
-                            <div class="card-icon">
+                                    <div class="card-icon">
 
-                                <i class="fa-solid fa-house"></i>
+                                        <i class="fa-solid fa-house"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="totalListings" class="count-up">0</h3>
+
+                                        <p>Total Listings</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-circle-check"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="approvedListings" class="count-up">0</h3>
+
+                                        <p>Approved</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-clock"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="pendingListings" class="count-up">0</h3>
+
+                                        <p>Pending Approval</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-star"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="featuredListings" class="count-up">0</h3>
+
+                                        <p>Featured Listings</p>
+
+                                    </div>
+
+                                </article>
 
                             </div>
 
-                            <div class="card-content">
+                        </section>
 
-                                <h3 id="totalListings" class="count-up">0</h3>
-
-                                <p>Total Listings</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-circle-check"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="approvedListings" class="count-up">0</h3>
-
-                                <p>Approved</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-clock"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="pendingListings" class="count-up">0</h3>
-
-                                <p>Pending Approval</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-star"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="featuredListings" class="count-up">0</h3>
-
-                                <p>Featured Listings</p>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-                </section>
-
-                <!-- ==========================================
+                        <!-- ==========================================
                      Search & Filters
                 =========================================== -->
 
-                <section class="filter-section glass-card">
+                        <section class="filter-section glass-card">
 
-                    <form id="listingFilterForm" class="filter-form liquid-form" role="search"
-                        aria-label="Filter Listings">
+                            <form id="listingFilterForm" class="filter-form liquid-form" role="search"
+                                aria-label="Filter Listings">
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <input type="search" id="listingSearch" class="liquid-input"
-                                placeholder="Search title, landlord or location..." autocomplete="off">
+                                    <input type="search" id="listingSearch" class="liquid-input"
+                                        placeholder="Search title, landlord or location..." autocomplete="off">
 
-                        </div>
+                                </div>
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <select id="listingStatus" class="liquid-input">
+                                    <select id="listingStatus" class="liquid-input">
 
-                                <option value="">All Status</option>
+                                        <option value="">All Status</option>
 
-                                <option value="Approved">Approved</option>
+                                        <option value="Approved">Approved</option>
 
-                                <option value="Pending">Pending</option>
+                                        <option value="Pending">Pending</option>
 
-                                <option value="Featured">Featured</option>
+                                        <option value="Featured">Featured</option>
 
-                                <option value="Suspended">Suspended</option>
+                                        <option value="Suspended">Suspended</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
+                                </div>
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <select id="propertyType" class="liquid-input">
+                                    <select id="propertyType" class="liquid-input">
 
-                                <option value="">All Types</option>
+                                        <option value="">All Types</option>
 
-                                <option value="Self Contain">Self Contain</option>
+                                        <option value="Self Contain">Self Contain</option>
 
-                                <option value="Single Room">Single Room</option>
+                                        <option value="Single Room">Single Room</option>
 
-                                <option value="Room and Parlour">Room & Parlour</option>
+                                        <option value="Room and Parlour">Room & Parlour</option>
 
-                                <option value="Flat">Flat</option>
+                                        <option value="Flat">Flat</option>
 
-                                <option value="Hostel">Hostel</option>
+                                        <option value="Hostel">Hostel</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
+                                </div>
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <select id="listingState" class="liquid-input">
+                                    <select id="listingState" class="liquid-input">
 
-                                <option value="">All States</option>
+                                        <option value="">All States</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
+                                </div>
 
-                    </form>
+                            </form>
 
-                </section>
+                        </section>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Listings Table
                 =========================================== -->
 
-                <section class="table-section glass-reveal">
+                        <section class="table-section glass-reveal">
 
-                    <div class="table-responsive">
+                            <div class="table-responsive">
 
-                        <table class="admin-table data-table">
+                                <table class="admin-table data-table">
 
-                            <thead>
+                                    <thead>
 
-                                <tr>
+                                        <tr>
 
-                                    <th>Property</th>
+                                            <th>Property</th>
 
-                                    <th>Landlord</th>
+                                            <th>Landlord</th>
 
-                                    <th>Location</th>
+                                            <th>Location</th>
 
-                                    <th>Price</th>
+                                            <th>Price</th>
 
-                                    <th>Status</th>
+                                            <th>Status</th>
 
-                                    <th>Listed</th>
+                                            <th>Listed</th>
 
-                                    <th>Actions</th>
+                                            <th>Actions</th>
 
-                                </tr>
+                                        </tr>
 
-                            </thead>
+                                    </thead>
 
-                            <tbody id="listingTableBody">
+                                    <tbody id="listingTableBody">
 
-                                <!-- Loaded Dynamically -->
+                                        <!-- Loaded Dynamically -->
 
-                            </tbody>
+                                    </tbody>
 
-                        </table>
+                                </table>
 
-                    </div>
+                            </div>
 
-                </section>
+                        </section>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Empty State
                 =========================================== -->
 
-                <div id="noListingsFound" class="empty-state hidden">
+                        <div id="noListingsFound" class="empty-state hidden">
 
-                    <i class="fa-solid fa-house-circle-xmark"></i>
+                            <i class="fa-solid fa-house-circle-xmark"></i>
 
-                    <h3>No Listings Found</h3>
+                            <h3>No Listings Found</h3>
 
-                    <p>
+                            <p>
 
-                        No property listing matches your current search or filters.
+                                No property listing matches your current search or filters.
 
-                    </p>
+                            </p>
 
-                </div>
+                        </div>
 
-            </div>
+                    </div>
 
         </section>
 

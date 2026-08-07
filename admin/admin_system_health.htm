@@ -78,7 +78,7 @@
 
     <div id="header"></div>
 
-    <main>
+    <main id="mainContent" class="page-transition">
 
         <!-- ==========================================
              System Health Dashboard
@@ -86,153 +86,162 @@
 
         <section id="systemHealthContent" class="auth-section reveal fade-up">
 
-            <div class="container">
+            <!-- Page Header -->
 
-                <!-- Page Header -->
+            <div class="section-header">
 
-                <div class="section-header">
+                <div class="container">
 
-                    <span class="page-badge floating-badge">
+                    <header class="auth-hero reveal fade-up">
 
-                        <i class="fa-solid fa-heart-pulse"></i>
+                        <div id="hero-text">
 
-                        Platform Monitoring
+                            <span class="page-badge floating-badge">
 
-                    </span>
+                                <i class="fa-solid fa-heart-pulse"></i>
 
-                    <h1>System Health</h1>
+                                Platform Monitoring
 
-                    <p>
+                            </span>
 
-                        Monitor the overall performance, uptime and health of the ResiHub platform.
+                            <h1>System Health</h1>
 
-                    </p>
+                            <p>
 
+                                Monitor the overall performance, uptime and health of the ResiHub platform.
+
+                            </p>
+
+                        </div>
                 </div>
+                </header>
+            </div>
+            </header>
+        </section>
 
-                <!-- Health Statistics -->
+        <!-- Health Statistics -->
 
-                <div class="dashboard-grid">
+        <div class="dashboard-grid">
 
-                    <div class="dashboard-card">
+            <div class="dashboard-card">
 
-                        <i class="fa-solid fa-server"></i>
+                <i class="fa-solid fa-server"></i>
 
-                        <h3 id="serverStatus">Online</h3>
+                <h3 id="serverStatus">Online</h3>
 
-                        <p>Server Status</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-database"></i>
-
-                        <h3 id="databaseHealth">Healthy</h3>
-
-                        <p>Database</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-hard-drive"></i>
-
-                        <h3 id="storageUsage">0%</h3>
-
-                        <p>Storage Usage</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-wifi"></i>
-
-                        <h3 id="systemUptime">99.99%</h3>
-
-                        <p>Platform Uptime</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-memory"></i>
-
-                        <h3 id="memoryUsage">0%</h3>
-
-                        <p>Memory Usage</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-microchip"></i>
-
-                        <h3 id="cpuUsage">0%</h3>
-
-                        <p>CPU Usage</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-network-wired"></i>
-
-                        <h3 id="networkTraffic">0 Mbps</h3>
-
-                        <p>Network Traffic</p>
-
-                    </div>
-
-                    <div class="dashboard-card">
-
-                        <i class="fa-solid fa-users"></i>
-
-                        <h3 id="activeUsers">0</h3>
-
-                        <p>Online Users</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Live Monitoring -->
-
-                <section class="dashboard-section">
-
-                    <div class="section-header">
-
-                        <h2>Live Monitoring</h2>
-
-                    </div>
-
-                    <div id="systemHealthChart" class="analytics-chart">
-
-                        <!-- Live chart rendered by JavaScript -->
-
-                    </div>
-
-                </section>
-
-                <!-- Recent Alerts -->
-
-                <section class="dashboard-section">
-
-                    <div class="section-header">
-
-                        <h2>Recent Alerts</h2>
-
-                    </div>
-
-                    <div id="systemAlerts" class="notification-list">
-
-                        <!-- Alerts loaded dynamically by JavaScript -->
-
-                    </div>
-
-                </section>
+                <p>Server Status</p>
 
             </div>
+
+            <div class="dashboard-card">
+
+                <i class="fa-solid fa-database"></i>
+
+                <h3 id="databaseHealth">Healthy</h3>
+
+                <p>Database</p>
+
+            </div>
+
+            <div class="dashboard-card">
+
+                <i class="fa-solid fa-hard-drive"></i>
+
+                <h3 id="storageUsage">0%</h3>
+
+                <p>Storage Usage</p>
+
+            </div>
+
+            <div class="dashboard-card">
+
+                <i class="fa-solid fa-wifi"></i>
+
+                <h3 id="systemUptime">99.99%</h3>
+
+                <p>Platform Uptime</p>
+
+            </div>
+
+            <div class="dashboard-card">
+
+                <i class="fa-solid fa-memory"></i>
+
+                <h3 id="memoryUsage">0%</h3>
+
+                <p>Memory Usage</p>
+
+            </div>
+
+            <div class="dashboard-card">
+
+                <i class="fa-solid fa-microchip"></i>
+
+                <h3 id="cpuUsage">0%</h3>
+
+                <p>CPU Usage</p>
+
+            </div>
+
+            <div class="dashboard-card">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+                <h3 id="networkTraffic">0 Mbps</h3>
+
+                <p>Network Traffic</p>
+
+            </div>
+
+            <div class="dashboard-card">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3 id="activeUsers">0</h3>
+
+                <p>Online Users</p>
+
+            </div>
+
+        </div>
+
+        <!-- Live Monitoring -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <h2>Live Monitoring</h2>
+
+            </div>
+
+            <div id="systemHealthChart" class="analytics-chart">
+
+                <!-- Live chart rendered by JavaScript -->
+
+            </div>
+
+        </section>
+
+        <!-- Recent Alerts -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <h2>Recent Alerts</h2>
+
+            </div>
+
+            <div id="systemAlerts" class="notification-list">
+
+                <!-- Alerts loaded dynamically by JavaScript -->
+
+            </div>
+
+        </section>
+
+        </div>
 
         </section>
 

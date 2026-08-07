@@ -133,7 +133,7 @@
 
     <main id="mainContent" class="page-transition">
 
-        <section id="activityLogsContent" class="page-section glass-reveal floating-section">
+        <section id="activityLogsContent" class="page-section">
 
             <div class="container page-container">
 
@@ -143,22 +143,32 @@
 
                 <section class="section-header">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="container">
 
-                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <header class="auth-hero reveal fade-up">
 
-                        Administrator Logs
+                            <div id="hero-text">
 
-                    </span>
+                                <span class="page-badge floating-badge">
 
-                    <h1>Activity Logs</h1>
+                                    <i class="fa-solid fa-clock-rotate-left"></i>
 
-                    <p>
+                                    Administrator Logs
 
-                        Monitor every administrator action performed across
-                        the ResiHub platform.
+                                </span>
 
-                    </p>
+                                <h1>Activity Logs</h1>
+
+                                <p>
+
+                                    Monitor every administrator action performed across the
+                                    ResiHub platform.
+
+                                </p>
+
+                        </header>
+
+                    </div>
 
                 </section>
 
@@ -166,8 +176,7 @@
                      Activity Filters
                 =========================================== -->
 
-                <form id="activityFilterForm" class="filter-form liquid-form" role="search"
-                    aria-label="Filter Activity Logs">
+                <form id="activityFilterForm" class="activity-filter-form">
 
                     <div class="liquid-group">
 

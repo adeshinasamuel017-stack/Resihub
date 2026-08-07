@@ -98,175 +98,216 @@
              Support Tickets Section
         =========================================== -->
 
-        <section id="supportTicketsContent" class="auth-section reveal fade-up">
+        <section id="supportTicketsContent" class="page-section glass-reveal floating-section">
 
-            <div class="container">
+            <div class="container page-container">
 
                 <!-- Page Header -->
 
                 <div class="section-header">
 
-                    <span class="page-badge floating-badge">
+                    <div class="container">
 
-                        <i class="fa-solid fa-headset"></i>
+                        <header class="auth-hero reveal fade-up">
 
-                        Support Center
+                            <div id="hero-text">
 
-                    </span>
+                                <span class="page-badge floating-badge">
 
-                    <h1>Support Tickets</h1>
+                                    <i class="fa-solid fa-headset"></i>
 
-                    <p>
+                                    Support Center
 
-                        Review, assign and resolve support requests from students and landlords.
+                                </span>
 
-                    </p>
+                                <h1>Support Tickets</h1>
 
-                </div>
+                                <p>
 
-                <!-- ==========================================
+                                    Review, assign and resolve support requests from students and landlords.
+
+                                </p>
+
+                            </div>
+
+                            <!-- ==========================================
                      Ticket Filters
                 =========================================== -->
 
-                <form id="ticketFilterForm">
+                            <form id="ticketFilterForm">
 
-                    <input type="search" id="ticketSearch" placeholder="Search tickets...">
+                                <input type="search" id="ticketSearch" placeholder="Search tickets...">
 
-                    <select id="ticketStatus">
+                                <select id="ticketStatus">
 
-                        <option value="">All Status</option>
+                                    <option value="">All Status</option>
 
-                        <option>Open</option>
+                                    <option>Open</option>
 
-                        <option>Pending</option>
+                                    <option>Pending</option>
 
-                        <option>Resolved</option>
+                                    <option>Resolved</option>
 
-                        <option>Closed</option>
+                                    <option>Closed</option>
 
-                    </select>
+                                </select>
 
-                    <select id="ticketPriority">
+                                <select id="ticketPriority">
 
-                        <option value="">All Priority</option>
+                                    <option value="">All Priority</option>
 
-                        <option>Critical</option>
+                                    <option>Critical</option>
 
-                        <option>High</option>
+                                    <option>High</option>
 
-                        <option>Medium</option>
+                                    <option>Medium</option>
 
-                        <option>Low</option>
+                                    <option>Low</option>
 
-                    </select>
+                                </select>
 
-                    <select id="ticketCategory">
+                                <select id="ticketCategory">
 
-                        <option value="">All Categories</option>
+                                    <option value="">All Categories</option>
 
-                        <option>Account</option>
+                                    <option>Account</option>
 
-                        <option>Payments</option>
+                                    <option>Payments</option>
 
-                        <option>Listings</option>
+                                    <option>Listings</option>
 
-                        <option>Technical</option>
+                                    <option>Technical</option>
 
-                        <option>Reports</option>
+                                    <option>Reports</option>
 
-                    </select>
+                                </select>
 
-                </form>
+                            </form>
 
-                <!-- ==========================================
+                            <!-- ==========================================
                      Statistics
                 =========================================== -->
 
-                <div class="dashboard-grid">
+                            <section class="dashboard-section statistics-section glass-reveal">
 
-                    <div class="dashboard-card">
+                                <div class="dashboard-grid statistics-grid">
 
-                        <i class="fa-solid fa-ticket"></i>
+                                    <article class="dashboard-card statistics-card floating-card glass-card">
 
-                        <h3 id="totalTickets">0</h3>
+                                        <div class="card-icon">
 
-                        <p>Total Tickets</p>
+                                            <i class="fa-solid fa-ticket"></i>
 
-                    </div>
+                                        </div>
 
-                    <div class="dashboard-card">
+                                        <div class="card-content">
 
-                        <i class="fa-solid fa-folder-open"></i>
+                                            <h3 id="totalTickets" class="count-up">0</h3>
 
-                        <h3 id="openTickets">0</h3>
+                                            <p>Total Tickets</p>
 
-                        <p>Open Tickets</p>
+                                        </div>
 
-                    </div>
+                                    </article>
 
-                    <div class="dashboard-card">
+                                    <article class="dashboard-card statistics-card floating-card glass-card">
 
-                        <i class="fa-solid fa-spinner"></i>
+                                        <div class="card-icon">
 
-                        <h3 id="pendingTickets">0</h3>
+                                            <i class="fa-solid fa-folder-open"></i>
 
-                        <p>Pending</p>
+                                        </div>
 
-                    </div>
+                                        <div class="card-content">
 
-                    <div class="dashboard-card">
+                                            <h3 id="openTickets" class="count-up">0</h3>
 
-                        <i class="fa-solid fa-circle-check"></i>
+                                            <p>Open Tickets</p>
 
-                        <h3 id="resolvedTickets">0</h3>
+                                        </div>
 
-                        <p>Resolved</p>
+                                    </article>
 
-                    </div>
+                                    <article class="dashboard-card statistics-card floating-card glass-card">
 
-                </div>
+                                        <div class="card-icon">
 
-                <!-- ==========================================
+                                            <i class="fa-solid fa-spinner"></i>
+
+                                        </div>
+
+                                        <div class="card-content">
+
+                                            <h3 id="pendingTickets" class="count-up">0</h3>
+
+                                            <p>Pending</p>
+
+                                        </div>
+
+                                    </article>
+
+                                    <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                        <div class="card-icon">
+
+                                            <i class="fa-solid fa-circle-check"></i>
+
+                                        </div>
+
+                                        <div class="card-content">
+
+                                            <h3 id="resolvedTickets" class="count-up">0</h3>
+
+                                            <p>Resolved</p>
+
+                                        </div>
+
+                                    </article>
+
+                                </div>
+
+                                <!-- ==========================================
                      Support Tickets Table
                 =========================================== -->
 
-                <div class="table-responsive">
+                                <section class="table-section glass-reveal">
 
-                    <table class="admin-table">
+                                    <div class="table-responsive">
+                                        <table class="admin-table">
 
-                        <thead>
+                                            <thead>
 
-                            <tr>
+                                                <tr>
 
-                                <th>ID</th>
+                                                    <th>ID</th>
 
-                                <th>User</th>
+                                                    <th>User</th>
 
-                                <th>Category</th>
+                                                    <th>Category</th>
 
-                                <th>Priority</th>
+                                                    <th>Priority</th>
 
-                                <th>Status</th>
+                                                    <th>Status</th>
 
-                                <th>Date</th>
+                                                    <th>Date</th>
 
-                                <th>Actions</th>
+                                                    <th>Actions</th>
 
-                            </tr>
+                                                </tr>
 
-                        </thead>
+                                            </thead>
 
-                        <tbody id="supportTicketsTable">
+                                            <tbody id="supportTicketsTable">
 
-                            <!-- Loaded dynamically by JavaScript -->
+                                                <!-- Loaded dynamically by JavaScript -->
 
-                        </tbody>
+                                            </tbody>
 
-                    </table>
+                                        </table>
 
-                </div>
+                                    </div>
 
-            </div>
+                    </div>
 
         </section>
 

@@ -102,169 +102,196 @@
                 <!-- Page Header -->
 
                 <div class="section-header">
+                    <div class="container">
 
-                    <span class="page-badge floating-badge">
+                        <header class="auth-hero reveal fade-up">
 
-                        <i class="fa-solid fa-user-graduate"></i>
+                            <div id="hero-text">
 
-                        Student Management
+                                <span class="page-badge floating-badge">
 
-                    </span>
+                                    <i class="fa-solid fa-user-graduate"></i>
 
-                    <h1>Manage Registered Students</h1>
+                                    Student Management
 
-                    <p>
+                                </span>
 
-                        Search, review, suspend, activate and manage student accounts across the ResiHub platform.
+                                <h1>Manage Registered Students</h1>
 
-                    </p>
+                                <p>
 
-                </div>
+                                    Search, review, suspend, activate and manage student accounts across the ResiHub
+                                    platform.
 
-                <!-- Statistics -->
+                                </p>
 
-                <div class="dashboard-stats">
+                            </div>
 
-                    <div class="stat-card">
+                            <!-- Statistics -->
 
-                        <i class="fa-solid fa-users"></i>
+                            <section class="dashboard-section statistics-section glass-reveal">
 
-                        <h2 id="totalStudents">0</h2>
+                                <div class="dashboard-grid statistics-grid">
 
-                        <p>Total Students</p>
+                                    <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                        <div class="card-icon">
+                                            <i class="fa-solid fa-users"></i>
+                                        </div>
+
+                                        <div class="card-content">
+                                            <h3 id="totalStudents" class="count-up">0</h3>
+                                            <p>Total Students</p>
+                                        </div>
+
+                                    </article>
+
+                                    <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                        <div class="card-icon">
+                                            <i class="fa-solid fa-user-check"></i>
+                                        </div>
+
+                                        <div class="card-content">
+                                            <h3 id="activeStudents" class="count-up">0</h3>
+                                            <p>Active Accounts</p>
+                                        </div>
+
+                                    </article>
+
+                                    <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                        <div class="card-icon">
+                                            <i class="fa-solid fa-user-slash"></i>
+                                        </div>
+
+                                        <div class="card-content">
+                                            <h3 id="suspendedStudents" class="count-up">0</h3>
+                                            <p>Suspended</p>
+                                        </div>
+
+                                    </article>
+
+                                    <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                        <div class="card-icon">
+                                            <i class="fa-solid fa-user-clock"></i>
+                                        </div>
+
+                                        <div class="card-content">
+                                            <h3 id="newStudents" class="count-up">0</h3>
+                                            <p>New This Month</p>
+                                        </div>
+
+                                    </article>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- Search & Filters -->
+
+                            <section class="filter-section glass-card">
+
+                                <form id="studentFilterForm" class="filter-form liquid-form" role="search"
+                                    aria-label="Filter Students">
+                                    <label class="visually-hidden" for="studentSearch">
+
+                                        Search Students
+
+                                    </label>
+
+                                    <input type="search" id="studentSearch" name="studentSearch"
+                                        placeholder="Search by name, email or university..." autocomplete="off">
+
+                                    <label class="visually-hidden" for="studentStatus">
+
+                                        Student Status
+
+                                    </label>
+
+                                    <select id="studentStatus" name="studentStatus">
+
+                                        <option value="">All Status</option>
+
+                                        <option value="Active">Active</option>
+
+                                        <option value="Suspended">Suspended</option>
+
+                                        <option value="Pending">Pending Verification</option>
+
+                                    </select>
+
+                                    <label class="visually-hidden" for="studentUniversity">
+
+                                        University
+
+                                    </label>
+
+                                    <select id="studentUniversity" name="studentUniversity">
+
+                                        <option value="">All Universities</option>
+
+                                    </select>
+
+                                </form>
+
+                                <!-- Students Table -->
+
+                                <section class="table-section glass-reveal">
+
+                                    <div class="table-responsive">
+
+                                        <table class="admin-table">
+
+                                            <thead>
+
+                                                <tr>
+
+                                                    <th>Student</th>
+
+                                                    <th>University</th>
+
+                                                    <th>Email</th>
+
+                                                    <th>Status</th>
+
+                                                    <th>Joined</th>
+
+                                                    <th>Actions</th>
+
+                                                </tr>
+
+                                            </thead>
+
+                                            <tbody id="studentTableBody">
+
+                                                <!-- Loaded dynamically -->
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                    <!-- Empty State -->
+
+                                    <div id="noStudentsFound" class="empty-state hidden">
+
+                                        <i class="fa-solid fa-users-slash"></i>
+
+                                        <h3>No Students Found</h3>
+
+                                        <p>
+
+                                            No student matches your current search or filter.
+
+                                        </p>
+
+                                    </div>
 
                     </div>
-
-                    <div class="stat-card">
-
-                        <i class="fa-solid fa-user-check"></i>
-
-                        <h2 id="activeStudents">0</h2>
-
-                        <p>Active Accounts</p>
-
-                    </div>
-
-                    <div class="stat-card">
-
-                        <i class="fa-solid fa-user-slash"></i>
-
-                        <h2 id="suspendedStudents">0</h2>
-
-                        <p>Suspended</p>
-
-                    </div>
-
-                    <div class="stat-card">
-
-                        <i class="fa-solid fa-user-clock"></i>
-
-                        <h2 id="newStudents">0</h2>
-
-                        <p>New This Month</p>
-
-                    </div>
-
-                </div>
-
-                <!-- Search & Filters -->
-
-                <form id="studentFilterForm" class="dashboard-filter" role="search" aria-label="Filter Students">
-
-                    <label class="visually-hidden" for="studentSearch">
-
-                        Search Students
-
-                    </label>
-
-                    <input type="search" id="studentSearch" name="studentSearch"
-                        placeholder="Search by name, email or university..." autocomplete="off">
-
-                    <label class="visually-hidden" for="studentStatus">
-
-                        Student Status
-
-                    </label>
-
-                    <select id="studentStatus" name="studentStatus">
-
-                        <option value="">All Status</option>
-
-                        <option value="Active">Active</option>
-
-                        <option value="Suspended">Suspended</option>
-
-                        <option value="Pending">Pending Verification</option>
-
-                    </select>
-
-                    <label class="visually-hidden" for="studentUniversity">
-
-                        University
-
-                    </label>
-
-                    <select id="studentUniversity" name="studentUniversity">
-
-                        <option value="">All Universities</option>
-
-                    </select>
-
-                </form>
-
-                <!-- Students Table -->
-
-                <div class="table-responsive">
-
-                    <table class="admin-table">
-
-                        <thead>
-
-                            <tr>
-
-                                <th>Student</th>
-
-                                <th>University</th>
-
-                                <th>Email</th>
-
-                                <th>Status</th>
-
-                                <th>Joined</th>
-
-                                <th>Actions</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody id="studentTableBody">
-
-                            <!-- Loaded dynamically -->
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <!-- Empty State -->
-
-                <div id="noStudentsFound" class="empty-state hidden">
-
-                    <i class="fa-solid fa-users-slash"></i>
-
-                    <h3>No Students Found</h3>
-
-                    <p>
-
-                        No student matches your current search or filter.
-
-                    </p>
-
-                </div>
-
-            </div>
 
         </section>
 

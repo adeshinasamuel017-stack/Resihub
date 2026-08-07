@@ -101,7 +101,7 @@
 
     <main id="mainContent" class="page-transition">
 
-        <section id="auditTrailContent" class="page-section glass-reveal floating-section">
+        <section id="auditTrailContent" class="page-section">
 
             <div class="container page-container">
 
@@ -111,246 +111,252 @@
 
                 <header class="section-header">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="container">
 
-                        <i class="fa-solid fa-shield-halved"></i>
+                        <header class="auth-hero reveal fade-up">
 
-                        Security Audit
+                            <div id="hero-text">
 
-                    </span>
+                                <span class="page-badge floating-badge glass-card">
 
-                    <h1>Audit Trail</h1>
+                                    <i class="fa-solid fa-shield-halved"></i>
 
-                    <p>
+                                    Security Audit
 
-                        Review sensitive administrator activities, permission
-                        changes, authentication events and security operations
-                        across the ResiHub platform.
+                                </span>
 
-                    </p>
+                                <h1>Audit Trail</h1>
 
-                </header>
+                                <p>
 
-                <!-- ==========================================
+                                    Review sensitive administrator activities, permission
+                                    changes, authentication events and security operations
+                                    across the ResiHub platform.
+
+                                </p>
+
+                        </header>
+
+                        <!-- ==========================================
                      Filters
                 =========================================== -->
 
-                <form id="auditFilterForm" class="filter-form liquid-form" role="search"
-                    aria-label="Audit Trail Filter">
+                        <form id="auditFilterForm" class="filter-form liquid-form" role="search"
+                            aria-label="Audit Trail Filter">
 
-                    <div class="liquid-group">
+                            <div class="liquid-group">
 
-                        <input type="search" id="auditSearch" class="liquid-input"
-                            placeholder="Search administrator, event or IP..." autocomplete="off">
+                                <input type="search" id="auditSearch" class="liquid-input"
+                                    placeholder="Search administrator, event or IP..." autocomplete="off">
 
-                    </div>
+                            </div>
 
-                    <div class="liquid-group">
+                            <div class="liquid-group">
 
-                        <select id="auditSeverity" class="liquid-input">
+                                <select id="auditSeverity" class="liquid-input">
 
-                            <option value="">All Severity</option>
+                                    <option value="">All Severity</option>
 
-                            <option value="Critical">Critical</option>
+                                    <option value="Critical">Critical</option>
 
-                            <option value="High">High</option>
+                                    <option value="High">High</option>
 
-                            <option value="Medium">Medium</option>
+                                    <option value="Medium">Medium</option>
 
-                            <option value="Low">Low</option>
+                                    <option value="Low">Low</option>
 
-                        </select>
+                                </select>
 
-                    </div>
+                            </div>
 
-                    <div class="liquid-group">
+                            <div class="liquid-group">
 
-                        <select id="auditEvent" class="liquid-input">
+                                <select id="auditEvent" class="liquid-input">
 
-                            <option value="">All Events</option>
+                                    <option value="">All Events</option>
 
-                            <option value="Login">Login</option>
+                                    <option value="Login">Login</option>
 
-                            <option value="Failed Login">Failed Login</option>
+                                    <option value="Failed Login">Failed Login</option>
 
-                            <option value="Password Reset">Password Reset</option>
+                                    <option value="Password Reset">Password Reset</option>
 
-                            <option value="Permission Change">Permission Change</option>
+                                    <option value="Permission Change">Permission Change</option>
 
-                            <option value="Listing Deleted">Listing Deleted</option>
+                                    <option value="Listing Deleted">Listing Deleted</option>
 
-                            <option value="Account Locked">Account Locked</option>
+                                    <option value="Account Locked">Account Locked</option>
 
-                            <option value="Database Access">Database Access</option>
+                                    <option value="Database Access">Database Access</option>
 
-                        </select>
+                                </select>
 
-                    </div>
+                            </div>
 
-                    <div class="liquid-group">
+                            <div class="liquid-group">
 
-                        <input type="date" id="auditDate" class="liquid-input">
+                                <input type="date" id="auditDate" class="liquid-input">
 
-                    </div>
+                            </div>
 
-                    <button type="button" id="exportAuditBtn" class="btn btn-primary azure-sweep ripple">
+                            <button type="button" id="exportAuditBtn" class="btn btn-primary azure-sweep ripple">
 
-                        <i class="fa-solid fa-file-export"></i>
+                                <i class="fa-solid fa-file-export"></i>
 
-                        <span>Export</span>
+                                <span>Export</span>
 
-                    </button>
+                            </button>
 
-                </form>
+                        </form>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Statistics
                 =========================================== -->
 
-                <section class="dashboard-section statistics-section glass-reveal">
+                        <section class="dashboard-section statistics-section glass-reveal">
 
-                    <div class="dashboard-grid statistics-grid">
+                            <div class="dashboard-grid statistics-grid">
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                <article class="dashboard-card statistics-card floating-card glass-card">
 
-                            <div class="card-icon">
+                                    <div class="card-icon">
 
-                                <i class="fa-solid fa-user-lock"></i>
+                                        <i class="fa-solid fa-user-lock"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="securityIncidents" class="count-up">0</h3>
+
+                                        <p>Security Incidents</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-user-secret"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="failedLogins" class="count-up">0</h3>
+
+                                        <p>Failed Logins</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-key"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="permissionChanges" class="count-up">0</h3>
+
+                                        <p>Permission Changes</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="criticalAlerts" class="count-up">0</h3>
+
+                                        <p>Critical Alerts</p>
+
+                                    </div>
+
+                                </article>
 
                             </div>
 
-                            <div class="card-content">
+                        </section>
 
-                                <h3 id="securityIncidents" class="count-up">0</h3>
-
-                                <p>Security Incidents</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-user-secret"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="failedLogins" class="count-up">0</h3>
-
-                                <p>Failed Logins</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-key"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="permissionChanges" class="count-up">0</h3>
-
-                                <p>Permission Changes</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-triangle-exclamation"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="criticalAlerts" class="count-up">0</h3>
-
-                                <p>Critical Alerts</p>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-                </section>
-
-                <!-- ==========================================
+                        <!-- ==========================================
                      Audit Trail Table
                 =========================================== -->
 
-                <section class="table-section glass-reveal">
+                        <section class="table-section glass-reveal">
 
-                    <div class="table-responsive">
+                            <div class="table-responsive">
 
-                        <table class="admin-table data-table">
+                                <table class="admin-table data-table">
 
-                            <thead>
+                                    <thead>
 
-                                <tr>
+                                        <tr>
 
-                                    <th>Timestamp</th>
+                                            <th>Timestamp</th>
 
-                                    <th>Administrator</th>
+                                            <th>Administrator</th>
 
-                                    <th>Event</th>
+                                            <th>Event</th>
 
-                                    <th>Severity</th>
+                                            <th>Severity</th>
 
-                                    <th>IP Address</th>
+                                            <th>IP Address</th>
 
-                                    <th>Status</th>
+                                            <th>Status</th>
 
-                                    <th>Details</th>
+                                            <th>Details</th>
 
-                                </tr>
+                                        </tr>
 
-                            </thead>
+                                    </thead>
 
-                            <tbody id="auditTrailTable">
+                                    <tbody id="auditTrailTable">
 
-                                <!-- Loaded dynamically -->
+                                        <!-- Loaded dynamically -->
 
-                            </tbody>
+                                    </tbody>
 
-                        </table>
+                                </table>
 
-                    </div>
+                            </div>
 
-                </section>
+                        </section>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Empty State
                 =========================================== -->
 
-                <section id="auditEmptyState" class="empty-state hidden">
+                        <section id="auditEmptyState" class="empty-state hidden">
 
-                    <i class="fa-solid fa-shield-halved"></i>
+                            <i class="fa-solid fa-shield-halved"></i>
 
-                    <h3>No Audit Records Found</h3>
+                            <h3>No Audit Records Found</h3>
 
-                    <p>
+                            <p>
 
-                        No administrator audit events match the current search
-                        or filter.
+                                No administrator audit events match the current search
+                                or filter.
 
-                    </p>
+                            </p>
 
-                </section>
+                        </section>
 
-            </div>
+                    </div>
 
         </section>
 

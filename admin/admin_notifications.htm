@@ -89,257 +89,265 @@
 
     <main id="mainContent" class="page-transition">
 
-        <section id="adminNotificationsContent" class="page-section glass-reveal floating-section">
+        <section id="adminNotificationsContent" class="page-section ">
 
             <div class="container page-container">
 
                 <header class="section-header">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="container">
 
-                        <i class="fa-solid fa-bell"></i>
+                        <header class="auth-hero reveal fade-up">
 
-                        Notifications
+                            <div id="hero-text">
 
-                    </span>
+                                <span class="page-badge floating-badge glass-card">
 
-                    <h1>Notification Management</h1>
+                                    <i class="fa-solid fa-bell"></i>
 
-                    <p>
+                                    Notifications
 
-                        Send announcements, monitor system alerts and manage notifications delivered to students,
-                        landlords and administrators.
+                                </span>
 
-                    </p>
+                                <h1>Notification Management</h1>
 
-                </header>
+                                <p>
 
-                <!-- Statistics -->
+                                    Send announcements, monitor system alerts and manage notifications delivered to
+                                    students,
+                                    landlords and administrators.
 
-                <section class="dashboard-section statistics-section glass-reveal">
+                                </p>
 
-                    <div class="dashboard-grid statistics-grid">
+                        </header>
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                        <!-- Statistics -->
 
-                            <div class="card-icon">
+                        <section class="dashboard-section statistics-section glass-reveal">
 
-                                <i class="fa-solid fa-paper-plane"></i>
+                            <div class="dashboard-grid statistics-grid">
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-paper-plane"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="totalNotifications" class="count-up">0</h3>
+
+                                        <p>Total Notifications</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-envelope-open-text"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="deliveredNotifications" class="count-up">0</h3>
+
+                                        <p>Delivered</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-clock"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="scheduledNotifications" class="count-up">0</h3>
+
+                                        <p>Scheduled</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="systemAlerts" class="count-up">0</h3>
+
+                                        <p>System Alerts</p>
+
+                                    </div>
+
+                                </article>
 
                             </div>
 
-                            <div class="card-content">
+                        </section>
 
-                                <h3 id="totalNotifications" class="count-up">0</h3>
+                        <!-- Notification Form -->
 
-                                <p>Total Notifications</p>
+                        <section class="dashboard-section glass-card">
 
-                            </div>
+                            <header class="section-header">
 
-                        </article>
+                                <h2>Create Notification</h2>
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                            </header>
 
-                            <div class="card-icon">
+                            <form id="notificationForm" class="filter-form liquid-form">
 
-                                <i class="fa-solid fa-envelope-open-text"></i>
+                                <div class="liquid-group">
 
-                            </div>
+                                    <label for="notificationTitle">Title</label>
 
-                            <div class="card-content">
+                                    <input type="text" id="notificationTitle" class="liquid-input"
+                                        placeholder="Notification title" required>
 
-                                <h3 id="deliveredNotifications" class="count-up">0</h3>
+                                </div>
 
-                                <p>Delivered</p>
+                                <div class="liquid-group">
 
-                            </div>
+                                    <label for="notificationAudience">Audience</label>
 
-                        </article>
+                                    <select id="notificationAudience" class="liquid-input">
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                        <option value="all">Everyone</option>
+                                        <option value="students">Students</option>
+                                        <option value="landlords">Landlords</option>
+                                        <option value="admins">Administrators</option>
 
-                            <div class="card-icon">
+                                    </select>
 
-                                <i class="fa-solid fa-clock"></i>
+                                </div>
 
-                            </div>
+                                <div class="liquid-group">
 
-                            <div class="card-content">
+                                    <label for="notificationPriority">Priority</label>
 
-                                <h3 id="scheduledNotifications" class="count-up">0</h3>
+                                    <select id="notificationPriority" class="liquid-input">
 
-                                <p>Scheduled</p>
+                                        <option value="normal">Normal</option>
+                                        <option value="important">Important</option>
+                                        <option value="critical">Critical</option>
 
-                            </div>
+                                    </select>
 
-                        </article>
+                                </div>
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                <div class="liquid-group">
 
-                            <div class="card-icon">
+                                    <label for="notificationMessage">Message</label>
 
-                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                    <textarea id="notificationMessage" class="liquid-input" rows="6"
+                                        placeholder="Write your notification here..." required></textarea>
 
-                            </div>
+                                </div>
 
-                            <div class="card-content">
+                                <div class="form-actions">
 
-                                <h3 id="systemAlerts" class="count-up">0</h3>
+                                    <button type="submit" id="sendNotificationBtn"
+                                        class="btn btn-primary azure-sweep ripple">
 
-                                <p>System Alerts</p>
+                                        <i class="fa-solid fa-paper-plane"></i>
 
-                            </div>
+                                        <span>Send Notification</span>
 
-                        </article>
+                                    </button>
+
+                                    <button type="button" id="scheduleNotificationBtn" class="btn btn-outline">
+
+                                        <i class="fa-solid fa-calendar-days"></i>
+
+                                        <span>Schedule</span>
+
+                                    </button>
+
+                                    <button type="reset" class="btn btn-outline">
+
+                                        <i class="fa-solid fa-rotate-left"></i>
+
+                                        <span>Clear</span>
+
+                                    </button>
+
+                                </div>
+
+                            </form>
+
+                        </section>
+
+                        <!-- Notification History -->
+
+                        <section class="dashboard-section glass-card">
+
+                            <header class="section-header">
+
+                                <h2>Notification History</h2>
+
+                            </header>
+
+                            <form id="notificationSearchForm" class="filter-form liquid-form" role="search">
+
+                                <div class="liquid-group">
+
+                                    <input type="search" id="notificationSearch" class="liquid-input"
+                                        placeholder="Search notifications...">
+
+                                </div>
+
+                                <div class="liquid-group">
+
+                                    <select id="notificationStatus" class="liquid-input">
+
+                                        <option value="">All Status</option>
+                                        <option value="sent">Sent</option>
+                                        <option value="scheduled">Scheduled</option>
+                                        <option value="draft">Draft</option>
+
+                                    </select>
+
+                                </div>
+
+                            </form>
+
+                            <div id="notificationHistory" class="notification-grid"></div>
+
+                        </section>
+
+                        <!-- System Alerts -->
+
+                        <section class="dashboard-section glass-card">
+
+                            <header class="section-header">
+
+                                <h2>Recent System Alerts</h2>
+
+                            </header>
+
+                            <div id="systemAlertList" class="activity-list"></div>
+
+                        </section>
 
                     </div>
-
-                </section>
-
-                <!-- Notification Form -->
-
-                <section class="dashboard-section glass-card">
-
-                    <header class="section-header">
-
-                        <h2>Create Notification</h2>
-
-                    </header>
-
-                    <form id="notificationForm" class="filter-form liquid-form">
-
-                        <div class="liquid-group">
-
-                            <label for="notificationTitle">Title</label>
-
-                            <input type="text" id="notificationTitle" class="liquid-input"
-                                placeholder="Notification title" required>
-
-                        </div>
-
-                        <div class="liquid-group">
-
-                            <label for="notificationAudience">Audience</label>
-
-                            <select id="notificationAudience" class="liquid-input">
-
-                                <option value="all">Everyone</option>
-                                <option value="students">Students</option>
-                                <option value="landlords">Landlords</option>
-                                <option value="admins">Administrators</option>
-
-                            </select>
-
-                        </div>
-
-                        <div class="liquid-group">
-
-                            <label for="notificationPriority">Priority</label>
-
-                            <select id="notificationPriority" class="liquid-input">
-
-                                <option value="normal">Normal</option>
-                                <option value="important">Important</option>
-                                <option value="critical">Critical</option>
-
-                            </select>
-
-                        </div>
-
-                        <div class="liquid-group">
-
-                            <label for="notificationMessage">Message</label>
-
-                            <textarea id="notificationMessage" class="liquid-input" rows="6"
-                                placeholder="Write your notification here..." required></textarea>
-
-                        </div>
-
-                        <div class="form-actions">
-
-                            <button type="submit" id="sendNotificationBtn" class="btn btn-primary azure-sweep ripple">
-
-                                <i class="fa-solid fa-paper-plane"></i>
-
-                                <span>Send Notification</span>
-
-                            </button>
-
-                            <button type="button" id="scheduleNotificationBtn" class="btn btn-outline">
-
-                                <i class="fa-solid fa-calendar-days"></i>
-
-                                <span>Schedule</span>
-
-                            </button>
-
-                            <button type="reset" class="btn btn-outline">
-
-                                <i class="fa-solid fa-rotate-left"></i>
-
-                                <span>Clear</span>
-
-                            </button>
-
-                        </div>
-
-                    </form>
-
-                </section>
-
-                <!-- Notification History -->
-
-                <section class="dashboard-section glass-card">
-
-                    <header class="section-header">
-
-                        <h2>Notification History</h2>
-
-                    </header>
-
-                    <form id="notificationSearchForm" class="filter-form liquid-form" role="search">
-
-                        <div class="liquid-group">
-
-                            <input type="search" id="notificationSearch" class="liquid-input"
-                                placeholder="Search notifications...">
-
-                        </div>
-
-                        <div class="liquid-group">
-
-                            <select id="notificationStatus" class="liquid-input">
-
-                                <option value="">All Status</option>
-                                <option value="sent">Sent</option>
-                                <option value="scheduled">Scheduled</option>
-                                <option value="draft">Draft</option>
-
-                            </select>
-
-                        </div>
-
-                    </form>
-
-                    <div id="notificationHistory" class="notification-grid"></div>
-
-                </section>
-
-                <!-- System Alerts -->
-
-                <section class="dashboard-section glass-card">
-
-                    <header class="section-header">
-
-                        <h2>Recent System Alerts</h2>
-
-                    </header>
-
-                    <div id="systemAlertList" class="activity-list"></div>
-
-                </section>
-
-            </div>
 
         </section>
 

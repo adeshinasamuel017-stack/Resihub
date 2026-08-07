@@ -101,7 +101,7 @@
 
     <main id="mainContent" class="page-transition">
 
-        <section id="adminDashboardContent" class="page-section glass-reveal floating-section">
+        <section id="adminDashboardContent" class="page-section ">
 
             <div class="container page-container">
 
@@ -109,28 +109,56 @@
                      Page Header
                 =========================================== -->
 
-                <header class="section-header">
+                <section class="dashboard-hero glass-card">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="dashboard-hero-content">
 
-                        <i class="fa-solid fa-user-shield"></i>
+                        <div>
 
-                        Administrator Dashboard
+                            <span class="page-badge floating-badge">
 
-                    </span>
+                                <i class="fa-solid fa-user-shield"></i>
 
-                    <h1>Welcome, Administrator</h1>
+                                ResiHub Control Center
 
-                    <p>
+                            </span>
 
-                        Monitor platform activities, manage users, review reports,
-                        track bookings, oversee listings and access every major
-                        administrative tool from one centralized dashboard.
+                            <h1>
+                                Welcome Back,
+                                <span id="adminName">Administrator</span>
+                            </h1>
 
-                    </p>
+                            <p>
 
-                </header>
+                                Manage users, listings, bookings, reports,
+                                analytics and platform security from one
+                                centralized command center.
 
+                            </p>
+
+                        </div>
+
+                        <div class="hero-status">
+
+                            <div class="status-chip">
+
+                                <i class="fa-solid fa-circle"></i>
+
+                                System Online
+
+                            </div>
+
+                            <div id="currentDateTime" class="status-chip">
+
+                                Loading...
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
                 <!-- ==========================================
                      Dashboard Statistics
                 =========================================== -->
@@ -146,8 +174,21 @@
                             </div>
 
                             <div class="card-content">
-                                <h2 id="studentCount" class="count-up">0</h2>
+
+                                <h2 id="studentCount" class="count-up">
+
+                                    0
+
+                                </h2>
+
                                 <p>Total Students</p>
+
+                                <small>
+
+                                    Active registrations
+
+                                </small>
+
                             </div>
 
                         </article>
@@ -161,6 +202,7 @@
                             <div class="card-content">
                                 <h2 id="landlordCount" class="count-up">0</h2>
                                 <p>Total Landlords</p>
+                                <small>Verified landlords</small>
                             </div>
 
                         </article>
@@ -174,6 +216,8 @@
                             <div class="card-content">
                                 <h2 id="listingCount" class="count-up">0</h2>
                                 <p>Active Listings</p>
+                                <small>Published listings</small>
+
                             </div>
 
                         </article>
@@ -187,6 +231,7 @@
                             <div class="card-content">
                                 <h2 id="bookingCount" class="count-up">0</h2>
                                 <p>Total Bookings</p>
+                                <small>Completed bookings</small>
                             </div>
 
                         </article>
@@ -200,6 +245,7 @@
                             <div class="card-content">
                                 <h2 id="revenueCount" class="count-up">₦0</h2>
                                 <p>Total Revenue</p>
+                                <small>Total platform revenue</small>
                             </div>
 
                         </article>
@@ -213,6 +259,7 @@
                             <div class="card-content">
                                 <h2 id="reportCount" class="count-up">0</h2>
                                 <p>Pending Reports</p>
+                                <small>Awaiting review</small>
                             </div>
 
                         </article>
@@ -232,33 +279,132 @@
                     <div class="action-grid">
 
                         <a href="admin_students.htm" class="action-card glass-card hover-lift">
-                            <i class="fa-solid fa-user-graduate"></i>
-                            <span>Manage Students</span>
+
+                            <div class="action-icon">
+
+                                <i class="fa-solid fa-user-graduate"></i>
+
+                            </div>
+
+                            <div class="action-content">
+
+                                <h3>
+
+                                    Students
+
+                                </h3>
+
+                                <p>
+
+                                    Manage student accounts
+
+                                </p>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right action-arrow"></i>
+
                         </a>
 
                         <a href="admin_landlords.htm" class="action-card glass-card hover-lift">
                             <i class="fa-solid fa-building-user"></i>
-                            <span>Manage Landlords</span>
+                            <div class="action-content">
+
+                                <h3>
+
+                                    Landlords
+
+                                </h3>
+
+                                <p>
+
+                                    Manage landlord accounts
+
+                                </p>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right action-arrow"></i>
+
                         </a>
 
                         <a href="admin_listings.htm" class="action-card glass-card hover-lift">
                             <i class="fa-solid fa-house"></i>
-                            <span>Manage Listings</span>
+                            <div class="action-content">
+
+                                <h3>
+
+                                    Listings
+
+                                </h3>
+
+                                <p>
+
+                                    Review property listings
+
+                                </p>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right action-arrow"></i>
+
                         </a>
 
                         <a href="admin_reports.htm" class="action-card glass-card hover-lift">
                             <i class="fa-solid fa-flag"></i>
-                            <span>Review Reports</span>
+                            <div class="action-content">
+
+                                <h3>
+
+                                    Reports
+
+                                </h3>
+
+                                <p>
+
+                                    Resolve user reports
+
+                                </p>
+
+                            </div>
                         </a>
 
                         <a href="admin_settings.htm" class="action-card glass-card hover-lift">
                             <i class="fa-solid fa-gears"></i>
-                            <span>Platform Settings</span>
+                            <div class="action-content">
+
+                                <h3>
+
+                                    Setting
+
+                                </h3>
+
+                                <p>
+
+                                    Configure platform
+
+                                </p>
+
+                            </div>
                         </a>
 
                         <a href="admin_analytics.htm" class="action-card glass-card hover-lift">
                             <i class="fa-solid fa-chart-line"></i>
-                            <span>Analytics</span>
+                            <div class="action-content">
+
+                                <h3>
+
+                                    Analytics
+
+                                </h3>
+
+                                <p>
+
+                                    View platform insights
+
+                                </p>
+
+                            </div>
                         </a>
 
                     </div>

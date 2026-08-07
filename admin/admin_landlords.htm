@@ -100,7 +100,7 @@
 
     <main id="mainContent" class="page-transition">
 
-        <section id="adminLandlordsContent" class="page-section glass-reveal floating-section">
+        <section id="adminLandlordsContent" class="page-section">
 
             <div class="container page-container">
 
@@ -110,239 +110,245 @@
 
                 <header class="section-header">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="container">
 
-                        <i class="fa-solid fa-building-user"></i>
+                        <header class="auth-hero reveal fade-up">
 
-                        Landlord Management
+                            <div id="hero-text">
 
-                    </span>
 
-                    <h1>Manage Registered Landlords</h1>
 
-                    <p>
+                                <i class="fa-solid fa-building-user"></i>
 
-                        Review, verify, suspend and manage landlords together
-                        with their property listings.
+                                Landlord Management
 
-                    </p>
+                                </span>
 
-                </header>
+                                <h1>Manage Registered Landlords</h1>
 
-                <!-- ==========================================
+                                <p>
+
+                                    Review, verify, suspend and manage landlords together
+                                    with their property listings.
+
+                                </p>
+
+                        </header>
+
+                        <!-- ==========================================
                      Dashboard Statistics
                 =========================================== -->
 
-                <section class="dashboard-section statistics-section glass-reveal">
+                        <section class="dashboard-section statistics-section glass-reveal">
 
-                    <div class="dashboard-grid statistics-grid">
+                            <div class="dashboard-grid statistics-grid">
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                <article class="dashboard-card statistics-card floating-card glass-card">
 
-                            <div class="card-icon">
+                                    <div class="card-icon">
 
-                                <i class="fa-solid fa-building"></i>
+                                        <i class="fa-solid fa-building"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="totalLandlords" class="count-up">0</h3>
+
+                                        <p>Total Landlords</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-circle-check"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="verifiedLandlords" class="count-up">0</h3>
+
+                                        <p>Verified</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-clock"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="pendingLandlords" class="count-up">0</h3>
+
+                                        <p>Pending Verification</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-house"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="totalProperties" class="count-up">0</h3>
+
+                                        <p>Active Listings</p>
+
+                                    </div>
+
+                                </article>
 
                             </div>
 
-                            <div class="card-content">
+                        </section>
 
-                                <h3 id="totalLandlords" class="count-up">0</h3>
-
-                                <p>Total Landlords</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-circle-check"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="verifiedLandlords" class="count-up">0</h3>
-
-                                <p>Verified</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-clock"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="pendingLandlords" class="count-up">0</h3>
-
-                                <p>Pending Verification</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-house"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="totalProperties" class="count-up">0</h3>
-
-                                <p>Active Listings</p>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-                </section>
-
-                <!-- ==========================================
+                        <!-- ==========================================
                      Filters
                 =========================================== -->
 
-                <section class="filter-section glass-card">
+                        <section class="filter-section glass-card">
 
-                    <form id="landlordFilterForm" class="filter-form liquid-form" role="search"
-                        aria-label="Filter Landlords">
+                            <form id="landlordFilterForm" class="filter-form liquid-form" role="search"
+                                aria-label="Filter Landlords">
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <input type="search" id="landlordSearch" class="liquid-input"
-                                placeholder="Search by name, email or phone..." autocomplete="off">
+                                    <input type="search" id="landlordSearch" class="liquid-input"
+                                        placeholder="Search by name, email or phone..." autocomplete="off">
 
-                        </div>
+                                </div>
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <select id="verificationStatus" class="liquid-input">
+                                    <select id="verificationStatus" class="liquid-input">
 
-                                <option value="">All Status</option>
+                                        <option value="">All Status</option>
 
-                                <option value="Verified">Verified</option>
+                                        <option value="Verified">Verified</option>
 
-                                <option value="Pending">Pending</option>
+                                        <option value="Pending">Pending</option>
 
-                                <option value="Suspended">Suspended</option>
+                                        <option value="Suspended">Suspended</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
+                                </div>
 
-                        <button type="reset" id="resetLandlordFilters" class="btn btn-outline">
+                                <button type="reset" id="resetLandlordFilters" class="btn btn-outline">
 
-                            <i class="fa-solid fa-rotate-left"></i>
+                                    <i class="fa-solid fa-rotate-left"></i>
 
-                            <span>Reset</span>
+                                    <span>Reset</span>
 
-                        </button>
+                                </button>
 
-                    </form>
+                            </form>
 
-                </section>
+                        </section>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Loading State
                 =========================================== -->
 
-                <div id="landlordLoading" class="loading-state hidden">
+                        <div id="landlordLoading" class="loading-state hidden">
 
-                    <div class="loader"></div>
+                            <div class="loader"></div>
 
-                    <p>Loading landlords...</p>
+                            <p>Loading landlords...</p>
 
-                </div>
+                        </div>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Landlords Table
                 =========================================== -->
 
-                <section class="table-section glass-reveal">
+                        <section class="table-section glass-reveal">
 
-                    <div class="table-responsive">
+                            <div class="table-responsive">
 
-                        <table class="admin-table data-table">
+                                <table class="admin-table data-table">
 
-                            <thead>
+                                    <thead>
 
-                                <tr>
+                                        <tr>
 
-                                    <th>Landlord</th>
+                                            <th>Landlord</th>
 
-                                    <th>Email</th>
+                                            <th>Email</th>
 
-                                    <th>Phone</th>
+                                            <th>Phone</th>
 
-                                    <th>Listings</th>
+                                            <th>Listings</th>
 
-                                    <th>Status</th>
+                                            <th>Status</th>
 
-                                    <th>Joined</th>
+                                            <th>Joined</th>
 
-                                    <th>Actions</th>
+                                            <th>Actions</th>
 
-                                </tr>
+                                        </tr>
 
-                            </thead>
+                                    </thead>
 
-                            <tbody id="landlordTableBody">
+                                    <tbody id="landlordTableBody">
 
-                                <!-- Loaded dynamically -->
+                                        <!-- Loaded dynamically -->
 
-                            </tbody>
+                                    </tbody>
 
-                        </table>
+                                </table>
 
-                    </div>
+                            </div>
 
-                </section>
+                        </section>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Pagination
                 =========================================== -->
 
-                <section class="pagination-section">
+                        <section class="pagination-section">
 
-                    <div id="landlordPagination" class="pagination"></div>
+                            <div id="landlordPagination" class="pagination"></div>
 
-                </section>
+                        </section>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Empty State
                 =========================================== -->
 
-                <section id="noLandlordsFound" class="empty-state hidden">
+                        <section id="noLandlordsFound" class="empty-state hidden">
 
-                    <i class="fa-solid fa-building-circle-xmark"></i>
+                            <i class="fa-solid fa-building-circle-xmark"></i>
 
-                    <h3>No Landlords Found</h3>
+                            <h3>No Landlords Found</h3>
 
-                    <p>
+                            <p>
 
-                        No landlord matches your current search
-                        or filter.
+                                No landlord matches your current search
+                                or filter.
 
-                    </p>
+                            </p>
 
-                </section>
+                        </section>
 
-            </div>
+                    </div>
 
         </section>
 

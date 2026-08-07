@@ -108,8 +108,7 @@
 
     <main id="mainContent" class="page-transition">
 
-        <section id="admin-settings-content"
-            class="auth-section reveal fade-up page-section glass-reveal floating-section">
+        <section id="admin-student-content" class="page-section">
 
             <div class="container page-container">
 
@@ -119,319 +118,324 @@
 
                 <header class="section-header">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="container">
 
-                        <i class="fa-solid fa-gears"></i>
+                        <header class="auth-hero reveal fade-up">
 
-                        System Settings
+                            <div id="hero-text">
 
-                    </span>
+                                <span class="page-badge floating-badge glass-card">
 
-                    <h1>Platform Settings</h1>
+                                    <i class="fa-solid fa-gears"></i>
 
-                    <p>
+                                    System Settings
 
-                        Configure platform preferences,
-                        administrator options, security,
-                        branding and system-wide settings.
+                                </span>
 
-                    </p>
+                                <h1>Platform Settings</h1>
 
-                </header>
+                                <p>
 
-                <form id="adminSettingsForm">
+                                    Configure platform preferences,
+                                    administrator options, security,
+                                    branding and system-wide settings.
 
-                    <!-- ==========================
+                                </p>
+
+                        </header>
+
+                        <form id="adminSettingsForm">
+                            <!-- ==========================
                          General Settings
                     =========================== -->
 
-                    <section class="dashboard-section glass-card">
+                            <section class="dashboard-section glass-card">
 
-                        <header class="section-header">
+                                <header class="section-header">
 
-                            <h2>General Settings</h2>
+                                    <h2>General Settings</h2>
 
-                        </header>
+                                </header>
 
-                        <div class="settings-grid">
+                                <div class="settings-grid">
 
-                            <div class="form-group">
+                                    <div class="form-group">
 
-                                <label for="siteName">
+                                        <label for="siteName">
 
-                                    Platform Name
+                                            Platform Name
 
-                                </label>
+                                        </label>
 
-                                <input type="text" id="siteName" name="siteName" value="ResiHub">
+                                        <input type="text" id="siteName" name="siteName" value="ResiHub">
 
-                            </div>
+                                    </div>
 
-                            <div class="form-group">
+                                    <div class="form-group">
 
-                                <label for="supportEmail">
+                                        <label for="supportEmail">
 
-                                    Support Email
+                                            Support Email
 
-                                </label>
+                                        </label>
 
-                                <input type="email" id="supportEmail" name="supportEmail">
+                                        <input type="email" id="supportEmail" name="supportEmail">
 
-                            </div>
+                                    </div>
 
-                            <div class="form-group">
+                                    <div class="form-group">
 
-                                <label for="supportPhone">
+                                        <label for="supportPhone">
 
-                                    Support Phone
+                                            Support Phone
 
-                                </label>
+                                        </label>
 
-                                <input type="tel" id="supportPhone" name="supportPhone">
+                                        <input type="tel" id="supportPhone" name="supportPhone">
 
-                            </div>
+                                    </div>
 
-                            <div class="form-group">
+                                    <div class="form-group">
 
-                                <label for="platformStatus">
+                                        <label for="platformStatus">
 
-                                    Platform Status
+                                            Platform Status
 
-                                </label>
+                                        </label>
 
-                                <select id="platformStatus" name="platformStatus">
+                                        <select id="platformStatus" name="platformStatus">
 
-                                    <option value="online">
+                                            <option value="online">
 
-                                        Online
+                                                Online
 
-                                    </option>
+                                            </option>
 
-                                    <option value="maintenance">
+                                            <option value="maintenance">
 
-                                        Maintenance
+                                                Maintenance
 
-                                    </option>
+                                            </option>
 
-                                </select>
+                                        </select>
 
-                            </div>
+                                    </div>
 
-                        </div>
+                                </div>
 
-                    </section>
+                            </section>
 
-                    <!-- ==========================
+                            <!-- ==========================
                          Security Settings
                     =========================== -->
 
-                    <section class="dashboard-section glass-card">
+                            <section class="dashboard-section glass-card">
 
-                        <header class="section-header">
+                                <header class="section-header">
 
-                            <h2>Security Settings</h2>
+                                    <h2>Security Settings</h2>
 
-                        </header>
+                                </header>
 
-                        <div class="settings-grid">
+                                <div class="settings-grid">
 
-                            <label class="checkbox-group">
+                                    <label class="checkbox-group">
 
-                                <input type="checkbox" id="twoFactor">
+                                        <input type="checkbox" id="twoFactor">
 
-                                Enable Two-Factor Authentication
+                                        Enable Two-Factor Authentication
 
-                            </label>
+                                    </label>
 
-                            <label class="checkbox-group">
+                                    <label class="checkbox-group">
 
-                                <input type="checkbox" id="loginAlerts">
+                                        <input type="checkbox" id="loginAlerts">
 
-                                Email Login Alerts
+                                        Email Login Alerts
 
-                            </label>
+                                    </label>
 
-                            <label class="checkbox-group">
+                                    <label class="checkbox-group">
 
-                                <input type="checkbox" id="sessionTimeout">
+                                        <input type="checkbox" id="sessionTimeout">
 
-                                Automatic Session Timeout
+                                        Automatic Session Timeout
 
-                            </label>
+                                    </label>
 
-                            <label class="checkbox-group">
+                                    <label class="checkbox-group">
 
-                                <input type="checkbox" id="forceStrongPasswords">
+                                        <input type="checkbox" id="forceStrongPasswords">
 
-                                Require Strong Passwords
+                                        Require Strong Passwords
 
-                            </label>
+                                    </label>
 
-                        </div>
+                                </div>
 
-                    </section>
+                            </section>
 
-                    <!-- ==========================
+                            <!-- ==========================
                          Notification Settings
                     =========================== -->
 
-                    <section class="dashboard-section glass-card">
+                            <section class="dashboard-section glass-card">
 
-                        <header class="section-header">
+                                <header class="section-header">
 
-                            <h2>Notification Settings</h2>
+                                    <h2>Notification Settings</h2>
 
-                        </header>
+                                </header>
 
-                        <div class="settings-grid">
+                                <div class="settings-grid">
 
-                            <label class="checkbox-group">
+                                    <label class="checkbox-group">
 
-                                <input type="checkbox" id="emailNotifications">
+                                        <input type="checkbox" id="emailNotifications">
 
-                                Email Notifications
+                                        Email Notifications
 
-                            </label>
+                                    </label>
 
-                            <label class="checkbox-group">
+                                    <label class="checkbox-group">
 
-                                <input type="checkbox" id="smsNotifications">
+                                        <input type="checkbox" id="smsNotifications">
 
-                                SMS Notifications
+                                        SMS Notifications
 
-                            </label>
+                                    </label>
 
-                            <label class="checkbox-group">
+                                    <label class="checkbox-group">
 
-                                <input type="checkbox" id="pushNotifications">
+                                        <input type="checkbox" id="pushNotifications">
 
-                                Push Notifications
+                                        Push Notifications
 
-                            </label>
+                                    </label>
 
-                            <label class="checkbox-group">
+                                    <label class="checkbox-group">
 
-                                <input type="checkbox" id="systemAnnouncements">
+                                        <input type="checkbox" id="systemAnnouncements">
 
-                                Platform Announcements
+                                        Platform Announcements
 
-                            </label>
+                                    </label>
 
-                        </div>
+                                </div>
 
-                    </section>
+                            </section>
 
-                    <!-- ==========================
+                            <!-- ==========================
                          Branding
                     =========================== -->
 
-                    <section class="dashboard-section glass-card">
+                            <section class="dashboard-section glass-card">
 
-                        <header class="section-header">
+                                <header class="section-header">
 
-                            <h2>Branding</h2>
+                                    <h2>Branding</h2>
 
-                        </header>
+                                </header>
 
-                        <div class="settings-grid">
+                                <div class="settings-grid">
 
-                            <div class="form-group">
+                                    <div class="form-group">
 
-                                <label for="siteLogo">
+                                        <label for="siteLogo">
 
-                                    Platform Logo
+                                            Platform Logo
 
-                                </label>
+                                        </label>
 
-                                <input type="file" id="siteLogo" accept="image/*">
+                                        <input type="file" id="siteLogo" accept="image/*">
 
-                            </div>
+                                    </div>
 
-                            <div class="form-group">
+                                    <div class="form-group">
 
-                                <label for="favicon">
+                                        <label for="favicon">
 
-                                    Favicon
+                                            Favicon
 
-                                </label>
+                                        </label>
 
-                                <input type="file" id="favicon" accept="image/*">
+                                        <input type="file" id="favicon" accept="image/*">
 
-                            </div>
+                                    </div>
 
-                        </div>
+                                </div>
 
-                    </section>
+                            </section>
 
-                    <!-- ==========================
+                            <!-- ==========================
                          Maintenance
                     =========================== -->
 
-                    <section class="dashboard-section glass-card">
+                            <section class="dashboard-section glass-card">
 
-                        <header class="section-header">
+                                <header class="section-header">
 
-                            <h2>Maintenance</h2>
+                                    <h2>Maintenance</h2>
 
-                        </header>
+                                </header>
 
-                        <div class="settings-grid">
+                                <div class="settings-grid">
 
-                            <button type="button" id="backupDatabaseBtn" class="btn btn-outline">
+                                    <button type="button" id="backupDatabaseBtn" class="btn btn-outline">
 
-                                <i class="fa-solid fa-database"></i>
+                                        <i class="fa-solid fa-database"></i>
 
-                                Backup Database
+                                        Backup Database
 
-                            </button>
+                                    </button>
 
-                            <button type="button" id="restoreDatabaseBtn" class="btn btn-outline">
+                                    <button type="button" id="restoreDatabaseBtn" class="btn btn-outline">
 
-                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                        <i class="fa-solid fa-clock-rotate-left"></i>
 
-                                Restore Backup
+                                        Restore Backup
 
-                            </button>
+                                    </button>
 
-                            <button type="button" id="clearCacheBtn" class="btn btn-outline">
+                                    <button type="button" id="clearCacheBtn" class="btn btn-outline">
 
-                                <i class="fa-solid fa-broom"></i>
+                                        <i class="fa-solid fa-broom"></i>
 
-                                Clear Cache
+                                        Clear Cache
 
-                            </button>
+                                    </button>
 
-                        </div>
+                                </div>
 
-                    </section>
+                            </section>
 
-                    <!-- ==========================
+                            <!-- ==========================
                          Action Buttons
                     =========================== -->
 
-                    <div class="action-buttons">
+                            <div class="action-buttons">
 
-                        <button type="submit" id="saveSettingsBtn" class="btn btn-primary azure-sweep ripple">
+                                <button type="submit" id="saveSettingsBtn" class="btn btn-primary azure-sweep ripple">
 
-                            <i class="fa-solid fa-floppy-disk"></i>
+                                    <i class="fa-solid fa-floppy-disk"></i>
 
-                            <span>Save Settings</span>
+                                    <span>Save Settings</span>
 
-                        </button>
+                                </button>
 
-                        <button type="reset" class="btn btn-outline">
+                                <button type="reset" class="btn btn-outline">
 
-                            <i class="fa-solid fa-rotate-left"></i>
+                                    <i class="fa-solid fa-rotate-left"></i>
 
-                            <span>Reset</span>
+                                    <span>Reset</span>
 
-                        </button>
+                                </button>
+
+                            </div>
+
+                        </form>
 
                     </div>
-
-                </form>
-
-            </div>
 
         </section>
 

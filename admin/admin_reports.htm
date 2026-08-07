@@ -118,284 +118,300 @@
                      Page Header
                 =========================== -->
 
-                <header class="section-header">
+                <section id="adminReportsContent" class="page-section">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="container page-container">
 
-                        <i class="fa-solid fa-flag"></i>
+                        <!-- ==========================================
+             Page Header
+        =========================================== -->
 
-                        Administration
+                        <header class="section-header">
 
-                    </span>
+                            <div class="container">
 
-                    <h1>Reports Management</h1>
+                                <header class="auth-hero reveal fade-up">
 
-                    <p>
+                                    <div id="hero-text">
 
-                        Review complaints submitted by students and landlords,
-                        investigate reported users or listings,
-                        and take appropriate moderation actions.
+                                        <span class="page-badge floating-badge glass-card">
 
-                    </p>
+                                            <i class="fa-solid fa-flag"></i>
 
-                </header>
+                                            Administration
 
-                <!-- ==========================
+                                        </span>
+
+                                        <h1>Reports Management</h1>
+
+                                        <p>
+
+                                            Review complaints submitted by students and landlords,
+                                            investigate reported users or listings,
+                                            and take appropriate moderation actions.
+
+                                        </p>
+
+                                </header>
+
+                                <!-- ==========================
                      Statistics
                 =========================== -->
 
-                <section class="dashboard-section statistics-section glass-reveal">
+                                <section class="dashboard-section statistics-section glass-reveal">
 
-                    <div class="dashboard-grid statistics-grid">
+                                    <div class="dashboard-grid statistics-grid">
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                        <article class="dashboard-card statistics-card floating-card glass-card">
 
-                            <div class="card-icon">
+                                            <div class="card-icon">
 
-                                <i class="fa-solid fa-flag"></i>
+                                                <i class="fa-solid fa-flag"></i>
 
-                            </div>
+                                            </div>
 
-                            <div class="card-content">
+                                            <div class="card-content">
 
-                                <h3 id="totalReports" class="count-up">0</h3>
+                                                <h3 id="totalReports" class="count-up">0</h3>
 
-                                <p>Total Reports</p>
+                                                <p>Total Reports</p>
 
-                            </div>
+                                            </div>
 
-                        </article>
+                                        </article>
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                        <article class="dashboard-card statistics-card floating-card glass-card">
 
-                            <div class="card-icon">
+                                            <div class="card-icon">
 
-                                <i class="fa-solid fa-hourglass-half"></i>
+                                                <i class="fa-solid fa-hourglass-half"></i>
 
-                            </div>
+                                            </div>
 
-                            <div class="card-content">
+                                            <div class="card-content">
 
-                                <h3 id="pendingReports" class="count-up">0</h3>
+                                                <h3 id="pendingReports" class="count-up">0</h3>
 
-                                <p>Pending</p>
+                                                <p>Pending</p>
 
-                            </div>
+                                            </div>
 
-                        </article>
+                                        </article>
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                        <article class="dashboard-card statistics-card floating-card glass-card">
 
-                            <div class="card-icon">
+                                            <div class="card-icon">
 
-                                <i class="fa-solid fa-circle-check"></i>
+                                                <i class="fa-solid fa-circle-check"></i>
 
-                            </div>
+                                            </div>
 
-                            <div class="card-content">
+                                            <div class="card-content">
 
-                                <h3 id="resolvedReports" class="count-up">0</h3>
+                                                <h3 id="resolvedReports" class="count-up">0</h3>
 
-                                <p>Resolved</p>
+                                                <p>Resolved</p>
 
-                            </div>
+                                            </div>
 
-                        </article>
+                                        </article>
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                        <article class="dashboard-card statistics-card floating-card glass-card">
 
-                            <div class="card-icon">
+                                            <div class="card-icon">
 
-                                <i class="fa-solid fa-ban"></i>
+                                                <i class="fa-solid fa-ban"></i>
 
-                            </div>
+                                            </div>
 
-                            <div class="card-content">
+                                            <div class="card-content">
 
-                                <h3 id="suspendedAccounts" class="count-up">0</h3>
+                                                <h3 id="suspendedAccounts" class="count-up">0</h3>
 
-                                <p>Suspended Accounts</p>
+                                                <p>Suspended Accounts</p>
 
-                            </div>
+                                            </div>
 
-                        </article>
+                                        </article>
 
-                    </div>
+                                    </div>
 
-                </section>
+                                </section>
 
-                <!-- ==========================
+                                <!-- ==========================
                      Search & Filters
                 =========================== -->
 
-                <section class="filter-section glass-card">
+                                <section class="filter-section glass-card">
 
-                    <form id="reportFilterForm" class="filter-form liquid-form" role="search"
-                        aria-label="Filter Reports">
+                                    <form id="reportFilterForm" class="filter-form liquid-form" role="search"
+                                        aria-label="Filter Reports">
 
-                        <div class="liquid-group">
+                                        <div class="liquid-group">
 
-                            <label class="visually-hidden" for="reportSearch">
+                                            <label class="visually-hidden" for="reportSearch">
 
-                                Search Reports
+                                                Search Reports
 
-                            </label>
+                                            </label>
 
-                            <input type="search" id="reportSearch" name="reportSearch" class="liquid-input"
-                                placeholder="Search by user, listing or report ID..." autocomplete="off">
+                                            <input type="search" id="reportSearch" name="reportSearch"
+                                                class="liquid-input"
+                                                placeholder="Search by user, listing or report ID..."
+                                                autocomplete="off">
 
-                        </div>
+                                        </div>
 
-                        <div class="liquid-group">
+                                        <div class="liquid-group">
 
-                            <select id="reportStatus" name="reportStatus" class="liquid-input">
+                                            <select id="reportStatus" name="reportStatus" class="liquid-input">
 
-                                <option value="">All Statuses</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Investigating">Investigating</option>
-                                <option value="Resolved">Resolved</option>
-                                <option value="Dismissed">Dismissed</option>
+                                                <option value="">All Statuses</option>
+                                                <option value="Pending">Pending</option>
+                                                <option value="Investigating">Investigating</option>
+                                                <option value="Resolved">Resolved</option>
+                                                <option value="Dismissed">Dismissed</option>
 
-                            </select>
+                                            </select>
 
-                        </div>
+                                        </div>
 
-                        <div class="liquid-group">
+                                        <div class="liquid-group">
 
-                            <select id="reportType" name="reportType" class="liquid-input">
+                                            <select id="reportType" name="reportType" class="liquid-input">
 
-                                <option value="">All Report Types</option>
-                                <option value="Listing">Listing</option>
-                                <option value="Landlord">Landlord</option>
-                                <option value="Student">Student</option>
-                                <option value="Payment">Payment</option>
-                                <option value="Spam">Spam</option>
-                                <option value="Fraud">Fraud</option>
+                                                <option value="">All Report Types</option>
+                                                <option value="Listing">Listing</option>
+                                                <option value="Landlord">Landlord</option>
+                                                <option value="Student">Student</option>
+                                                <option value="Payment">Payment</option>
+                                                <option value="Spam">Spam</option>
+                                                <option value="Fraud">Fraud</option>
 
-                            </select>
+                                            </select>
 
-                        </div>
+                                        </div>
 
-                        <div class="liquid-group">
+                                        <div class="liquid-group">
 
-                            <select id="reportPriority" name="reportPriority" class="liquid-input">
+                                            <select id="reportPriority" name="reportPriority" class="liquid-input">
 
-                                <option value="">All Priorities</option>
-                                <option value="Low">Low</option>
-                                <option value="Medium">Medium</option>
-                                <option value="High">High</option>
-                                <option value="Critical">Critical</option>
+                                                <option value="">All Priorities</option>
+                                                <option value="Low">Low</option>
+                                                <option value="Medium">Medium</option>
+                                                <option value="High">High</option>
+                                                <option value="Critical">Critical</option>
 
-                            </select>
+                                            </select>
 
-                        </div>
+                                        </div>
 
-                    </form>
+                                    </form>
 
-                </section>
+                                </section>
 
-                <!-- ==========================
+                                <!-- ==========================
                      Reports Grid
                 =========================== -->
 
-                <section class="dashboard-section glass-reveal">
+                                <section class="dashboard-section glass-reveal">
 
-                    <div id="reportsGrid" class="reports-grid" aria-live="polite">
+                                    <div id="reportsGrid" class="reports-grid" aria-live="polite">
 
-                        <!-- Reports loaded dynamically -->
+                                        <!-- Reports loaded dynamically -->
 
-                    </div>
+                                    </div>
 
-                </section>
+                                </section>
 
-                <!-- ==========================
+                                <!-- ==========================
                      Report Details
                 =========================== -->
 
-                <section id="reportDetails" class="dashboard-section details-card glass-card hidden">
+                                <section id="reportDetails" class="dashboard-section details-card glass-card hidden">
 
-                    <header class="section-header">
+                                    <header class="section-header">
 
-                        <h2>Report Details</h2>
+                                        <h2>Report Details</h2>
 
-                    </header>
+                                    </header>
 
-                    <div id="reportInformation">
+                                    <div id="reportInformation">
 
-                        <!-- Dynamic Content -->
+                                        <!-- Dynamic Content -->
 
-                    </div>
+                                    </div>
 
-                </section>
+                                </section>
 
-                <!-- ==========================
+                                <!-- ==========================
                      Moderator Notes
                 =========================== -->
 
-                <section class="dashboard-section details-card glass-card">
+                                <section class="dashboard-section details-card glass-card">
 
-                    <header class="section-header">
+                                    <header class="section-header">
 
-                        <h2>Moderator Notes</h2>
+                                        <h2>Moderator Notes</h2>
 
-                    </header>
+                                    </header>
 
-                    <textarea id="moderatorNotes" class="liquid-input" rows="6"
-                        placeholder="Enter investigation notes..."></textarea>
+                                    <textarea id="moderatorNotes" class="liquid-input" rows="6"
+                                        placeholder="Enter investigation notes..."></textarea>
 
-                </section>
+                                </section>
 
-                <!-- ==========================
+                                <!-- ==========================
                      Admin Actions
                 =========================== -->
 
-                <div class="action-buttons">
+                                <div class="action-buttons">
 
-                    <button id="investigateBtn" class="btn btn-primary azure-sweep ripple">
+                                    <button id="investigateBtn" class="btn btn-primary azure-sweep ripple">
 
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <i class="fa-solid fa-magnifying-glass"></i>
 
-                        <span>Investigate</span>
+                                        <span>Investigate</span>
 
-                    </button>
+                                    </button>
 
-                    <button id="resolveBtn" class="btn btn-primary azure-sweep ripple">
+                                    <button id="resolveBtn" class="btn btn-primary azure-sweep ripple">
 
-                        <i class="fa-solid fa-circle-check"></i>
+                                        <i class="fa-solid fa-circle-check"></i>
 
-                        <span>Mark Resolved</span>
+                                        <span>Mark Resolved</span>
 
-                    </button>
+                                    </button>
 
-                    <button id="dismissBtn" class="btn btn-outline">
+                                    <button id="dismissBtn" class="btn btn-outline">
 
-                        <i class="fa-solid fa-xmark"></i>
+                                        <i class="fa-solid fa-xmark"></i>
 
-                        <span>Dismiss Report</span>
+                                        <span>Dismiss Report</span>
 
-                    </button>
+                                    </button>
 
-                    <button id="suspendUserBtn" class="btn btn-danger">
+                                    <button id="suspendUserBtn" class="btn btn-danger">
 
-                        <i class="fa-solid fa-user-slash"></i>
+                                        <i class="fa-solid fa-user-slash"></i>
 
-                        <span>Suspend User</span>
+                                        <span>Suspend User</span>
 
-                    </button>
+                                    </button>
 
-                    <button id="removeListingBtn" class="btn btn-danger">
+                                    <button id="removeListingBtn" class="btn btn-danger">
 
-                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fa-solid fa-trash"></i>
 
-                        <span>Remove Listing</span>
+                                        <span>Remove Listing</span>
 
-                    </button>
+                                    </button>
 
-                </div>
+                                </div>
 
-            </div>
+                            </div>
 
-        </section>
+                </section>
 
     </main>
     <!-- ==========================================

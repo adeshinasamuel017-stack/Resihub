@@ -100,7 +100,7 @@
 
     <main id="mainContent" class="page-transition">
 
-        <section id="backupRestoreContent" class="page-section glass-reveal floating-section">
+        <section id="backupRestoreContent" class="page-section">
 
             <div class="container page-container">
 
@@ -110,254 +110,260 @@
 
                 <header class="section-header">
 
-                    <span class="page-badge floating-badge glass-card">
+                    <div class="container">
 
-                        <i class="fa-solid fa-database"></i>
+                        <header class="auth-hero reveal fade-up">
 
-                        Backup & Restore
+                            <div id="hero-text">
 
-                    </span>
+                                <span class="page-badge floating-badge glass-card">
 
-                    <h1>System Backup Management</h1>
+                                    <i class="fa-solid fa-database"></i>
 
-                    <p>
+                                    Backup & Restore
 
-                        Create backups, schedule automatic backups and restore
-                        the ResiHub platform whenever necessary.
+                                </span>
 
-                    </p>
+                                <h1>System Backup Management</h1>
 
-                </header>
+                                <p>
 
-                <!-- ==========================================
+                                    Create backups, schedule automatic backups and restore
+                                    the ResiHub platform whenever necessary.
+
+                                </p>
+
+                        </header>
+
+                        <!-- ==========================================
                      Quick Actions
                 =========================================== -->
 
-                <div class="action-buttons">
+                        <div class="action-buttons">
 
-                    <button id="createBackupBtn" class="btn btn-primary azure-sweep ripple">
+                            <button id="createBackupBtn" class="btn btn-primary azure-sweep ripple">
 
-                        <i class="fa-solid fa-hard-drive"></i>
+                                <i class="fa-solid fa-hard-drive"></i>
 
-                        <span>Create Backup</span>
+                                <span>Create Backup</span>
 
-                    </button>
+                            </button>
 
-                    <button id="restoreBackupBtn" class="btn btn-primary azure-sweep ripple">
+                            <button id="restoreBackupBtn" class="btn btn-primary azure-sweep ripple">
 
-                        <i class="fa-solid fa-clock-rotate-left"></i>
+                                <i class="fa-solid fa-clock-rotate-left"></i>
 
-                        <span>Restore Backup</span>
+                                <span>Restore Backup</span>
 
-                    </button>
+                            </button>
 
-                </div>
+                        </div>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Statistics
                 =========================================== -->
 
-                <section class="dashboard-section statistics-section glass-reveal">
+                        <section class="dashboard-section statistics-section glass-reveal">
 
-                    <div class="dashboard-grid statistics-grid">
+                            <div class="dashboard-grid statistics-grid">
 
-                        <article class="dashboard-card statistics-card floating-card glass-card">
+                                <article class="dashboard-card statistics-card floating-card glass-card">
 
-                            <div class="card-icon">
+                                    <div class="card-icon">
 
-                                <i class="fa-solid fa-server"></i>
+                                        <i class="fa-solid fa-server"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="backupCount" class="count-up">0</h3>
+
+                                        <p>Total Backups</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-clock"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="lastBackupTime">--</h3>
+
+                                        <p>Last Backup</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-memory"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="backupStorage">0 GB</h3>
+
+                                        <p>Storage Used</p>
+
+                                    </div>
+
+                                </article>
+
+                                <article class="dashboard-card statistics-card floating-card glass-card">
+
+                                    <div class="card-icon">
+
+                                        <i class="fa-solid fa-arrows-rotate"></i>
+
+                                    </div>
+
+                                    <div class="card-content">
+
+                                        <h3 id="autoBackupStatus">
+
+                                            Enabled
+
+                                        </h3>
+
+                                        <p>Automatic Backup</p>
+
+                                    </div>
+
+                                </article>
 
                             </div>
 
-                            <div class="card-content">
+                        </section>
 
-                                <h3 id="backupCount" class="count-up">0</h3>
-
-                                <p>Total Backups</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-clock"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="lastBackupTime">--</h3>
-
-                                <p>Last Backup</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-memory"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="backupStorage">0 GB</h3>
-
-                                <p>Storage Used</p>
-
-                            </div>
-
-                        </article>
-
-                        <article class="dashboard-card statistics-card floating-card glass-card">
-
-                            <div class="card-icon">
-
-                                <i class="fa-solid fa-arrows-rotate"></i>
-
-                            </div>
-
-                            <div class="card-content">
-
-                                <h3 id="autoBackupStatus">
-
-                                    Enabled
-
-                                </h3>
-
-                                <p>Automatic Backup</p>
-
-                            </div>
-
-                        </article>
-
-                    </div>
-
-                </section>
-
-                <!-- ==========================================
+                        <!-- ==========================================
                      Backup Settings
                 =========================================== -->
 
-                <section class="dashboard-section glass-card">
+                        <section class="dashboard-section glass-card">
 
-                    <header class="section-header">
+                            <header class="section-header">
 
-                        <h2>Automatic Backup Settings</h2>
+                                <h2>Automatic Backup Settings</h2>
 
-                    </header>
+                            </header>
 
-                    <form id="backupSettingsForm" class="filter-form liquid-form">
+                            <form id="backupSettingsForm" class="filter-form liquid-form">
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <label for="backupFrequency">
+                                    <label for="backupFrequency">
 
-                                Backup Frequency
+                                        Backup Frequency
 
-                            </label>
+                                    </label>
 
-                            <select id="backupFrequency" class="liquid-input">
+                                    <select id="backupFrequency" class="liquid-input">
 
-                                <option>Hourly</option>
+                                        <option>Hourly</option>
 
-                                <option>Daily</option>
+                                        <option>Daily</option>
 
-                                <option>Weekly</option>
+                                        <option>Weekly</option>
 
-                                <option>Monthly</option>
+                                        <option>Monthly</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
+                                </div>
 
-                        <div class="liquid-group">
+                                <div class="liquid-group">
 
-                            <label for="retentionPeriod">
+                                    <label for="retentionPeriod">
 
-                                Retention Period
+                                        Retention Period
 
-                            </label>
+                                    </label>
 
-                            <select id="retentionPeriod" class="liquid-input">
+                                    <select id="retentionPeriod" class="liquid-input">
 
-                                <option>7 Days</option>
+                                        <option>7 Days</option>
 
-                                <option>30 Days</option>
+                                        <option>30 Days</option>
 
-                                <option>90 Days</option>
+                                        <option>90 Days</option>
 
-                                <option>1 Year</option>
+                                        <option>1 Year</option>
 
-                            </select>
+                                    </select>
 
-                        </div>
+                                </div>
 
-                        <label class="switch">
+                                <label class="switch">
 
-                            <input type="checkbox" id="autoBackupToggle" checked>
+                                    <input type="checkbox" id="autoBackupToggle" checked>
 
-                            <span>
+                                    <span>
 
-                                Enable Automatic Backups
+                                        Enable Automatic Backups
 
-                            </span>
+                                    </span>
 
-                        </label>
+                                </label>
 
-                    </form>
+                            </form>
 
-                </section>
+                        </section>
 
-                <!-- ==========================================
+                        <!-- ==========================================
                      Backup History
                 =========================================== -->
 
-                <section class="table-section glass-reveal">
+                        <section class="table-section glass-reveal">
 
-                    <div class="table-responsive">
+                            <div class="table-responsive">
 
-                        <table class="admin-table data-table">
+                                <table class="admin-table data-table">
 
-                            <thead>
+                                    <thead>
 
-                                <tr>
+                                        <tr>
 
-                                    <th>Date</th>
+                                            <th>Date</th>
 
-                                    <th>Backup Name</th>
+                                            <th>Backup Name</th>
 
-                                    <th>Type</th>
+                                            <th>Type</th>
 
-                                    <th>Size</th>
+                                            <th>Size</th>
 
-                                    <th>Status</th>
+                                            <th>Status</th>
 
-                                    <th>Actions</th>
+                                            <th>Actions</th>
 
-                                </tr>
+                                        </tr>
 
-                            </thead>
+                                    </thead>
 
-                            <tbody id="backupHistoryTable">
+                                    <tbody id="backupHistoryTable">
 
-                                <!-- JavaScript loads backup history -->
+                                        <!-- JavaScript loads backup history -->
 
-                            </tbody>
+                                    </tbody>
 
-                        </table>
+                                </table>
+
+                            </div>
+
+                        </section>
 
                     </div>
-
-                </section>
-
-            </div>
 
         </section>
 

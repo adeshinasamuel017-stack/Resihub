@@ -98,237 +98,313 @@
              System Configuration Section
         =========================================== -->
 
-        <section id="systemConfigurationContent" class="auth-section reveal fade-up">
+        <section id="systemConfigurationContent" class="page-section glass-reveal floating-section">
 
-            <div class="container">
+            <div class="container page-container">
 
-                <!-- Page Header -->
+                <div class="container">
 
-                <div class="section-header">
+                    <!-- Page Header -->
 
-                    <span class="page-badge floating-badge">
+                    <div class="section-header">
 
-                        <i class="fa-solid fa-sliders"></i>
+                        <div class="container">
 
-                        Platform Configuration
+                            <header class="auth-hero reveal fade-up">
 
-                    </span>
+                                <div id="hero-text">
 
-                    <h1>System Configuration</h1>
+                                    <span class="page-badge floating-badge">
 
-                    <p>
+                                        <i class="fa-solid fa-sliders"></i>
 
-                        Manage every major setting that powers the ResiHub platform.
+                                        Platform Configuration
 
-                    </p>
+                                    </span>
 
-                </div>
+                                    <h1>System Configuration</h1>
 
-                <!-- ==========================================
+                                    <p>
+
+                                        Manage every major setting that powers the ResiHub platform.
+
+                                    </p>
+
+                                </div>
+
+                                <!-- ==========================================
                      Configuration Form
                 =========================================== -->
 
-                <form id="systemSettingsForm">
+                                <form id="systemSettingsForm">
 
-                    <!-- General Settings -->
+                                    <!-- General Settings -->
 
-                    <h2>General Settings</h2>
+                                    <section class="dashboard-section glass-card">
 
-                    <input type="text" id="platformName" placeholder="Platform Name">
+                                        <header class="section-header">
 
-                    <input type="email" id="supportEmail" placeholder="Support Email">
+                                            <h2>General Settings</h2>
 
-                    <input type="tel" id="supportPhone" placeholder="Support Phone">
+                                        </header>
 
-                    <hr>
+                                        <div class="settings-grid">
 
-                    <!-- Branding -->
+                                            <div class="form-group">
 
-                    <h2>Branding</h2>
+                                                <label for="platformName">
 
-                    <input type="file" id="logoUpload">
+                                                    Platform Name
 
-                    <input type="file" id="faviconUpload">
+                                                </label>
 
-                    <input type="color" id="primaryColor">
+                                                <input type="text" id="platformName" class="liquid-input">
 
-                    <hr>
+                                            </div>
 
-                    <!-- Maintenance -->
+                                            <div class="form-group">
 
-                    <h2>Maintenance</h2>
+                                                <label for="supportEmail">
 
-                    <label>
+                                                    Support Email
 
-                        <input type="checkbox" id="maintenanceMode">
+                                                </label>
 
-                        Enable Maintenance Mode
+                                                <input type="email" id="supportEmail" class="liquid-input">
 
-                    </label>
+                                            </div>
 
-                    <textarea id="maintenanceMessage" rows="4" placeholder="Maintenance message..."></textarea>
+                                            <div class="form-group">
 
-                    <hr>
+                                                <label for="supportPhone">
 
-                    <!-- Google Maps -->
+                                                    Support Phone
 
-                    <h2>Google Maps & Live Location</h2>
+                                                </label>
 
-                    <input type="text" id="googleMapsApiKey" placeholder="Google Maps API Key">
+                                                <input type="tel" id="supportPhone" class="liquid-input">
 
-                    <label>
+                                            </div>
 
-                        <input type="checkbox" id="enableLiveLocation">
+                                        </div>
 
-                        Enable Live Location
+                                    </section>
 
-                    </label>
+                                    <!-- Branding -->
 
-                    <label>
+                                    <section class="dashboard-section glass-card">
 
-                        <input type="checkbox" id="allowStudentNavigation">
+                                        <h2>Branding</h2>
 
-                        Allow Students to Navigate to Listings
+                                        <input type="file" id="logoUpload">
 
-                    </label>
+                                        <input type="file" id="faviconUpload">
 
-                    <label>
+                                        <input type="color" id="primaryColor">
 
-                        <input type="checkbox" id="landlordLocationApproval">
+                                        <hr>
 
-                        Require Landlord Location Verification
+                                    </section>
+                                    <!-- Maintenance -->
 
-                    </label>
+                                    <section class="dashboard-section glass-card">
 
-                    <hr>
+                                        <h2>Maintenance</h2>
 
-                    <!-- Payment Gateway -->
+                                        <label class="checkbox-group">
 
-                    <h2>Payment Gateway</h2>
+                                            <input type="checkbox" id="maintenanceMode">
 
-                    <input type="text" id="paystackKey" placeholder="Paystack Public Key">
+                                            Enable Maintenance Mode
 
-                    <input type="text" id="flutterwaveKey" placeholder="Flutterwave Key">
+                                        </label>
 
-                    <label>
+                                        <textarea id="maintenanceMessage" rows="4" placeholder="Maintenance message..."
+                                            class="liquid-input"></textarea>
 
-                        <input type="checkbox" id="enablePayments">
+                                        <hr>
 
-                        Enable Payments
+                                    </section>
 
-                    </label>
+                                    <!-- Google Maps -->
 
-                    <hr>
+                                    <section class="dashboard-section glass-card">
 
-                    <!-- Email Configuration -->
 
-                    <h2>Email Configuration</h2>
+                                        <h2>Google Maps & Live Location</h2>
 
-                    <input type="text" id="smtpHost" placeholder="SMTP Host">
+                                        <input type="text" id="googleMapsApiKey" placeholder="Google Maps API Key"
+                                            class="liquid-input">
 
-                    <input type="text" id="smtpPort" placeholder="SMTP Port">
+                                        <label class="checkbox-group">
 
-                    <input type="email" id="smtpEmail" placeholder="SMTP Email">
+                                            <input type="checkbox" id="enableLiveLocation">
 
-                    <hr>
+                                            Enable Live Location
 
-                    <!-- Security -->
+                                        </label>
 
-                    <h2>Security</h2>
+                                        <label class="checkbox-group">
 
-                    <label>
+                                            <input type="checkbox" id="allowStudentNavigation">
 
-                        <input type="checkbox" id="enable2FA">
+                                            Allow Students to Navigate to Listings
 
-                        Enable Two-Factor Authentication
+                                        </label>
 
-                    </label>
+                                        <label class="checkbox-group">
 
-                    <label>
+                                            <input type="checkbox" id="landLordApproval">
 
-                        <input type="checkbox" id="forceStrongPasswords">
+                                            Require Landlord Location Verification
 
-                        Require Strong Passwords
+                                        </label>
 
-                    </label>
+                                        <hr>
 
-                    <label>
+                                    </section>
+                                    <!-- Payment Gateway -->
 
-                        <input type="checkbox" id="enableLoginAlerts">
+                                    <section class="dashboard-section glass-card">
 
-                        Login Alerts
+                                        <h2>Payment Gateway</h2>
 
-                    </label>
+                                        <input type="text" id="paystackKey" placeholder="Paystack Public Key"
+                                            class="liquid-input">
 
-                    <hr>
+                                        <input type="text" id="flutterwaveKey" placeholder="Flutterwave Key"
+                                            class="liquid-input">
 
-                    <!-- Notifications -->
+                                        <label class="checkbox-group">
 
-                    <h2>Notifications</h2>
+                                            <input type="checkbox" id="enablePayment">="enablePayments">
 
-                    <label>
+                                            Enable Payments
 
-                        <input type="checkbox">
+                                        </label>
 
-                        Email Notifications
+                                        <hr>
 
-                    </label>
+                                    </section>
+                                    <!-- Email Configuration -->
 
-                    <label>
+                                    <section class="dashboard-section glass-card">
+                                        <h2>Email Configuration</h2>
 
-                        <input type="checkbox">
+                                        <input type="text" id="smtpHost" placeholder="SMTP Host">
 
-                        SMS Notifications
+                                        <input type="text" id="smtpPort" placeholder="SMTP Port">
 
-                    </label>
+                                        <input type="email" id="smtpEmail" placeholder="SMTP Email">
 
-                    <label>
+                                        <hr>
 
-                        <input type="checkbox">
+                                    </section>
+                                    <!-- Security -->
 
-                        Push Notifications
+                                    <section class="dashboard-section glass-card">
 
-                    </label>
+                                        <h2>Security</h2>
 
-                    <hr>
+                                        <label class="checkbox-group">
 
-                    <!-- Social Media -->
+                                            <input type="checkbox" id="enable2FA">
 
-                    <h2>Social Media</h2>
+                                            Enable Two-Factor Authentication
 
-                    <input type="url" placeholder="Facebook URL">
+                                        </label>
 
-                    <input type="url" placeholder="Instagram URL">
+                                        <label class="checkbox-group">
 
-                    <input type="url" placeholder="LinkedIn URL">
+                                            <input type="checkbox" id="forceStrongPasswords">
 
-                    <input type="url" placeholder="X (Twitter) URL">
+                                            Require Strong Passwords
 
-                    <hr>
+                                        </label>
 
-                    <!-- Form Actions -->
+                                        <label class="checkbox-group">
 
-                    <div class="form-actions">
+                                            <input type="checkbox" id="enableLoginAlerts">
 
-                        <button type="submit" class="btn-primary">
+                                            Login Alerts
 
-                            <i class="fa-solid fa-floppy-disk"></i>
+                                        </label>
 
-                            Save Configuration
+                                        <hr>
 
-                        </button>
+                                    </section>
+                                    <!-- Notifications -->
 
-                        <button type="reset" class="btn-outline">
+                                    <section class="dashboard-section glass-card">
 
-                            Reset
+                                        <h2>Notifications</h2>
 
-                        </button>
+                                        <label class="checkbox-group">
 
-                    </div>
+                                            <input type="checkbox">
 
-                </form>
+                                            Email Notifications
 
-            </div>
+                                        </label>
+
+                                        <label class="checkbox-group">
+
+                                            <input type="checkbox">
+
+                                            SMS Notifications
+
+                                        </label>
+
+                                        <label class="checkbox-group">
+
+                                            <input type="checkbox">
+
+                                            Push Notifications
+
+                                        </label>
+
+                                        <hr>
+                                    </section>
+                                    <!-- Social Media -->
+
+                                    <section class="dashboard-section glass-card">
+
+                                        <h2>Social Media</h2>
+
+                                        <input type="url" placeholder="Facebook URL">
+
+                                        <input type="url" placeholder="Instagram URL">
+
+                                        <input type="url" placeholder="LinkedIn URL">
+
+                                        <input type="url" placeholder="X (Twitter) URL">
+
+                                        <hr>
+
+                                    </section>
+                                    <!-- Form Actions -->
+
+                                    <div class="action-buttons">
+
+                                        <button type="submit" class="btn btn-primary azure-sweep ripple">
+
+                                            <i class="fa-solid fa-floppy-disk"></i>
+
+                                            Save Configuration
+
+                                        </button>
+
+                                        <button type="reset" class="btn btn-outline">
+
+                                            Reset
+
+                                        </button>
+
+                                    </div>
+
+                                </form>
+
+                        </div>
 
         </section>
 
