@@ -1,0 +1,16 @@
+import { loadComponents } from "./components.js";
+
+export async function loadStudentLayout() {
+    return loadComponents([
+        {
+            file: "../components/student_header.htm",
+            elementId: "header",
+        },
+        {
+            file: "../components/student_footer.htm",
+            elementId: "footer",
+        },
+    ]);
+}
+
+await loadStudentLayout();

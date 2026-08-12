@@ -1009,3 +1009,204 @@ a:focus-visible {
     }
 
 }
+
+/* Compact floating header and menu panel. */
+.main-header {
+    width: min(1180px, calc(100% - 24px));
+}
+
+.main-header .container {
+    position: relative;
+    display: flex;
+    height: 72px;
+    min-width: 0;
+    padding: 0 14px 0 18px;
+    gap: 12px;
+    overflow: visible;
+}
+
+.main-header .logo {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.main-header .logo-text h2 {
+    font-size: 1.25rem;
+}
+
+.main-header .logo-text span {
+    font-size: .72rem;
+}
+
+.header-cta {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: .5rem;
+    min-height: 42px;
+    padding: 0 .85rem;
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .08);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.header-cta:hover {
+    background: rgba(255, 255, 255, .16);
+}
+
+.main-header .menu-toggle {
+    display: inline-grid;
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.main-header .main-nav {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    display: block;
+    width: min(380px, 100%);
+    max-height: min(70vh, 620px);
+    padding: 12px;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 18px;
+    background: rgba(7, 25, 62, .94);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 22px 48px rgba(0, 24, 75, .32);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+    z-index: 1010;
+}
+
+.main-header .main-nav.active {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.main-header .main-nav ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    margin: 0;
+}
+
+.main-header .main-nav a {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    min-height: 46px;
+    padding: 0 .8rem;
+    border-radius: 10px;
+}
+
+.main-header .main-nav a::before,
+.main-header .main-nav a::after {
+    display: none;
+}
+
+.main-header .header-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, .14);
+}
+
+.main-header .header-actions > * {
+    min-width: 0;
+}
+
+.main-header .header-actions .profile-dropdown {
+    grid-column: 1 / -1;
+}
+
+.main-header .header-actions .profile-btn,
+.main-header .header-actions .btn-primary,
+.main-header .header-actions .icon-btn,
+.main-header .header-actions select {
+    width: 100%;
+    min-height: 44px;
+}
+
+.main-header .header-actions .dropdown-menu,
+.main-header .header-actions .notification-dropdown {
+    position: static;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.main-header .header-actions label {
+    align-self: center;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 560px) {
+    .main-header {
+        top: 12px;
+        width: calc(100% - 20px);
+    }
+
+    .main-header .container {
+        height: 64px;
+        padding: 0 10px 0 13px;
+        gap: 8px;
+    }
+
+    .main-header .logo-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .main-header .logo-text h2 {
+        font-size: 1.08rem;
+    }
+
+    .main-header .logo-text span {
+        display: none;
+    }
+
+    .header-cta {
+        min-height: 38px;
+        padding: 0 .65rem;
+        font-size: .82rem;
+    }
+
+    .main-header .menu-toggle {
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .main-header .main-nav {
+        top: calc(100% + 8px);
+        width: 100%;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 390px) {
+    .header-cta span {
+        display: none;
+    }
+
+    .header-cta {
+        width: 38px;
+        justify-content: center;
+        padding: 0;
+    }
+}
