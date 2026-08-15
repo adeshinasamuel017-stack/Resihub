@@ -1,20 +1,3 @@
-/**
- * ResiHub 2.0
- * Client Storage Manager
- *
- * Responsibility:
- * - Persist non-sensitive client preferences
- * - Safely read/write localStorage
- * - Validate stored values
- *
- * This module does NOT:
- * - store passwords
- * - store Supabase secrets
- * - manage authentication sessions
- * - communicate with Supabase
- * - manipulate the DOM
- */
-
 const STORAGE_PREFIX = "resihub:";
 
 const STORAGE_KEYS = Object.freeze({

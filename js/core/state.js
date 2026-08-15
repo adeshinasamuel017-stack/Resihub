@@ -1,20 +1,3 @@
-/**
- * ResiHub 2.0
- * Application State Store
- *
- * Responsibility:
- * - Maintain shared application state
- * - Provide controlled state updates
- * - Allow modules to subscribe to changes
- *
- * This module does NOT:
- * - communicate with Supabase
- * - manipulate the DOM
- * - handle navigation
- * - handle styling
- * - render UI
- */
-
 const DEFAULT_STATE = {
     user: null,
 

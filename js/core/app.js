@@ -1,418 +1,279 @@
-/**
- * ResiHub 2.0
- * Application Entry Point
- *
- * Responsibility:
- * - Bootstrap the ResiHub application
- * - Initialize global modules
- * - Detect the current page
- * - Load page-specific modules
- * - Isolate initialization failures
- *
- * This file is an orchestrator.
- *
- * It should NOT:
- * - contain page-specific business logic
- * - contain Supabase queries
- * - manipulate large sections of the DOM
- * - become a giant script
- */
+import { initAccessibility } from "../ui/accessibility.js";
+import { initAnimations } from "../ui/animations.js";
+import { initModal } from "../ui/modal.js";
+import { initNavigation } from "../ui/navigation.js";
+import { initTheme } from "../ui/theme.js";
 
-import {
-    getState,
-    setState,
-} from "./state.js";
+/*
+|--------------------------------------------------------------------------
+| Detect current application area
+|--------------------------------------------------------------------------
+*/
 
-import {
-    getTheme,
-} from "./storage.js";
-
-import {
-    configureApi,
-} from "./api.js";
-
-/**
- * Global modules.
- *
- * These are loaded dynamically so that app.js remains
- * lightweight and individual modules remain responsible
- * for their own behavior.
- */
-const GLOBAL_MODULES = [
-    {
-        name: "accessibility",
-        loader: () =>
-            import("../ui/accessibility.js"),
-    },
-
-    {
-        name: "navigation",
-        loader: () =>
-            import("../ui/navigation.js"),
-    },
-
-    {
-        name: "theme",
-        loader: () =>
-            import("../ui/theme.js"),
-    },
-
-    {
-        name: "animations",
-        loader: () =>
-            import("../ui/animations.js"),
-    },
-
-    {
-        name: "modal",
-        loader: () =>
-            import("../ui/modal.js"),
-    },
-
-    {
-        name: "toast",
-        loader: () =>
-            import("../ui/toast.js"),
-    },
-];
-
-/**
- * Page module registry.
- *
- * IMPORTANT:
- * Only modules that actually exist should be added here.
- *
- * We will expand this registry gradually as the
- * corresponding page modules are implemented.
- */
-const PAGE_MODULES = [
-    {
-        name: "home",
-        matches: [
-            "/index.htm",
-            "/index.html",
-            "/general/index.htm",
-            "/general/index.html",
-        ],
-        loader: () =>
-            import("../pages/home.js"),
-    },
-
-    {
-        name: "browse",
-        matches: [
-            "/browse.htm",
-            "/browse.html",
-            "/general/browse.htm",
-            "/general/browse.html",
-            "/browse_rooms.htm",
-            "/browse_rooms.html",
-        ],
-        loader: () =>
-            import("../student/student-browse.js"),
-    },
-
-    {
-        name: "room-details",
-        matches: [
-            "/room_details.htm",
-            "/room_details.html",
-            "/general/room_details.htm",
-            "/general/room_details.html",
-        ],
-        loader: () =>
-            import("../pages/room-details.js"),
-    },
-
-    {
-        name: "universities",
-        matches: [
-            "/universities.htm",
-            "/universities.html",
-            "/general/universities.htm",
-            "/general/universities.html",
-        ],
-        loader: () =>
-            import("../pages/universities.js"),
-    },
-
-    {
-        name: "student-dashboard",
-        matches: [
-            "/student_dashboard.htm",
-            "/student_dashboard.html",
-            "/student/dashboard.htm",
-            "/student/dashboard.html",
-        ],
-        loader: () =>
-            import("../student/student-dashboard.js"),
-    },
-
-    {
-        name: "landlord-dashboard",
-        matches: [
-            "/landlord_dashboard.htm",
-            "/landlord_dashboard.html",
-            "/landlord/dashboard.htm",
-            "/landlord/dashboard.html",
-        ],
-        loader: () =>
-            import("../landlord/landlord-dashboard.js"),
-    },
-
-    {
-        name: "admin-dashboard",
-        matches: [
-            "/admin_dashboard.htm",
-            "/admin_dashboard.html",
-            "/admin/admin_dashboard.htm",
-            "/admin/admin_dashboard.html",
-        ],
-        loader: () =>
-            import("../admin/admin-dashboard.js"),
-    },
-];
-
-/**
- * Prevent duplicate application initialization.
- */
-let initialized = false;
-
-/**
- * Return the current page path.
- *
- * @returns {string}
- */
-function getCurrentPath() {
-    if (
-        typeof window === "undefined" ||
-        !window.location
-    ) {
-        return "";
-    }
-
-    return window.location.pathname
+function getPageArea() {
+    const path = window.location.pathname
         .replace(/\\/g, "/")
         .toLowerCase();
+
+    const segments = path
+        .split("/")
+        .filter(Boolean);
+
+    /*
+     * Example:
+     * /general/browse_rooms.htm
+     *              ↑
+     *          general
+     *
+     * /student/inspection_request.htm
+     *              ↑
+     *          student
+     */
+
+    if (segments.includes("admin")) {
+        return "admin";
+    }
+
+    if (segments.includes("landlord")) {
+        return "landlord";
+    }
+
+    if (segments.includes("student")) {
+        return "student";
+    }
+
+    /*
+     * Pages inside /general/
+     */
+    if (segments.includes("general")) {
+        return "general";
+    }
+
+    /*
+     * Root/general pages
+     */
+    return "general";
 }
 
-/**
- * Check whether a page definition matches the
- * current pathname.
- *
- * @param {Object} page
- * @param {string} pathname
- * @returns {boolean}
- */
-function pageMatches(page, pathname) {
-    if (
-        !page ||
-        !Array.isArray(page.matches)
-    ) {
+/*
+|--------------------------------------------------------------------------
+| Load Header + Footer
+|--------------------------------------------------------------------------
+*/
+
+async function loadLayout() {
+    const area = getPageArea();
+
+    const loaders = {
+        admin: "./loadAdmin.js",
+        general: "./loadGeneral.js",
+        landlord: "./loadLandlord.js",
+        student: "./loadStudent.js",
+    };
+
+    const loaderPath = loaders[area];
+
+    if (!loaderPath) {
+        console.warn(
+            `[ResiHub] No layout loader found for area: ${area}`
+        );
+
         return false;
     }
 
-    return page.matches.some((match) => {
-        const normalizedMatch = match
-            .replace(/\\/g, "/")
-            .toLowerCase();
+    /*
+     * The HTML page must contain these containers.
+     */
+    const header = document.getElementById("header");
+    const footer = document.getElementById("footer");
 
-        return pathname.endsWith(normalizedMatch);
-    });
-}
+    if (!header) {
+        console.warn(
+            '[ResiHub] Header container "#header" was not found.'
+        );
 
-/**
- * Safely initialize a module.
- *
- * A failure in one module must not prevent other
- * independent modules from starting.
- *
- * @param {Object} definition
- * @returns {Promise<*>}
- */
-async function initializeModule(definition) {
-    if (
-        !definition ||
-        typeof definition.loader !== "function"
-    ) {
-        return null;
+        return false;
+    }
+
+    if (!footer) {
+        console.warn(
+            '[ResiHub] Footer container "#footer" was not found.'
+        );
     }
 
     try {
-        const module =
-            await definition.loader();
+        /*
+         * The loader imports component.js and loads
+         * the correct header/footer HTML.
+         */
+        const module = await import(loaderPath);
 
-        if (
-            module &&
-            typeof module.init === "function"
-        ) {
-            await module.init();
+        /*
+         * Explicitly call the correct loader.
+         * This avoids relying on top-level await side effects.
+         */
+        if (area === "admin" && module.loadAdminLayout) {
+            await module.loadAdminLayout();
         }
 
-        return module;
+        if (area === "general" && module.loadGeneralLayout) {
+            await module.loadGeneralLayout();
+        }
+
+        if (area === "landlord" && module.loadLandlordLayout) {
+            await module.loadLandlordLayout();
+        }
+
+        if (area === "student" && module.loadStudentLayout) {
+            await module.loadStudentLayout();
+        }
+
+        return true;
+
     } catch (error) {
         console.error(
-            `[ResiHub] Failed to initialize ${definition.name}:`,
+            `[ResiHub] Unable to load ${area} layout:`,
             error
         );
 
-        return null;
+        return false;
     }
 }
 
-/**
- * Initialize global UI modules.
- *
- * @returns {Promise<void>}
- */
-async function initializeGlobalModules() {
-    await Promise.all(
-        GLOBAL_MODULES.map(
-            (module) =>
-                initializeModule(module)
-        )
-    );
-}
+/*
+|--------------------------------------------------------------------------
+| Page-specific modules
+|--------------------------------------------------------------------------
+*/
 
-/**
- * Initialize the page-specific module.
- *
- * Only the matching page module is loaded.
- *
- * @returns {Promise<void>}
- */
-async function initializePageModule() {
-    const pathname = getCurrentPath();
+async function initPageModule() {
 
-    const page = PAGE_MODULES.find(
-        (definition) =>
-            pageMatches(
-                definition,
-                pathname
-            )
-    );
+    const path = window.location.pathname
+        .replace(/\\/g, "/")
+        .toLowerCase();
 
-    if (!page) {
-        return;
+    /*
+     * General pages
+     */
+
+    if (
+        path.endsWith("/browse_rooms.htm") ||
+        path.endsWith("/browse_rooms.html")
+    ) {
+        try {
+            const module = await import(
+                "../student/student-browse.js"
+            );
+
+            if (typeof module.init === "function") {
+                await module.init();
+            }
+
+        } catch (error) {
+            console.error(
+                "[ResiHub] Failed to initialize browse rooms:",
+                error
+            );
+        }
     }
 
-    await initializeModule(page);
-}
+    /*
+     * Room details
+     */
 
-/**
- * Synchronize initial theme state.
- *
- * The theme module remains responsible for the
- * actual DOM theme attribute.
- *
- * State only records the application value.
- */
-function initializeThemeState() {
-    const theme = getTheme();
+    if (
+        path.endsWith("/room_details.htm") ||
+        path.endsWith("/room_details.html")
+    ) {
+        try {
+            const module = await import(
+                "../pages/room-details.js"
+            );
 
-    setState({
-        theme,
-    });
-}
+            if (typeof module.init === "function") {
+                await module.init();
+            }
 
-/**
- * Initialize basic application state.
- */
-function initializeApplicationState() {
-    const currentState = getState();
-
-    setState({
-        isAuthenticated:
-            Boolean(
-                currentState.user
-            ),
-    });
-}
-
-/**
- * Initialize the ResiHub application.
- *
- * @returns {Promise<void>}
- */
-export async function init() {
-    if (initialized) {
-        return;
+        } catch (error) {
+            console.error(
+                "[ResiHub] Failed to initialize room details:",
+                error
+            );
+        }
     }
+}
 
-    initialized = true;
+/*
+|--------------------------------------------------------------------------
+| Initialize Application
+|--------------------------------------------------------------------------
+*/
+
+async function initApp() {
 
     try {
-        initializeApplicationState();
-
-        initializeThemeState();
 
         /*
-         * Global modules should initialize independently.
-         * A failure in one must not stop another.
+         * Global UI
          */
-        await initializeGlobalModules();
+        initTheme();
+
+        initAccessibility();
 
         /*
-         * Page-specific functionality is initialized
-         * only after the global application layer exists.
+         * IMPORTANT:
+         * Header and footer MUST load before
+         * navigation is initialized.
          */
-        await initializePageModule();
+        await loadLayout();
+
+        /*
+         * Now that the header exists in the DOM,
+         * navigation can safely find it.
+         */
+        initNavigation();
+
+        initModal();
+
+        initAnimations();
+
+        /*
+         * Page-specific JavaScript
+         */
+        await initPageModule();
 
         console.info(
-            "[ResiHub] Application initialized."
+            "[ResiHub] Application initialized successfully."
         );
+
     } catch (error) {
-        /*
-         * This is the final safety boundary.
-         *
-         * Local UI should remain usable even if an
-         * application-level initialization problem occurs.
-         */
+
         console.error(
             "[ResiHub] Application initialization failed:",
             error
         );
+
     }
 }
 
-/**
- * Optional API bootstrap hook.
- *
- * The actual Supabase client will be supplied once
- * the project's Supabase configuration is confirmed.
- *
- * We deliberately do NOT create a Supabase client
- * here using guessed credentials.
- *
- * @param {Object|null} supabaseClient
- */
-export function configureSupabase(
-    supabaseClient
-) {
-    configureApi(supabaseClient);
-}
+/*
+|--------------------------------------------------------------------------
+| Start Application
+|--------------------------------------------------------------------------
+*/
 
-/**
- * Automatically initialize when this module is
- * loaded in a browser.
- */
-if (
-    typeof document !== "undefined"
-) {
-    if (
-        document.readyState ===
-        "loading"
-    ) {
-        document.addEventListener(
-            "DOMContentLoaded",
-            () => {
-                init();
-            },
-            {
-                once: true,
-            }
-        );
-    } else {
-        init();
-    }
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initApp,
+        {
+            once: true,
+        }
+    );
+
+} else {
+
+    initApp();
+
 }
