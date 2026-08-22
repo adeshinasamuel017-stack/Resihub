@@ -2,17 +2,19 @@ import {
     createClient
 } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
+
 /*
-|--------------------------------------------------------------------------
-| SUPABASE CONFIGURATION
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * SUPABASE CONFIGURATION
+ * ============================================================
+ */
 
 const SUPABASE_URL =
     "https://gesbeavhazlydxriojkk.supabase.co";
 
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_YzRc-2clLnwttApINTzPNQ_yl2_XW8g";
+
 
 export const supabase = createClient(
     SUPABASE_URL,
@@ -28,10 +30,10 @@ export const supabase = createClient(
 
 
 /*
-|--------------------------------------------------------------------------
-| STANDARD API HELPERS
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * STANDARD RESULT HELPERS
+ * ============================================================
+ */
 
 function success(data = null) {
     return {
@@ -41,28 +43,43 @@ function success(data = null) {
     };
 }
 
+
 function failure(error) {
+    const normalizedError =
+        error instanceof Error
+            ? error
+            : new Error(
+                error?.message ||
+                String(error || "Unknown error.")
+            );
+
     console.error(
         "[ResiHub API]",
-        error
+        normalizedError
     );
 
     return {
         success: false,
         data: null,
-        error
+        error: normalizedError
     };
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| AUTHENTICATION
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * AUTHENTICATION
+ * ============================================================
+ */
 
+
+/**
+ * Get currently authenticated user.
+ */
 export async function getCurrentUser() {
+
     try {
+
         const {
             data,
             error
@@ -72,15 +89,22 @@ export async function getCurrentUser() {
             return failure(error);
         }
 
-        return success(data.user);
+        return success(data?.user ?? null);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Get current Supabase session.
+ */
 export async function getCurrentSession() {
+
     try {
+
         const {
             data,
             error
@@ -90,15 +114,22 @@ export async function getCurrentSession() {
             return failure(error);
         }
 
-        return success(data.session);
+        return success(data?.session ?? null);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Sign out current user.
+ */
 export async function signOut() {
+
     try {
+
         const {
             error
         } = await supabase.auth.signOut();
@@ -108,27 +139,49 @@ export async function signOut() {
         }
 
         return success(true);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Listen for authentication changes.
+ *
+ * Returns the Supabase subscription object.
+ */
 export function onAuthStateChange(callback) {
-    return supabase.auth.onAuthStateChange(
+
+    if (typeof callback !== "function") {
+        return null;
+    }
+
+    const {
+        data
+    } = supabase.auth.onAuthStateChange(
         callback
     );
+
+    return data?.subscription ?? null;
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| PROFILES
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * PROFILES
+ * ============================================================
+ */
 
+
+/**
+ * Get profile by user ID.
+ */
 export async function getProfile(userId) {
+
     try {
+
         if (!userId) {
             return failure(
                 new Error(
@@ -151,35 +204,86 @@ export async function getProfile(userId) {
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
-export async function updateProfile(
-    userId,
-    updates = {}
-) {
+/**
+ * Update current user's profile.
+ *
+ * RLS:
+ * auth.uid() = id
+ */
+export async function updateProfile(updates = {}) {
+
     try {
-        if (!userId) {
+
+        if (
+            !updates ||
+            typeof updates !== "object" ||
+            Array.isArray(updates)
+        ) {
             return failure(
                 new Error(
-                    "A user ID is required."
+                    "Profile updates must be an object."
                 )
             );
         }
+
+        const {
+            data: userData,
+            error: userError
+        } = await supabase.auth.getUser();
+
+        if (userError) {
+            return failure(userError);
+        }
+
+        const user = userData?.user;
+
+        if (!user) {
+            return failure(
+                new Error(
+                    "You must be authenticated."
+                )
+            );
+        }
+
+        const allowedFields = [
+            "full_name",
+            "phone",
+            "avatar_url"
+        ];
+
+        const payload = {};
+
+        allowedFields.forEach((field) => {
+
+            if (
+                Object.prototype.hasOwnProperty.call(
+                    updates,
+                    field
+                )
+            ) {
+                payload[field] = updates[field];
+            }
+
+        });
+
+        payload.updated_at =
+            new Date().toISOString();
 
         const {
             data,
             error
         } = await supabase
             .from("profiles")
-            .update({
-                ...updates,
-                updated_at: new Date().toISOString()
-            })
-            .eq("id", userId)
+            .update(payload)
+            .eq("id", user.id)
             .select()
             .single();
 
@@ -188,49 +292,130 @@ export async function updateProfile(
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| UNIVERSITIES
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * UNIVERSITIES
+ * ============================================================
+ */
 
+
+/**
+ * Get all universities.
+ */
 export async function getUniversities() {
+
     try {
+
         const {
             data,
             error
         } = await supabase
             .from("universities")
             .select("*")
-            .order("name", {
-                ascending: true
-            });
+            .order(
+                "name",
+                {
+                    ascending: true
+                }
+            );
 
         if (error) {
             return failure(error);
         }
 
         return success(data ?? []);
+
     } catch (error) {
+
+        return failure(error);
+    }
+}
+
+
+/**
+ * Get one university.
+ */
+export async function getUniversity(
+    universityId
+) {
+
+    try {
+
+        if (!universityId) {
+            return failure(
+                new Error(
+                    "A university ID is required."
+                )
+            );
+        }
+
+        const {
+            data,
+            error
+        } = await supabase
+            .from("universities")
+            .select("*")
+            .eq("id", universityId)
+            .maybeSingle();
+
+        if (error) {
+            return failure(error);
+        }
+
+        return success(data);
+
+    } catch (error) {
+
         return failure(error);
     }
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| LISTINGS
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * LISTINGS
+ * ============================================================
+ */
 
-export async function getListing(listingId) {
+
+/**
+ * Standard listing relationship.
+ */
+const LISTING_SELECT = `
+    *,
+    universities (
+        id,
+        name,
+        location,
+        description,
+        logo_url
+    ),
+    listing_images (
+        id,
+        image_url,
+        display_order,
+        created_at
+    )
+`;
+
+
+/**
+ * Get a single listing.
+ */
+export async function getListing(
+    listingId
+) {
+
     try {
+
         if (!listingId) {
             return failure(
                 new Error(
@@ -244,19 +429,7 @@ export async function getListing(listingId) {
             error
         } = await supabase
             .from("listings")
-            .select(`
-                *,
-                universities (
-                    *
-                ),
-                listing_images (
-                    id,
-                    listing_id,
-                    image_url,
-                    display_order,
-                    created_at
-                )
-            `)
+            .select(LISTING_SELECT)
             .eq("id", listingId)
             .maybeSingle();
 
@@ -264,26 +437,65 @@ export async function getListing(listingId) {
             return failure(error);
         }
 
+        if (!data) {
+            return failure(
+                new Error(
+                    "Listing not found."
+                )
+            );
+        }
+
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Get listings with filters and pagination.
+ */
 export async function getListings({
+
     page = 1,
+
     pageSize = 12,
+
     universityId = null,
+
     area = null,
+
     propertyType = null,
+
     minPrice = null,
+
     maxPrice = null,
+
     availabilityStatus = "available",
+
     publicationStatus = "published",
-    search = ""
+
+    sortBy = "newest"
+
 } = {}) {
+
     try {
+
+        page = Math.max(
+            1,
+            Number(page) || 1
+        );
+
+        pageSize = Math.min(
+            50,
+            Math.max(
+                1,
+                Number(pageSize) || 12
+            )
+        );
+
         const from =
             (page - 1) * pageSize;
 
@@ -292,80 +504,170 @@ export async function getListings({
 
         let query = supabase
             .from("listings")
-            .select(`
-                *,
-                universities (
-                    *
-                ),
-                listing_images (
-                    id,
-                    listing_id,
-                    image_url,
-                    display_order,
-                    created_at
-                )
-            `, {
-                count: "exact"
-            })
-            .range(from, to)
-            .order("created_at", {
-                ascending: false
-            });
+            .select(
+                LISTING_SELECT,
+                {
+                    count: "exact"
+                }
+            )
+            .range(from, to);
+
+
+        /*
+         * Publication status
+         */
 
         if (publicationStatus) {
+
             query = query.eq(
                 "publication_status",
                 publicationStatus
             );
+
         }
 
+
+        /*
+         * Availability
+         */
+
         if (availabilityStatus) {
+
             query = query.eq(
                 "availability_status",
                 availabilityStatus
             );
+
         }
 
+
+        /*
+         * University
+         */
+
         if (universityId) {
+
             query = query.eq(
                 "university_id",
                 universityId
             );
+
         }
 
-        if (area) {
+
+        /*
+         * Area
+         */
+
+        if (area?.trim()) {
+
             query = query.ilike(
                 "area",
-                `%${area}%`
+                `%${area.trim()}%`
             );
+
         }
 
+
+        /*
+         * Property type
+         */
+
         if (propertyType) {
+
             query = query.eq(
                 "property_type",
                 propertyType
             );
+
         }
 
-        if (minPrice !== null) {
+
+        /*
+         * Minimum price
+         */
+
+        if (
+            minPrice !== null &&
+            minPrice !== "" &&
+            Number.isFinite(Number(minPrice))
+        ) {
+
             query = query.gte(
                 "price",
-                minPrice
+                Number(minPrice)
             );
+
         }
 
-        if (maxPrice !== null) {
+
+        /*
+         * Maximum price
+         */
+
+        if (
+            maxPrice !== null &&
+            maxPrice !== "" &&
+            Number.isFinite(Number(maxPrice))
+        ) {
+
             query = query.lte(
                 "price",
-                maxPrice
+                Number(maxPrice)
             );
+
         }
 
-        if (search) {
-            query = query.or(
-                `title.ilike.%${search}%,area.ilike.%${search}%`
-            );
+
+        /*
+         * Sorting
+         */
+
+        switch (sortBy) {
+
+            case "price-low":
+                query = query.order(
+                    "price",
+                    {
+                        ascending: true,
+                        nullsFirst: false
+                    }
+                );
+                break;
+
+
+            case "price-high":
+                query = query.order(
+                    "price",
+                    {
+                        ascending: false,
+                        nullsFirst: false
+                    }
+                );
+                break;
+
+
+            case "oldest":
+                query = query.order(
+                    "created_at",
+                    {
+                        ascending: true
+                    }
+                );
+                break;
+
+
+            case "newest":
+            default:
+                query = query.order(
+                    "created_at",
+                    {
+                        ascending: false
+                    }
+                );
+                break;
         }
+
 
         const {
             data,
@@ -378,31 +680,44 @@ export async function getListings({
         }
 
         return success({
+
             listings: data ?? [],
+
             count: count ?? 0,
+
             page,
-            pageSize
+
+            pageSize,
+
+            totalPages:
+                Math.ceil(
+                    (count ?? 0) /
+                    pageSize
+                )
+
         });
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
-/*
-|--------------------------------------------------------------------------
-| CREATE LISTING
-|--------------------------------------------------------------------------
-*/
-
+/**
+ * Create a listing for the authenticated landlord.
+ *
+ * RLS:
+ * auth.uid() = landlord_id
+ */
 export async function createListing(
     listingData = {}
 ) {
+
     try {
+
         const {
-            data: {
-                user
-            },
+            data: userData,
             error: userError
         } = await supabase.auth.getUser();
 
@@ -410,26 +725,106 @@ export async function createListing(
             return failure(userError);
         }
 
+        const user = userData?.user;
+
         if (!user) {
             return failure(
                 new Error(
-                    "You must be signed in to create a listing."
+                    "You must be logged in as a landlord."
                 )
             );
         }
 
-        const listing = {
-            ...listingData,
-            landlord_id: user.id
+
+        const payload = {
+
+            landlord_id: user.id,
+
+            university_id:
+                listingData.university_id ||
+                null,
+
+            title:
+                listingData.title?.trim(),
+
+            description:
+                listingData.description?.trim() ||
+                null,
+
+            price:
+                listingData.price !== undefined &&
+                    listingData.price !== ""
+                    ? Number(listingData.price)
+                    : null,
+
+            property_type:
+                listingData.property_type,
+
+            area:
+                listingData.area?.trim(),
+
+            address:
+                listingData.address?.trim() ||
+                null,
+
+            phone:
+                listingData.phone?.trim() ||
+                null,
+
+            availability_status:
+                listingData.availability_status ||
+                "available",
+
+            available_rooms:
+                listingData.available_rooms !== undefined &&
+                    listingData.available_rooms !== ""
+                    ? Number(
+                        listingData.available_rooms
+                    )
+                    : null,
+
+            amenities:
+                listingData.amenities || {},
+
+            publication_status:
+                listingData.publication_status ||
+                "published"
+
         };
+
+
+        if (!payload.title) {
+            return failure(
+                new Error(
+                    "Property title is required."
+                )
+            );
+        }
+
+        if (!payload.property_type) {
+            return failure(
+                new Error(
+                    "Property type is required."
+                )
+            );
+        }
+
+        if (!payload.area) {
+            return failure(
+                new Error(
+                    "Property area is required."
+                )
+            );
+        }
+
 
         const {
             data,
             error
         } = await supabase
             .from("listings")
-            .insert(listing)
-            .select()
+            .insert(payload)
+            .select(LISTING_SELECT)
             .single();
 
         if (error) {
@@ -437,23 +832,27 @@ export async function createListing(
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
-/*
-|--------------------------------------------------------------------------
-| UPDATE LISTING
-|--------------------------------------------------------------------------
-*/
-
+/**
+ * Update landlord's own listing.
+ *
+ * RLS:
+ * auth.uid() = landlord_id
+ */
 export async function updateListing(
     listingId,
     updates = {}
 ) {
+
     try {
+
         if (!listingId) {
             return failure(
                 new Error(
@@ -462,14 +861,64 @@ export async function updateListing(
             );
         }
 
+        const allowedFields = [
+
+            "university_id",
+
+            "title",
+
+            "description",
+
+            "price",
+
+            "property_type",
+
+            "area",
+
+            "address",
+
+            "phone",
+
+            "availability_status",
+
+            "available_rooms",
+
+            "amenities",
+
+            "publication_status"
+
+        ];
+
+        const payload = {};
+
+        allowedFields.forEach(
+            (field) => {
+
+                if (
+                    Object.prototype.hasOwnProperty.call(
+                        updates,
+                        field
+                    )
+                ) {
+                    payload[field] =
+                        updates[field];
+                }
+
+            }
+        );
+
+        payload.updated_at =
+            new Date().toISOString();
+
+
         const {
             data,
             error
         } = await supabase
             .from("listings")
-            .update(updates)
+            .update(payload)
             .eq("id", listingId)
-            .select()
+            .select(LISTING_SELECT)
             .single();
 
         if (error) {
@@ -477,22 +926,23 @@ export async function updateListing(
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
-/*
-|--------------------------------------------------------------------------
-| DELETE LISTING
-|--------------------------------------------------------------------------
-*/
-
+/**
+ * Delete landlord's own listing.
+ */
 export async function deleteListing(
     listingId
 ) {
+
     try {
+
         if (!listingId) {
             return failure(
                 new Error(
@@ -513,83 +963,84 @@ export async function deleteListing(
         }
 
         return success(true);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
-/*
-|--------------------------------------------------------------------------
-| LANDLORD LISTINGS
-|--------------------------------------------------------------------------
-*/
+/**
+ * Get listings owned by current landlord.
+ */
+export async function getMyListings() {
 
-export async function getLandlordListings(
-    landlordId = null
-) {
     try {
-        if (!landlordId) {
-            const {
-                data: {
-                    user
-                }
-            } = await supabase.auth.getUser();
 
-            landlordId = user?.id;
+        const {
+            data: userData,
+            error: userError
+        } = await supabase.auth.getUser();
+
+        if (userError) {
+            return failure(userError);
         }
 
-        if (!landlordId) {
+        const user = userData?.user;
+
+        if (!user) {
             return failure(
                 new Error(
-                    "A landlord ID is required."
+                    "You must be authenticated."
                 )
             );
         }
+
 
         const {
             data,
             error
         } = await supabase
             .from("listings")
-            .select(`
-                *,
-                universities (
-                    *
-                ),
-                listing_images (
-                    *
-                )
-            `)
-            .eq(
-                "landlord_id",
-                landlordId
-            )
-            .order("created_at", {
-                ascending: false
-            });
+            .select(LISTING_SELECT)
+            .eq("landlord_id", user.id)
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
 
         if (error) {
             return failure(error);
         }
 
         return success(data ?? []);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| LISTING IMAGES
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * LISTING IMAGES
+ * ============================================================
+ */
 
+
+/**
+ * Get images for a listing.
+ */
 export async function getListingImages(
     listingId
 ) {
+
     try {
+
         if (!listingId) {
             return failure(
                 new Error(
@@ -604,35 +1055,57 @@ export async function getListingImages(
         } = await supabase
             .from("listing_images")
             .select("*")
-            .eq(
-                "listing_id",
-                listingId
-            )
-            .order("display_order", {
-                ascending: true
-            });
+            .eq("listing_id", listingId)
+            .order(
+                "display_order",
+                {
+                    ascending: true
+                }
+            );
 
         if (error) {
             return failure(error);
         }
 
         return success(data ?? []);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Save an image URL against a listing.
+ *
+ * The actual file upload will be handled separately
+ * once the Storage bucket and policies are confirmed.
+ */
 export async function addListingImage({
+
     listingId,
+
     imageUrl,
+
     displayOrder = 0
+
 } = {}) {
+
     try {
-        if (!listingId || !imageUrl) {
+
+        if (!listingId) {
             return failure(
                 new Error(
-                    "Listing ID and image URL are required."
+                    "A listing ID is required."
+                )
+            );
+        }
+
+        if (!imageUrl) {
+            return failure(
+                new Error(
+                    "An image URL is required."
                 )
             );
         }
@@ -643,9 +1116,16 @@ export async function addListingImage({
         } = await supabase
             .from("listing_images")
             .insert({
-                listing_id: listingId,
-                image_url: imageUrl,
-                display_order: displayOrder
+
+                listing_id:
+                    listingId,
+
+                image_url:
+                    imageUrl,
+
+                display_order:
+                    Number(displayOrder) || 0
+
             })
             .select()
             .single();
@@ -655,16 +1135,25 @@ export async function addListingImage({
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Delete a listing image.
+ *
+ * RLS ensures the landlord owns the listing.
+ */
 export async function deleteListingImage(
     imageId
 ) {
+
     try {
+
         if (!imageId) {
             return failure(
                 new Error(
@@ -685,114 +1174,30 @@ export async function deleteListingImage(
         }
 
         return success(true);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| STORAGE
-|--------------------------------------------------------------------------
-*/
-
-export async function uploadListingImage(
-    file,
-    filePath
-) {
-    try {
-        if (!file) {
-            return failure(
-                new Error(
-                    "An image file is required."
-                )
-            );
-        }
-
-        if (!filePath) {
-            return failure(
-                new Error(
-                    "An image path is required."
-                )
-            );
-        }
-
-        const {
-            data,
-            error
-        } = await supabase.storage
-            .from("listing-images")
-            .upload(
-                filePath,
-                file,
-                {
-                    cacheControl: "3600",
-                    upsert: false
-                }
-            );
-
-        if (error) {
-            return failure(error);
-        }
-
-        const {
-            data: publicData
-        } = supabase.storage
-            .from("listing-images")
-            .getPublicUrl(data.path);
-
-        return success({
-            path: data.path,
-            url: publicData.publicUrl
-        });
-    } catch (error) {
-        return failure(error);
-    }
-}
+ * ============================================================
+ * FAVORITES
+ * ============================================================
+ */
 
 
-export async function deleteListingImageFile(
-    filePath
-) {
-    try {
-        if (!filePath) {
-            return failure(
-                new Error(
-                    "An image path is required."
-                )
-            );
-        }
-
-        const {
-            error
-        } = await supabase.storage
-            .from("listing-images")
-            .remove([
-                filePath
-            ]);
-
-        if (error) {
-            return failure(error);
-        }
-
-        return success(true);
-    } catch (error) {
-        return failure(error);
-    }
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| FAVORITES
-|--------------------------------------------------------------------------
-*/
-
+/**
+ * Get current student's favorites.
+ */
 export async function getFavorites(
     userId
 ) {
+
     try {
+
         if (!userId) {
             return failure(
                 new Error(
@@ -811,10 +1216,15 @@ export async function getFavorites(
                 listings (
                     *,
                     universities (
-                        *
+                        id,
+                        name,
+                        location,
+                        logo_url
                     ),
                     listing_images (
-                        *
+                        id,
+                        image_url,
+                        display_order
                     )
                 )
             `)
@@ -828,17 +1238,24 @@ export async function getFavorites(
         }
 
         return success(data ?? []);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Add listing to student's favorites.
+ */
 export async function addFavorite(
     studentId,
     listingId
 ) {
+
     try {
+
         if (!studentId || !listingId) {
             return failure(
                 new Error(
@@ -853,8 +1270,13 @@ export async function addFavorite(
         } = await supabase
             .from("favorites")
             .insert({
-                student_id: studentId,
-                listing_id: listingId
+
+                student_id:
+                    studentId,
+
+                listing_id:
+                    listingId
+
             })
             .select()
             .single();
@@ -864,17 +1286,24 @@ export async function addFavorite(
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Remove listing from favorites.
+ */
 export async function removeFavorite(
     studentId,
     listingId
 ) {
+
     try {
+
         if (!studentId || !listingId) {
             return failure(
                 new Error(
@@ -902,83 +1331,90 @@ export async function removeFavorite(
         }
 
         return success(true);
+
     } catch (error) {
+
+        return failure(error);
+    }
+}
+
+
+/**
+ * Check whether a listing is favorited.
+ */
+export async function isFavorite(
+    studentId,
+    listingId
+) {
+
+    try {
+
+        if (!studentId || !listingId) {
+            return failure(
+                new Error(
+                    "Student ID and listing ID are required."
+                )
+            );
+        }
+
+        const {
+            data,
+            error
+        } = await supabase
+            .from("favorites")
+            .select("id")
+            .eq(
+                "student_id",
+                studentId
+            )
+            .eq(
+                "listing_id",
+                listingId
+            )
+            .maybeSingle();
+
+        if (error) {
+            return failure(error);
+        }
+
+        return success(Boolean(data));
+
+    } catch (error) {
+
         return failure(error);
     }
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| BOOKING REQUESTS
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * BOOKING REQUESTS
+ * ============================================================
+ */
 
-export async function getBookingRequests({
-    userId,
-    role = "student"
+
+/**
+ * Create inspection / booking request.
+ *
+ * RLS:
+ * auth.uid() = student_id
+ */
+export async function createBookingRequest({
+
+    listingId,
+
+    landlordId,
+
+    inspectionDate = null,
+
+    message = null
+
 } = {}) {
+
     try {
-        if (!userId) {
-            return failure(
-                new Error(
-                    "A user ID is required."
-                )
-            );
-        }
-
-        let query = supabase
-            .from("booking_requests")
-            .select(`
-                *,
-                listings (
-                    *
-                )
-            `);
-
-        if (role === "landlord") {
-            query = query.eq(
-                "landlord_id",
-                userId
-            );
-        } else {
-            query = query.eq(
-                "student_id",
-                userId
-            );
-        }
-
-        query = query.order(
-            "created_at",
-            {
-                ascending: false
-            }
-        );
 
         const {
-            data,
-            error
-        } = await query;
-
-        if (error) {
-            return failure(error);
-        }
-
-        return success(data ?? []);
-    } catch (error) {
-        return failure(error);
-    }
-}
-
-
-export async function createBookingRequest(
-    requestData = {}
-) {
-    try {
-        const {
-            data: {
-                user
-            },
+            data: userData,
             error: userError
         } = await supabase.auth.getUser();
 
@@ -986,13 +1422,33 @@ export async function createBookingRequest(
             return failure(userError);
         }
 
+        const user = userData?.user;
+
         if (!user) {
             return failure(
                 new Error(
-                    "You must be signed in."
+                    "You must be authenticated as a student."
                 )
             );
         }
+
+
+        if (!listingId) {
+            return failure(
+                new Error(
+                    "A listing ID is required."
+                )
+            );
+        }
+
+        if (!landlordId) {
+            return failure(
+                new Error(
+                    "A landlord ID is required."
+                )
+            );
+        }
+
 
         const {
             data,
@@ -1000,8 +1456,26 @@ export async function createBookingRequest(
         } = await supabase
             .from("booking_requests")
             .insert({
-                ...requestData,
-                student_id: user.id
+
+                student_id:
+                    user.id,
+
+                listing_id:
+                    listingId,
+
+                landlord_id:
+                    landlordId,
+
+                inspection_date:
+                    inspectionDate,
+
+                message:
+                    message?.trim() ||
+                    null,
+
+                status:
+                    "pending"
+
             })
             .select()
             .single();
@@ -1011,18 +1485,164 @@ export async function createBookingRequest(
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
-export async function updateBookingRequest(
-    requestId,
-    updates = {}
-) {
+/**
+ * Get student's booking requests.
+ */
+export async function getMyBookingRequests() {
+
     try {
-        if (!requestId) {
+
+        const {
+            data: userData,
+            error: userError
+        } = await supabase.auth.getUser();
+
+        if (userError) {
+            return failure(userError);
+        }
+
+        const user = userData?.user;
+
+        if (!user) {
+            return failure(
+                new Error(
+                    "You must be authenticated."
+                )
+            );
+        }
+
+
+        const {
+            data,
+            error
+        } = await supabase
+            .from("booking_requests")
+            .select(`
+                *,
+                listings (
+                    *,
+                    universities (
+                        id,
+                        name,
+                        location,
+                        logo_url
+                    ),
+                    listing_images (
+                        id,
+                        image_url,
+                        display_order
+                    )
+                )
+            `)
+            .eq(
+                "student_id",
+                user.id
+            )
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+        if (error) {
+            return failure(error);
+        }
+
+        return success(data ?? []);
+
+    } catch (error) {
+
+        return failure(error);
+    }
+}
+
+
+/**
+ * Get booking requests for current landlord.
+ */
+export async function getLandlordBookingRequests() {
+
+    try {
+
+        const {
+            data: userData,
+            error: userError
+        } = await supabase.auth.getUser();
+
+        if (userError) {
+            return failure(userError);
+        }
+
+        const user = userData?.user;
+
+        if (!user) {
+            return failure(
+                new Error(
+                    "You must be authenticated."
+                )
+            );
+        }
+
+
+        const {
+            data,
+            error
+        } = await supabase
+            .from("booking_requests")
+            .select(`
+                *,
+                listings (
+                    id,
+                    title,
+                    price,
+                    area,
+                    property_type
+                )
+            `)
+            .eq(
+                "landlord_id",
+                user.id
+            )
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+        if (error) {
+            return failure(error);
+        }
+
+        return success(data ?? []);
+
+    } catch (error) {
+
+        return failure(error);
+    }
+}
+
+
+/**
+ * Update booking request as landlord.
+ */
+export async function updateBookingRequest(
+    bookingId,
+    status
+) {
+
+    try {
+
+        if (!bookingId) {
             return failure(
                 new Error(
                     "A booking request ID is required."
@@ -1030,17 +1650,32 @@ export async function updateBookingRequest(
             );
         }
 
+        if (!status) {
+            return failure(
+                new Error(
+                    "A booking status is required."
+                )
+            );
+        }
+
+
         const {
             data,
             error
         } = await supabase
             .from("booking_requests")
             .update({
-                ...updates,
+
+                status,
+
                 updated_at:
                     new Date().toISOString()
+
             })
-            .eq("id", requestId)
+            .eq(
+                "id",
+                bookingId
+            )
             .select()
             .single();
 
@@ -1049,29 +1684,99 @@ export async function updateBookingRequest(
         }
 
         return success(data);
+
     } catch (error) {
+
+        return failure(error);
+    }
+}
+
+
+/**
+ * Cancel student's booking request.
+ */
+export async function cancelBookingRequest(
+    bookingId
+) {
+
+    try {
+
+        if (!bookingId) {
+            return failure(
+                new Error(
+                    "A booking request ID is required."
+                )
+            );
+        }
+
+
+        const {
+            data,
+            error
+        } = await supabase
+            .from("booking_requests")
+            .update({
+
+                status:
+                    "cancelled",
+
+                updated_at:
+                    new Date().toISOString()
+
+            })
+            .eq(
+                "id",
+                bookingId
+            )
+            .select()
+            .single();
+
+        if (error) {
+            return failure(error);
+        }
+
+        return success(data);
+
+    } catch (error) {
+
         return failure(error);
     }
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| MESSAGES
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * MESSAGES
+ * ============================================================
+ */
 
-export async function getMessages(
-    userId
-) {
+
+/**
+ * Get current user's messages.
+ */
+export async function getMessages() {
+
     try {
-        if (!userId) {
+
+        const {
+            data: userData,
+            error: userError
+        } = await supabase.auth.getUser();
+
+        if (userError) {
+            return failure(userError);
+        }
+
+        const user = userData?.user;
+
+        if (!user) {
             return failure(
                 new Error(
-                    "A user ID is required."
+                    "You must be authenticated."
                 )
             );
         }
+
 
         const {
             data,
@@ -1082,45 +1787,54 @@ export async function getMessages(
                 *,
                 listings (
                     id,
-                    title
+                    title,
+                    area,
+                    price
                 )
             `)
             .or(
-                `sender_id.eq.${userId},receiver_id.eq.${userId}`
+                `sender_id.eq.${user.id},receiver_id.eq.${user.id}`
             )
-            .order("created_at", {
-                ascending: true
-            });
+            .order(
+                "created_at",
+                {
+                    ascending: true
+                }
+            );
 
         if (error) {
             return failure(error);
         }
 
         return success(data ?? []);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Send a message.
+ *
+ * RLS:
+ * auth.uid() = sender_id
+ */
 export async function sendMessage({
+
     receiverId,
+
     message,
+
     listingId = null
+
 } = {}) {
+
     try {
-        if (!receiverId || !message) {
-            return failure(
-                new Error(
-                    "Receiver ID and message are required."
-                )
-            );
-        }
 
         const {
-            data: {
-                user
-            },
+            data: userData,
             error: userError
         } = await supabase.auth.getUser();
 
@@ -1128,13 +1842,33 @@ export async function sendMessage({
             return failure(userError);
         }
 
+        const user = userData?.user;
+
         if (!user) {
             return failure(
                 new Error(
-                    "You must be signed in."
+                    "You must be authenticated."
                 )
             );
         }
+
+
+        if (!receiverId) {
+            return failure(
+                new Error(
+                    "A receiver ID is required."
+                )
+            );
+        }
+
+        if (!message?.trim()) {
+            return failure(
+                new Error(
+                    "Message cannot be empty."
+                )
+            );
+        }
+
 
         const {
             data,
@@ -1142,11 +1876,22 @@ export async function sendMessage({
         } = await supabase
             .from("messages")
             .insert({
-                sender_id: user.id,
-                receiver_id: receiverId,
-                listing_id: listingId,
-                message,
-                is_read: false
+
+                sender_id:
+                    user.id,
+
+                receiver_id:
+                    receiverId,
+
+                listing_id:
+                    listingId,
+
+                message:
+                    message.trim(),
+
+                is_read:
+                    false
+
             })
             .select()
             .single();
@@ -1156,25 +1901,47 @@ export async function sendMessage({
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
-export async function markMessageRead(
+/**
+ * Mark a received message as read.
+ */
+export async function markMessageAsRead(
     messageId
 ) {
+
     try {
+
+        if (!messageId) {
+            return failure(
+                new Error(
+                    "A message ID is required."
+                )
+            );
+        }
+
+
         const {
             data,
             error
         } = await supabase
             .from("messages")
             .update({
-                is_read: true
+
+                is_read:
+                    true
+
             })
-            .eq("id", messageId)
+            .eq(
+                "id",
+                messageId
+            )
             .select()
             .single();
 
@@ -1183,29 +1950,47 @@ export async function markMessageRead(
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| NOTIFICATIONS
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * NOTIFICATIONS
+ * ============================================================
+ */
 
-export async function getNotifications(
-    userId
-) {
+
+/**
+ * Get current user's notifications.
+ */
+export async function getNotifications() {
+
     try {
-        if (!userId) {
+
+        const {
+            data: userData,
+            error: userError
+        } = await supabase.auth.getUser();
+
+        if (userError) {
+            return failure(userError);
+        }
+
+        const user = userData?.user;
+
+        if (!user) {
             return failure(
                 new Error(
-                    "A user ID is required."
+                    "You must be authenticated."
                 )
             );
         }
+
 
         const {
             data,
@@ -1215,34 +2000,56 @@ export async function getNotifications(
             .select("*")
             .eq(
                 "user_id",
-                userId
+                user.id
             )
-            .order("created_at", {
-                ascending: false
-            });
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
 
         if (error) {
             return failure(error);
         }
 
         return success(data ?? []);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
-export async function markNotificationRead(
+/**
+ * Mark notification as read.
+ */
+export async function markNotificationAsRead(
     notificationId
 ) {
+
     try {
+
+        if (!notificationId) {
+            return failure(
+                new Error(
+                    "A notification ID is required."
+                )
+            );
+        }
+
+
         const {
             data,
             error
         } = await supabase
             .from("notifications")
             .update({
-                is_read: true
+
+                is_read:
+                    true
+
             })
             .eq(
                 "id",
@@ -1256,61 +2063,30 @@ export async function markNotificationRead(
         }
 
         return success(data);
+
     } catch (error) {
-        return failure(error);
-    }
-}
 
-
-export async function markAllNotificationsRead(
-    userId
-) {
-    try {
-        if (!userId) {
-            return failure(
-                new Error(
-                    "A user ID is required."
-                )
-            );
-        }
-
-        const {
-            error
-        } = await supabase
-            .from("notifications")
-            .update({
-                is_read: true
-            })
-            .eq(
-                "user_id",
-                userId
-            )
-            .eq(
-                "is_read",
-                false
-            );
-
-        if (error) {
-            return failure(error);
-        }
-
-        return success(true);
-    } catch (error) {
         return failure(error);
     }
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| REVIEWS
-|--------------------------------------------------------------------------
-*/
+ * ============================================================
+ * REVIEWS
+ * ============================================================
+ */
 
+
+/**
+ * Get reviews for a listing.
+ */
 export async function getReviews(
     listingId
 ) {
+
     try {
+
         if (!listingId) {
             return failure(
                 new Error(
@@ -1318,6 +2094,7 @@ export async function getReviews(
                 )
             );
         }
+
 
         const {
             data,
@@ -1336,39 +2113,46 @@ export async function getReviews(
                 "listing_id",
                 listingId
             )
-            .order("created_at", {
-                ascending: false
-            });
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
 
         if (error) {
             return failure(error);
         }
 
         return success(data ?? []);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Create a review.
+ *
+ * RLS:
+ * auth.uid() = student_id
+ */
 export async function createReview({
+
     listingId,
+
     rating,
+
     comment = null
+
 } = {}) {
+
     try {
-        if (!listingId || !rating) {
-            return failure(
-                new Error(
-                    "Listing ID and rating are required."
-                )
-            );
-        }
 
         const {
-            data: {
-                user
-            },
+            data: userData,
             error: userError
         } = await supabase.auth.getUser();
 
@@ -1376,13 +2160,44 @@ export async function createReview({
             return failure(userError);
         }
 
+        const user = userData?.user;
+
         if (!user) {
             return failure(
                 new Error(
-                    "You must be signed in."
+                    "You must be authenticated."
                 )
             );
         }
+
+
+        if (!listingId) {
+            return failure(
+                new Error(
+                    "A listing ID is required."
+                )
+            );
+        }
+
+
+        const numericRating =
+            Number(rating);
+
+
+        if (
+            !Number.isInteger(
+                numericRating
+            ) ||
+            numericRating < 1 ||
+            numericRating > 5
+        ) {
+            return failure(
+                new Error(
+                    "Rating must be an integer from 1 to 5."
+                )
+            );
+        }
+
 
         const {
             data,
@@ -1390,10 +2205,20 @@ export async function createReview({
         } = await supabase
             .from("reviews")
             .insert({
-                student_id: user.id,
-                listing_id: listingId,
-                rating,
-                comment
+
+                student_id:
+                    user.id,
+
+                listing_id:
+                    listingId,
+
+                rating:
+                    numericRating,
+
+                comment:
+                    comment?.trim() ||
+                    null
+
             })
             .select()
             .single();
@@ -1403,28 +2228,89 @@ export async function createReview({
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Update student's own review.
+ */
 export async function updateReview(
     reviewId,
     updates = {}
 ) {
+
     try {
+
+        if (!reviewId) {
+            return failure(
+                new Error(
+                    "A review ID is required."
+                )
+            );
+        }
+
+
+        const payload = {};
+
+
+        if (
+            Object.prototype.hasOwnProperty.call(
+                updates,
+                "rating"
+            )
+        ) {
+
+            const rating =
+                Number(updates.rating);
+
+            if (
+                !Number.isInteger(rating) ||
+                rating < 1 ||
+                rating > 5
+            ) {
+                return failure(
+                    new Error(
+                        "Rating must be between 1 and 5."
+                    )
+                );
+            }
+
+            payload.rating = rating;
+        }
+
+
+        if (
+            Object.prototype.hasOwnProperty.call(
+                updates,
+                "comment"
+            )
+        ) {
+
+            payload.comment =
+                updates.comment?.trim() ||
+                null;
+        }
+
+
+        payload.updated_at =
+            new Date().toISOString();
+
+
         const {
             data,
             error
         } = await supabase
             .from("reviews")
-            .update({
-                ...updates,
-                updated_at:
-                    new Date().toISOString()
-            })
-            .eq("id", reviewId)
+            .update(payload)
+            .eq(
+                "id",
+                reviewId
+            )
             .select()
             .single();
 
@@ -1433,193 +2319,57 @@ export async function updateReview(
         }
 
         return success(data);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
+/**
+ * Delete student's own review.
+ */
 export async function deleteReview(
     reviewId
 ) {
+
     try {
+
+        if (!reviewId) {
+            return failure(
+                new Error(
+                    "A review ID is required."
+                )
+            );
+        }
+
+
         const {
             error
         } = await supabase
             .from("reviews")
             .delete()
-            .eq("id", reviewId);
+            .eq(
+                "id",
+                reviewId
+            );
 
         if (error) {
             return failure(error);
         }
 
         return success(true);
+
     } catch (error) {
+
         return failure(error);
     }
 }
 
 
 /*
-|--------------------------------------------------------------------------
-| PUBLIC LISTING STATISTICS
-|--------------------------------------------------------------------------
-*/
-
-export async function getPlatformStats() {
-    try {
-        const [
-            listingsResult,
-            studentsResult,
-            landlordsResult,
-            universitiesResult,
-            reviewsResult
-        ] = await Promise.all([
-            supabase
-                .from("listings")
-                .select("id", {
-                    count: "exact",
-                    head: true
-                })
-                .eq(
-                    "availability_status",
-                    "available"
-                ),
-
-            supabase
-                .from("profiles")
-                .select("id", {
-                    count: "exact",
-                    head: true
-                })
-                .eq(
-                    "role",
-                    "student"
-                ),
-
-            supabase
-                .from("profiles")
-                .select("id", {
-                    count: "exact",
-                    head: true
-                })
-                .eq(
-                    "role",
-                    "landlord"
-                ),
-
-            supabase
-                .from("universities")
-                .select("id", {
-                    count: "exact",
-                    head: true
-                }),
-
-            supabase
-                .from("reviews")
-                .select("id", {
-                    count: "exact",
-                    head: true
-                })
-        ]);
-
-        const errors = [
-            listingsResult.error,
-            studentsResult.error,
-            landlordsResult.error,
-            universitiesResult.error,
-            reviewsResult.error
-        ].filter(Boolean);
-
-        if (errors.length) {
-            return failure(errors[0]);
-        }
-
-        return success({
-            listingCount:
-                listingsResult.count ?? 0,
-
-            studentCount:
-                studentsResult.count ?? 0,
-
-            landlordCount:
-                landlordsResult.count ?? 0,
-
-            universityCount:
-                universitiesResult.count ?? 0,
-
-            reviewCount:
-                reviewsResult.count ?? 0
-        });
-    } catch (error) {
-        return failure(error);
-    }
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| DEFAULT API OBJECT
-|--------------------------------------------------------------------------
-|
-| Allows modules to import either:
-|
-| import { getListings } from "./api.js";
-|
-| OR:
-|
-| import { api } from "./api.js";
-|
-*/
-
-export const api = {
-    supabase,
-
-    getCurrentUser,
-    getCurrentSession,
-    signOut,
-    onAuthStateChange,
-
-    getProfile,
-    updateProfile,
-
-    getUniversities,
-
-    getListing,
-    getListings,
-    createListing,
-    updateListing,
-    deleteListing,
-    getLandlordListings,
-
-    getListingImages,
-    addListingImage,
-    deleteListingImage,
-
-    uploadListingImage,
-    deleteListingImageFile,
-
-    getFavorites,
-    addFavorite,
-    removeFavorite,
-
-    getBookingRequests,
-    createBookingRequest,
-    updateBookingRequest,
-
-    getMessages,
-    sendMessage,
-    markMessageRead,
-
-    getNotifications,
-    markNotificationRead,
-    markAllNotificationsRead,
-
-    getReviews,
-    createReview,
-    updateReview,
-    deleteReview,
-
-    getPlatformStats
-};
+ * ============================================================
+ * END OF API
+ * ============================================================
+ */

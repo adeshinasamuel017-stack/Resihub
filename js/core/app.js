@@ -142,70 +142,15 @@ async function loadLayout() {
 
 /*
 |--------------------------------------------------------------------------
-| Page-specific modules
-|--------------------------------------------------------------------------
-*/
-
-async function initPageModule() {
-
-    const path = window.location.pathname
-        .replace(/\\/g, "/")
-        .toLowerCase();
-
-    /*
-     * General pages
-     */
-
-    if (
-        path.endsWith("/browse_rooms.htm") ||
-        path.endsWith("/browse_rooms.html")
-    ) {
-        try {
-            const module = await import(
-                "../student/student-browse.js"
-            );
-
-            if (typeof module.init === "function") {
-                await module.init();
-            }
-
-        } catch (error) {
-            console.error(
-                "[ResiHub] Failed to initialize browse rooms:",
-                error
-            );
-        }
-    }
-
-    /*
-     * Room details
-     */
-
-    if (
-        path.endsWith("/room_details.htm") ||
-        path.endsWith("/room_details.html")
-    ) {
-        try {
-            const module = await import(
-                "../pages/room-details.js"
-            );
-
-            if (typeof module.init === "function") {
-                await module.init();
-            }
-
-        } catch (error) {
-            console.error(
-                "[ResiHub] Failed to initialize room details:",
-                error
-            );
-        }
-    }
-}
-
-/*
-|--------------------------------------------------------------------------
 | Initialize Application
+|--------------------------------------------------------------------------
+|
+| Page-specific behavior is NOT handled here. Every HTML page loads its
+| own module directly via a second <script type="module" src="../js/
+| <page-name>.js"> tag after this file (e.g. room_details.htm loads
+| js/room_details.js). That flat-file convention is already established
+| across all ~45 pages, so app.js only sets up the global systems that
+| every page needs.
 |--------------------------------------------------------------------------
 */
 
@@ -236,11 +181,6 @@ async function initApp() {
         initModal();
 
         initAnimations();
-
-        /*
-         * Page-specific JavaScript
-         */
-        await initPageModule();
 
         console.info(
             "[ResiHub] Application initialized successfully."

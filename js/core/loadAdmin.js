@@ -12,5 +12,3 @@ export async function loadAdminLayout() {
         },
     ]);
 }
-
-await loadAdminLayout();

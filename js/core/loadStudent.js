@@ -12,5 +12,3 @@ export async function loadStudentLayout() {
         },
     ]);
 }
-
-await loadStudentLayout();
