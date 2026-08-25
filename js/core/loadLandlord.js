@@ -6,6 +6,7 @@ export async function loadLandlordLayout() {
             file: "../components/landlord_header.htm",
             elementId: "header",
         },
+
         {
             file: "../components/landlord_footer.htm",
             elementId: "footer",

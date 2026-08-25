@@ -6,6 +6,7 @@ export async function loadGeneralLayout() {
             file: "../components/public_header.htm",
             elementId: "header",
         },
+
         {
             file: "../components/public_footer.htm",
             elementId: "footer",
