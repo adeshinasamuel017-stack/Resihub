@@ -627,7 +627,7 @@ export async function getLandlordListings(
  * user's ID, not from arbitrary user input.
  */
 export async function createListing(
-    listing
+    listingData
 ) {
 
     try {
