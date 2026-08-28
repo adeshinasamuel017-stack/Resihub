@@ -2063,3 +2063,873 @@ if (
 
     init();
 }
+import {
+    supabase,
+    getCurrentUser,
+    getListing
+} from "./core/api.js";
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function getListingId() {
+    const params = new URLSearchParams(window.location.search);
+
+    return (
+        params.get("id") ||
+        params.get("listing_id") ||
+        params.get("listingId")
+    );
+}
+
+
+function setButtonLoading(button, loading, loadingText, defaultText) {
+    if (!button) return;
+
+    button.disabled = loading;
+
+    if (loading) {
+        button.dataset.originalText = button.innerHTML;
+        button.innerHTML = `
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            ${loadingText}
+        `;
+    } else {
+        button.innerHTML =
+            button.dataset.originalText || defaultText;
+    }
+}
+
+
+function showMessage(message, type = "info") {
+    let messageBox = document.getElementById("editListingMessage");
+
+    if (!messageBox) {
+        messageBox = document.createElement("div");
+        messageBox.id = "editListingMessage";
+
+        form?.prepend(messageBox);
+    }
+
+    messageBox.textContent = message;
+    messageBox.dataset.type = type;
+
+    messageBox.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+}
+
+
+function formatError(error) {
+    if (!error) {
+        return "Something went wrong.";
+    }
+
+    return (
+        error.message ||
+        error.error_description ||
+        "Something went wrong."
+    );
+}
+
+
+/* =========================================================
+   AUTHENTICATION
+========================================================= */
+
+async function requireAuthentication() {
+    const result = await getCurrentUser();
+
+    if (!result.success || !result.data) {
+        window.location.href = "./landlord_login.htm";
+        return false;
+    }
+
+    currentUser = result.data;
+
+    return true;
+}
+
+
+/* =========================================================
+   LOAD LISTING
+========================================================= */
+
+async function loadListing() {
+    const listingId = getListingId();
+
+    if (!listingId) {
+        showMessage(
+            "No listing was specified.",
+            "error"
+        );
+
+        return false;
+    }
+
+    listingIdInput.value = listingId;
+
+    const result = await getListing(listingId);
+
+    if (!result.success || !result.data) {
+        showMessage(
+            formatError(result.error),
+            "error"
+        );
+
+        return false;
+    }
+
+    currentListing = result.data;
+
+    /*
+     * SECURITY CHECK
+     *
+     * The frontend check improves UX, but Supabase RLS
+     * must also enforce landlord ownership.
+     */
+
+    if (currentListing.landlord_id !== currentUser.id) {
+        showMessage(
+            "You are not allowed to edit this listing.",
+            "error"
+        );
+
+        form?.querySelectorAll("input, textarea, select, button")
+            .forEach((element) => {
+                element.disabled = true;
+            });
+
+        return false;
+    }
+
+    populateForm(currentListing);
+
+    return true;
+}
+
+
+/* =========================================================
+   POPULATE FORM
+========================================================= */
+
+function populateForm(listing) {
+    propertyTitle.value = listing.title || "";
+
+    propertyType.value = listing.property_type || "";
+
+    propertyPrice.value =
+        listing.price !== null &&
+            listing.price !== undefined
+            ? listing.price
+            : "";
+
+    availableRooms.value =
+        listing.available_rooms !== null &&
+            listing.available_rooms !== undefined
+            ? listing.available_rooms
+            : "";
+
+    propertyArea.value = listing.area || "";
+    propertyAddress.value = listing.address || "";
+    propertyDescription.value =
+        listing.description || "";
+
+
+    /*
+     * The current create/edit HTML stores university
+     * as a text field, while the database uses
+     * university_id.
+     *
+     * We display the university name when the
+     * relationship is available.
+     */
+
+    if (listing.universities) {
+        propertyUniversity.value =
+            listing.universities.name || "";
+    } else {
+        propertyUniversity.value = "";
+    }
+
+
+    populateAmenities(listing.amenities);
+
+    existingImages =
+        Array.isArray(listing.listing_images)
+            ? [...listing.listing_images].sort(
+                (a, b) =>
+                    (a.display_order || 0) -
+                    (b.display_order || 0)
+            )
+            : [];
+
+    renderImages();
+}
+
+
+/* =========================================================
+   AMENITIES
+========================================================= */
+
+function populateAmenities(amenities) {
+    Object.values(amenityInputs).forEach((input) => {
+        if (input) {
+            input.checked = false;
+        }
+    });
+
+    if (!amenities) {
+        return;
+    }
+
+    /*
+     * Supports either:
+     *
+     * {
+     *   wifi: true,
+     *   water: true
+     * }
+     *
+     * or
+     *
+     * ["wifi", "water"]
+     */
+
+    if (Array.isArray(amenities)) {
+        amenities.forEach((amenity) => {
+            if (amenityInputs[amenity]) {
+                amenityInputs[amenity].checked = true;
+            }
+        });
+
+        return;
+    }
+
+    if (typeof amenities === "object") {
+        Object.entries(amenities).forEach(
+            ([key, value]) => {
+                if (
+                    amenityInputs[key] &&
+                    Boolean(value)
+                ) {
+                    amenityInputs[key].checked = true;
+                }
+            }
+        );
+    }
+}
+
+
+function collectAmenities() {
+    const amenities = {};
+
+    Object.entries(amenityInputs).forEach(
+        ([key, input]) => {
+            if (input) {
+                amenities[key] = input.checked;
+            }
+        }
+    );
+
+    return amenities;
+}
+
+
+/* =========================================================
+   IMAGE HANDLING
+========================================================= */
+
+function handleImageSelection(files) {
+    const selectedFiles = Array.from(files || []);
+
+    if (!selectedFiles.length) {
+        return;
+    }
+
+    const validFiles = selectedFiles.filter((file) => {
+        if (!file.type.startsWith("image/")) {
+            return false;
+        }
+
+        /*
+         * Keep browser-side uploads reasonable.
+         * Storage/RLS/server-side controls remain authoritative.
+         */
+
+        if (file.size > 10 * 1024 * 1024) {
+            showMessage(
+                `${file.name} is larger than 10MB and was skipped.`,
+                "error"
+            );
+
+            return false;
+        }
+
+        return true;
+    });
+
+    newImages.push(...validFiles);
+
+    renderImages();
+}
+
+
+function renderImages() {
+    if (!imagePreview) {
+        return;
+    }
+
+    imagePreview.innerHTML = "";
+
+    /*
+     * Existing images
+     */
+
+    existingImages.forEach((image, index) => {
+        const item = document.createElement("div");
+
+        item.className = "image-preview-item";
+
+        item.innerHTML = `
+            <img
+                src="${escapeAttribute(image.image_url)}"
+                alt="Existing property image"
+                loading="lazy"
+            >
+
+            <button
+                type="button"
+                class="remove-image-btn"
+                data-existing-index="${index}"
+                aria-label="Remove image"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        `;
+
+        imagePreview.appendChild(item);
+    });
+
+
+    /*
+     * New images
+     */
+
+    newImages.forEach((file, index) => {
+        const item = document.createElement("div");
+
+        item.className = "image-preview-item";
+
+        const image = document.createElement("img");
+
+        image.alt = `New property image ${index + 1}`;
+
+        const removeButton = document.createElement("button");
+
+        removeButton.type = "button";
+        removeButton.className = "remove-image-btn";
+        removeButton.dataset.newIndex = index;
+        removeButton.setAttribute(
+            "aria-label",
+            "Remove selected image"
+        );
+
+        removeButton.innerHTML =
+            '<i class="fa-solid fa-xmark"></i>';
+
+        const objectUrl = URL.createObjectURL(file);
+
+        image.src = objectUrl;
+
+        image.addEventListener(
+            "load",
+            () => URL.revokeObjectURL(objectUrl),
+            { once: true }
+        );
+
+        item.append(image, removeButton);
+
+        imagePreview.appendChild(item);
+    });
+}
+
+
+function escapeAttribute(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+
+/* =========================================================
+   REMOVE IMAGE
+========================================================= */
+
+async function removeExistingImage(index) {
+    const image = existingImages[index];
+
+    if (!image) {
+        return;
+    }
+
+    const confirmed = window.confirm(
+        "Remove this image from the listing?"
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    try {
+        const { error } = await supabase
+            .from("listing_images")
+            .delete()
+            .eq("id", image.id)
+            .eq("listing_id", currentListing.id);
+
+        if (error) {
+            throw error;
+        }
+
+        existingImages.splice(index, 1);
+
+        renderImages();
+
+        showMessage(
+            "Image removed successfully.",
+            "success"
+        );
+    } catch (error) {
+        console.error(
+            "[ResiHub] Failed to remove image:",
+            error
+        );
+
+        showMessage(
+            formatError(error),
+            "error"
+        );
+    }
+}
+
+
+/* =========================================================
+   UPLOAD NEW IMAGES
+========================================================= */
+
+async function uploadNewImages(listingId) {
+    if (!newImages.length) {
+        return true;
+    }
+
+    const startOrder = existingImages.length;
+
+    for (let index = 0; index < newImages.length; index++) {
+        const file = newImages[index];
+
+        const safeName = file.name
+            .replace(/[^a-zA-Z0-9._-]/g, "_");
+
+        const filePath =
+            `${currentUser.id}/${listingId}/${crypto.randomUUID()}-${safeName}`;
+
+
+        const { error: uploadError } =
+            await supabase.storage
+                .from("listing-images")
+                .upload(filePath, file, {
+                    cacheControl: "3600",
+                    upsert: false
+                });
+
+        if (uploadError) {
+            throw uploadError;
+        }
+
+
+        const {
+            data: publicUrlData
+        } = supabase.storage
+            .from("listing-images")
+            .getPublicUrl(filePath);
+
+        const imageUrl =
+            publicUrlData?.publicUrl;
+
+        if (!imageUrl) {
+            throw new Error(
+                "Unable to generate image URL."
+            );
+        }
+
+
+        const { error: recordError } =
+            await supabase
+                .from("listing_images")
+                .insert({
+                    listing_id: listingId,
+                    image_url: imageUrl,
+                    display_order:
+                        startOrder + index
+                });
+
+        if (recordError) {
+            throw recordError;
+        }
+    }
+
+    newImages = [];
+
+    return true;
+}
+
+
+/* =========================================================
+   UPDATE LISTING
+========================================================= */
+
+async function updateListing(event) {
+    event.preventDefault();
+
+    if (!currentListing || !currentUser) {
+        return;
+    }
+
+    const title = propertyTitle.value.trim();
+    const type = propertyType.value;
+    const price = Number(propertyPrice.value);
+    const rooms = Number(availableRooms.value);
+
+    const area = propertyArea.value.trim();
+    const address = propertyAddress.value.trim();
+    const description =
+        propertyDescription.value.trim();
+
+
+    if (!title || !type || !area || !description) {
+        showMessage(
+            "Please complete all required fields.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (!Number.isFinite(price) || price < 0) {
+        showMessage(
+            "Please enter a valid property price.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (!Number.isInteger(rooms) || rooms < 0) {
+        showMessage(
+            "Please enter a valid number of available rooms.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    setButtonLoading(
+        updateListingBtn,
+        true,
+        "Saving...",
+        "Save Changes"
+    );
+
+    try {
+        const updates = {
+            title,
+            description,
+            price,
+            property_type: type,
+            area,
+            address: address || null,
+            available_rooms: rooms,
+            amenities: collectAmenities(),
+            updated_at: new Date().toISOString()
+        };
+
+
+        /*
+         * Ownership is checked here AND should be enforced
+         * by Supabase RLS.
+         */
+
+        const { data, error } = await supabase
+            .from("listings")
+            .update(updates)
+            .eq("id", currentListing.id)
+            .eq("landlord_id", currentUser.id)
+            .select()
+            .single();
+
+        if (error) {
+            throw error;
+        }
+
+
+        currentListing = {
+            ...currentListing,
+            ...data
+        };
+
+
+        await uploadNewImages(currentListing.id);
+
+        showMessage(
+            "Listing updated successfully.",
+            "success"
+        );
+
+
+        /*
+         * Give the database a moment to finish before
+         * returning to the landlord listings page.
+         */
+
+        setTimeout(() => {
+            window.location.href =
+                "./landlord_listings.htm";
+        }, 1000);
+
+    } catch (error) {
+        console.error(
+            "[ResiHub] Listing update failed:",
+            error
+        );
+
+        showMessage(
+            formatError(error),
+            "error"
+        );
+    } finally {
+        setButtonLoading(
+            updateListingBtn,
+            false,
+            "Saving...",
+            "Save Changes"
+        );
+    }
+}
+
+
+/* =========================================================
+   DELETE LISTING
+========================================================= */
+
+async function deleteListing() {
+    if (!currentListing || !currentUser) {
+        return;
+    }
+
+    const confirmed = window.confirm(
+        "Are you sure you want to delete this listing? This action cannot be undone."
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    setButtonLoading(
+        deleteListingBtn,
+        true,
+        "Deleting...",
+        "Delete Listing"
+    );
+
+    try {
+        /*
+         * Delete listing.
+         *
+         * RLS must ensure that only the owner can
+         * perform this operation.
+         */
+
+        const { error } = await supabase
+            .from("listings")
+            .delete()
+            .eq("id", currentListing.id)
+            .eq("landlord_id", currentUser.id);
+
+        if (error) {
+            throw error;
+        }
+
+        showMessage(
+            "Listing deleted successfully.",
+            "success"
+        );
+
+        setTimeout(() => {
+            window.location.href =
+                "./landlord_listings.htm";
+        }, 1000);
+
+    } catch (error) {
+        console.error(
+            "[ResiHub] Listing deletion failed:",
+            error
+        );
+
+        showMessage(
+            formatError(error),
+            "error"
+        );
+    } finally {
+        setButtonLoading(
+            deleteListingBtn,
+            false,
+            "Deleting...",
+            "Delete Listing"
+        );
+    }
+}
+
+
+/* =========================================================
+   EVENTS
+========================================================= */
+
+form?.addEventListener(
+    "submit",
+    updateListing
+);
+
+deleteListingBtn?.addEventListener(
+    "click",
+    deleteListing
+);
+
+
+propertyImages?.addEventListener(
+    "change",
+    (event) => {
+        handleImageSelection(event.target.files);
+
+        /*
+         * Allow selecting the same file again later.
+         */
+        event.target.value = "";
+    }
+);
+
+
+imagePreview?.addEventListener(
+    "click",
+    async (event) => {
+        const removeButton =
+            event.target.closest(
+                ".remove-image-btn"
+            );
+
+        if (!removeButton) {
+            return;
+        }
+
+        const existingIndex =
+            removeButton.dataset.existingIndex;
+
+        const newIndex =
+            removeButton.dataset.newIndex;
+
+        if (existingIndex !== undefined) {
+            await removeExistingImage(
+                Number(existingIndex)
+            );
+
+            return;
+        }
+
+        if (newIndex !== undefined) {
+            newImages.splice(
+                Number(newIndex),
+                1
+            );
+
+            renderImages();
+        }
+    }
+);
+
+
+/* =========================================================
+   DRAG & DROP
+========================================================= */
+
+imageUploadZone?.addEventListener(
+    "dragover",
+    (event) => {
+        event.preventDefault();
+
+        imageUploadZone.classList.add(
+            "drag-over"
+        );
+    }
+);
+
+
+imageUploadZone?.addEventListener(
+    "dragleave",
+    () => {
+        imageUploadZone.classList.remove(
+            "drag-over"
+        );
+    }
+);
+
+
+imageUploadZone?.addEventListener(
+    "drop",
+    (event) => {
+        event.preventDefault();
+
+        imageUploadZone.classList.remove(
+            "drag-over"
+        );
+
+        handleImageSelection(
+            event.dataTransfer.files
+        );
+    }
+);
+
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+async function initEditListing() {
+    if (!form) {
+        return;
+    }
+
+    const authenticated =
+        await requireAuthentication();
+
+    if (!authenticated) {
+        return;
+    }
+
+    await loadListing();
+}
+
+
+if (document.readyState === "loading") {
+    document.addEventListener(
+        "DOMContentLoaded",
+        initEditListing,
+        { once: true }
+    );
+} else {
+    initEditListing();
+}
