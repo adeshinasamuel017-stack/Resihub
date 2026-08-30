@@ -2063,11 +2063,6 @@ if (
 
     init();
 }
-import {
-    supabase,
-    getCurrentUser,
-    getListing
-} from "./core/api.js";
 
 /* =========================================================
    HELPERS
