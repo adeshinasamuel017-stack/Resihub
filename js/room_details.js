@@ -17,6 +17,7 @@ import { openModal, closeModal } from "./ui/modal.js";
 import { saveRecentlyViewed } from "./core/storage.js";
 import { createListingCard, getListingImageUrl, formatPrice } from "./listings.js";
 
+
 const DEFAULT_AVATAR = "../assets/images/default-user.png";
 const PLACEHOLDER_IMAGE = "../assets/images/placeholder-room.jpg";
 
